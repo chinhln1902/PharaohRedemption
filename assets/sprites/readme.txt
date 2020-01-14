@@ -1,0 +1,1 @@
+this folder is for the sprites and sprite maps
