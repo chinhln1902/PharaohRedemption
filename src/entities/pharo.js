@@ -1,5 +1,6 @@
 //Website for using the keyboard with animations
 //http://nokarma.org/2011/02/27/javascript-game-development-keyboard-input/index.html
+//https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
 // inheritance 
 var Key = {
     _pressed: {},
@@ -29,8 +30,8 @@ function Pharo(game, assetManager) {
     this.speed = 0;
     this.ctx = game.ctx;
 
-    window.addEventListener('keyup', function(event) { Key.onKeyup(event); }, false);
-    window.addEventListener('keydown', function(event) { Key.onKeydown(event); }, false);
+    document.addEventListener('keyup', function(event) { Key.onKeyup(event); }, false);
+    document.addEventListener('keydown', function(event) { Key.onKeydown(event); }, false);
 
     Entity.call(this, game, 0, 250);
     this.y = 490;
