@@ -1,22 +1,44 @@
 var AM = new AssetManager();
 
-AM.queueDownload("./img/RobotUnicorn.png");
-AM.queueDownload("./img/guy.jpg");
-AM.queueDownload("./img/mushroomdude.png");
-AM.queueDownload("./img/runningcat.png");
-AM.queueDownload("./img/notthere.png");
+
+// no inheritance
+function Background(game, spritesheet) {
+    this.x = 0;
+    this.y = 0;
+    this.spritesheet = spritesheet;
+    this.game = game;
+    this.ctx = game.ctx;
+};
+
+Background.prototype.draw = function () {
+    this.ctx.drawImage(this.spritesheet,
+                   this.x, this.y,1200,780);
+};
+
+Background.prototype.update = function () {
+};
+
+
+AM.queueDownload("./../assets/backgrounds/desertBackground1.jpg");
+AM.queueDownload("./../assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"); //idle
+AM.queueDownload("./../assets/sprites/2_MUMMY/_WALK/WALK SpriteSheet.png"); //walking
+AM.queueDownload("./../assets/sprites/2_MUMMY/_RUN/RUN SpriteSheet.png"); //running
 
 AM.downloadAll(function () {
     var canvas = document.getElementById("gameWorld");
     var ctx = canvas.getContext("2d");
 
-    var img = AM.getAsset("./img/mushroomdude.png");
+    var gameEngine = new GameEngine();
+    gameEngine.init(ctx);
+    gameEngine.start();
 
-    ctx.drawImage(img,
-                  0, 0,  // source from sheet
-                  189, 230, // width and height of source
-                  200, 200, // destination coordinates
-                  95, 115); // destination width and height
+    var pharo = new Pharo(gameEngine, AM)
+    gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/desertBackground1.jpg")));
+    gameEngine.addEntity(pharo);
+    
+    // choose to make pharo walk or run:
+    //pharo.walk();
+    //pharo.run();
 
     console.log("All Done!");
 });
