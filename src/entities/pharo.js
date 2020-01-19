@@ -1,6 +1,26 @@
-
+//Website for using the keyboard with animations
+//http://nokarma.org/2011/02/27/javascript-game-development-keyboard-input/index.html
 // inheritance 
-
+var Key = {
+    _pressed: {},
+  
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40,
+    
+    isDown: function(keyCode) {
+      return this._pressed[keyCode];
+    },
+    
+    onKeydown: function(event) {
+      this._pressed[event.keyCode] = true;
+    },
+    
+    onKeyup: function(event) {
+      delete this._pressed[event.keyCode];
+    }
+  };
 // Pharo
 function Pharo(game, assetManager) {
     
@@ -8,7 +28,10 @@ function Pharo(game, assetManager) {
     this.animation = new Animation(AM.getAsset("./../assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"), 878, 916, 7, 0.05, 7, true, 0.2); //idle animation
     this.speed = 0;
     this.ctx = game.ctx;
-    
+
+    window.addEventListener('keyup', function(event) { Key.onKeyup(event); }, false);
+    window.addEventListener('keydown', function(event) { Key.onKeydown(event); }, false);
+
     Entity.call(this, game, 0, 250);
     this.y = 490;
 }
@@ -18,7 +41,12 @@ Pharo.prototype.constructor = Pharo;
 
 Pharo.prototype.update = function () {
     this.x += this.game.clockTick * this.speed;
-    if (this.x > 1200) this.x = -230;
+    //if (this.x > 1200) this.x = -230;
+
+    //New 
+    if (Key.isDown(Key.RIGHT)) {
+        this.run();
+    }
     Entity.prototype.update.call(this);
 }
 
@@ -30,7 +58,7 @@ Pharo.prototype.draw = function () {
 Pharo.prototype.run = function () {
     this.animation = new Animation(AM.getAsset("./../assets/sprites/2_MUMMY/_RUN/RUN SpriteSheet.png"), 1013, 1055, 7, 0.05, 7, true, 0.2); //running animation
     this.speed = 300;
-    this.y -= 20;
+    //this.y -= 20;
     console.log("pharo is running");
 }
 
