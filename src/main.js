@@ -53,12 +53,18 @@ AM.downloadAll(function () {
     gameEngine.init(ctx);
     gameEngine.start();
 
+    //Pharaoh class
     var mainCharacter = new Pharaoh(gameEngine, AM);
+
+    //Pharaoh Controller class
+    var characterControl = new pharaohController(mainCharacter);
+
+
     gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/desertBackground1.jpg")));
     gameEngine.addEntity(mainCharacter);
 
-    mainCharacter.jump();
-    mainCharacter.slash();
+    //mainCharacter.jump();
+    //mainCharacter.walkRight();
 
     console.log("All Done!");
 });
