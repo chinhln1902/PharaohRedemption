@@ -57,8 +57,6 @@ AM.downloadAll(function () {
     gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/desertBackground1.jpg")));
     gameEngine.addEntity(mainCharacter);
 
-    mainCharacter.jump();
-
 
     console.log("All Done!");
 });

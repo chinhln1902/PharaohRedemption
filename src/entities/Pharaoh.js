@@ -1,55 +1,118 @@
+//An array containing all the spritesheets
+var spriteSheets = [];
+function loadSpriteSheets(){
+    spriteSheets['dying'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet.png");
+    spriteSheets['falling down'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet.png");
+    spriteSheets['hurt'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet.png");
+    spriteSheets['idle'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet.png");
+    spriteSheets['idle blinking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet.png");
+    spriteSheets['jump loop'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet.png"); 
+    spriteSheets['jump start'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png");  
+    spriteSheets['kicking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet.png");
+    spriteSheets['run slashing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet.png");
+    spriteSheets['run throwing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet.png");
+    spriteSheets['running'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet.png");
+    spriteSheets['slashing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing/Slashing SpriteSheet.png"); 
+    spriteSheets['slashing in the air'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing in The Air/Slashing in The Air SpriteSheet.png");
+    spriteSheets['sliding'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet.png");
+    spriteSheets['throwing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet.png");
+    spriteSheets['throwing in the air'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet.png");
+    spriteSheets['walking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet.png"); 
+}
 
-// Pharaoh
+
+
+// Pharaoh "class". Represents the main character and all of his actions.
 function Pharaoh(game, assetManager) {
-    
+
     this.AM = assetManager;   
+    loadSpriteSheets();
     this.ctx = game.ctx;
     this.idle();
     Entity.call(this, game, 0, 250);
-    this.y = 525;
+
+    //state is a string which can be either: 'idle' 'jumping' or 'moving'
+    this.state = "idle"; 
+    //direction is a string which can be either: 'left' or 'right'
+    this.direction = "right";
+
+    //jump variables
+    this.groundLevel = 525;
+    this.y = this.groundLevel;
+    this.yVelocity = 0;
+    this.isJumping = false;
 }
 
+//inheritence
 Pharaoh.prototype = new Entity();
 Pharaoh.prototype.constructor = Pharaoh;
 
+//update is called once per frame
 Pharaoh.prototype.update = function () {
     this.x += this.game.clockTick * this.speed;
-    if (this.x > 1200) this.x = -230;
+    controlMovement(this);
+    controlJump(this);
     Entity.prototype.update.call(this);
 }
 
+//draw is called after every update
 Pharaoh.prototype.draw = function () {
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     Entity.prototype.draw.call(this);
 }
 
+//sets state to idle
 Pharaoh.prototype.idle = function () {
-    this.animation = new Animation(AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet.png"), 
-        900, 900, 18, 0.05, 18, true, 0.2); //idle animation
+    this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2); //idle animation
     this.speed = 0;
     console.log("pharaoh is idle");
 }
 
 Pharaoh.prototype.runRight = function () {
-    this.animation = new Animation(AM.getAsset("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet.png"), 
-        900, 900, 12, 0.05, 12, true, 0.2); //running animation
+    this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2); //running animation
     this.speed = 300;
     console.log("pharaoh is running");
 }
 
 Pharaoh.prototype.walkRight = function () {
-    this.animation = new Animation(AM.getAsset("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet.png"), 
-        900, 900, 24, 0.05, 24, true, 0.2); //walking animation
+    this.animation = new Animation(spriteSheets['walking'], 900, 900, 24, 0.05, 24, true, 0.2); //walking animation
     this.speed = 85;
     console.log("pharaoh is walking");
 }
 
 Pharaoh.prototype.jump = function () {
-    this.animation = new Animation(AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png"), 
-        900, 900, 6, 0.05, 6, true, 0.2); //jump start animation
+    this.isJumping = true;
+    this.yVelocity = 10;
+    this.previousAnimation = this.animation;
     this.animation = new Animation(AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet.png"), 
-        900, 900, 6, 0.05, 6, true, 0.2); //jump loop animation
-    
+            900, 900, 6, 0.05, 6, true, 0.2); //jump loop animation
+    //pharaoh.animation = new Animation(AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png"), 
+    //       900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
     console.log("pharaoh is jumping");
+}
+
+function controlJump(pharaoh){
+    //in the air
+    if (pharaoh.isJumping === true){
+        pharaoh.yVelocity -= 0.5;
+        pharaoh.y -= pharaoh.yVelocity;
+    }
+    // touching the ground
+    if (pharaoh.y > pharaoh.groundLevel){
+        pharaoh.y = pharaoh.groundLevel;
+        if (pharaoh.isJumping === true){
+            pharaoh.isJumping = false; 
+            //return to previous state
+            pharaoh.runRight();
+        }
+        
+        
+        console.log("debug"); 
+    }
+}
+
+function controlMovement(pharaoh){
+    if (pharaoh.x > 1200) pharaoh.x = -230;
+    //console.log("debug");
 }
 
