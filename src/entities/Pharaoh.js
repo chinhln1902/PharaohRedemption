@@ -1,6 +1,6 @@
 //An array containing all the spritesheets
 var spriteSheets = [];
-function loadSpriteSheets(){
+function loadSpriteSheets(AM){
     spriteSheets['dying'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet.png");
     spriteSheets['falling down'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet.png");
     spriteSheets['hurt'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet.png");
@@ -26,7 +26,7 @@ function loadSpriteSheets(){
 function Pharaoh(game, assetManager) {
 
     this.AM = assetManager;   
-    loadSpriteSheets();
+    loadSpriteSheets(this.AM);
     this.ctx = game.ctx;
     this.idle();
     Entity.call(this, game, 0, 250);
