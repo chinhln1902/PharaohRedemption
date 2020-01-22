@@ -22,13 +22,17 @@ function pharaohController(mainCharacter){
 			case 40:
 				// down key pressed
 				break;	
+
+			//Instructions:
+			// make it so that you can use arrow keys and asdw. 
+			// e = slash, q = throw, f = special attack.
+			// space = switch worlds
+			// also refer to Marriot's files for more info on event listeners.
 		}	
 	}, false);
-    //document.addEventListener("keypress", dealWithKeyboard, false);
-	//document.addEventListener("keyup", dealWithKeyboard, false);
 	this.Pharaoh = mainCharacter;
 	
-
+	// example for how to make it not infinately press a key
 	// if (e.keycode === 38 && alreadypushed === true){
 
 	// }
