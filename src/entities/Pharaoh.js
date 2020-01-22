@@ -45,6 +45,8 @@ function Pharaoh(game, assetManager) {
     // this is true if we only want to play the animation once
     this.playingTempAnimation = false;
 
+    this.pharaohController = new pharaohController(mainCharacter);
+
 }
 
 //inheritence

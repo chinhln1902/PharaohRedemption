@@ -5,13 +5,12 @@ function pharaohController(mainCharacter){
     //this.Pharaoh = mainCharacter;
     document.addEventListener("keydown", moveSomething, false);
     //document.addEventListener("keypress", dealWithKeyboard, false);
-    //document.addEventListener("keyup", dealWithKeyboard, false);
+	//document.addEventListener("keyup", dealWithKeyboard, false);
+	this.Pharaoh = mainCharacter;
+	
 
 }
 
-//inheritence
-pharaohController.prototype = new Entity();
-pharaohController.prototype.constructor = controller;
 
 function moveSomething(e) {
 	switch(e.keyCode) {
@@ -23,7 +22,7 @@ function moveSomething(e) {
 			break;
 		case 39:
             console.log("Right key pressed");
-			// right key pressed
+			this.Pharaoh.jump();
 			//break;
 		case 40:
 			// down key pressed
