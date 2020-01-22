@@ -4,18 +4,20 @@ function pharaohController(mainCharacter){
 	var that = this;
     //this.Pharaoh = mainCharacter;
     document.addEventListener("keydown", function (e) {
-		that.Pharaoh.runRight();
+		t
 		switch(e.keyCode) {
+			
 			case 37:
 				// left key pressed
 				break;
 			case 38:
 				// up key pressed
 				that.Pharaoh.jump();
+
 				break;
 			case 39:
 				console.log("Right key pressed");
-				that.Pharaoh.slash()
+				that.Pharaoh.slash();
 				//break;
 			case 40:
 				// down key pressed
@@ -27,5 +29,8 @@ function pharaohController(mainCharacter){
 	this.Pharaoh = mainCharacter;
 	
 
+	// if (e.keycode === 38 && alreadypushed === true){
+
+	// }
 }
 
