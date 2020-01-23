@@ -42,7 +42,7 @@ AM.queueDownload("./../assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet.png");                       //throwing 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet.png"); //throwing in the air 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet.png");                         //walking 
-AM.queueDownload("./../assets/sprites/SN-IDLE.png"); 
+AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png"); 
 
 
 
@@ -57,7 +57,7 @@ AM.downloadAll(function () {
 
     //Pharaoh class
     var mainCharacter = new Pharaoh(gameEngine, AM);
-    var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/SN-IDLE.png")); 
+    var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
 
     //Pharaoh Controller class
     var characterControl = new pharaohController(mainCharacter);
