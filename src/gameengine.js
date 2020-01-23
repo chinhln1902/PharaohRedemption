@@ -61,8 +61,6 @@ GameEngine.prototype.loop = function () {
     this.clockTick = this.timer.tick();
     this.update();
     this.draw();
-    //this.
-    //set keydown event == null (erase at end of loop)
 }
 
 function Timer() {
