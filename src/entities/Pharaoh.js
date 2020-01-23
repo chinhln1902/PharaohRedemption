@@ -80,7 +80,15 @@ Pharaoh.prototype.runRight = function () {
     this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2); //running animation
     this.speed = 300;
     this.state = 'running';
-    console.log("pharaoh is running");
+    console.log("pharaoh is running right");
+}
+
+//sets state to running
+Pharaoh.prototype.runLeft = function () {
+    this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2); //running animation
+    this.speed = -300;
+    this.state = 'running';
+    console.log("pharaoh is running left");
 }
 
 //ignore this for now
