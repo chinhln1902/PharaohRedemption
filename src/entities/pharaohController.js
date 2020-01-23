@@ -2,36 +2,43 @@
 
 function pharaohController(mainCharacter){
 	var that = this;
-    //this.Pharaoh = mainCharacter;
-    document.addEventListener("keydown", function (e) {
-		t
-		switch(e.keyCode) {
-			
-			case 37:
-				// left key pressed
-				break;
-			case 38:
-				// up key pressed
-				that.Pharaoh.jump();
+	var RightKeyPressed = false;
+	this.Pharaoh = mainCharacter;
 
-				break;
-			case 39:
+	document.addEventListener("keydown", function (e) {
+
+			if (e.keycode === 37 && RightKeyPressed === true || RightKeyPressed === false){
 				console.log("Right key pressed");
 				that.Pharaoh.slash();
-				//break;
-			case 40:
-				// down key pressed
-				break;	
+			}
+   
+		
+		// switch(e.keyCode) {
+			
+		// 	case 37:
+		// 		// left key pressed
+		// 		break;
+		// 	case 38:
+		// 		// up key pressed
+		// 		that.Pharaoh.jump();
 
-			//Instructions:
-			// make it so that you can use arrow keys and asdw. 
-			// e = slash, q = throw, f = special attack.
-			// space = switch worlds
-			// also refer to Marriot's files for more info on event listeners.
-		}	
+		// 		break;
+		// 	case 39:
+		// 		console.log(RightKeyPressed);
+		// 		that.Pharaoh.slash();
+		// 		//break;
+		// 	case 40:
+		// 		// down key pressed
+		// 		break;	
+
+		// 	//Instructions:
+		// 	// make it so that you can use arrow keys and asdw. 
+		// 	// e = slash, q = throw, f = special attack.
+		// 	// space = switch worlds
+		// 	// also refer to Marriot's files for more info on event listeners.
+		// }	
 	}, false);
-	this.Pharaoh = mainCharacter;
-	
+		
 	// example for how to make it not infinately press a key
 	// if (e.keycode === 38 && alreadypushed === true){
 
