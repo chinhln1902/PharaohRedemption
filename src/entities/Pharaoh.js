@@ -70,14 +70,14 @@ Pharaoh.prototype.draw = function () {
 
 //sets state to idle
 Pharaoh.prototype.idle = function () {
-    this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2); //idle animation
+    this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2, true); //idle animation
     this.speed = 0;
     console.log("pharaoh is idle");
 }
 
 //sets state to running
 Pharaoh.prototype.runRight = function () {
-    this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2); //running animation
+    this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2, false); //running animation
     this.speed = 300;
     this.state = 'running';
     console.log("pharaoh is running right");
@@ -85,7 +85,7 @@ Pharaoh.prototype.runRight = function () {
 
 //sets state to running
 Pharaoh.prototype.runLeft = function () {
-    this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2); //running animation
+    this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2, false); //running animation
     this.speed = -300;
     this.state = 'running';
     console.log("pharaoh is running left");
@@ -93,7 +93,7 @@ Pharaoh.prototype.runLeft = function () {
 
 //ignore this for now
 Pharaoh.prototype.walkRight = function () {
-    this.animation = new Animation(spriteSheets['walking'], 900, 900, 24, 0.05, 24, true, 0.2); //walking animation
+    this.animation = new Animation(spriteSheets['walking'], 900, 900, 24, 0.05, 24, true, 0.2, false); //walking animation
     this.speed = 85;
     console.log("pharaoh is walking");
 }
@@ -104,7 +104,7 @@ Pharaoh.prototype.jump = function () {
     this.isJumping = true;
     this.yVelocity = 10;
     this.previousAnimation = this.animation;
-    this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
+    this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, 0.2, false); //jump start animation
     this.playingTempAnimation = true;
     console.log("pharaoh has jumped");
 }
@@ -112,11 +112,11 @@ Pharaoh.prototype.jump = function () {
 //makes the pharaoh slash
 Pharaoh.prototype.slash = function () {
     if (this.state === 'idle'){
-        this.animation = new Animation(spriteSheets['slashing'], 900, 900, 12, 0.05, 12, false, 0.2);
+        this.animation = new Animation(spriteSheets['slashing'], 900, 900, 12, 0.05, 12, false, 0.2, false);
     } else if (this.state === 'jumping'){
-        this.animation = new Animation(spriteSheets['slashing in the air'], 900, 900, 12, 0.05, 12, false, 0.2);
+        this.animation = new Animation(spriteSheets['slashing in the air'], 900, 900, 12, 0.05, 12, false, 0.2, false);
     } else if (this.state === 'running'){
-        this.animation = new Animation(spriteSheets['run slashing'], 900, 900, 12, 0.05, 12, false, 0.2);
+        this.animation = new Animation(spriteSheets['run slashing'], 900, 900, 12, 0.05, 12, false, 0.2, false);
     }   
     this.playingTempAnimation = true;
 }
@@ -124,25 +124,25 @@ Pharaoh.prototype.slash = function () {
 //makes the pharaoh throw
 Pharaoh.prototype.throw = function () {
     if (this.state === 'idle'){
-        this.animation = new Animation(spriteSheets['throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
+        this.animation = new Animation(spriteSheets['throwing'], 900, 900, 12, 0.05, 12, false, 0.2, false);
     } else if (this.state === 'jumping'){
-        this.animation = new Animation(spriteSheets['throwing in the air'], 900, 900, 12, 0.05, 12, false, 0.2);
+        this.animation = new Animation(spriteSheets['throwing in the air'], 900, 900, 12, 0.05, 12, false, 0.2, false);
     } else if (this.state === 'running'){
-        this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
+        this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, 0.2, false);
     }   
     this.playingTempAnimation = true;
 }
 
 //makes the pharaoh take damage
 Pharaoh.prototype.takeDamage = function () {
-    this.animation = new Animation(spriteSheets['hurt'], 900, 900, 18, 0.05, 18, false, 0.2); 
+    this.animation = new Animation(spriteSheets['hurt'], 900, 900, 18, 0.05, 18, false, 0.2, false); 
     this.playingTempAnimation = true;
     console.log("took damage");
 }
 
 //makes the pharaoh blink. only works when he idle
 Pharaoh.prototype.blink = function () {
-    this.animation = new Animation(spriteSheets['idle blinking'], 900, 900, 18, 0.05, 18, false, 0.2); 
+    this.animation = new Animation(spriteSheets['idle blinking'], 900, 900, 18, 0.05, 18, false, 0.2, false); 
     this.playingTempAnimation = true;
     console.log("blinked");
 }
@@ -150,11 +150,11 @@ Pharaoh.prototype.blink = function () {
 //sets the animation back to the default for that state
 Pharaoh.prototype.setToDefault = function () {
     if (this.state === 'idle'){
-        this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2);
+        this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2, false);
     } else if (this.state === 'jumping'){
-        this.animation = new Animation(spriteSheets['jump loop'], 900, 900, 6, 0.05, 6, true, 0.2);
+        this.animation = new Animation(spriteSheets['jump loop'], 900, 900, 6, 0.05, 6, true, 0.2, false);
     } else if (this.state === 'running'){
-        this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2);
+        this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2, false);
     }
     
     console.log("set to default");
