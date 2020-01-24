@@ -45,7 +45,7 @@ function Pharaoh(game, assetManager) {
     // this is true if we only want to play the animation once
     this.playingTempAnimation = false;
 
-    this.pharaohController = new pharaohController(this);
+    //this.pharaohController = new pharaohController(this);
 
 }
 
@@ -185,7 +185,7 @@ function controlJump(pharaoh){
         pharaoh.y = pharaoh.groundLevel;
         if (pharaoh.isJumping === true){
             pharaoh.isJumping = false; 
-            pharaoh.state = 'idle';
+            pharaoh.state = null;
             pharaoh.setToDefault();
         }       
         console.log("debug"); 
@@ -195,6 +195,13 @@ function controlJump(pharaoh){
 // called by the update method. controlls the movement.
 function controlMovement(pharaoh){
     if (pharaoh.x > 1200) pharaoh.x = -230;
+    if (pharaoh.x < -230) pharaoh.x = 1200;
     //console.log("debug");
 }
 
+Pharaoh.prototype.getState = function(){
+    return this.state;
+}
+Pharaoh.prototype.setState = function(theState){
+    this.state = theState;
+}
