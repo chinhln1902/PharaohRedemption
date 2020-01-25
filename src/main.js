@@ -24,26 +24,42 @@ AM.queueDownload("./../assets/backgrounds/desertBackground1.jpg");
 AM.queueDownload("./../assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"); //idle
 AM.queueDownload("./../assets/sprites/2_MUMMY/_WALK/WALK SpriteSheet.png"); //walking
 AM.queueDownload("./../assets/sprites/2_MUMMY/_RUN/RUN SpriteSheet.png"); //running
-//Pharaoh
+//Pharaoh right
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet.png");                             //dying 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet.png");               //falling down 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet.png");                               //hurt 
-AM.queueDownload("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet.png");                               //idle right
-AM.queueDownload("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet flip.png");                               //idle left
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet.png");                               //idle
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet.png");             //idle blinking 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet.png");                     //jump loop 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png");                   //jump start 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet.png");                         //kicking 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet.png");               //run slashing 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet.png");               //run throwing
-AM.queueDownload("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet.png");                         //running right
-AM.queueDownload("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet flip.png");                    //running left
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet.png");                         //running
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Slashing/Slashing SpriteSheet.png");                       //slashing
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Slashing in The Air/Slashing in The Air SpriteSheet.png"); //slashing in the air 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet.png");                         //sliding
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet.png");                       //throwing 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet.png"); //throwing in the air 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet.png");                         //walking 
+//Pharaoh left
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet flip.png");                             //dying 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet flip.png");               //falling down 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet flip.png");                               //hurt 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet flip.png");                               //idle
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet flip.png");             //idle blinking 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet flip.png");                     //jump loop 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet flip.png");                   //jump start 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet flip.png");                         //kicking 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet flip.png");               //run slashing 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet flip.png");               //run throwing
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet flip.png");                         //running
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Slashing/Slashing SpriteSheet flip.png");                       //slashing
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Slashing in The Air/Slashing in The Air SpriteSheet flip.png"); //slashing in the air 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet flip.png");                         //sliding
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet flip.png");                       //throwing 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet flip.png"); //throwing in the air 
+AM.queueDownload("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet flip.png");                         //walking 
 AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png"); 
 
 

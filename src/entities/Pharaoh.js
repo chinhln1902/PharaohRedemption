@@ -49,8 +49,6 @@ function Pharaoh(game, assetManager) {
     this.playingTempAnimation = false;
 
     //this.pharaohController = new pharaohController(this);
-    
-    this.direction = 'right'; //can either be 'right' or 'left'
 }
 
 //inheritence
