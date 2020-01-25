@@ -1,27 +1,42 @@
 //An array containing all the spritesheets
 var spriteSheets = [];
 function loadSpriteSheets(AM){
+    //right
     spriteSheets['dying'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet.png");
     spriteSheets['falling down'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet.png");
     spriteSheets['hurt'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet.png");
     spriteSheets['idle'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet.png");
-    spriteSheets['idle left'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet flip.png");
     spriteSheets['idle blinking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet.png");
     spriteSheets['jump loop'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet.png"); 
-    spriteSheets['jump start'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png");  
-    spriteSheets['jump left start'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet flip.png");           
+    spriteSheets['jump start'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png");            
     spriteSheets['kicking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet.png");
     spriteSheets['run slashing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet.png");
     spriteSheets['run throwing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet.png");
     spriteSheets['running'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet.png");
-    spriteSheets['running left'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet flip.png");
     spriteSheets['slashing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing/Slashing SpriteSheet.png"); 
     spriteSheets['slashing in the air'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing in The Air/Slashing in The Air SpriteSheet.png");
     spriteSheets['sliding'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet.png");
     spriteSheets['throwing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet.png");
     spriteSheets['throwing in the air'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet.png");
     spriteSheets['walking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet.png"); 
-
+    //left
+    spriteSheets['dying flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet flip.png");
+    spriteSheets['falling down flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet flip.png");
+    spriteSheets['hurt flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet flip.png");
+    spriteSheets['idle flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet flip.png");
+    spriteSheets['idle blinking flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet flip.png");
+    spriteSheets['jump loop flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet flip.png"); 
+    spriteSheets['jump start flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet flip.png");            
+    spriteSheets['kicking flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet flip.png");
+    spriteSheets['run slashing flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet flip.png");
+    spriteSheets['run throwing flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet flip.png");
+    spriteSheets['running flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet flip.png");
+    spriteSheets['slashing flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing/Slashing SpriteSheet flip.png"); 
+    spriteSheets['slashing in the air flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing in The Air/Slashing in The Air SpriteSheet flip.png");
+    spriteSheets['sliding flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet flip.png");
+    spriteSheets['throwing flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet flip.png");
+    spriteSheets['throwing in the air flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet flip.png");
+    spriteSheets['walking flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet flip.png");
 }
 
 
@@ -73,16 +88,11 @@ Pharaoh.prototype.draw = function () {
 
 //sets state to idle
 Pharaoh.prototype.idle = function () {
-    this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2); //idle animation
-    this.direction = "right";
-    this.speed = 0;
-    console.log("pharaoh is idle");
-}
-
-//sets state to idle left
-Pharaoh.prototype.idleLeft = function () {
-    this.animation = new Animation(spriteSheets['idle left'], 900, 900, 18, 0.05, 18, true, 0.2); //idle animation
-    this.direction = 'left';
+    if (this.direction === 'right'){
+        this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2); //idle animation
+    } else {
+        this.animation = new Animation(spriteSheets['idle  flip'], 900, 900, 18, 0.05, 18, true, 0.2);
+    }
     this.speed = 0;
     console.log("pharaoh is idle");
 }
@@ -98,7 +108,7 @@ Pharaoh.prototype.runRight = function () {
 
 //sets state to running
 Pharaoh.prototype.runLeft = function () {
-    this.animation = new Animation(spriteSheets['running left'], 900, 900, 12, 0.05, 12, true, 0.2); //running left animation
+    this.animation = new Animation(spriteSheets['running  flip'], 900, 900, 12, 0.05, 12, true, 0.2); //running left animation
     this.speed = -300;
     this.state = 'running';
     this.direction = 'left';
@@ -115,74 +125,107 @@ Pharaoh.prototype.walkRight = function () {
 //makes the pharaoh jump
 Pharaoh.prototype.jump = function () {
     this.state = 'jumping';
-    this.direction = 'right';
     this.isJumping = true;
     this.yVelocity = 10;
     this.previousAnimation = this.animation;
-    this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
+    if (this.direction === 'right'){
+        this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
+    } else {
+        this.animation = new Animation(spriteSheets['jump start flip'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
+    }
     this.playingTempAnimation = true;
     console.log("pharaoh has jumped");
 }
 
-//makes the pharaoh jump left
-Pharaoh.prototype.jumpLeft = function () {
-    this.state = 'jumping';
-    this.direction = 'left';
-    this.isJumping = true;
-    this.yVelocity = 10;
-    this.previousAnimation = this.animation;
-    this.animation = new Animation(spriteSheets['jump left start'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
-    this.playingTempAnimation = true;
-    console.log("pharaoh has jumped left");
-}
-
 //makes the pharaoh slash
 Pharaoh.prototype.slash = function () {
-    if (this.state === 'idle'){
-        this.animation = new Animation(spriteSheets['slashing'], 900, 900, 12, 0.05, 12, false, 0.2);
-    } else if (this.state === 'jumping'){
-        this.animation = new Animation(spriteSheets['slashing in the air'], 900, 900, 12, 0.05, 12, false, 0.2);
-    } else if (this.state === 'running'){
-        this.animation = new Animation(spriteSheets['run slashing'], 900, 900, 12, 0.05, 12, false, 0.2);
-    }   
+    if (this.direction === 'right'){
+        if (this.state === 'idle'){
+            this.animation = new Animation(spriteSheets['slashing'], 900, 900, 12, 0.05, 12, false, 0.2);
+        } else if (this.state === 'jumping'){
+            this.animation = new Animation(spriteSheets['slashing in the air'], 900, 900, 12, 0.05, 12, false, 0.2);
+        } else if (this.state === 'running'){
+            this.animation = new Animation(spriteSheets['run slashing'], 900, 900, 12, 0.05, 12, false, 0.2);
+        }   
+    }else{
+        if (this.state === 'idle'){
+            this.animation = new Animation(spriteSheets['slashing flip'], 900, 900, 12, 0.05, 12, false, 0.2);
+        } else if (this.state === 'jumping'){
+            this.animation = new Animation(spriteSheets['slashing in the air flip'], 900, 900, 12, 0.05, 12, false, 0.2);
+        } else if (this.state === 'running'){
+            this.animation = new Animation(spriteSheets['run slashing flip'], 900, 900, 12, 0.05, 12, false, 0.2);
+        }   
+    }
     this.playingTempAnimation = true;
 }
 
 //makes the pharaoh throw
 Pharaoh.prototype.throw = function () {
-    if (this.state === 'idle'){
-        this.animation = new Animation(spriteSheets['throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
-    } else if (this.state === 'jumping'){
-        this.animation = new Animation(spriteSheets['throwing in the air'], 900, 900, 12, 0.05, 12, false, 0.2);
-    } else if (this.state === 'running'){
-        this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
-    }   
+    if (this.direction === 'right'){
+        if (this.state === 'idle'){
+            this.animation = new Animation(spriteSheets['throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
+        } else if (this.state === 'jumping'){
+            this.animation = new Animation(spriteSheets['throwing in the air'], 900, 900, 12, 0.05, 12, false, 0.2);
+        } else if (this.state === 'running'){
+            this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
+        }   
+    } else {
+        if (this.state === 'idle'){
+            this.animation = new Animation(spriteSheets['throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
+        } else if (this.state === 'jumping'){
+            this.animation = new Animation(spriteSheets['throwing in the air'], 900, 900, 12, 0.05, 12, false, 0.2);
+        } else if (this.state === 'running'){
+            this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
+        }   
+    }
+    
     this.playingTempAnimation = true;
 }
 
 //makes the pharaoh take damage
 Pharaoh.prototype.takeDamage = function () {
-    this.animation = new Animation(spriteSheets['hurt'], 900, 900, 18, 0.05, 18, false, 0.2); 
+    if (this.direction === 'right'){
+        this.animation = new Animation(spriteSheets['hurt'], 900, 900, 18, 0.05, 18, false, 0.2); 
+    } else {
+        this.animation = new Animation(spriteSheets['hurt flip'], 900, 900, 18, 0.05, 18, false, 0.2); 
+    }
+    
     this.playingTempAnimation = true;
     console.log("took damage");
 }
 
 //makes the pharaoh blink. only works when he idle
 Pharaoh.prototype.blink = function () {
-    this.animation = new Animation(spriteSheets['idle blinking'], 900, 900, 18, 0.05, 18, false, 0.2); 
+    if (this.direction === 'right'){
+        this.animation = new Animation(spriteSheets['idle blinking'], 900, 900, 18, 0.05, 18, false, 0.2); 
+    } else {
+        this.animation = new Animation(spriteSheets['idle blinking flip'], 900, 900, 18, 0.05, 18, false, 0.2); 
+    }
+    
     this.playingTempAnimation = true;
     console.log("blinked");
 }
 
 //sets the animation back to the default for that state
 Pharaoh.prototype.setToDefault = function () {
-    if (this.state === 'idle'){
-        this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2);
-    } else if (this.state === 'jumping'){
-        this.animation = new Animation(spriteSheets['jump loop'], 900, 900, 6, 0.05, 6, true, 0.2);
-    } else if (this.state === 'running'){
-        this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2);
+    if (this.direction === 'right'){
+        if (this.state === 'idle'){
+            this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2);
+        } else if (this.state === 'jumping'){
+            this.animation = new Animation(spriteSheets['jump loop'], 900, 900, 6, 0.05, 6, true, 0.2);
+        } else if (this.state === 'running'){
+            this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2);
+        }
+    } else {
+        if (this.state === 'idle'){
+            this.animation = new Animation(spriteSheets['idle flip'], 900, 900, 18, 0.05, 18, true, 0.2);
+        } else if (this.state === 'jumping'){
+            this.animation = new Animation(spriteSheets['jump loop flip'], 900, 900, 6, 0.05, 6, true, 0.2);
+        } else if (this.state === 'running'){
+            this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, 0.2);
+        }
     }
+    
     
     console.log("set to default");
 }
