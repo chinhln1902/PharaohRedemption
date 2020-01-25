@@ -5,6 +5,7 @@ function loadSpriteSheets(AM){
     spriteSheets['falling down'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet.png");
     spriteSheets['hurt'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet.png");
     spriteSheets['idle'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet.png");
+    spriteSheets['idle left'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet flip.png");
     spriteSheets['idle blinking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet.png");
     spriteSheets['jump loop'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet.png"); 
     spriteSheets['jump start'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png");  
@@ -12,12 +13,14 @@ function loadSpriteSheets(AM){
     spriteSheets['run slashing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet.png");
     spriteSheets['run throwing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet.png");
     spriteSheets['running'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet.png");
+    spriteSheets['running left'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet flip.png");
     spriteSheets['slashing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing/Slashing SpriteSheet.png"); 
     spriteSheets['slashing in the air'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing in The Air/Slashing in The Air SpriteSheet.png");
     spriteSheets['sliding'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet.png");
     spriteSheets['throwing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet.png");
     spriteSheets['throwing in the air'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet.png");
     spriteSheets['walking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet.png"); 
+
 }
 
 
@@ -75,19 +78,28 @@ Pharaoh.prototype.idle = function () {
     console.log("pharaoh is idle");
 }
 
+//sets state to idle left
+Pharaoh.prototype.idleLeft = function () {
+    this.animation = new Animation(spriteSheets['idle left'], 900, 900, 18, 0.05, 18, true, 0.2); //idle animation
+    this.speed = 0;
+    console.log("pharaoh is idle");
+}
+
 //sets state to running
 Pharaoh.prototype.runRight = function () {
-    this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2); //running animation
+    this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2); //running right animation
     this.speed = 300;
     this.state = 'running';
+    this.direction = "right";
     console.log("pharaoh is running right");
 }
 
 //sets state to running
 Pharaoh.prototype.runLeft = function () {
-    this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2); //running animation
+    this.animation = new Animation(spriteSheets['running left'], 900, 900, 12, 0.05, 12, true, 0.2); //running left animation
     this.speed = -300;
-    this.state = 'running';
+    this.state = 'running left';
+    this.direction = 'left';
     console.log("pharaoh is running left");
 }
 

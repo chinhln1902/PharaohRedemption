@@ -21,7 +21,7 @@ function pharaohController(mainCharacter){
 			//Running left
 			} else if(e.code === "ArrowLeft" && LeftKeyPressed === "false"){
 				console.log("Left key pressed");
-				//Run left
+				that.Pharaoh.runLeft();
 				LeftKeyPressed = "true";
 
 			//Jumping
@@ -56,17 +56,27 @@ function pharaohController(mainCharacter){
 
 			if (e.code === "ArrowRight" && RightKeyPressed === "true"){
 				console.log("Right key up");
+
 				that.Pharaoh.idle();
 				RightKeyPressed = "false";
 
 			}	else if(e.code === "ArrowLeft" && LeftKeyPressed === "true"){
 				console.log("Left key up");
-				//that.Pharaoh.runRight();
+				that.Pharaoh.idleLeft();
 				LeftKeyPressed = "false";
 
 			}   else if(e.code === "ArrowUp" && UpArrowPressed === "true"){
 				console.log("Up key pressed");
-				that.Pharaoh.jump();
+
+				// For when right/left key is still pressed down after animation
+				// Not quite right
+
+				// if (RightKeyPressed === "true")
+				// 	that.Pharaoh.runRight();
+				// else if (LeftKeyPressed === "true")
+				// 	that.Pharaoh.runLeft();
+				// else if (RightKeyPressed === "false")
+				// 	that.Pharaoh.idle();
 				UpArrowPressed = "false";
 
 			} 
