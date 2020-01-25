@@ -1,5 +1,4 @@
 
-
 function pharaohController(mainCharacter){
 	var that = this;
 	var RightKeyPressed = "false";
@@ -25,10 +24,18 @@ function pharaohController(mainCharacter){
 				LeftKeyPressed = "true";
 
 			//Jumping
+			//Add more lines for jumping left/up and jumping right/up
 			} else if(e.code === "ArrowUp" && UpArrowPressed === "false"){
 				e.preventDefault();
+
+				if(that.Pharaoh.getDirection() === "right") {
+					that.Pharaoh.jump();
+				} else if(that.Pharaoh.getDirection() === "left") {
+					that.Pharaoh.jumpLeft();
+					console.log("Jumping left");
+				} 
+
 				console.log("Up key pressed");
-				that.Pharaoh.jump();
 				UpArrowPressed = "true";
 			
 			//World switching
@@ -66,17 +73,24 @@ function pharaohController(mainCharacter){
 				LeftKeyPressed = "false";
 
 			}   else if(e.code === "ArrowUp" && UpArrowPressed === "true"){
-				console.log("Up key pressed");
+				console.log("Up key released");
 
-				// For when right/left key is still pressed down after animation
-				// Not quite right
+		//Still working on this part after jumping
+				// if (that.Pharaoh.getDirection() === "right") { //Character is facing right
 
-				// if (RightKeyPressed === "true")
-				// 	that.Pharaoh.runRight();
-				// else if (LeftKeyPressed === "true")
-				// 	that.Pharaoh.runLeft();
-				// else if (RightKeyPressed === "false")
-				// 	that.Pharaoh.idle();
+				// 	if (that.Pharaoh.getState() === "running"){ //running right
+				// 		that.Pharaoh.runRight();
+				// 	} else {
+				// 		that.Pharaoh.idle(); //idle right
+				// 	}
+				// } else if (that.Pharaoh.getDirection() === "left") {//Character is facing left
+				// 	if (that.Pharaoh.getState() === "running"){ //running left
+				// 		that.Pharaoh.runLeft();
+				// 	} else {
+				// 		that.Pharaoh.idleLeft(); //idle left
+				// 	}
+				// }
+				
 				UpArrowPressed = "false";
 
 			} 

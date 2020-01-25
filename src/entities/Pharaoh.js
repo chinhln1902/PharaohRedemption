@@ -9,6 +9,7 @@ function loadSpriteSheets(AM){
     spriteSheets['idle blinking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet.png");
     spriteSheets['jump loop'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet.png"); 
     spriteSheets['jump start'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png");  
+    spriteSheets['jump left start'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet flip.png");           
     spriteSheets['kicking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet.png");
     spriteSheets['run slashing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet.png");
     spriteSheets['run throwing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet.png");
@@ -74,6 +75,7 @@ Pharaoh.prototype.draw = function () {
 //sets state to idle
 Pharaoh.prototype.idle = function () {
     this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2); //idle animation
+    this.direction = "right";
     this.speed = 0;
     console.log("pharaoh is idle");
 }
@@ -81,6 +83,7 @@ Pharaoh.prototype.idle = function () {
 //sets state to idle left
 Pharaoh.prototype.idleLeft = function () {
     this.animation = new Animation(spriteSheets['idle left'], 900, 900, 18, 0.05, 18, true, 0.2); //idle animation
+    this.direction = 'left';
     this.speed = 0;
     console.log("pharaoh is idle");
 }
@@ -90,7 +93,7 @@ Pharaoh.prototype.runRight = function () {
     this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2); //running right animation
     this.speed = 300;
     this.state = 'running';
-    this.direction = "right";
+    this.direction = 'right';
     console.log("pharaoh is running right");
 }
 
@@ -98,7 +101,7 @@ Pharaoh.prototype.runRight = function () {
 Pharaoh.prototype.runLeft = function () {
     this.animation = new Animation(spriteSheets['running left'], 900, 900, 12, 0.05, 12, true, 0.2); //running left animation
     this.speed = -300;
-    this.state = 'running left';
+    this.state = 'running';
     this.direction = 'left';
     console.log("pharaoh is running left");
 }
@@ -113,12 +116,25 @@ Pharaoh.prototype.walkRight = function () {
 //makes the pharaoh jump
 Pharaoh.prototype.jump = function () {
     this.state = 'jumping';
+    this.direction = 'right';
     this.isJumping = true;
     this.yVelocity = 10;
     this.previousAnimation = this.animation;
     this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
     this.playingTempAnimation = true;
     console.log("pharaoh has jumped");
+}
+
+//makes the pharaoh jump left
+Pharaoh.prototype.jumpLeft = function () {
+    this.state = 'jumping';
+    this.direction = 'left';
+    this.isJumping = true;
+    this.yVelocity = 10;
+    this.previousAnimation = this.animation;
+    this.animation = new Animation(spriteSheets['jump left start'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
+    this.playingTempAnimation = true;
+    console.log("pharaoh has jumped left");
 }
 
 //makes the pharaoh slash
@@ -216,4 +232,8 @@ Pharaoh.prototype.getState = function(){
 }
 Pharaoh.prototype.setState = function(theState){
     this.state = theState;
+}
+
+Pharaoh.prototype.getDirection = function(){
+    return this.direction;
 }
