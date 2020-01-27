@@ -65,6 +65,7 @@ function Pharaoh(game, assetManager) {
     this.playingTempAnimation = false;
 
     //this.pharaohController = new pharaohController(this);
+    this.underworld = false;
 }
 
 //inheritence
@@ -285,3 +286,11 @@ Pharaoh.prototype.getDirection = function(){
 Pharaoh.prototype.setDirection = function(theDirection){
     this.direction = theDirection;
 }
+Pharaoh.prototype.swapWorld = function(){
+    this.underworld = !this.underworld;
+}
+
+
+
+
+
