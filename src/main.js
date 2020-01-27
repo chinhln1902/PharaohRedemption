@@ -32,7 +32,6 @@ AM.queueDownload("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet.png")
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet.png");             //idle blinking 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet.png");                     //jump loop 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png");                   //jump start right
-AM.queueDownload("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet flip.png");              //jump start left
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet.png");                         //kicking 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet.png");               //run slashing 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet.png");               //run throwing
@@ -69,25 +68,35 @@ AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png");
 AM.downloadAll(function () {
     var canvas = document.getElementById("gameWorld");
     var ctx = canvas.getContext("2d");
+    var loadedGame = false;
+    while(!loadedGame){
+        console.log("Loaded Game?: "+AM.isDone());
+        if (AM.isDone()){
+            var gameEngine = new GameEngine();
+            gameEngine.init(ctx);
+            gameEngine.start();
 
-    var gameEngine = new GameEngine();
-    gameEngine.init(ctx);
-    gameEngine.start();
+            //Pharaoh class
+            var mainCharacter = new Pharaoh(gameEngine, AM);
+            var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
 
-    //Pharaoh class
-    var mainCharacter = new Pharaoh(gameEngine, AM);
-    var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
-
-    //Pharaoh Controller class
-    var characterControl = new pharaohController(mainCharacter);
-
-
-    gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/desertBackground1.jpg")));
-    gameEngine.addEntity(mainCharacter);
-    gameEngine.addEntity(enemy); 
-
+            //Pharaoh Controller class
+            var characterControl = new pharaohController(mainCharacter);
+            gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/desertBackground1.jpg")));
+            gameEngine.addEntity(mainCharacter);
+            gameEngine.addEntity(enemy);  
+            loadedGame = true;       
+        }
+    }
+    
+    
+    console.log("AM Number of assets: " + AM.getNumberOfAssets());
     //mainCharacter.jump();
     //mainCharacter.walkRight();
 
     console.log("All Done!");
 });
+
+
+
+

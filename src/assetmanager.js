@@ -42,3 +42,7 @@ AssetManager.prototype.downloadAll = function (callback) {
 AssetManager.prototype.getAsset = function (path) {
     return this.cache[path];
 }
+
+AssetManager.prototype.getNumberOfAssets = function () {
+    return this.cache.length;
+}

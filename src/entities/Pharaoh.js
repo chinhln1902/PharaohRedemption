@@ -37,6 +37,7 @@ function loadSpriteSheets(AM){
     spriteSheets['throwing flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet flip.png");
     spriteSheets['throwing in the air flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet flip.png");
     spriteSheets['walking flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet flip.png");
+    
 }
 
 
@@ -46,6 +47,7 @@ function Pharaoh(game, assetManager) {
 
     this.AM = assetManager;   
     loadSpriteSheets(this.AM);
+    console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
     this.ctx = game.ctx;
     this.idle();
     Entity.call(this, game, 0, 250);
@@ -79,10 +81,12 @@ Pharaoh.prototype.update = function () {
     controlMovement(this);
     controlJump(this);
     Entity.prototype.update.call(this);
+    
 }
 
 //draw is called after every update
 Pharaoh.prototype.draw = function () {
+    //console.log(this.animation);
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     Entity.prototype.draw.call(this);
 }
@@ -92,9 +96,11 @@ Pharaoh.prototype.idle = function () {
     if (this.direction === 'right'){
         this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, 0.2); //idle animation
     } else {
-        this.animation = new Animation(spriteSheets['idle  flip'], 900, 900, 18, 0.05, 18, true, 0.2);
+        this.animation = new Animation(spriteSheets['idle flip'], 900, 900, 18, 0.05, 18, true, 0.2);
     }
     this.speed = 0;
+    this.state = 'idle';
+    this.previousState = 'idle';
     console.log("pharaoh is idle");
 }
 
@@ -103,14 +109,16 @@ Pharaoh.prototype.runRight = function () {
     this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, 0.2); //running right animation
     this.speed = 300;
     this.state = 'running';
+    this.previousState = 'running';
     this.direction = 'right';
     console.log("pharaoh is running right");
 }
 
 //sets state to running
 Pharaoh.prototype.runLeft = function () {
-    this.animation = new Animation(spriteSheets['running  flip'], 900, 900, 12, 0.05, 12, true, 0.2); //running left animation
+    this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, 0.2); //running left animation
     this.speed = -300;
+    this.previousState = 'running';
     this.state = 'running';
     this.direction = 'left';
     console.log("pharaoh is running left");
@@ -172,11 +180,11 @@ Pharaoh.prototype.throw = function () {
         }   
     } else {
         if (this.state === 'idle'){
-            this.animation = new Animation(spriteSheets['throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
+            this.animation = new Animation(spriteSheets['throwing flip'], 900, 900, 12, 0.05, 12, false, 0.2);
         } else if (this.state === 'jumping'){
-            this.animation = new Animation(spriteSheets['throwing in the air'], 900, 900, 12, 0.05, 12, false, 0.2);
+            this.animation = new Animation(spriteSheets['throwing in the air flip'], 900, 900, 12, 0.05, 12, false, 0.2);
         } else if (this.state === 'running'){
-            this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
+            this.animation = new Animation(spriteSheets['run throwing flip '], 900, 900, 12, 0.05, 12, false, 0.2);
         }   
     }
     
@@ -256,7 +264,7 @@ function controlJump(pharaoh){
         pharaoh.y = pharaoh.groundLevel;
         if (pharaoh.isJumping === true){
             pharaoh.isJumping = false; 
-            pharaoh.state = null;
+            pharaoh.state = pharaoh.previousState;
             pharaoh.setToDefault();
         }       
         console.log("debug"); 
@@ -286,9 +294,13 @@ Pharaoh.prototype.getDirection = function(){
 Pharaoh.prototype.setDirection = function(theDirection){
     this.direction = theDirection;
 }
+Pharaoh.prototype.setPreviousState = function(state){
+    this.previousState = state;
+}
 Pharaoh.prototype.swapWorld = function(){
     this.underworld = !this.underworld;
 }
+
 
 
 

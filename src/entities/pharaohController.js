@@ -13,34 +13,33 @@ function pharaohController(mainCharacter){
 
 			//Running right 
 			if (e.code === "ArrowRight" && RightKeyPressed === "false"){
-				console.log("Right key pressed");
+				//console.log("Right key pressed");
 				that.Pharaoh.runRight();
 				RightKeyPressed = "true";
 
 			//Running left
 			} else if(e.code === "ArrowLeft" && LeftKeyPressed === "false"){
-				console.log("Left key pressed");
+				//console.log("Left key pressed");
 				that.Pharaoh.runLeft();
 				LeftKeyPressed = "true";
 
 			//Jumping
 			//Add more lines for jumping left/up and jumping right/up
-			} else if(e.code === "ArrowUp" && UpArrowPressed === "false"){
+			} else if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping"){
 				e.preventDefault();
 
-				if(that.Pharaoh.getDirection() === "right") {
-					that.Pharaoh.jump();
-				} else if(that.Pharaoh.getDirection() === "left") {
-					that.Pharaoh.jumpLeft();
-					console.log("Jumping left");
-				} 
-
-				console.log("Up key pressed");
+				that.Pharaoh.jump();
+				if (RightKeyPressed === "true" || LeftKeyPressed === "true"){
+					that.Pharaoh.setPreviousState("running");
+				} else {
+					that.Pharaoh.setPreviousState("idle");
+				}
+				
 				UpArrowPressed = "true";
 			
 			//World switching
 			} else if(e.code === "Space"){
-				console.log("Space bar pressed");
+				//console.log("Space bar pressed");
 				//Switch worlds
 
 			//Slashing
@@ -57,46 +56,45 @@ function pharaohController(mainCharacter){
 
 	}, false);
 	
-	// Listends for key up events
+	//Listends for key up events
 	document.addEventListener("keyup", function (e) {
 		console.log(e);
 
 			if (e.code === "ArrowRight" && RightKeyPressed === "true"){
-				console.log("Right key up");
-
+				//console.log("Right key up");
 				that.Pharaoh.idle();
 				RightKeyPressed = "false";
 
 			}	else if(e.code === "ArrowLeft" && LeftKeyPressed === "true"){
-				console.log("Left key up");
-				that.Pharaoh.idleLeft();
+				//console.log("Left key up");
+				that.Pharaoh.idle();
 				LeftKeyPressed = "false";
 
 			}   else if(e.code === "ArrowUp" && UpArrowPressed === "true"){
-				console.log("Up key released");
+				//console.log("Up key released");
 
 		//Still working on this part after jumping
-				// if (that.Pharaoh.getDirection() === "right") { //Character is facing right
+			// if (that.Pharaoh.getDirection() === "right") { //Character is facing right
 
-				// 	if (that.Pharaoh.getState() === "running"){ //running right
-				// 		that.Pharaoh.runRight();
-				// 	} else {
-				// 		that.Pharaoh.idle(); //idle right
-				// 	}
-				// } else if (that.Pharaoh.getDirection() === "left") {//Character is facing left
-				// 	if (that.Pharaoh.getState() === "running"){ //running left
-				// 		that.Pharaoh.runLeft();
-				// 	} else {
-				// 		that.Pharaoh.idleLeft(); //idle left
-				// 	}
-				// }
+			// 		if (that.Pharaoh.getState() === "running"){ //running right
+			// 			that.Pharaoh.runRight();
+			// 		} else {
+			// 			that.Pharaoh.idle(); //idle right
+			// 		}
+			// 	} else if (that.Pharaoh.getDirection() === "left") {//Character is facing left
+			// 		if (that.Pharaoh.getState() === "running"){ //running left
+			// 			that.Pharaoh.runLeft();
+			// 		} else {
+			// 			that.Pharaoh.idleLeft(); //idle left
+			// 		}
+			// 	}
 				
-				UpArrowPressed = "false";
+			UpArrowPressed = "false";
 
 			} 
 
 	}, false);
-
+			
 }
 
 		// 	//Instructions:
