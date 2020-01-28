@@ -20,6 +20,8 @@ Background.prototype.update = function () {
 
 //Background
 AM.queueDownload("./../assets/backgrounds/desertBackground1.jpg");
+AM.queueDownload("./../assets/backgrounds/egypt.png");
+
 //Pharo
 AM.queueDownload("./../assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"); //idle
 AM.queueDownload("./../assets/sprites/2_MUMMY/_WALK/WALK SpriteSheet.png"); //walking
@@ -82,7 +84,7 @@ AM.downloadAll(function () {
 
             //Pharaoh Controller class
             var characterControl = new pharaohController(mainCharacter);
-            gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/desertBackground1.jpg")));
+            gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/egypt.png")));
             gameEngine.addEntity(mainCharacter);
             gameEngine.addEntity(enemy);  
             loadedGame = true;       

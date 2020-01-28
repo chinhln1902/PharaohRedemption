@@ -58,7 +58,7 @@ function Pharaoh(game, assetManager) {
     this.direction = "right";
 
     //jump variables
-    this.groundLevel = 525;
+    this.groundLevel = 490;
     this.y = this.groundLevel;
     this.yVelocity = 0;
     this.isJumping = false;
