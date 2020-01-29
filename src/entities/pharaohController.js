@@ -12,19 +12,18 @@ function pharaohController(mainCharacter){
 		console.log(e);
 
 			//Running right 
-			if (e.code === "ArrowRight" && RightKeyPressed === "false"){
-				//console.log("Right key pressed");
+			if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
+
 				that.Pharaoh.runRight();
 				RightKeyPressed = "true";
 
 			//Running left
-			} else if(e.code === "ArrowLeft" && LeftKeyPressed === "false"){
-				//console.log("Left key pressed");
+			} else if(e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false"){
+
 				that.Pharaoh.runLeft();
 				LeftKeyPressed = "true";
 
 			//Jumping
-			//Add more lines for jumping left/up and jumping right/up
 			} else if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping"){
 				e.preventDefault();
 
@@ -39,8 +38,7 @@ function pharaohController(mainCharacter){
 			
 			//World switching
 			} else if(e.code === "Space"){
-				//console.log("Space bar pressed");
-				//Switch worlds
+
 				that.Pharaoh.swapWorld();
 
 			//Slashing
@@ -48,11 +46,12 @@ function pharaohController(mainCharacter){
 				console.log("Key E pressed");
 				that.Pharaoh.slash();
 				
-			//Throwing
+			//Bonus attack
 			} else if(e.code === "KeyF"){
-				console.log("Key F pressed");
-				//that.Pharaoh.throw();
-				//Something is wrong with throwing animation. 
+
+			//Projectile 
+			} else if(e.code === "KeyQ"){
+				that.Pharaoh.throw();
 			}
 
 	}, false);
@@ -61,7 +60,7 @@ function pharaohController(mainCharacter){
 	document.addEventListener("keyup", function (e) {
 		console.log(e);
 
-			if (e.code === "ArrowRight" && RightKeyPressed === "true"){
+			if (e.code === "ArrowRight" && RightKeyPressed === "true" ){
 				//console.log("Right key up");
 				that.Pharaoh.idle();
 				RightKeyPressed = "false";
@@ -72,25 +71,8 @@ function pharaohController(mainCharacter){
 				LeftKeyPressed = "false";
 
 			}   else if(e.code === "ArrowUp" && UpArrowPressed === "true"){
-				//console.log("Up key released");
 
-		//Still working on this part after jumping
-			// if (that.Pharaoh.getDirection() === "right") { //Character is facing right
-
-			// 		if (that.Pharaoh.getState() === "running"){ //running right
-			// 			that.Pharaoh.runRight();
-			// 		} else {
-			// 			that.Pharaoh.idle(); //idle right
-			// 		}
-			// 	} else if (that.Pharaoh.getDirection() === "left") {//Character is facing left
-			// 		if (that.Pharaoh.getState() === "running"){ //running left
-			// 			that.Pharaoh.runLeft();
-			// 		} else {
-			// 			that.Pharaoh.idleLeft(); //idle left
-			// 		}
-			// 	}
-				
-			UpArrowPressed = "false";
+				UpArrowPressed = "false";
 
 			} 
 
