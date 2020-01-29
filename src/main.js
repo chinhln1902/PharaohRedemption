@@ -89,7 +89,8 @@ AM.queueDownload("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwin
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet flip.png");                         //walking 
 AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png"); 
 
-
+//Goul 
+AM.queueDownload("./../assets/sprites/Goul Walk.png");
 
 
 AM.downloadAll(function () {
@@ -106,13 +107,17 @@ AM.downloadAll(function () {
 
             //Pharaoh class
             var mainCharacter = new Pharaoh(gameEngine, AM);
+			var goul = new Goul(gameEngine, AM.getAsset("./../assets/sprites/Goul Walk.png"));
             var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
 
             //Pharaoh Controller class
             var characterControl = new pharaohController(mainCharacter);
             gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/egypt.png")));
+            // gameEngine.addEntity(goul);
+
             gameEngine.addEntity(mainCharacter);
             gameEngine.addEntity(enemy);  
+			gameEngine.addEntity(goul);
             loadedGame = true;       
         }
     }
