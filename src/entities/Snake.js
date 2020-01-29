@@ -1,7 +1,7 @@
 function Snake(game, spritesheet) {
     this.animation = new Animation(spritesheet, 94.8, 85, 12, .1, 12, .5, true, .2);
     this.x = 600;
-    this.y = 580;
+    this.y = 555;
     this.speed = 0;
     this.game = game;
     this.ctx = game.ctx;
