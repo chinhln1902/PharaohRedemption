@@ -21,6 +21,7 @@ Background.prototype.update = function () {
 //Background
 AM.queueDownload("./../assets/backgrounds/desertBackground1.jpg");
 AM.queueDownload("./../assets/backgrounds/egypt.png");
+AM.queueDownload("./../assets/backgrounds/underworld.png");
 
 //Pharo
 AM.queueDownload("./../assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"); //idle
