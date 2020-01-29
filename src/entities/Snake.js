@@ -5,9 +5,22 @@ function Snake(game, spritesheet) {
     this.speed = 0;
     this.game = game;
     this.ctx = game.ctx;
+
+    var underworld = false;
+    var that = this;
+    document.addEventListener("keydown", function (e) {
+        console.log(e);
+		//Running right 
+		if (e.code === "Space"){
+            console.log("underworld: " + that.underworld);
+            e.preventDefault();
+            that.underworld = !that.underworld;
+        }
+    });
 }
 
 Snake.prototype.draw = function () {
+    if (this.underworld) return;
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     Entity.prototype.draw.call(this);
 }
