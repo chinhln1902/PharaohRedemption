@@ -92,6 +92,9 @@ AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png");
 //Goul 
 AM.queueDownload("./../assets/sprites/Goul Walk.png");
 
+//Bat
+AM.queueDownload("./../assets/sprites/Bat Fly Flip.png");
+
 
 AM.downloadAll(function () {
     var canvas = document.getElementById("gameWorld");
@@ -108,7 +111,9 @@ AM.downloadAll(function () {
             //Pharaoh class
             var mainCharacter = new Pharaoh(gameEngine, AM);
 			var goul = new Goul(gameEngine, AM.getAsset("./../assets/sprites/Goul Walk.png"));
-            var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
+            var bat = new Bat(gameEngine, AM.getAsset("./../assets/sprites/Bat Fly Flip.png"));
+
+			var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
 
             //Pharaoh Controller class
             var characterControl = new pharaohController(mainCharacter);
@@ -117,6 +122,8 @@ AM.downloadAll(function () {
 
             gameEngine.addEntity(mainCharacter);
             gameEngine.addEntity(enemy);  
+            gameEngine.addEntity(bat);  
+
 			gameEngine.addEntity(goul);
             loadedGame = true;       
         }
