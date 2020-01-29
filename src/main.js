@@ -8,15 +8,39 @@ function Background(game, spritesheet) {
     this.spritesheet = spritesheet;
     this.game = game;
     this.ctx = game.ctx;
-};
+    var that = this;
+    this.underworld = false;
+
+    document.addEventListener("keydown", function (e) {
+        console.log(e);
+		//Running right 
+		if (e.code === "Space"){
+            console.log("underworld: " + that.underworld);
+            e.preventDefault();
+            if (that.underworld){
+                
+                that.switch(AM.getAsset("./../assets/backgrounds/egypt.png"));
+            } else {
+                that.switch(AM.getAsset("./../assets/backgrounds/underworld.png"));
+            }
+            
+        }
+    });
+}
 
 Background.prototype.draw = function () {
     this.ctx.drawImage(this.spritesheet,
                    this.x, this.y,1200,780);
-};
+}
 
 Background.prototype.update = function () {
-};
+}
+
+Background.prototype.switch = function(background){
+    this.spritesheet = background;
+    this.underworld = !this.underworld;
+}
+
 
 //Background
 AM.queueDownload("./../assets/backgrounds/desertBackground1.jpg");
@@ -72,6 +96,7 @@ AM.downloadAll(function () {
     var canvas = document.getElementById("gameWorld");
     var ctx = canvas.getContext("2d");
     var loadedGame = false;
+    
     while(!loadedGame){
         console.log("Loaded Game?: "+AM.isDone());
         if (AM.isDone()){

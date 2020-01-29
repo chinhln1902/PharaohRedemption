@@ -86,6 +86,7 @@ Pharaoh.prototype.update = function () {
 
 //draw is called after every update
 Pharaoh.prototype.draw = function () {
+    if (!this.underworld) return;
     //console.log(this.animation);
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     Entity.prototype.draw.call(this);

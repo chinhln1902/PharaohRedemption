@@ -41,6 +41,7 @@ function pharaohController(mainCharacter){
 			} else if(e.code === "Space"){
 				//console.log("Space bar pressed");
 				//Switch worlds
+				that.Pharaoh.swapWorld();
 
 			//Slashing
 			} else if(e.code === "KeyE"){
