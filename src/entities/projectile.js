@@ -1,12 +1,14 @@
-function projectile(game, spritesheet) {
-    this.animation = new Animation(spritesheet, 94.8, 85, 12, .1, 12, .5, true, .2);
-    this.x = 600;
-    this.y = 555;
+function Projectile(game, spritesheet, spritesheetFlip, startX, startY) {
+    this.animation = new Animation(spritesheet, 128, 128, 14, .05, 14, false, 1);
+    this.animationFlip = new Animation(spritesheetFlip, 128, 128, 14, .05, 14, false, 1);
+    this.x = startX;
+    this.y = startY;
     this.speed = 900;
     this.game = game;
     this.ctx = game.ctx;
+    this.timeAlive = 0;
 
-    var underworld = false;
+    this.underworld = false;
     var that = this;
     document.addEventListener("keydown", function (e) {
         console.log(e);
@@ -17,19 +19,26 @@ function projectile(game, spritesheet) {
             that.underworld = !that.underworld;
         }
     });
+    console.log("projectile");
 }
 
-projectile.prototype.draw = function () {
-    if (this.underworld) return;
+Projectile.prototype = new Entity();
+Projectile.prototype.constructor = Projectile;
+
+Projectile.prototype.draw = function () {
+    //if (this.underworld) return;
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     Entity.prototype.draw.call(this);
 }
 
-projectile.prototype.update = function () {
+Projectile.prototype.update = function () {
+    if (this.timeAlive > 20) this.speed = 0;
     this.x += this.game.clockTick * this.speed;
-    if (pharaoh.x > 1200) pharaoh.x = -230;
-    if (pharaoh.x < -230) pharaoh.x = 1200;
+    if (this.x > 1200) this.x = -230;
+    if (this.x < -230) this.x = 1200;
     Entity.prototype.update.call(this);
+    //console.log("this position: " + this.x);
+    this.timeAlive ++;
 }
 
 

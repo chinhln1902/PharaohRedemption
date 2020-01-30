@@ -45,6 +45,7 @@ function loadSpriteSheets(AM){
 // Pharaoh "class". Represents the main character and all of his actions.
 function Pharaoh(game, assetManager) {
 
+    this.engine = game;
     this.AM = assetManager;   
     loadSpriteSheets(this.AM);
     console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
@@ -81,6 +82,7 @@ Pharaoh.prototype.update = function () {
     controlMovement(this);
     controlJump(this);
     Entity.prototype.update.call(this);
+    //console.log("spam!");
     
 }
 
@@ -179,6 +181,9 @@ Pharaoh.prototype.throw = function () {
         } else if (this.state === 'running'){
             this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
         }   
+        var comet = new Projectile(gameEngine, AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png"),
+                AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png"), 100, 100);
+        this.engine.addEntity(comet);
     } else {
         if (this.state === 'idle'){
             this.animation = new Animation(spriteSheets['throwing flip'], 900, 900, 12, 0.05, 12, false, 0.2);
