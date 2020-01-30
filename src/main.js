@@ -94,14 +94,15 @@ AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png");
 //Goul 
 AM.queueDownload("./../assets/sprites/Goul Walk.png");
 
-<<<<<<< HEAD
+
 //projectile
 AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png");
 AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png");
-=======
+
 //Bat
 AM.queueDownload("./../assets/sprites/Bat Fly Flip.png");
->>>>>>> 483999670dd969239aab5bf17fe677dab5e23400
+
+
 
 
 AM.downloadAll(function () {

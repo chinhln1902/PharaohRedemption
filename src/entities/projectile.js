@@ -1,9 +1,15 @@
-function Projectile(game, spritesheet, spritesheetFlip, startX, startY) {
-    this.animation = new Animation(spritesheet, 128, 128, 14, .05, 14, false, 1);
-    this.animationFlip = new Animation(spritesheetFlip, 128, 128, 14, .05, 14, false, 1);
+function Projectile(game, spritesheet, direction, startX, startY) {
+    if (direction === "right"){
+        this.animation = new Animation(spritesheet, 128, 128, 14, .05, 14, false, 1);
+        this.speed = 900;
+    } 
+    if (direction === "left"){
+        this.animation = new Animation(spritesheet, 128, 128, 14, .05, 14, false, 1);
+        this.speed = -900;
+    }
     this.x = startX;
     this.y = startY;
-    this.speed = 900;
+    
     this.game = game;
     this.ctx = game.ctx;
     this.timeAlive = 0;
