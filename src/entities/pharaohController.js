@@ -80,9 +80,3 @@ function pharaohController(mainCharacter){
 			
 }
 
-		// 	//Instructions:
-		// 	// make it so that you can use arrow keys and asdw. 
-		// 	// e = slash, q = throw, f = special attack.
-		// 	// space = switch worlds
-		// }
-

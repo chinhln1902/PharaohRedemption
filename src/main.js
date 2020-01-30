@@ -91,6 +91,7 @@ AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png");
 
 //Goul 
 AM.queueDownload("./../assets/sprites/Goul Walk.png");
+AM.queueDownload("./../assets/sprites/Goul Die.png");
 
 //Bat
 AM.queueDownload("./../assets/sprites/Bat Fly Flip.png");
@@ -125,7 +126,8 @@ AM.downloadAll(function () {
             gameEngine.addEntity(bat);  
 
 			gameEngine.addEntity(goul);
-            loadedGame = true;       
+            loadedGame = true;  
+            
         }
     }
     

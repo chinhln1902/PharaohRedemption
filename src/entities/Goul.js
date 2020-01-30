@@ -15,13 +15,6 @@ function Goul(game, spritesheet) {
             console.log("underworld: " + that.underworld);
             e.preventDefault();
             that.swapWorld();
-            // if (that.underworld){
-                
-            //     that.switch(AM.getAsset("./../assets/backgrounds/egypt.png"));
-            // } else {
-            //     that.switch(AM.getAsset("./../assets/backgrounds/underworld.png"));
-            // }
-            
         }
     });
 }
@@ -40,10 +33,9 @@ Goul.prototype.update = function () {
 Goul.prototype.swapWorld = function(){
     this.underworld = !this.underworld;
 }
-// Goul.prototype.die = function () {
-//     this.animation = new Animation(spritesheet['dying'], 852, 872, 10, 0.08, 10, true, .3);
-//     this.x = 0;
-//     this.y = 350;
-//     //this.speed = 0;
+Goul.prototype.die = function () {
+    this.animation = new Animation(spritesheet['dying'], 852, 872, 10, 0.08, 10, true, .3);
+    this.x = 0;
+    this.y = 350;
 
-// }
+}

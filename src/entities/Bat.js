@@ -15,13 +15,6 @@ function Bat(game, spritesheet) {
             console.log("underworld: " + that.underworld);
             e.preventDefault();
             that.swapWorld();
-            // if (that.underworld){
-                
-            //     that.switch(AM.getAsset("./../assets/backgrounds/egypt.png"));
-            // } else {
-            //     that.switch(AM.getAsset("./../assets/backgrounds/underworld.png"));
-            // }
-            
         }
     });
 }
@@ -38,7 +31,6 @@ Bat.prototype.update = function () {
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;
     
-    //if (this.x > 800) this.x = -230;
 }
 
 Bat.prototype.swapWorld = function(){
