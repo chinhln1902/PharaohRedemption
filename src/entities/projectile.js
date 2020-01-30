@@ -16,9 +16,7 @@ function Projectile(game, spritesheet, direction, startX, startY) {
 
     this.underworld = false;
     var that = this;
-    document.addEventListener("keydown", function (e) {
-        console.log(e);
-		//Running right 
+    document.addEventListener("keydown", function (e) { 
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
