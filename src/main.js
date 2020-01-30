@@ -94,9 +94,14 @@ AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png");
 //Goul 
 AM.queueDownload("./../assets/sprites/Goul Walk.png");
 
+<<<<<<< HEAD
 //projectile
 AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png");
 AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png");
+=======
+//Bat
+AM.queueDownload("./../assets/sprites/Bat Fly Flip.png");
+>>>>>>> 483999670dd969239aab5bf17fe677dab5e23400
 
 
 AM.downloadAll(function () {
@@ -114,7 +119,9 @@ AM.downloadAll(function () {
             //Pharaoh class
             var mainCharacter = new Pharaoh(gameEngine, AM);
 			var goul = new Goul(gameEngine, AM.getAsset("./../assets/sprites/Goul Walk.png"));
-            var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
+            var bat = new Bat(gameEngine, AM.getAsset("./../assets/sprites/Bat Fly Flip.png"));
+
+			var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
 
             
 
@@ -128,6 +135,8 @@ AM.downloadAll(function () {
             
             gameEngine.addEntity(mainCharacter);
             gameEngine.addEntity(enemy);  
+            gameEngine.addEntity(bat);  
+
 			gameEngine.addEntity(goul);
             loadedGame = true;       
         }
