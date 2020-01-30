@@ -87,14 +87,23 @@ AM.queueDownload("./../assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet flip.png");                       //throwing 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet flip.png"); //throwing in the air 
 AM.queueDownload("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet flip.png");                         //walking 
+
+//snake
 AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png"); 
 
 //Goul 
 AM.queueDownload("./../assets/sprites/Goul Walk.png");
 AM.queueDownload("./../assets/sprites/Goul Die.png");
 
+
+//projectile
+AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png");
+AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png");
+
 //Bat
 AM.queueDownload("./../assets/sprites/Bat Fly Flip.png");
+
+
 
 
 AM.downloadAll(function () {
@@ -116,11 +125,16 @@ AM.downloadAll(function () {
 
 			var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
 
+            
+
+            
+
             //Pharaoh Controller class
             var characterControl = new pharaohController(mainCharacter);
             gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/egypt.png")));
             // gameEngine.addEntity(goul);
 
+            
             gameEngine.addEntity(mainCharacter);
             gameEngine.addEntity(enemy);  
             gameEngine.addEntity(bat);  
