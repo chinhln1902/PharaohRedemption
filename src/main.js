@@ -12,8 +12,6 @@ function Background(game, spritesheet) {
     this.underworld = false;
 
     document.addEventListener("keydown", function (e) {
-        console.log(e);
-		//Running right 
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
@@ -93,7 +91,6 @@ AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png");
 
 //Goul 
 AM.queueDownload("./../assets/sprites/Goul Walk.png");
-
 
 //projectile
 AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png");
