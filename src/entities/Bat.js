@@ -5,6 +5,7 @@ function Bat(game, spritesheet) {
     this.speed = 0;
     this.game = game;
     this.ctx = game.ctx;
+    this.name = "bat"; 
     this.underworld = false;
     var that = this;
 

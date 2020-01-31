@@ -3,12 +3,17 @@ function Snake(game, spritesheet) {
     this.x = 600;
     this.y = 555;
     this.speed = 0;
+    this.width = 93;
+    this.height = 85; 
     this.game = game;
     this.ctx = game.ctx;
+    this.name = "snake"; 
 
     var underworld = false;
     var that = this;
     document.addEventListener("keydown", function (e) {
+        console.log(e);
+		//Running right 
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
