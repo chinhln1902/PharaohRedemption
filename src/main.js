@@ -12,6 +12,8 @@ function Background(game, spritesheet) {
     this.underworld = false;
 
     document.addEventListener("keydown", function (e) {
+        console.log(e);
+		//Running right 
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
@@ -92,6 +94,7 @@ AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png");
 //Goul 
 AM.queueDownload("./../assets/sprites/Goul Walk.png");
 
+
 //projectile
 AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png");
 AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png");
@@ -135,10 +138,9 @@ AM.downloadAll(function () {
 
             //Pharaoh Controller class
             var characterControl = new pharaohController(mainCharacter);
+            //Add platform for level 1
+            var platformLevel1 = new platformController(gameEngine, AM);
 
-            //Platform
-            var woodenBarrel = new platformController(gameEngine, AM);
-            woodenBarrel.loadPlatformsLevel1(gameEngine);
 
             gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/egypt.png")));
             // gameEngine.addEntity(goul);
@@ -146,6 +148,8 @@ AM.downloadAll(function () {
             gameEngine.addEntity(mainCharacter);
             gameEngine.addEntity(enemy);  
             gameEngine.addEntity(bat);  
+            
+            platformLevel1.loadPlatformsLevel1();
 
             // gameEngine.addEntity(woodenBarrel);
             gameEngine.addEntity(archer); 

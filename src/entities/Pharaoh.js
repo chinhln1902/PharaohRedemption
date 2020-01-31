@@ -48,7 +48,7 @@ function Pharaoh(game, assetManager) {
     this.engine = game;
     this.AM = assetManager;   
     loadSpriteSheets(this.AM);
-    //console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
+    console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
     this.ctx = game.ctx;
     this.idle();
     Entity.call(this, game, 500, 250);
@@ -167,7 +167,7 @@ Pharaoh.prototype.slash = function () {
             this.animation = new Animation(spriteSheets['slashing in the air flip'], 900, 900, 12, 0.05, 12, false, 0.2);
         } else if (this.state === 'running'){
             this.animation = new Animation(spriteSheets['run slashing flip'], 900, 900, 12, 0.05, 12, false, 0.2);
-        }   
+        }
     }
     this.playingTempAnimation = true;
 }
@@ -182,7 +182,7 @@ Pharaoh.prototype.throw = function () {
         } else if (this.state === 'running'){
             this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
         }   
-        var comet = new Projectile(this.engine, this.AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png"),
+        var comet = new Projectile(this.engine, AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png"),
                 "right", this.x + 10, this.y+10);
         this.engine.addEntity(comet);
     } else {
@@ -193,12 +193,11 @@ Pharaoh.prototype.throw = function () {
         } else if (this.state === 'running'){
             this.animation = new Animation(spriteSheets['run throwing flip'], 900, 900, 12, 0.05, 12, false, 0.2);
         }   
-        var comet = new Projectile(this.engine, this.AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png"),
+        var comet = new Projectile(this.engine, AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png"),
                "left", this.x - 10, this.y+10);
         this.engine.addEntity(comet);
-        
     }
-    console.log("asset manager length: " + this.AM.getNumberOfAssets());
+    
     this.playingTempAnimation = true;
 }
 
@@ -267,9 +266,23 @@ function controlAnimation(pharaoh){
 function controlJump(pharaoh){
     //in the air
     if (pharaoh.isJumping === true){
+        //pharaoh.yVelocity = pharaoh.yVelocity - 0.5;
         pharaoh.yVelocity -= 0.5;
+        //pharaoh.y = pharaoh.y - pharaoh.yVelocity;
         pharaoh.y -= pharaoh.yVelocity;
     }
+
+    //Checking collision 
+    for (var i = 0; i < platforms.length; i++) {
+        var y = platforms[i];
+        if (pharaoh.collide(platforms[i])) {
+            pharaoh.y = platforms[i].y;
+            pharaoh.isJumping = false;
+            pharaoh.state = pharaoh.previousState;
+            pharaoh.setToDefault();
+        }   
+    }    
+
     // touching the ground
     if (pharaoh.y > pharaoh.groundLevel){
         pharaoh.y = pharaoh.groundLevel;
@@ -310,6 +323,26 @@ Pharaoh.prototype.setPreviousState = function(state){
 }
 Pharaoh.prototype.swapWorld = function(){
     this.underworld = !this.underworld;
+}
+
+function distance(a,b) {
+    var difX = a.x - b.x;
+    var difY = a.y - b.y;
+    var result = Math.sqrt(difX * difX + difY * difY);
+    return Math.sqrt(difX * difX + difY * difY);
+}
+
+Pharaoh.prototype.collideRight = function () {
+    return this.Pharaoh.x + this.Platform.x > 800;
+}
+Pharaoh.prototype.collideLeft = function () {
+    return this.Pharaoh.x - this.Platform.x > 0;
+}
+Pharaoh.prototype.collide = function (other) {
+    var pharaohX = this.x;
+    var otherX = other.x;
+    var result = distance(this, other) < this.x + other.x;
+    return this.y > other.y;
 }
 
 
