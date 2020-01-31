@@ -102,7 +102,8 @@ AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png
 //Bat
 AM.queueDownload("./../assets/sprites/Bat Fly Flip.png");
 
-
+//Platform
+AM.queueDownload("./../assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
 
 
 AM.downloadAll(function () {
@@ -124,31 +125,35 @@ AM.downloadAll(function () {
 
 			var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
 
-            
 
             
 
             //Pharaoh Controller class
             var characterControl = new pharaohController(mainCharacter);
+
+            //Platform
+            var woodenBarrel = new platformController(gameEngine, AM);
+            woodenBarrel.loadPlatformsLevel1(gameEngine);
+
             gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./../assets/backgrounds/egypt.png")));
             // gameEngine.addEntity(goul);
 
-            
             gameEngine.addEntity(mainCharacter);
             gameEngine.addEntity(enemy);  
             gameEngine.addEntity(bat);  
 
-			gameEngine.addEntity(goul);
+            gameEngine.addEntity(goul);
+            // gameEngine.addEntity(woodenBarrel);
             loadedGame = true;       
         }
-    }
+    } 
     
     
     console.log("AM Number of assets: " + AM.getNumberOfAssets());
     //mainCharacter.jump();
     //mainCharacter.walkRight();
 
-    console.log("All Done!");
+    console.log("All Done!"); 
 });
 
 
