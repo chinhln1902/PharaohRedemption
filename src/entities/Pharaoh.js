@@ -48,10 +48,11 @@ function Pharaoh(game, assetManager) {
     this.engine = game;
     this.AM = assetManager;   
     loadSpriteSheets(this.AM);
-    console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
+    //console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
     this.ctx = game.ctx;
     this.idle();
-    Entity.call(this, game, 0, 250);
+    Entity.call(this, game, 500, 250);
+    this.name = "pharaoh"; 
 
     //state is a string which can be either: 'idle' 'jumping' or 'moving'
     this.state = "idle"; 
@@ -181,7 +182,7 @@ Pharaoh.prototype.throw = function () {
         } else if (this.state === 'running'){
             this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
         }   
-        var comet = new Projectile(this.engine, AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png"),
+        var comet = new Projectile(this.engine, this.AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png"),
                 "right", this.x + 10, this.y+10);
         this.engine.addEntity(comet);
     } else {
@@ -192,11 +193,12 @@ Pharaoh.prototype.throw = function () {
         } else if (this.state === 'running'){
             this.animation = new Animation(spriteSheets['run throwing flip'], 900, 900, 12, 0.05, 12, false, 0.2);
         }   
-        var comet = new Projectile(this.engine, AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png"),
+        var comet = new Projectile(this.engine, this.AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png"),
                "left", this.x - 10, this.y+10);
         this.engine.addEntity(comet);
+        
     }
-    
+    console.log("asset manager length: " + this.AM.getNumberOfAssets());
     this.playingTempAnimation = true;
 }
 

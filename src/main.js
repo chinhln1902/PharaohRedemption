@@ -12,8 +12,6 @@ function Background(game, spritesheet) {
     this.underworld = false;
 
     document.addEventListener("keydown", function (e) {
-        console.log(e);
-		//Running right 
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
@@ -94,7 +92,6 @@ AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png");
 //Goul 
 AM.queueDownload("./../assets/sprites/Goul Walk.png");
 
-
 //projectile
 AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png");
 AM.queueDownload("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png");
@@ -104,6 +101,14 @@ AM.queueDownload("./../assets/sprites/Bat Fly Flip.png");
 
 //Platform
 AM.queueDownload("./../assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
+//Archer
+AM.queueDownload("./../assets/sprites/Archer-Idle.png");
+AM.queueDownload("./../assets/sprites/Archer-Shooting.png")
+
+//Arrow for the archer
+AM.queueDownload("./../assets/sprites/Arrow.png"); 
+
+
 
 
 AM.downloadAll(function () {
@@ -122,7 +127,7 @@ AM.downloadAll(function () {
             var mainCharacter = new Pharaoh(gameEngine, AM);
 			var goul = new Goul(gameEngine, AM.getAsset("./../assets/sprites/Goul Walk.png"));
             var bat = new Bat(gameEngine, AM.getAsset("./../assets/sprites/Bat Fly Flip.png"));
-
+            var archer = new Archer(gameEngine, AM); 
 			var enemy = new Snake(gameEngine, AM.getAsset("./../assets/sprites/PSNAKE-IDLE2.png")); 
 
 
@@ -142,8 +147,9 @@ AM.downloadAll(function () {
             gameEngine.addEntity(enemy);  
             gameEngine.addEntity(bat);  
 
-            gameEngine.addEntity(goul);
             // gameEngine.addEntity(woodenBarrel);
+            gameEngine.addEntity(archer); 
+			gameEngine.addEntity(goul);
             loadedGame = true;       
         }
     } 

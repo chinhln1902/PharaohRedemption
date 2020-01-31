@@ -5,6 +5,7 @@ function Goul(game, spritesheet) {
     this.speed = 0;
     this.game = game;
     this.ctx = game.ctx;
+    this.name = "goul"; 
     this.underworld = false;
     var that = this;
     
