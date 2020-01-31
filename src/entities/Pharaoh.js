@@ -51,7 +51,8 @@ function Pharaoh(game, assetManager) {
     //console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
     this.ctx = game.ctx;
     this.idle();
-    Entity.call(this, game, 0, 250);
+    Entity.call(this, game, 500, 250);
+    this.name = "pharaoh"; 
 
     //state is a string which can be either: 'idle' 'jumping' or 'moving'
     this.state = "idle"; 

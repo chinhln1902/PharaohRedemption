@@ -3,8 +3,11 @@ function Snake(game, spritesheet) {
     this.x = 600;
     this.y = 555;
     this.speed = 0;
+    this.width = 93;
+    this.height = 85; 
     this.game = game;
     this.ctx = game.ctx;
+    this.name = "snake"; 
 
     var underworld = false;
     var that = this;
