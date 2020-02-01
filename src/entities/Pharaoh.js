@@ -295,14 +295,25 @@ function controlJump(pharaoh){
             pharaoh.onPlatform = true;
             pharaoh.setToDefault();
         } 
+
+        // Check if the pharaoh steps out of the platform or not
         if (pharaoh.onPlatform === true) {
+            // Check if the pharaoh steps out of the platform from the right
             if ((pharaoh.x + 90) > (platforms[i].x + platforms[i].width)) {
                 pharaoh.onPlatform = false;
-                pharaoh.y = pharaoh.groundLevel;
+                        //pharaoh.yVelocity = pharaoh.yVelocity - 0.5;
+                pharaoh.yVelocity -= 0.5;
+                //pharaoh.y = pharaoh.y - pharaoh.yVelocity;
+                pharaoh.y -= pharaoh.yVelocity;
             }
+            // Check if the pharaoh steps out of the platform from the left
             if ((pharaoh.x + 90) < (platforms[i].x)) {
                 pharaoh.onPlatform = false;
                 pharaoh.y = pharaoh.groundLevel;
+                //pharaoh.yVelocity = pharaoh.yVelocity - 0.5;
+                pharaoh.yVelocity -= 0.5;
+                //pharaoh.y = pharaoh.y - pharaoh.yVelocity;
+                pharaoh.y -= pharaoh.yVelocity;
             }
         } 
     }    
