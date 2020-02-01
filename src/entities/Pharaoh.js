@@ -91,7 +91,7 @@ Pharaoh.prototype.update = function () {
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
         if (ent.name === "arrow") { 
-            if (this.collide(ent)) { 
+            if (this.collideWithProjectile(ent)) { 
                 console.log("collided"); 
             }
         }
@@ -102,7 +102,7 @@ Pharaoh.prototype.update = function () {
 
 //draw is called after every update
 Pharaoh.prototype.draw = function () {
-    if (!this.underworld) return;
+    if (this.underworld) return;
     //console.log(this.animation);
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     Entity.prototype.draw.call(this);
@@ -288,18 +288,23 @@ function controlJump(pharaoh){
     // Checking collision 
     for (var i = 0; i < platforms.length; i++) {
         var y = platforms[i];
-        if (pharaoh.collide(platforms[i])) {
+        if (pharaoh.collideWithPlatforms(platforms[i])) {
             pharaoh.y = platforms[i].x + 100;
             pharaoh.isJumping = false;
             pharaoh.state = pharaoh.previousState;
             pharaoh.onPlatform = true;
             pharaoh.setToDefault();
         } 
-        // if (pharaoh.onPlatform === true && (pharaoh.x + 90) > (platforms[i].x + platforms[i].width)) {
-        //     debugger;
-        //     pharaoh.onPlatform = false;
-        //     pharaoh.y = pharaoh.groundLevel;
-        // }
+        if (pharaoh.onPlatform === true) {
+            if ((pharaoh.x + 90) > (platforms[i].x + platforms[i].width)) {
+                pharaoh.onPlatform = false;
+                pharaoh.y = pharaoh.groundLevel;
+            }
+            if ((pharaoh.x + 90) < (platforms[i].x)) {
+                pharaoh.onPlatform = false;
+                pharaoh.y = pharaoh.groundLevel;
+            }
+        } 
     }    
 
     // touching the ground
@@ -359,15 +364,15 @@ Pharaoh.prototype.collideLeft = function () {
     return this.Pharaoh.x - this.Platform.x > 0;
 }
 
-/*Pharaoh.prototype.collide = function (other) {
-    var pharaohX = this.x;
-    var otherX = other.x;
-    var result = distance(this, other) < this.x + other.x;
-    return this.x > other.x;
-}*/
+Pharaoh.prototype.collideWithPlatforms = function (other) {
+    var pharaohX =(this.x < other.x + other.width);
+    var otherX = (this.x + 80 + this.width > other.x);
+    var result = (this.y - 90 === other.x) && (this.x + 90 < other.x + other.width && this.x - 80 + this.width > other.x);
+    return (this.y - 90 > other.x) && (this.x + 90 < other.x + other.width) && (this.x - 80 + this.width > other.x);
+}
 
-Pharaoh.prototype.collide = function(other) {
-     if ((other.x - 30) < this.x && this.x < (other.x + 30)) {
+Pharaoh.prototype.collideWithProjectile = function(other) {
+    if ((other.x - 30) < this.x && this.x < (other.x + 30)) {
         return true; 
    } 
 }

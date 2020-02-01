@@ -26,7 +26,7 @@ function pharaohController(mainCharacter){
 			//Jumping
 			} else if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping"){
 				e.preventDefault();
-
+				
 				that.Pharaoh.jump();
 				if (RightKeyPressed === "true" || LeftKeyPressed === "true"){
 					that.Pharaoh.setPreviousState("running");
