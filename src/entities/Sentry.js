@@ -297,12 +297,16 @@ function controlJump(Sentry){
         } 
         if (Sentry.onPlatform === true) {
             if ((Sentry.x + 90) > (platforms[i].x + platforms[i].width)) {
+                Sentry.isJumping = true;
                 Sentry.onPlatform = false;
-                Sentry.y = Sentry.groundLevel;
+                Sentry.state = Sentry.previousState;
+                Sentry.setToDefault();
             }
             if ((Sentry.x + 90) < (platforms[i].x)) {
+                Sentry.isJumping = true;
                 Sentry.onPlatform = false;
-                Sentry.y = Sentry.groundLevel;
+                Sentry.state = Sentry.previousState;
+                Sentry.setToDefault();
             }
         } 
     }    

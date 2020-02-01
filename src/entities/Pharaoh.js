@@ -278,15 +278,16 @@ function controlAnimation(pharaoh){
 // called by the update method. controlls the jumping.
 function controlJump(pharaoh){
     //in the air
+ 
     if (pharaoh.isJumping === true){
         //pharaoh.yVelocity = pharaoh.yVelocity - 0.5;
-        pharaoh.yVelocity -= 0.5;
+        pharaoh.yVelocity -= 0.1 ;
         //pharaoh.y = pharaoh.y - pharaoh.yVelocity;
         pharaoh.y -= pharaoh.yVelocity;
     }
-
     // Checking collision 
     for (var i = 0; i < platforms.length; i++) {
+
         var y = platforms[i];
         if (pharaoh.collideWithPlatforms(platforms[i])) {
             pharaoh.y = platforms[i].x + 100;
@@ -300,20 +301,18 @@ function controlJump(pharaoh){
         if (pharaoh.onPlatform === true) {
             // Check if the pharaoh steps out of the platform from the right
             if ((pharaoh.x + 90) > (platforms[i].x + platforms[i].width)) {
+             debugger;
+                pharaoh.isJumping = true;
                 pharaoh.onPlatform = false;
-                        //pharaoh.yVelocity = pharaoh.yVelocity - 0.5;
-                pharaoh.yVelocity -= 0.5;
-                //pharaoh.y = pharaoh.y - pharaoh.yVelocity;
-                pharaoh.y -= pharaoh.yVelocity;
+                pharaoh.state = pharaoh.previousState;
+                pharaoh.setToDefault();
             }
             // Check if the pharaoh steps out of the platform from the left
             if ((pharaoh.x + 90) < (platforms[i].x)) {
+                pharaoh.isJumping = true;
                 pharaoh.onPlatform = false;
-                pharaoh.y = pharaoh.groundLevel;
-                //pharaoh.yVelocity = pharaoh.yVelocity - 0.5;
-                pharaoh.yVelocity -= 0.5;
-                //pharaoh.y = pharaoh.y - pharaoh.yVelocity;
-                pharaoh.y -= pharaoh.yVelocity;
+                pharaoh.state = pharaoh.previousState;
+                pharaoh.setToDefault();
             }
         } 
     }    
@@ -347,31 +346,17 @@ Pharaoh.prototype.setState = function(theState){
 Pharaoh.prototype.getDirection = function(){
     return this.direction;
 }
-
-Pharaoh.prototype.getY = function(){
-    return this.y;
+Pharaoh.prototype.getDirection = function(){
+    return this.direction;
 }
-Pharaoh.prototype.getGround = function(){
-    return this.groundLevel;
-}
-
 Pharaoh.prototype.setDirection = function(theDirection){
     this.direction = theDirection;
 }
 Pharaoh.prototype.setPreviousState = function(state){
     this.previousState = state;
 }
-
 Pharaoh.prototype.swapWorld = function(){
     this.underworld = !this.underworld;
-}
-
-Pharaoh.prototype.isInAir = function(){
-    if(this.x > groundLevel){
-        return true;
-    } else {
-        return false;
-    }
 }
 
 function distance(a,b) {
