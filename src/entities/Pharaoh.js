@@ -273,15 +273,15 @@ function controlJump(pharaoh){
     }
 
     //Checking collision 
-    for (var i = 0; i < platforms.length; i++) {
-        var y = platforms[i];
-        if (pharaoh.collide(platforms[i])) {
-            pharaoh.y = platforms[i].y;
-            pharaoh.isJumping = false;
-            pharaoh.state = pharaoh.previousState;
-            pharaoh.setToDefault();
-        }   
-    }    
+    // for (var i = 0; i < platforms.length; i++) {
+    //     var y = platforms[i];
+    //     if (pharaoh.collide(platforms[i])) {
+    //         pharaoh.y = platforms[i].y;
+    //         pharaoh.isJumping = false;
+    //         pharaoh.state = pharaoh.previousState;
+    //         pharaoh.setToDefault();
+    //     }   
+    // }    
 
     // touching the ground
     if (pharaoh.y > pharaoh.groundLevel){

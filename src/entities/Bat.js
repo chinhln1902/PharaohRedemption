@@ -27,6 +27,7 @@ function Bat(game, spritesheet) {
     });
 }
 
+
 Bat.prototype.draw = function () {
     if (!this.underworld) return;
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
@@ -34,7 +35,6 @@ Bat.prototype.draw = function () {
 
 Bat.prototype.update = function () {
     var that = this;
-
     this.x -= 3;
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;

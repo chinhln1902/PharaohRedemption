@@ -26,6 +26,7 @@ function Goul(game, spritesheet) {
         }
     });
 }
+
 Goul.prototype.draw = function () {
     if (!this.underworld) return;
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
