@@ -2,41 +2,41 @@
 var spriteSheets = [];
 function loadSpriteSheets(AM){
     //right
-    spriteSheets['dying'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet.png");
-    spriteSheets['falling down'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet.png");
-    spriteSheets['hurt'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet.png");
-    spriteSheets['idle'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet.png");
-    spriteSheets['idle blinking'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet.png");
-    spriteSheets['jump loop'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet.png"); 
-    spriteSheets['jump start'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png");            
-    spriteSheets['kicking'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet.png");
-    spriteSheets['run slashing'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet.png");
-    spriteSheets['run throwing'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet.png");
-    spriteSheets['running'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Running/Running SpriteSheet.png");
-    spriteSheets['slashing'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Slashing/Slashing SpriteSheet.png"); 
-    spriteSheets['slashing in the air'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Slashing in The Air/Slashing in The Air SpriteSheet.png");
-    spriteSheets['sliding'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet.png");
-    spriteSheets['throwing'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet.png");
-    spriteSheets['throwing in the air'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet.png");
-    spriteSheets['walking'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet.png"); 
+    spriteSheets['dying'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet.png");
+    spriteSheets['falling down'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet.png");
+    spriteSheets['hurt'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet.png");
+    spriteSheets['idle'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet.png");
+    spriteSheets['idle blinking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet.png");
+    spriteSheets['jump loop'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet.png"); 
+    spriteSheets['jump start'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet.png");            
+    spriteSheets['kicking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet.png");
+    spriteSheets['run slashing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet.png");
+    spriteSheets['run throwing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet.png");
+    spriteSheets['running'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet.png");
+    spriteSheets['slashing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing/Slashing SpriteSheet.png"); 
+    spriteSheets['slashing in the air'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing in The Air/Slashing in The Air SpriteSheet.png");
+    spriteSheets['sliding'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet.png");
+    spriteSheets['throwing'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet.png");
+    spriteSheets['throwing in the air'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet.png");
+    spriteSheets['walking'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet.png"); 
     //left
-    spriteSheets['dying flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet flip.png");
-    spriteSheets['falling down flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet flip.png");
-    spriteSheets['hurt flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet flip.png");
-    spriteSheets['idle flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet flip.png");
-    spriteSheets['idle blinking flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet flip.png");
-    spriteSheets['jump loop flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet flip.png"); 
-    spriteSheets['jump start flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet flip.png");            
-    spriteSheets['kicking flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet flip.png");
-    spriteSheets['run slashing flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet flip.png");
-    spriteSheets['run throwing flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet flip.png");
-    spriteSheets['running flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Running/Running SpriteSheet flip.png");
-    spriteSheets['slashing flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Slashing/Slashing SpriteSheet flip.png"); 
-    spriteSheets['slashing in the air flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Slashing in The Air/Slashing in The Air SpriteSheet flip.png");
-    spriteSheets['sliding flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet flip.png");
-    spriteSheets['throwing flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet flip.png");
-    spriteSheets['throwing in the air flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet flip.png");
-    spriteSheets['walking flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet flip.png");
+    spriteSheets['dying flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet flip.png");
+    spriteSheets['falling down flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet flip.png");
+    spriteSheets['hurt flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Hurt/Hurt SpriteSheet flip.png");
+    spriteSheets['idle flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle/Idle SpriteSheet flip.png");
+    spriteSheets['idle blinking flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Idle Blinking/Idle Blinking SpriteSheet flip.png");
+    spriteSheets['jump loop flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Loop/Jump Loop SpriteSheet flip.png"); 
+    spriteSheets['jump start flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Jump Start/Jump Start SpriteSheet flip.png");            
+    spriteSheets['kicking flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Kicking/Kicking SpriteSheet flip.png");
+    spriteSheets['run slashing flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Slashing/Run Slashing SpriteSheet flip.png");
+    spriteSheets['run throwing flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Run Throwing/Run Throwing SpriteSheet flip.png");
+    spriteSheets['running flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Running/Running SpriteSheet flip.png");
+    spriteSheets['slashing flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing/Slashing SpriteSheet flip.png"); 
+    spriteSheets['slashing in the air flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Slashing in The Air/Slashing in The Air SpriteSheet flip.png");
+    spriteSheets['sliding flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Sliding/Sliding SpriteSheet flip.png");
+    spriteSheets['throwing flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet flip.png");
+    spriteSheets['throwing in the air flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet flip.png");
+    spriteSheets['walking flip'] = AM.getAsset("./../assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet flip.png");
     
 }
 
@@ -348,7 +348,6 @@ Pharaoh.prototype.getY = function(){
 Pharaoh.prototype.getGroundLevel = function(){
     return this.groundLevel;
 }
-
 Pharaoh.prototype.getDirection = function(){
     return this.direction;
 }
