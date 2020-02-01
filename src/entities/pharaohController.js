@@ -4,6 +4,7 @@ function pharaohController(mainCharacter){
 	var RightKeyPressed = "false";
 	var LeftKeyPressed = "false";
 	var UpArrowPressed = "false";
+	var inAir = 0;
 
 	this.Pharaoh = mainCharacter;
 
@@ -24,9 +25,8 @@ function pharaohController(mainCharacter){
 				LeftKeyPressed = "true";
 
 			//Jumping
-			} else if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping"){
+			} else if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping"&& (that.Pharaoh.getY() === that.Pharaoh.getGround())){
 				e.preventDefault();
-				
 				that.Pharaoh.jump();
 				if (RightKeyPressed === "true" || LeftKeyPressed === "true"){
 					that.Pharaoh.setPreviousState("running");
