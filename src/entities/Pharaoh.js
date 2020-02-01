@@ -58,7 +58,7 @@ function Pharaoh(game, assetManager) {
     this.state = "idle"; 
     //direction is a string which can be either: 'left' or 'right'
     this.direction = "right";
-
+    this.x = 500; 
     //jump variables
     this.width = 200;
     this.height = 200;
@@ -66,6 +66,7 @@ function Pharaoh(game, assetManager) {
     this.y = this.groundLevel;
     this.yVelocity = 0;
     this.isJumping = false;
+    this.width = 180; 
 
     // this is true if we only want to play the animation once
     this.playingTempAnimation = false;
@@ -87,6 +88,14 @@ Pharaoh.prototype.update = function () {
     controlMovement(this);
     controlJump(this);
     Entity.prototype.update.call(this);
+    for (var i = 0; i < this.game.entities.length; i++) {
+        var ent = this.game.entities[i];
+        if (ent.name === "arrow") { 
+            if (this.collide(ent)) { 
+                console.log("collided"); 
+            }
+        }
+    }   
     //console.log("spam!");
     
 }
@@ -345,16 +354,29 @@ function distance(a,b) {
 Pharaoh.prototype.collideRight = function () {
     return this.Pharaoh.x + this.Platform.x > 800;
 }
+
 Pharaoh.prototype.collideLeft = function () {
     return this.Pharaoh.x - this.Platform.x > 0;
 }
-Pharaoh.prototype.collide = function (other) {
 
-    debugger;
-    var x = this.x < (other.x + other.width); //pharaoh getting close to the platform from the right
-    var x1 = (this.x + this.width) > other.x; //pharaoh getting clsoe to the platform from the left
-    return (this.y - 90 === other.x) && (this.x + 90 < other.x + other.width && this.x - 80 + this.width > other.x);
+/*Pharaoh.prototype.collide = function (other) {
+    var pharaohX = this.x;
+    var otherX = other.x;
+    var result = distance(this, other) < this.x + other.x;
+    return this.x > other.x;
+}*/
+
+Pharaoh.prototype.collide = function(other) {
+     if ((other.x - 30) < this.x && this.x < (other.x + 30)) {
+        return true; 
+   } 
 }
+
+//     debugger;
+//     var x = this.x < (other.x + other.width); //pharaoh getting close to the platform from the right
+//     var x1 = (this.x + this.width) > other.x; //pharaoh getting clsoe to the platform from the left
+//     return (this.y - 90 === other.x) && (this.x + 90 < other.x + other.width && this.x - 80 + this.width > other.x);
+// }
 
 
 

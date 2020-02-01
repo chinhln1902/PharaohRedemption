@@ -33,7 +33,7 @@ Archer.prototype = new Entity();
 Archer.prototype.constructor = Archer;
 
 Archer.prototype.draw = function () {
-	if (this.underworld) return; 
+	if (!this.underworld) return; 
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     Entity.prototype.draw.call(this);
 }
@@ -52,7 +52,7 @@ Archer.prototype.idle = function() {
 }
 
 Archer.prototype.shooting = function() {
-		if (this.underworld) return; 
+		if (!this.underworld) return; 
 		if (this.time > 100) {
 		this.animation = new Animation(spritesheets['attack'], 910, 900, 9, .03, 9, false, .2); 
 		var arrow = new Arrow(this.game, this.AM); 
