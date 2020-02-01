@@ -10,7 +10,7 @@ function Arrow(game, AssetManager) {
 	this.ctx = game.ctx; 
 	this.x = 50;
 	this.y = 590;
-	this.width = 64; 
+	this.width = 20; 
 	this.speed = 280; 
 	this.game = game; 
 	this.name = "arrow";  
@@ -29,7 +29,7 @@ Arrow.prototype = new Entity();
 Arrow.prototype.constructor = Arrow;
 
 Arrow.prototype.draw = function () {
-	if (this.underworld) return; 
+	if(this.underworld) return; 
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     Entity.prototype.draw.call(this);
 }
@@ -39,20 +39,25 @@ Arrow.prototype.update = function () {
     Entity.prototype.update.call(this);
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];
-    	if (ent.name === "snake") {
+    	if (ent.name === "pharaoh") {
     		if (this.collide(ent)) {
     			this.remove(); 
     			this.removeFromWorld = true; 
-    			console.log("collided"); 
+    			//console.log("collided"); 
     		}
 	    }
     }	
 }
 
 Arrow.prototype.collide = function(other) {
-    return this.x < other.x + other.width && this.x + this.width > other.x; 
+    //return this.x < other.x + other.width && this.x + this.width > other.x;
+    if ((other.x - 30) < this.x && this.x < (other.x + 30)) {
+   		return true; 
+   }
+    //return this.x === other.x;  
 }
 
 Arrow.prototype.remove = function() {
+	if (!this.underworld) return; 
 	this.animation = new Animation(spritesheets['shoot'], 320, 128, 1 , .25, 1, false, .2); 
 }
