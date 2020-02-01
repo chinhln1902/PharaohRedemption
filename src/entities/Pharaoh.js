@@ -60,6 +60,8 @@ function Pharaoh(game, assetManager) {
     this.direction = "right";
 
     //jump variables
+    this.width = 200;
+    this.height = 200;
     this.groundLevel = 490;
     this.y = this.groundLevel;
     this.yVelocity = 0;
@@ -70,6 +72,8 @@ function Pharaoh(game, assetManager) {
 
     //this.pharaohController = new pharaohController(this);
     this.underworld = false;
+    // To check if pharaoh is standing on platform or not.
+    this.onPlatform = false;
 }
 
 //inheritence
@@ -139,7 +143,7 @@ Pharaoh.prototype.walkRight = function () {
 Pharaoh.prototype.jump = function () {
     this.state = 'jumping';
     this.isJumping = true;
-    this.yVelocity = 10;
+    this.yVelocity = 15;
     this.previousAnimation = this.animation;
     if (this.direction === 'right'){
         this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
@@ -272,26 +276,32 @@ function controlJump(pharaoh){
         pharaoh.y -= pharaoh.yVelocity;
     }
 
-    //Checking collision 
-    // for (var i = 0; i < platforms.length; i++) {
-    //     var y = platforms[i];
-    //     if (pharaoh.collide(platforms[i])) {
-    //         pharaoh.y = platforms[i].y;
-    //         pharaoh.isJumping = false;
-    //         pharaoh.state = pharaoh.previousState;
-    //         pharaoh.setToDefault();
-    //     }   
-    // }    
+    // Checking collision 
+    for (var i = 0; i < platforms.length; i++) {
+        var y = platforms[i];
+        if (pharaoh.collide(platforms[i])) {
+            pharaoh.y = platforms[i].x + 100;
+            pharaoh.isJumping = false;
+            pharaoh.state = pharaoh.previousState;
+            pharaoh.onPlatform = true;
+            pharaoh.setToDefault();
+        } 
+        // if (pharaoh.onPlatform === true && (pharaoh.x + 90) > (platforms[i].x + platforms[i].width)) {
+        //     debugger;
+        //     pharaoh.onPlatform = false;
+        //     pharaoh.y = pharaoh.groundLevel;
+        // }
+    }    
 
     // touching the ground
     if (pharaoh.y > pharaoh.groundLevel){
         pharaoh.y = pharaoh.groundLevel;
         if (pharaoh.isJumping === true){
-            pharaoh.isJumping = false; 
+            pharaoh.isJumping = false;
             pharaoh.state = pharaoh.previousState;
             pharaoh.setToDefault();
-        }       
-        console.log("debug"); 
+        }
+        console.log("debug");
     }
 }
 
@@ -339,12 +349,12 @@ Pharaoh.prototype.collideLeft = function () {
     return this.Pharaoh.x - this.Platform.x > 0;
 }
 Pharaoh.prototype.collide = function (other) {
-    var pharaohX = this.x;
-    var otherX = other.x;
-    var result = distance(this, other) < this.x + other.x;
-    return this.y > other.y;
-}
 
+    debugger;
+    var x = this.x < (other.x + other.width); //pharaoh getting close to the platform from the right
+    var x1 = (this.x + this.width) > other.x; //pharaoh getting clsoe to the platform from the left
+    return (this.y - 90 === other.x) && (this.x + 90 < other.x + other.width && this.x - 80 + this.width > other.x);
+}
 
 
 

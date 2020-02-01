@@ -18,12 +18,16 @@ platformController.prototype.loadPlatformsLevel1 = function () {
     var woodenBarrel = new Platform(this.engine, platformSheets['wooden barrel']);
     woodenBarrel.x = 300;
     woodenBarrel.y = 540;
+    woodenBarrel.width = 116;
+    woodenBarrel.height = 122;
     platforms.push(woodenBarrel);
     this.engine.addEntity(woodenBarrel);
 
-    var woodenBarrel1 = new Platform(this.engine, platformSheets['wooden barrel']);
-    woodenBarrel1.x = 200;
-    woodenBarrel1.y = 540;
-    platforms.push(woodenBarrel1);
-    this.engine.addEntity(woodenBarrel1);
+    // var woodenBarrel1 = new Platform(this.engine, platformSheets['wooden barrel']);
+    // woodenBarrel1.x = 200;
+    // woodenBarrel1.y = 540;
+    // woodenBarrel.width = 116;
+    // woodenBarrel.height = 122;
+    // platforms.push(woodenBarrel1);
+    // this.engine.addEntity(woodenBarrel1);
 }
