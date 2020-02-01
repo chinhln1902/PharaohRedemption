@@ -1,7 +1,7 @@
 var spritesheets = []; 
 function loadArcherSpriteSheets(AM) {
-	spritesheets['idle'] = AM.getAsset("./../assets/sprites/Archer-Idle.png"); 
-	spritesheets['attack'] = AM.getAsset("./../assets/sprites/Archer-Shooting.png"); 
+	spritesheets['idle'] = AM.getAsset("./assets/sprites/Archer-Idle.png"); 
+	spritesheets['attack'] = AM.getAsset("./assets/sprites/Archer-Shooting.png"); 
 }
 
 function Archer(game, AssetManager) {

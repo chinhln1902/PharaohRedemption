@@ -26,7 +26,7 @@ var Key = {
 function Pharo(game, assetManager) {
     
     this.AM = assetManager;
-    this.animation = new Animation(AM.getAsset("./../assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"), 878, 916, 7, 0.05, 7, true, 0.2); //idle animation
+    this.animation = new Animation(AM.getAsset("./assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"), 878, 916, 7, 0.05, 7, true, 0.2); //idle animation
     this.speed = 0;
     this.ctx = game.ctx;
 
@@ -57,14 +57,14 @@ Pharo.prototype.draw = function () {
 }
 
 Pharo.prototype.run = function () {
-    this.animation = new Animation(AM.getAsset("./../assets/sprites/2_MUMMY/_RUN/RUN SpriteSheet.png"), 1013, 1055, 7, 0.05, 7, true, 0.2); //running animation
+    this.animation = new Animation(AM.getAsset("./assets/sprites/2_MUMMY/_RUN/RUN SpriteSheet.png"), 1013, 1055, 7, 0.05, 7, true, 0.2); //running animation
     this.speed = 300;
     //this.y -= 20;
     console.log("pharo is running");
 }
 
 Pharo.prototype.walk = function () {
-    this.animation = new Animation(AM.getAsset("./../assets/sprites/2_MUMMY/_WALK/WALK SpriteSheet.png"), 985, 950, 7, 0.05, 7, true, 0.2); //walking animation
+    this.animation = new Animation(AM.getAsset("./assets/sprites/2_MUMMY/_WALK/WALK SpriteSheet.png"), 985, 950, 7, 0.05, 7, true, 0.2); //walking animation
     this.speed = 100;
     console.log("pharo is walking");
 }
