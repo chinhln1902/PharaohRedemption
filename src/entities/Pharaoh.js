@@ -336,17 +336,31 @@ Pharaoh.prototype.setState = function(theState){
 Pharaoh.prototype.getDirection = function(){
     return this.direction;
 }
-Pharaoh.prototype.getDirection = function(){
-    return this.direction;
+
+Pharaoh.prototype.getY = function(){
+    return this.y;
 }
+Pharaoh.prototype.getGround = function(){
+    return this.groundLevel;
+}
+
 Pharaoh.prototype.setDirection = function(theDirection){
     this.direction = theDirection;
 }
 Pharaoh.prototype.setPreviousState = function(state){
     this.previousState = state;
 }
+
 Pharaoh.prototype.swapWorld = function(){
     this.underworld = !this.underworld;
+}
+
+Pharaoh.prototype.isInAir = function(){
+    if(this.x > groundLevel){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function distance(a,b) {
