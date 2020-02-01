@@ -1,7 +1,7 @@
 var platformSheets = [];
 var platforms = [];
 function loadPlatforms(AM) {
-    platformSheets['wooden barrel'] = AM.getAsset("./../assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
+    platformSheets['wooden barrel'] = AM.getAsset("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
 }
 
 function platformController (game, assetManager) {

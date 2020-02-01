@@ -2,41 +2,41 @@
 var spriteSheets1 = [];
 function loadspriteSheets1(AM){
     //right
-    spriteSheets1['dying'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Dying/Dying SpriteSheet.png");
-    spriteSheets1['falling down'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Falling Down/Falling Down SpriteSheet.png");
-    spriteSheets1['hurt'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Hurt/Hurt SpriteSheet.png");
-    spriteSheets1['idle'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Idle/Idle SpriteSheet.png");
-    spriteSheets1['idle blinking'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Idle Blinking/Idle Blinking SpriteSheet.png");
-    spriteSheets1['jump loop'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Jump Loop/Jump Loop SpriteSheet.png"); 
-    spriteSheets1['jump start'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Jump Start/Jump Start SpriteSheet.png");            
-    spriteSheets1['kicking'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Kicking/Kicking SpriteSheet.png");
-    spriteSheets1['run slashing'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Run Slashing/Run Slashing SpriteSheet.png");
-    spriteSheets1['run throwing'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Run Throwing/Run Throwing SpriteSheet.png");
-    spriteSheets1['running'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Running/Running SpriteSheet.png");
-    spriteSheets1['slashing'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Slashing/Slashing SpriteSheet.png"); 
-    spriteSheets1['slashing in the air'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Slashing in The Air/Slashing in The Air SpriteSheet.png");
-    spriteSheets1['sliding'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Sliding/Sliding SpriteSheet.png");
-    spriteSheets1['throwing'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet.png");
-    spriteSheets1['throwing in the air'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet.png");
-    spriteSheets1['walking'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet.png"); 
+    spriteSheets1['dying'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Dying/Dying SpriteSheet.png");
+    spriteSheets1['falling down'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Falling Down/Falling Down SpriteSheet.png");
+    spriteSheets1['hurt'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Hurt/Hurt SpriteSheet.png");
+    spriteSheets1['idle'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Idle/Idle SpriteSheet.png");
+    spriteSheets1['idle blinking'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Idle Blinking/Idle Blinking SpriteSheet.png");
+    spriteSheets1['jump loop'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Jump Loop/Jump Loop SpriteSheet.png"); 
+    spriteSheets1['jump start'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Jump Start/Jump Start SpriteSheet.png");            
+    spriteSheets1['kicking'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Kicking/Kicking SpriteSheet.png");
+    spriteSheets1['run slashing'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Run Slashing/Run Slashing SpriteSheet.png");
+    spriteSheets1['run throwing'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Run Throwing/Run Throwing SpriteSheet.png");
+    spriteSheets1['running'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Running/Running SpriteSheet.png");
+    spriteSheets1['slashing'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Slashing/Slashing SpriteSheet.png"); 
+    spriteSheets1['slashing in the air'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Slashing in The Air/Slashing in The Air SpriteSheet.png");
+    spriteSheets1['sliding'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Sliding/Sliding SpriteSheet.png");
+    spriteSheets1['throwing'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet.png");
+    spriteSheets1['throwing in the air'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet.png");
+    spriteSheets1['walking'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet.png"); 
     //left
-    spriteSheets1['dying flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Dying/Dying SpriteSheet flip.png");
-    spriteSheets1['falling down flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Falling Down/Falling Down SpriteSheet flip.png");
-    spriteSheets1['hurt flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Hurt/Hurt SpriteSheet flip.png");
-    spriteSheets1['idle flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Idle/Idle SpriteSheet flip.png");
-    spriteSheets1['idle blinking flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Idle Blinking/Idle Blinking SpriteSheet flip.png");
-    spriteSheets1['jump loop flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Jump Loop/Jump Loop SpriteSheet flip.png"); 
-    spriteSheets1['jump start flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Jump Start/Jump Start SpriteSheet flip.png");            
-    spriteSheets1['kicking flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Kicking/Kicking SpriteSheet flip.png");
-    spriteSheets1['run slashing flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Run Slashing/Run Slashing SpriteSheet flip.png");
-    spriteSheets1['run throwing flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Run Throwing/Run Throwing SpriteSheet flip.png");
-    spriteSheets1['running flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Running/Running SpriteSheet flip.png");
-    spriteSheets1['slashing flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Slashing/Slashing SpriteSheet flip.png"); 
-    spriteSheets1['slashing in the air flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Slashing in The Air/Slashing in The Air SpriteSheet flip.png");
-    spriteSheets1['sliding flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Sliding/Sliding SpriteSheet flip.png");
-    spriteSheets1['throwing flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet flip.png");
-    spriteSheets1['throwing in the air flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet flip.png");
-    spriteSheets1['walking flip'] = AM.getAsset("./../assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet flip.png");
+    spriteSheets1['dying flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Dying/Dying SpriteSheet flip.png");
+    spriteSheets1['falling down flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Falling Down/Falling Down SpriteSheet flip.png");
+    spriteSheets1['hurt flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Hurt/Hurt SpriteSheet flip.png");
+    spriteSheets1['idle flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Idle/Idle SpriteSheet flip.png");
+    spriteSheets1['idle blinking flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Idle Blinking/Idle Blinking SpriteSheet flip.png");
+    spriteSheets1['jump loop flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Jump Loop/Jump Loop SpriteSheet flip.png"); 
+    spriteSheets1['jump start flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Jump Start/Jump Start SpriteSheet flip.png");            
+    spriteSheets1['kicking flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Kicking/Kicking SpriteSheet flip.png");
+    spriteSheets1['run slashing flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Run Slashing/Run Slashing SpriteSheet flip.png");
+    spriteSheets1['run throwing flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Run Throwing/Run Throwing SpriteSheet flip.png");
+    spriteSheets1['running flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Running/Running SpriteSheet flip.png");
+    spriteSheets1['slashing flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Slashing/Slashing SpriteSheet flip.png"); 
+    spriteSheets1['slashing in the air flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Slashing in The Air/Slashing in The Air SpriteSheet flip.png");
+    spriteSheets1['sliding flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Sliding/Sliding SpriteSheet flip.png");
+    spriteSheets1['throwing flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet flip.png");
+    spriteSheets1['throwing in the air flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet flip.png");
+    spriteSheets1['walking flip'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet flip.png");
     
 }
 

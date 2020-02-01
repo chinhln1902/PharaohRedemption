@@ -1,6 +1,6 @@
 var spritesheets = []; 
 function loadArrowSpriteSheets(AM) {
-	spritesheets['shoot'] = AM.getAsset("./../assets/sprites/Arrow.png");  
+	spritesheets['shoot'] = AM.getAsset("./assets/sprites/Arrow.png");  
 }
 
 function Arrow(game, AssetManager) {
