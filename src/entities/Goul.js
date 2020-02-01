@@ -1,3 +1,7 @@
+//inheritence
+Goul.prototype = new Entity();
+Goul.prototype.constructor = Goul;
+
 function Goul(game, spritesheet) {
     this.animation = new Animation(spritesheet, 713, 842, 10, 0.1, 10, true, .3); //walking animation
     this.x = 100;
@@ -34,9 +38,9 @@ Goul.prototype.update = function () {
 Goul.prototype.swapWorld = function(){
     this.underworld = !this.underworld;
 }
-Goul.prototype.die = function () {
-    this.animation = new Animation(spritesheet['dying'], 852, 872, 10, 0.08, 10, true, .3);
-    this.x = 0;
-    this.y = 350;
+// Goul.prototype.die = function () {
+//     this.animation = new Animation(spritesheet['dying'], 852, 872, 10, 0.08, 10, true, .3);
+//     this.x = 0;
+//     this.y = 350;
 
-}
+// }

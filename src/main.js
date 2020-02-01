@@ -93,7 +93,7 @@ AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png");
 
 //Goul 
 AM.queueDownload("./../assets/sprites/Goul Walk.png");
-AM.queueDownload("./../assets/sprites/Goul Die.png");
+//AM.queueDownload("./../assets/sprites/Goul Die.png");
 
 
 //projectile

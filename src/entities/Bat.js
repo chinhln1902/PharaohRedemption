@@ -1,3 +1,8 @@
+
+//inheritence
+Bat.prototype = new Entity();
+Bat.prototype.constructor = Bat;
+
 function Bat(game, spritesheet) {
     this.animation = new Animation(spritesheet, 631, 634, 10, 0.07, 10, true, .34);
     this.x = 1000;
