@@ -31,6 +31,8 @@ Goul.prototype.draw = function () {
 
 Goul.prototype.update = function () {
     var that = this;
+    if (this.x > 1200) this.x = -230;
+    if (this.x < -230) this.x = 1200;
 
     this.x += 2; //for walking
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)

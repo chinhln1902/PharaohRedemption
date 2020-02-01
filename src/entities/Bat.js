@@ -32,8 +32,9 @@ Bat.prototype.draw = function () {
 }
 
 Bat.prototype.update = function () {
-    var that = this;
     this.x -= 3;
+
+    if (this.x < -230) this.x = 1200;
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;
     
