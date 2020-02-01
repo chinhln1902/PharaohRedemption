@@ -1,3 +1,8 @@
+
+//inheritence
+Bat.prototype = new Entity();
+Bat.prototype.constructor = Bat;
+
 function Bat(game, spritesheet) {
     this.animation = new Animation(spritesheet, 631, 634, 10, 0.07, 10, true, .34);
     this.x = 1000;
@@ -16,13 +21,6 @@ function Bat(game, spritesheet) {
             console.log("underworld: " + that.underworld);
             e.preventDefault();
             that.swapWorld();
-            // if (that.underworld){
-                
-            //     that.switch(AM.getAsset("./../assets/backgrounds/egypt.png"));
-            // } else {
-            //     that.switch(AM.getAsset("./../assets/backgrounds/underworld.png"));
-            // }
-            
         }
     });
 }
@@ -39,7 +37,6 @@ Bat.prototype.update = function () {
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;
     
-    //if (this.x > 800) this.x = -230;
 }
 
 Bat.prototype.swapWorld = function(){

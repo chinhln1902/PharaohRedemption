@@ -93,6 +93,7 @@ AM.queueDownload("./../assets/sprites/PSNAKE-IDLE2.png");
 
 //Goul 
 AM.queueDownload("./../assets/sprites/Goul Walk.png");
+//AM.queueDownload("./../assets/sprites/Goul Die.png");
 
 
 //projectile
@@ -154,7 +155,8 @@ AM.downloadAll(function () {
             // gameEngine.addEntity(woodenBarrel);
             gameEngine.addEntity(archer); 
 			gameEngine.addEntity(goul);
-            loadedGame = true;       
+            loadedGame = true;  
+            
         }
     } 
     
