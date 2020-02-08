@@ -133,8 +133,8 @@ AM.queueDownload("./assets/sprites/Goul Walk.png");
 
 
 //projectile
-AM.queueDownload("./assets/sprites/magic/PNG/comet/comet SpriteSheet.png");
-AM.queueDownload("./assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png");
+AM.queueDownload("./assets/sprites/magic/PNG/comet/csheet.png");
+AM.queueDownload("./assets/sprites/magic/PNG/comet/csheetflip.png");
 
 //Bat
 AM.queueDownload("./assets/sprites/Bat Fly Flip.png");
@@ -163,7 +163,7 @@ AM.downloadAll(function () {
             gameEngine.init(ctx);
             gameEngine.start();
 
-            //Pharaoh class
+            //Pharaoh class 
             var mainCharacter = new Pharaoh(gameEngine, AM);
             var secondCharacter = new Sentry(gameEngine, AM);
 			var goul = new Goul(gameEngine, AM.getAsset("./assets/sprites/Goul Walk.png"));
