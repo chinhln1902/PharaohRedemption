@@ -51,7 +51,7 @@ Arrow.prototype.update = function () {
 
 Arrow.prototype.collide = function(other) {
     //return this.x < other.x + other.width && this.x + this.width > other.x;
-    if ((other.x - 30) < this.x && this.x < (other.x + 30)) {
+    if ((other.x - 30) < this.x && this.x < (other.x + 30) && this.y >= other.y && this.y <= (other.y + 200)) {
    		return true; 
    }
     //return this.x === other.x;  

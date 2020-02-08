@@ -257,9 +257,6 @@ Pharaoh.prototype.setToDefault = function () {
             this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, 0.2);
         }
     }
-    
-    
-    console.log("set to default");
 }
 
 //test method for debugging
@@ -291,6 +288,7 @@ function controlJump(pharaoh){
         var y = platforms[i];
         if (pharaoh.collideWithPlatforms(platforms[i])) {
             pharaoh.y = platforms[i].x + 100;
+            console.log(pharaoh.y); 
             pharaoh.isJumping = false;
             pharaoh.state = pharaoh.previousState;
             pharaoh.onPlatform = true;
