@@ -195,7 +195,7 @@ Sentry.prototype.throw = function () {
         } else if (this.state === 'running'){
             this.animation = new Animation(spriteSheets1['run throwing'], 900, 900, 12, 0.05, 12, false, 0.2);
         }   
-        var comet = new Projectile(this.engine, AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet.png"),
+        var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheet.png"),
                 "right", this.x + 10, this.y+10);
         this.engine.addEntity(comet);
     } else {
@@ -206,7 +206,7 @@ Sentry.prototype.throw = function () {
         } else if (this.state === 'running'){
             this.animation = new Animation(spriteSheets1['run throwing flip'], 900, 900, 12, 0.05, 12, false, 0.2);
         }   
-        var comet = new Projectile(this.engine, AM.getAsset("./../assets/sprites/magic/PNG/comet/comet SpriteSheet flip.png"),
+        var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheetflip.png"),
                "left", this.x - 10, this.y+10);
         this.engine.addEntity(comet);
     }
@@ -257,9 +257,6 @@ Sentry.prototype.setToDefault = function () {
             this.animation = new Animation(spriteSheets1['running flip'], 900, 900, 12, 0.05, 12, true, 0.2);
         }
     }
-    
-    
-    console.log("set to default");
 }
 
 //test method for debugging
