@@ -418,7 +418,8 @@ function controlAnimation(pharaoh){
 // called by the update method. controlls the jumping.
 function controlJump(pharaoh){
     //in the air
- 
+    var y = pharaoh.y;
+    var velo = pharaoh.yVelocity;
     if (pharaoh.isJumping === true){
         //pharaoh.yVelocity = pharaoh.yVelocity - 0.5;
         pharaoh.yVelocity -= 0.1 ;
@@ -442,7 +443,6 @@ function controlJump(pharaoh){
         if (pharaoh.onPlatform === true) {
             // Check if the pharaoh steps out of the platform from the right
             if ((pharaoh.x + 90) > (platforms[i].x + platforms[i].width)) {
-             debugger;
                 pharaoh.isJumping = true;
                 pharaoh.onPlatform = false;
                 pharaoh.state = pharaoh.previousState;
