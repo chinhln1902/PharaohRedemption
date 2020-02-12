@@ -10,7 +10,6 @@ function pharaohController(mainCharacter){
 
 	// Listens for key press events
 	document.addEventListener("keydown", function (e) {
-		console.log(e);
 
 			//Running right 
 			if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
@@ -59,7 +58,7 @@ function pharaohController(mainCharacter){
 	
 	//Listends for key up events
 	document.addEventListener("keyup", function (e) {
-		console.log(e);
+		// console.log(e);
 
 			if (e.code === "ArrowRight" && RightKeyPressed === "true" ){
 				//console.log("Right key up");

@@ -12,7 +12,7 @@ function Background(game, spritesheet) {
     this.underworld = false;
 
     document.addEventListener("keydown", function (e) {
-        console.log(e);
+
 		//Running right 
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
@@ -165,7 +165,7 @@ AM.downloadAll(function () {
 
             //Pharaoh class 
             var mainCharacter = new Pharaoh(gameEngine, AM);
-            var secondCharacter = new Sentry(gameEngine, AM);
+            //var secondCharacter = new Sentry(gameEngine, AM);
 			var goul = new Goul(gameEngine, AM.getAsset("./assets/sprites/Goul Walk.png"));
             var bat = new Bat(gameEngine, AM.getAsset("./assets/sprites/Bat Fly Flip.png"));
             var archer = new Archer(gameEngine, AM); 
@@ -176,7 +176,7 @@ AM.downloadAll(function () {
 
             //Pharaoh Controller class
             var characterControl = new pharaohController(mainCharacter);
-            var otherCharacterControl = new pharaohController(secondCharacter);
+            //var otherCharacterControl = new pharaohController(secondCharacter);
             //Add platform for level 1
             var platformLevel1 = new platformController(gameEngine, AM);
 
@@ -185,7 +185,7 @@ AM.downloadAll(function () {
             // gameEngine.addEntity(goul);
 
             gameEngine.addEntity(mainCharacter);
-            gameEngine.addEntity(secondCharacter);
+            //gameEngine.addEntity(secondCharacter);
             gameEngine.addEntity(enemy);  
             gameEngine.addEntity(bat);  
             
