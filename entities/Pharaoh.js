@@ -431,14 +431,24 @@ function controlJump(pharaoh){
         var y = platforms[i];
         
         if (pharaoh.collideWithPlatforms(platforms[i])) {
-            debugger;
-            pharaoh.y = platforms[i].x + 90;
-            console.log(pharaoh.y); 
-            pharaoh.isJumping = false;
-            pharaoh.state = pharaoh.previousState;
-            pharaoh.groundLevel = pharaoh.y;
-            pharaoh.onPlatform = true;
-            pharaoh.setToDefault();
+            if (pharaoh.isJumping === true) {
+               pharaoh.y = platforms[i].x + 90;
+               console.log(pharaoh.y); 
+                pharaoh.isJumping = false;
+                pharaoh.state = pharaoh.previousState;
+                pharaoh.groundLevel = pharaoh.y;
+                pharaoh.onPlatform = true;
+                pharaoh.setToDefault();
+            } else {
+                if(pharaoh.collideRight(platforms[i])){
+                    console.log("collide right");
+                    pharaoh.x = platforms[i].x;
+                    pharaoh.setToDefault();
+                } else if (pharaoh.collideLeft(platforms[i])) {
+                    pharaoh.x = platforms[i].x;
+                    pharaoh.setToDefault();
+                }
+            }
         } 
 
         // if (pharaoh.collideRight(platforms[i])) {
@@ -525,18 +535,17 @@ function distance(a,b) {
 }
 
 Pharaoh.prototype.collideRight = function (other) {
-    return this.x - 80 + this.width === other.x;
+    return this.x - 80 + this.width >= other.x;
 }
 
 Pharaoh.prototype.collideLeft = function (other) {
-    return this.x + 90 === other.x + other.width;
+    return this.x + 90 <= other.x + other.width;
 }
 
 Pharaoh.prototype.collideWithPlatforms = function (other) {
-    debugger;
     var a = this.y;
     var b = other.x;
-    var c = this.x;
+    var c = this.y - 90 > other.x
     return (this.y - 90 > other.x) && (this.x + 90 < other.x + other.width) && (this.x - 80 + this.width > other.x);    
 }
 
