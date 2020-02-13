@@ -15,13 +15,9 @@ platformController.prototype = new Entity();
 platformController.prototype.constructor = platformController;
 
 platformController.prototype.loadPlatformsLevel1 = function () {
-    var woodenBarrel = new Platform(this.engine, platformSheets['wooden barrel']);
-    woodenBarrel.x = 300;
-    woodenBarrel.y = 540;
-    woodenBarrel.width = 116;
-    woodenBarrel.height = 122;
-    platforms.push(woodenBarrel);
-    this.engine.addEntity(woodenBarrel);
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],300, 540)); //wooden barrel
+    
+    
 
     // var woodenBarrel1 = new Platform(this.engine, platformSheets['wooden barrel']);
     // woodenBarrel1.x = 200;
