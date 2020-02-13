@@ -10,7 +10,6 @@ function pharaohController(mainCharacter){
 
 	// Listens for key press events
 	document.addEventListener("keydown", function (e) {
-		console.log(e);
 
 			//Running right 
 			if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
@@ -20,14 +19,13 @@ function pharaohController(mainCharacter){
 
 			//Running left
 			} else if(e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false"){
-
 				that.Pharaoh.runLeft();
 				LeftKeyPressed = "true";
 
 			//Jumping
 		} else if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
 			e.preventDefault();
-
+				debugger;
 				that.Pharaoh.jump();
 				if (RightKeyPressed === "true" || LeftKeyPressed === "true"){
 					that.Pharaoh.setPreviousState("running");
@@ -59,7 +57,7 @@ function pharaohController(mainCharacter){
 	
 	//Listends for key up events
 	document.addEventListener("keyup", function (e) {
-		console.log(e);
+		// console.log(e);
 
 			if (e.code === "ArrowRight" && RightKeyPressed === "true" ){
 				//console.log("Right key up");
@@ -72,7 +70,7 @@ function pharaohController(mainCharacter){
 				LeftKeyPressed = "false";
 
 			}   else if(e.code === "ArrowUp" && UpArrowPressed === "true"){
-
+				
 				UpArrowPressed = "false";
 
 			} 
