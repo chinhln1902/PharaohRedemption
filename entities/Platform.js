@@ -1,6 +1,6 @@
 function Platform(game, sprite, x, y) {
-    this.x = x;
-    this.y = y;
+    this.x = x * 100;
+    this.y = y * 100 + 40;
     this.width = 100;
     this.height = 100;
     this.platformSheet = sprite;

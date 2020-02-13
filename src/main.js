@@ -123,26 +123,21 @@ AM.queueDownload("./assets/sprites/Egyptian Sentry/Sliding/Sliding SpriteSheet f
 AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet flip.png");                       //throwing 
 AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet flip.png"); //throwing in the air 
 AM.queueDownload("./assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet flip.png");   
-
-//snake
-AM.queueDownload("./assets/sprites/PSNAKE-IDLE2.png"); 
-
-//Goul 
-AM.queueDownload("./assets/sprites/Goul Walk.png");
+//Platforms
+AM.queueDownload("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
+AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/01.png");
+AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/02.png");
+//Enemies
+AM.queueDownload("./assets/sprites/PSNAKE-IDLE2.png"); //Snake
+AM.queueDownload("./assets/sprites/Bat Fly Flip.png"); //Bat
+AM.queueDownload("./assets/sprites/Goul Walk.png");//Goul 
 //AM.queueDownload("./../assets/sprites/Goul Die.png");
 
+AM.queueDownload("./assets/sprites/magic/PNG/comet/csheet.png");//projectile
+AM.queueDownload("./assets/sprites/magic/PNG/comet/csheetflip.png");//projectile flip
 
-//projectile
-AM.queueDownload("./assets/sprites/magic/PNG/comet/csheet.png");
-AM.queueDownload("./assets/sprites/magic/PNG/comet/csheetflip.png");
-
-//Bat
-AM.queueDownload("./assets/sprites/Bat Fly Flip.png");
-
-//Platform
-AM.queueDownload("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
 //Archer
-AM.queueDownload("./assets/sprites/Archer-Idle.png");
+AM.queueDownload("./assets/sprites/Archer-Idle.png"); 
 AM.queueDownload("./assets/sprites/Archer-Shooting.png")
 
 //Arrow for the archer

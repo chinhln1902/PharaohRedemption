@@ -2,6 +2,8 @@ var platformSheets = [];
 var platforms = [];
 function loadPlatforms(AM) {
     platformSheets['wooden barrel'] = AM.getAsset("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
+    platformSheets['sandTop'] =       AM.getAsset("./assets/platforms/DesertPlatforms/tiles/01.png");
+    platformSheets['sandMid'] =       AM.getAsset("./assets/platforms/DesertPlatforms/tiles/02.png");
 }
 
 function platformController (game, assetManager) {
@@ -15,8 +17,10 @@ platformController.prototype = new Entity();
 platformController.prototype.constructor = platformController;
 
 platformController.prototype.loadPlatformsLevel1 = function () {
-    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],300, 540)); //wooden barrel
-    
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 5));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 4));
+    platforms.push(new Platform(this.engine, platformSheets['sandMid'],7, 5));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],6, 5));
     
 
     // var woodenBarrel1 = new Platform(this.engine, platformSheets['wooden barrel']);
