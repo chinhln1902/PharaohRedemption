@@ -563,6 +563,7 @@ Pharaoh.prototype.collideWithProjectile = function(other) {
         return true; 
    } 
 }
+// test Chinh's branch
 
 //     debugger;
 //     var x = this.x < (other.x + other.width); //pharaoh getting close to the platform from the right
