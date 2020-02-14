@@ -13,12 +13,12 @@ function pharaohController(mainCharacter){
 
 			//Running right 
 			if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
-				// debugger;
 				that.Pharaoh.runRight();
 				RightKeyPressed = "true";
 
 			//Running left
 			} else if(e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false"){
+				
 				that.Pharaoh.runLeft();
 				LeftKeyPressed = "true";
 
