@@ -429,7 +429,6 @@ function controlJump(pharaoh){
     // Checking collision 
     for (var i = 0; i < platforms.length; i++) {
         var y = platforms[i];
-        
         if (pharaoh.collideWithPlatforms(platforms[i])) {
             if (pharaoh.isJumping === true) {
                pharaoh.y = platforms[i].x + 90;
@@ -442,10 +441,13 @@ function controlJump(pharaoh){
             } else {
                 if(pharaoh.collideRight(platforms[i])){
                     console.log("collide right");
-                    pharaoh.x = platforms[i].x;
+                    pharaoh.speed = 0;
+                    pharaoh.x = platforms[i].x - 120;
                     pharaoh.setToDefault();
                 } else if (pharaoh.collideLeft(platforms[i])) {
-                    pharaoh.x = platforms[i].x;
+                    
+                    pharaoh.speed = 0;
+                    pharaoh.x = platforms[i].x + platforms[i].width - 70;
                     pharaoh.setToDefault();
                 }
             }
@@ -535,6 +537,7 @@ function distance(a,b) {
 }
 
 Pharaoh.prototype.collideRight = function (other) {
+<<<<<<< HEAD
     return this.x - 80 + this.width >= other.x;
 }
 
@@ -546,6 +549,26 @@ Pharaoh.prototype.collideWithPlatforms = function (other) {
     var a = this.y;
     var b = other.x;
     var c = this.y - 90 > other.x
+=======
+    var x = this.x;
+    var x1 = this.width;
+    var x2 = other.x;
+    if (this.x < other.x) {
+        return this.x + this.width >= other.x;
+    }
+}
+
+Pharaoh.prototype.collideLeft = function (other) {
+    if (this.x > other.x) {
+        return this.x + 90 <= other.x + other.width;
+    }
+}
+
+Pharaoh.prototype.collideWithPlatforms = function (other) {
+    var x = this.y - 90 > other.x;
+    var y = this.x + 90 < other.x + other.width;
+    var x1 = this.x - 80 + this.width > other.x;
+>>>>>>> 54e008d916f36bcc4e83321de082fa8cdcfc7b58
     return (this.y - 90 > other.x) && (this.x + 90 < other.x + other.width) && (this.x - 80 + this.width > other.x);    
 }
 

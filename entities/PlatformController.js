@@ -18,6 +18,7 @@ platformController.prototype.constructor = platformController;
 
 platformController.prototype.loadPlatformsLevel1 = function () {
     platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 5));
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 5));
     platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 4));
     platforms.push(new Platform(this.engine, platformSheets['sandMid'],7, 5));
     platforms.push(new Platform(this.engine, platformSheets['sandTop'],6, 5));
