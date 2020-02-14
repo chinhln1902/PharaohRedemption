@@ -537,19 +537,6 @@ function distance(a,b) {
 }
 
 Pharaoh.prototype.collideRight = function (other) {
-<<<<<<< HEAD
-    return this.x - 80 + this.width >= other.x;
-}
-
-Pharaoh.prototype.collideLeft = function (other) {
-    return this.x + 90 <= other.x + other.width;
-}
-
-Pharaoh.prototype.collideWithPlatforms = function (other) {
-    var a = this.y;
-    var b = other.x;
-    var c = this.y - 90 > other.x
-=======
     var x = this.x;
     var x1 = this.width;
     var x2 = other.x;
@@ -568,7 +555,6 @@ Pharaoh.prototype.collideWithPlatforms = function (other) {
     var x = this.y - 90 > other.x;
     var y = this.x + 90 < other.x + other.width;
     var x1 = this.x - 80 + this.width > other.x;
->>>>>>> 54e008d916f36bcc4e83321de082fa8cdcfc7b58
     return (this.y - 90 > other.x) && (this.x + 90 < other.x + other.width) && (this.x - 80 + this.width > other.x);    
 }
 
