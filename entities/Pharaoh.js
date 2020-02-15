@@ -111,6 +111,14 @@ function Pharaoh(game, assetManager) {
     this.underworld = false;
     // To check if pharaoh is standing on platform or not.
     this.onPlatform = false;
+
+    this.animation = new Animation(spriteSheets['idle1'], 900, 900, 18, 0.05, 18, true, 0.2); //idle animation
+    this.jumpAnimation = new Animation(spriteSheets['jump start1'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
+    this.jumpLeftAnimation = new Animation(spriteSheets['jump start flip1'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
+    this.fallRightAnimation = new Animation(spriteSheets['jump start1'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
+    this.fallLeftAnimation = new Animation(spriteSheets['jump start flip1'], 900, 900, 6, 0.05, 6, false, 0.2); //jump start animation
+
+    this.boundingBox = new BoundingBox(this.x, this.y, this.animation.frameWidth, this.animation.frameHeight);
 }
 
 //inheritence
@@ -425,48 +433,61 @@ function controlJump(pharaoh){
         pharaoh.yVelocity -= 0.5 ;
         //pharaoh.y = pharaoh.y - pharaoh.yVelocity;
         pharaoh.y -= pharaoh.yVelocity;
+
+        pharaoh.boundingBox = new BoundingBox (pharaoh.x + 32, pharaoh.y - 32, pharaoh.jumpAnimation.frameWidth - 20, pharaoh.jumpAnimation.frameHeight - 5);
+
+        pharaoh.lastBottom = pharaoh.boundingBox.bottom;
+        for (var i = 0; i < platforms.length; i++) {
+            var pf = platforms[i];
+            debugger;
+            if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.lastBottom < pf.boundingBox.top) {                
+                pharaoh.isJumping = false;
+                pharaoh.y = pf.boundingBox.top - pharaoh.animation.frameHeight;
+            }
+        }
     }
     // Checking collision 
-    for (var i = 0; i < platforms.length; i++) {
-        var x = pharaoh.collideWithPlatforms(platforms[i]);
-        if (pharaoh.collideWithPlatforms(platforms[i])) {
+    // for (var i = 0; i < platforms.length; i++) {
+    //     var x = pharaoh.collideWithPlatforms(platforms[i]);
+    //     if (pharaoh.collideWithPlatforms(platforms[i])) {
 
-            if (pharaoh.isJumping === true && pharaoh.onPlatform === false) {
-                
-                pharaoh.y = platforms[i].x;
-                console.log(pharaoh.x);
-                console.log(pharaoh.y);
-                console.log(platforms[i].x);
-                console.log(platforms[i].y);
-                pharaoh.isJumping = false;
-                pharaoh.state = pharaoh.previousState;
-                pharaoh.groundLevel = pharaoh.y;
-                pharaoh.onPlatform = true;
-                pharaoh.setToDefault();
-            }
-        } else if(pharaoh.collideRight(platforms[i])){
+    //         if (pharaoh.isJumping === true && pharaoh.onPlatform === false) {
+    //             debugger;
+    //             pharaoh.y = platforms[i].x;
+    //             // console.log(pharaoh.x);
+    //             // console.log(pharaoh.y);
+    //             // console.log(platforms[i].x);
+    //             // console.log(platforms[i].y);
+    //             console.log(pharaoh.animation.frameHeight);
+    //             pharaoh.isJumping = false;
+    //             pharaoh.state = pharaoh.previousState;
+    //             pharaoh.groundLevel = pharaoh.y;
+    //             pharaoh.onPlatform = true;
+    //             pharaoh.setToDefault();
+    //         }
+    //     } else if(pharaoh.collideRight(platforms[i])){
 
-            pharaoh.speed = 0;
-            pharaoh.x = platforms[i].x - 120;
-            pharaoh.setToDefault();
-        } else if (pharaoh.collideLeft(platforms[i])) {
-            pharaoh.speed = 0;
-            pharaoh.x = platforms[i].x + platforms[i].width - 70;
-            pharaoh.setToDefault();
-        }
+    //         pharaoh.speed = 0;
+    //         pharaoh.x = platforms[i].x - 120;
+    //         pharaoh.setToDefault();
+    //     } else if (pharaoh.collideLeft(platforms[i])) {
+    //         pharaoh.speed = 0;
+    //         pharaoh.x = platforms[i].x + platforms[i].width - 70;
+    //         pharaoh.setToDefault();
+    //     }
 
-        // Check if the pharaoh steps out of the platform or not
-        if (pharaoh.onPlatform === true) {
-            // Check if the pharaoh steps out of the platform from the right
-            if ((pharaoh.x + 80) > (platforms[i].x + platforms[i].width) || (pharaoh.x + pharaoh.width - 80) < (platforms[i].x)) {
-                pharaoh.isJumping = true;
-                pharaoh.onPlatform = false;
-                pharaoh.groundLevel = GROUND_LEVEL;
-                pharaoh.state = pharaoh.previousState;
-                pharaoh.setToDefault();
-            }
-        } 
-    }
+    //     // Check if the pharaoh steps out of the platform or not
+    //     if (pharaoh.onPlatform === true) {
+    //         // Check if the pharaoh steps out of the platform from the right
+    //         if ((pharaoh.x + 80) > (platforms[i].x + platforms[i].width) || (pharaoh.x + pharaoh.width - 80) < (platforms[i].x)) {
+    //             pharaoh.isJumping = true;
+    //             pharaoh.onPlatform = false;
+    //             pharaoh.groundLevel = GROUND_LEVEL;
+    //             pharaoh.state = pharaoh.previousState;
+    //             pharaoh.setToDefault();
+    //         }
+    //     } 
+    // }
 
     // touching the ground
     if (pharaoh.y > pharaoh.groundLevel){
