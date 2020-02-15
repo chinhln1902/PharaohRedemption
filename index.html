@@ -8,7 +8,8 @@
         <table>
             <tr>
                 <td>
-                    <canvas id="gameWorld" width="1200" height="780" style="background-color: lightblue;"></canvas>
+                    <canvas id="gameWorld" width="1200" height="780" style="background-color: lightblue; z-index:1;"></canvas>
+                    <input type="button" style="z-index:2; position:absolute; top:x; left:y" value="test"/>
                 </td>
                 <td>
                     <span style="font-size: 22px;">You are a powerful pharaoh who was cursed and merged between the two worlds. You are half alive and half dead
@@ -30,15 +31,17 @@
         <script src="entities/pharo.js"></script>
         <script src="entities/pharaohController.js"></script>
         <script src="entities/Pharaoh.js"></script>
-        <script src="entities/Sentry.js"></script>
         <script src="entities/Snake.js"></script>
         <script src="entities/Goul.js"></script>
         <script src="entities/Projectile.js"></script>
         <script src="entities/Bat.js"></script>
         <script src="entities/Platform.js"></script>
         <script src="entities/PlatformController.js"></script>
+        <script src="entities/EnemyController.js"></script>
         <script src="entities/Archer.js"></script>
         <script src="entities/Arrow.js"></script>
+        <script src="src/levelcontroller.js"></script>
+        <script src="src/assetloader.js"></script>
         <script src="src/main.js"></script>
         <!--Add more JS links here-->
     </body>

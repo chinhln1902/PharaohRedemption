@@ -6,17 +6,17 @@ function loadPlatforms(AM) {
     platformSheets['sandMid'] =       AM.getAsset("./assets/platforms/DesertPlatforms/tiles/02.png");
 }
 
-function platformController (game, assetManager) {
+function PlatformController (game, assetManager) {
     this.AM = assetManager;
     loadPlatforms(this.AM);
     this.engine = game;
     this.ctx = game.ctx;
 }
 
-platformController.prototype = new Entity();
-platformController.prototype.constructor = platformController;
+// platformController.prototype = new Entity();
+PlatformController.prototype.constructor = PlatformController;
 
-platformController.prototype.loadPlatformsLevel1 = function () {
+PlatformController.prototype.loadPlatformsLevel1 = function () {
     platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 5));
     // platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 5));
     // platforms.push(new Platform(this.engine, platformSheets['sandTop'],8, 4));
