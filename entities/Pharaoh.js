@@ -432,9 +432,12 @@ function controlJump(pharaoh){
         if (pharaoh.collideWithPlatforms(platforms[i])) {
 
             if (pharaoh.isJumping === true && pharaoh.onPlatform === false) {
-                debugger;
+                
                 pharaoh.y = platforms[i].x;
-
+                console.log(pharaoh.x);
+                console.log(pharaoh.y);
+                console.log(platforms[i].x);
+                console.log(platforms[i].y);
                 pharaoh.isJumping = false;
                 pharaoh.state = pharaoh.previousState;
                 pharaoh.groundLevel = pharaoh.y;
