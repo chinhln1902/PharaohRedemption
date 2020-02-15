@@ -13,8 +13,8 @@ function PlatformController (game, assetManager) {
     this.ctx = game.ctx;
 }
 
-PlatformController.prototype = new Entity();
-PlatformController.prototype.constructor = platformController;
+// PlatformController.prototype = new Entity();
+PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
     platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 5));
