@@ -6,13 +6,13 @@ function BoundingBox(x, y, width, height) {
 
     this.left = x;
     this.top = y;
-    this.right = this.left + width * 0.2;
-    this.bottom = this.top + height * 0.2;
+    this.right = this.left + width;
+    this.bottom = this.top + height;
 }
 
-PlatformController.prototype.constructor = PlatformController;
+BoundingBox.prototype.constructor = BoundingBox;
 
 BoundingBox.prototype.collide = function (oth) {
-    if (this.right > oth.left && this.left < oth.right && this.top < oth.bottom && this.bottom > oth.top) return true;
+    if (this.right >= oth.left && this.left <= oth.right && this.top <= oth.bottom && this.bottom >= oth.top) return true;
     return false;
 }

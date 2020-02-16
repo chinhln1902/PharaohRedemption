@@ -14,6 +14,8 @@ Platform.prototype = new Entity();
 Platform.prototype.constructor = Platform;
 
 Platform.prototype.draw = function () {
+    // this.boundingBox = new BoundingBox (this.x, this.y, this.width, this.height);
+    this.ctx.strokeRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
     this.ctx.drawImage(this.platformSheet, this.x, this.y, this.width, this.height);
 }
 

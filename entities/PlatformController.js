@@ -17,11 +17,12 @@ function PlatformController (game, assetManager) {
 PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],0, 5));
     platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 5));
-    // platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 5));
-    // platforms.push(new Platform(this.engine, platformSheets['sandTop'],8, 4));
-    // platforms.push(new Platform(this.engine, platformSheets['sandMid'],8, 5));
-    // platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 5));
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 5));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],9, 4));
+    platforms.push(new Platform(this.engine, platformSheets['sandMid'],9, 5));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],8, 5));
     
 
     // var woodenBarrel1 = new Platform(this.engine, platformSheets['wooden barrel']);
