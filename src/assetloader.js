@@ -7,7 +7,7 @@ function loadAssets(){
     AM.queueDownload("./assets/backgrounds/underworld.png");
 
     //Pharo
-    AM.queueDownload("./assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"); //idle
+    //AM.queueDownload("./assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"); //idle
     AM.queueDownload("./assets/sprites/2_MUMMY/_WALK/WALK SpriteSheet.png"); //walking
     AM.queueDownload("./assets/sprites/2_MUMMY/_RUN/RUN SpriteSheet.png"); //running
     //Pharaoh right
@@ -46,7 +46,7 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet flip.png");                       //throwing 
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet flip.png"); //throwing in the air 
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet flip.png");                         //walking 
-    //Pharaoh right
+    //Sentry right
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Dying/Dying SpriteSheet.png");                             //dying 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Falling Down/Falling Down SpriteSheet.png");               //falling down 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Hurt/Hurt SpriteSheet.png");                               //hurt 
@@ -59,12 +59,12 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Run Throwing/Run Throwing SpriteSheet.png");               //run throwing
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Running/Running SpriteSheet.png");                         //running
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Slashing/Slashing SpriteSheet.png");                       //slashing
-    AM.queueDownload("./assets/sprites/Egyptian Sentry/Slashing in The Air/Slashing in The Air SpriteSheet.png"); //slashing in the air 
+    AM.queueDownload("./assets/sprites/Egyptian Sentry/Slashing in The Air/AirSlash.png");                        //slashing in the air 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Sliding/Sliding SpriteSheet.png");                         //sliding
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet.png");                       //throwing 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet.png"); //throwing in the air 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet.png");                         //walking 
-    //Pharaoh left
+    //Sentry left
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Dying/Dying SpriteSheet flip.png");                             //dying 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Falling Down/Falling Down SpriteSheet flip.png");               //falling down 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Hurt/Hurt SpriteSheet flip.png");                               //hurt 
@@ -77,7 +77,7 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Run Throwing/Run Throwing SpriteSheet flip.png");               //run throwing
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Running/Running SpriteSheet flip.png");                         //running
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Slashing/Slashing SpriteSheet flip.png");                       //slashing
-    AM.queueDownload("./assets/sprites/Egyptian Sentry/Slashing in The Air/Slashing in The Air SpriteSheet flip.png"); //slashing in the air 
+    AM.queueDownload("./assets/sprites/Egyptian Sentry/Slashing in The Air/AirSlashflip.png");                         //slashing in the air 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Sliding/Sliding SpriteSheet flip.png");                         //sliding
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet flip.png");                       //throwing 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet flip.png"); //throwing in the air 
@@ -92,6 +92,7 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Goul Walk.png");//Goul 
     //AM.queueDownload("./../assets/sprites/Goul Die.png");
 
+    //Projectile for pharaoh
     AM.queueDownload("./assets/sprites/magic/PNG/comet/csheet.png");//projectile
     AM.queueDownload("./assets/sprites/magic/PNG/comet/csheetflip.png");//projectile flip
 
