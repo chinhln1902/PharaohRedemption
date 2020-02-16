@@ -54,7 +54,7 @@ function loadSpriteSheets(AM){
     spriteSheets['run throwing1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Run Throwing/Run Throwing SpriteSheet.png");
     spriteSheets['running1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Running/Running SpriteSheet.png");
     spriteSheets['slashing1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Slashing/Slashing SpriteSheet.png"); 
-    spriteSheets['slashing in the air1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Slashing in The Air/Slashing in The Air SpriteSheet.png");
+    spriteSheets['slashing in the air1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Slashing in The Air/AirSlash.png");
     spriteSheets['sliding1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Sliding/Sliding SpriteSheet.png");
     spriteSheets['throwing1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet.png");
     spriteSheets['throwing in the air1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet.png");
@@ -72,7 +72,7 @@ function loadSpriteSheets(AM){
     spriteSheets['run throwing flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Run Throwing/Run Throwing SpriteSheet flip.png");
     spriteSheets['running flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Running/Running SpriteSheet flip.png");
     spriteSheets['slashing flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Slashing/Slashing SpriteSheet flip.png"); 
-    spriteSheets['slashing in the air flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Slashing in The Air/Slashing in The Air SpriteSheet flip.png");
+    spriteSheets['slashing in the air flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Slashing in The Air/AirSlashflip.png");
     spriteSheets['sliding flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Sliding/Sliding SpriteSheet flip.png");
     spriteSheets['throwing flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet flip.png");
     spriteSheets['throwing in the air flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet flip.png");
