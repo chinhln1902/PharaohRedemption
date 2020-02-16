@@ -451,6 +451,7 @@ function controlJump(pharaoh){
         for (var i = 0; i < platforms.length; i++) {
             var pf = platforms[i];
             if (pharaoh.boundingBox.collide(pf.boundingBox)) {
+                pharaoh.isJumping = false;
                 pharaoh.onPlatform = true;
                 pharaoh.y = pf.boundingBox.top - pharaoh.animation.frameHeight * SCALE + 29;
                 pharaoh.platform = pf;
@@ -471,7 +472,25 @@ function controlJump(pharaoh){
             }
         }
     }
-    if ((!pharaoh.isJumping && !pharaoh.onPlatform)) {
+    
+    // touching the ground
+    if (pharaoh.y > pharaoh.groundLevel){
+        pharaoh.y = pharaoh.groundLevel;
+        if (pharaoh.isJumping === true){
+            pharaoh.isJumping = false;
+            pharaoh.state = pharaoh.previousState;
+            pharaoh.setToDefault();
+        }
+        console.log("debug");
+    }
+}
+
+// called by the update method. controlls the movement.
+function controlMovement(pharaoh){
+    if (pharaoh.x > 1200) pharaoh.x = -230;
+    if (pharaoh.x < -230) pharaoh.x = 1200;
+    // //console.log("debug");
+    if (!pharaoh.isJumping) {
         pharaoh.boundingBox = new BoundingBox (pharaoh.x + 30, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 60, pharaoh.animation.frameHeight * SCALE - 60);
         for (var i = 0; i < platforms.length; i++) {
             var pf = platforms[i];
@@ -488,67 +507,6 @@ function controlJump(pharaoh){
             }
         }
     }
-    // Checking collision 
-    // for (var i = 0; i < platforms.length; i++) {
-    //     var x = pharaoh.collideWithPlatforms(platforms[i]);
-    //     if (pharaoh.collideWithPlatforms(platforms[i])) {
-
-    //         if (pharaoh.isJumping === true && pharaoh.onPlatform === false) {
-    //             debugger;
-    //             pharaoh.y = platforms[i].x;
-    //             // console.log(pharaoh.x);
-    //             // console.log(pharaoh.y);
-    //             // console.log(platforms[i].x);
-    //             // console.log(platforms[i].y);
-    //             console.log(pharaoh.animation.frameHeight);
-    //             pharaoh.isJumping = false;
-    //             pharaoh.state = pharaoh.previousState;
-    //             pharaoh.groundLevel = pharaoh.y;
-    //             pharaoh.onPlatform = true;
-    //             pharaoh.setToDefault();
-    //         }
-    //     } else if(pharaoh.collideRight(platforms[i])){
-
-    //         pharaoh.speed = 0;
-    //         pharaoh.x = platforms[i].x - 120;
-    //         pharaoh.setToDefault();
-    //     } else if (pharaoh.collideLeft(platforms[i])) {
-    //         pharaoh.speed = 0;
-    //         pharaoh.x = platforms[i].x + platforms[i].width - 70;
-    //         pharaoh.setToDefault();
-    //     }
-
-    //     // Check if the pharaoh steps out of the platform or not
-    //     if (pharaoh.onPlatform === true) {
-    //         // Check if the pharaoh steps out of the platform from the right
-    //         if ((pharaoh.x + 80) > (platforms[i].x + platforms[i].width) || (pharaoh.x + pharaoh.width - 80) < (platforms[i].x)) {
-    //             pharaoh.isJumping = true;
-    //             pharaoh.onPlatform = false;
-    //             pharaoh.groundLevel = GROUND_LEVEL;
-    //             pharaoh.state = pharaoh.previousState;
-    //             pharaoh.setToDefault();
-    //         }
-    //     } 
-    // }
-
-    // touching the ground
-    if (pharaoh.y > pharaoh.groundLevel){
-        pharaoh.y = pharaoh.groundLevel;
-        if (pharaoh.isJumping === true){
-            pharaoh.isJumping = false;
-            pharaoh.state = pharaoh.previousState;
-            pharaoh.setToDefault();
-        }
-        console.log("debug");
-    }
-}
-
-// called by the update method. controlls the movement.
-function controlMovement(pharaoh){
-    pharaoh.boundingBox = new BoundingBox(pharaoh.x + 30, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 60, pharaoh.animation.frameHeight * SCALE - 60);
-    if (pharaoh.x > 1200) pharaoh.x = -230;
-    if (pharaoh.x < -230) pharaoh.x = 1200;
-    //console.log("debug");
 }
 
 Pharaoh.prototype.getState = function(){
@@ -581,6 +539,11 @@ Pharaoh.prototype.swapWorld = function(){
     this.setToDefault();
 }
 
+Pharaoh.prototype.collideWithProjectile = function(other) {
+    if ((other.x - 30) < this.x && this.x < (other.x + 30)) {
+        return true; 
+   } 
+}
 
 
 
