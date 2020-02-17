@@ -27,6 +27,7 @@ Camera.prototype.getX = function (XValue) {
 
 Camera.prototype.setX = function (XValue) {
 
+    console.log(XValue);
     this.x = XValue - this.width;
     //console.log("camera x value:"+ this.x)
 
