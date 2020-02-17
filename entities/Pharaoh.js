@@ -447,6 +447,8 @@ function controlJump(pharaoh){
                 pharaoh.groundLevel = pharaoh.y;
                 pharaoh.setToDefault();
             } 
+            // detect collision when pharaoh underneath a platform and stop him from jumping through it
+            
             // else if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.boundingBox.top < pf.boundingBox.bottom) {
             //     pharaoh.yVelocity = 0;
             // } 
