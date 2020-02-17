@@ -69,6 +69,6 @@ Background.prototype.update = function () {
 }
 
 Background.prototype.switch = function(background){
-    this.png = background;
-    this.underworld = !this.underworld;
+    // this.png = background;
+    // this.underworld = !this.underworld;
 }

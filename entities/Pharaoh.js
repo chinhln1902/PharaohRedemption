@@ -81,12 +81,11 @@ function loadSpriteSheets(AM){
 
 
 // Pharaoh "class". Represents the main character and all of his actions.
-function Pharaoh(game, assetManager, camera) {
+function Pharaoh(game, assetManager, theCamera) {
 
     this.engine = game;
     this.AM = assetManager;  
-    this.camera = camera;  
-     
+    this.camera = theCamera;
     loadSpriteSheets(this.AM);
     console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
     this.ctx = game.ctx;
@@ -97,7 +96,7 @@ function Pharaoh(game, assetManager, camera) {
     //state is a string which can be either: 'idle' 'jumping' or 'moving'
     this.state = "idle"; 
     //direction is a string which can be either: 'left' or 'right'
-    this.direction = "right";
+    this.direction = 'right';
     this.x = 500; 
     //jump variables
     this.height = 200;
@@ -127,9 +126,12 @@ Pharaoh.prototype.constructor = Pharaoh;
 //update is called once per frame
 Pharaoh.prototype.update = function () {
     this.x += this.game.clockTick * this.speed;
+    this.camera.setX(this.x);                      ///For camera
+
     controlAnimation(this);
     controlMovement(this);
     controlJump(this);
+
     Entity.prototype.update.call(this);
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
@@ -138,12 +140,7 @@ Pharaoh.prototype.update = function () {
                 console.log("collided"); 
             }
         }
-    }   
-
-    this.camera.setX(this.x);  
-
-    //console.log("spam!");
-    
+    }       
 }
 
 //draw is called after every update
@@ -492,9 +489,10 @@ function controlJump(pharaoh){
 
 // called by the update method. controlls the movement.
 function controlMovement(pharaoh){
-    if (pharaoh.x > 1200) pharaoh.x = -230;
-    if (pharaoh.x < -230) pharaoh.x = 1200;
+    // if (pharaoh.x > 1200) pharaoh.x = -230;
+    // if (pharaoh.x < -230) pharaoh.x = 1200;
     // //console.log("debug");
+
     if (!pharaoh.isJumping) {
         pharaoh.boundingBox = new BoundingBox (pharaoh.x + 30, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 60, pharaoh.animation.frameHeight * SCALE - 60);
         for (var i = 0; i < platforms.length; i++) {
@@ -534,9 +532,7 @@ Pharaoh.prototype.getGroundLevel = function(){
 Pharaoh.prototype.getDirection = function(){
     return this.direction;
 }
-Pharaoh.prototype.getDirection = function(){
-    return this.direction;
-}
+
 Pharaoh.prototype.setDirection = function(theDirection){
     this.direction = theDirection;
 }
@@ -554,6 +550,5 @@ Pharaoh.prototype.collideWithProjectile = function(other) {
    } 
 }
 
-// test pushing Ashlyn branch
 
 

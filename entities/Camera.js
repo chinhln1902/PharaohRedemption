@@ -20,7 +20,7 @@ Camera.prototype.update = function () {
 
 }
 
-Camera.prototype.getX = function (XValue) {
+Camera.prototype.getX = function () {
 
     return this.x;
 }
@@ -28,4 +28,5 @@ Camera.prototype.getX = function (XValue) {
 Camera.prototype.setX = function (XValue) {
 
     this.x = XValue - this.width;
+
 }

@@ -12,8 +12,8 @@ window.requestAnimFrame = (function () {
 function GameEngine() {
     this.entities = [];
     this.ctx = null;
-    this.mainCharacter = null;
     this.camera = null;
+    this.mainCharacter = null;
     this.surfaceWidth = null;
     this.surfaceHeight = null;
 }
@@ -36,7 +36,6 @@ GameEngine.prototype.start = function () {
 }
 
 GameEngine.prototype.addEntity = function (entity) {
-
     this.entities.push(entity);
 }
 
