@@ -142,6 +142,5 @@ BackgroundManager.prototype.removeBackground = function(){
     desertBackground[5].switch();
     desertBackground[6].switch();
 
-    console.log("hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
 
 }

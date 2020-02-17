@@ -25,8 +25,6 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
     platforms.push(new Platform(this.engine, platformSheets['sandTop'],10, 4, 100, 100));
     platforms.push(new Platform(this.engine, platformSheets['sandMid'],10, 5, 100, 100));
     platforms.push(new Platform(this.engine, platformSheets['sandTop'],9, 5, 100, 100));
-    
-
     // var woodenBarrel1 = new Platform(this.engine, platformSheets['wooden barrel']);
     // woodenBarrel1.x = 200;
     // woodenBarrel1.y = 540;
