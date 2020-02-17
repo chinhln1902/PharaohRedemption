@@ -7,16 +7,18 @@ levelcontroller.prototype.level1 = function(){
     console.log("loading level 1"); 
     var canvas = document.getElementById("gameWorld");
     var ctx = canvas.getContext("2d");
+
+    var background = new BackgroundManager(AM, gameEngine);
     
     var gameEngine = new GameEngine();
     gameEngine.init(ctx);
     gameEngine.start();
 
-
-    gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./assets/backgrounds/egypt.png")));
+    var camera = new Camera(gameEngine);
+    gameEngine.addEntityCamera(camera);
        
     var mainCharacter = new Pharaoh(gameEngine, AM);
-    gameEngine.addEntity(mainCharacter);
+    gameEngine.addEntityMainCharacter(mainCharacter);
     var characterControl = new pharaohController(mainCharacter);
 
     var enemyController = new EnemyController(gameEngine);

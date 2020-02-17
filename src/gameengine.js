@@ -12,6 +12,8 @@ window.requestAnimFrame = (function () {
 function GameEngine() {
     this.entities = [];
     this.ctx = null;
+    this.mainCharacter = null;
+    this.camera = null;
     this.surfaceWidth = null;
     this.surfaceHeight = null;
 }
@@ -34,8 +36,28 @@ GameEngine.prototype.start = function () {
 }
 
 GameEngine.prototype.addEntity = function (entity) {
-    console.log('added entity');
+
     this.entities.push(entity);
+}
+
+GameEngine.prototype.addEntityCamera = function (entity) {
+
+    this.camera = entity;
+    this.entities.push(entity);
+}
+
+GameEngine.prototype.addEntityMainCharacter = function (entity) {
+
+    this.mainCharacter = entity;
+    this.entities.push(entity);
+}
+
+GameEngine.prototype.getCamera = function(){
+    return this.camera;
+}
+
+GameEngine.prototype.getMainCharacter = function(){
+    return this.mainCharacter;
 }
 
 GameEngine.prototype.draw = function () {

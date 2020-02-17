@@ -81,10 +81,12 @@ function loadSpriteSheets(AM){
 
 
 // Pharaoh "class". Represents the main character and all of his actions.
-function Pharaoh(game, assetManager) {
+function Pharaoh(game, assetManager, camera) {
 
     this.engine = game;
-    this.AM = assetManager;   
+    this.AM = assetManager;  
+    this.camera = camera;  
+     
     loadSpriteSheets(this.AM);
     console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
     this.ctx = game.ctx;
@@ -137,6 +139,9 @@ Pharaoh.prototype.update = function () {
             }
         }
     }   
+
+    this.camera.setX(this.x);  
+
     //console.log("spam!");
     
 }
@@ -515,6 +520,10 @@ Pharaoh.prototype.getState = function(){
 Pharaoh.prototype.setState = function(theState){
     this.state = theState;
 }
+Pharaoh.prototype.getX = function(){
+    return this.x;
+}
+
 Pharaoh.prototype.getY = function(){
     return this.y;
 }
