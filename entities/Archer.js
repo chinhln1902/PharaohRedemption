@@ -10,7 +10,7 @@ function Archer(game, AssetManager) {
 	this.ctx = game.ctx; 
 	this.idle(); 
 	this.state = "idle"; 
-	this.x = 0;
+	this.x = 125;
 	this.y = 485;
 	this.speed = 0; 
 	this.time = 0; 
@@ -45,7 +45,7 @@ Archer.prototype.draw = function () {
 }
 
 Archer.prototype.update = function () {
-	if (this.live === 0) return; 
+	//if (this.live === 0) return;
 	var that = this; 
     this.x += this.game.clockTick * this.speed;
     ControlAnimation(this); 

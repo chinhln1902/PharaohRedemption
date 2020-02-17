@@ -33,7 +33,7 @@ Bat.prototype.draw = function () {
 }
 
 Bat.prototype.update = function () {
-    if (this.live === 0) return; 
+    if (this.live === 0) return;
     this.x -= 3;
 
     if (this.x < -230) this.x = 1200;
