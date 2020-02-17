@@ -43,6 +43,7 @@ GameEngine.prototype.addEntityCamera = function (entity) {
 
     this.camera = entity;
     this.entities.push(entity);
+
 }
 
 GameEngine.prototype.addEntityMainCharacter = function (entity) {

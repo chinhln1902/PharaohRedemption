@@ -16,6 +16,8 @@ function loadAssets(){
     AM.queueDownload("./assets/backgrounds/Underworld Layers/4.png");
     AM.queueDownload("./assets/backgrounds/Underworld Layers/5.png");
     AM.queueDownload("./assets/backgrounds/Underworld Layers/6.png");
+    AM.queueDownload("./assets/backgrounds/Underworld Layers/7.png");
+
 
     //Pharo
     //AM.queueDownload("./assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"); //idle

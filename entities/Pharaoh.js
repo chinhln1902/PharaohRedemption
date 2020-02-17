@@ -86,6 +86,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.engine = game;
     this.AM = assetManager;  
     this.camera = theCamera;
+
     loadSpriteSheets(this.AM);
     console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
     this.ctx = game.ctx;
@@ -126,13 +127,14 @@ Pharaoh.prototype.constructor = Pharaoh;
 //update is called once per frame
 Pharaoh.prototype.update = function () {
     this.x += this.game.clockTick * this.speed;
-    this.camera.setX(this.x);                      ///For camera
 
     controlAnimation(this);
     controlMovement(this);
     controlJump(this);
+    this.camera.setX(this.x);                      ///For camera
 
     Entity.prototype.update.call(this);
+
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
         if (ent.name === "arrow") { 
@@ -140,7 +142,8 @@ Pharaoh.prototype.update = function () {
                 console.log("collided"); 
             }
         }
-    }       
+    }  
+    
 }
 
 //draw is called after every update
