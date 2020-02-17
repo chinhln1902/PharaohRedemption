@@ -1,10 +1,23 @@
 
 function loadAssets(){
         
-    //Background
-    AM.queueDownload("./assets/backgrounds/desertBackground1.jpg");
-    AM.queueDownload("./assets/backgrounds/egypt.png");
-    AM.queueDownload("./assets/backgrounds/underworld.png");
+    //Background Layers
+    AM.queueDownload("./assets/backgrounds/Desert Layers/1.png");
+    AM.queueDownload("./assets/backgrounds/Desert Layers/2.png");
+    AM.queueDownload("./assets/backgrounds/Desert Layers/3.png");
+    AM.queueDownload("./assets/backgrounds/Desert Layers/4.png");
+    AM.queueDownload("./assets/backgrounds/Desert Layers/5.png");
+    AM.queueDownload("./assets/backgrounds/Desert Layers/6.png");
+    AM.queueDownload("./assets/backgrounds/Desert Layers/7.png");
+
+    AM.queueDownload("./assets/backgrounds/Underworld Layers/1.png");
+    AM.queueDownload("./assets/backgrounds/Underworld Layers/2.png");
+    AM.queueDownload("./assets/backgrounds/Underworld Layers/3.png");
+    AM.queueDownload("./assets/backgrounds/Underworld Layers/4.png");
+    AM.queueDownload("./assets/backgrounds/Underworld Layers/5.png");
+    AM.queueDownload("./assets/backgrounds/Underworld Layers/6.png");
+    AM.queueDownload("./assets/backgrounds/Underworld Layers/7.png");
+
 
     //Pharo
     //AM.queueDownload("./assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"); //idle

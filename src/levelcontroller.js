@@ -12,11 +12,9 @@ levelcontroller.prototype.level1 = function(){
     gameEngine.init(ctx);
     gameEngine.start();
 
-
-    gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./assets/backgrounds/egypt.png")));
-       
-    var mainCharacter = new Pharaoh(gameEngine, AM);
-    gameEngine.addEntity(mainCharacter);
+    var parallax = new BackgroundManager(AM, gameEngine);
+    var camera = new Camera(gameEngine);      
+    var mainCharacter = new Pharaoh(gameEngine, AM, camera);
     var characterControl = new pharaohController(mainCharacter);
 
     var enemyController = new EnemyController(gameEngine);
@@ -25,7 +23,10 @@ levelcontroller.prototype.level1 = function(){
     var platformController = new PlatformController(gameEngine, AM);
     platformController.loadPlatformsLevel1();
 
-    
+    gameEngine.addEntityMainCharacter(mainCharacter);
+    gameEngine.addEntityCamera(camera);
+
+
 
 
     

@@ -33,7 +33,7 @@ Projectile.prototype.constructor = Projectile;
 
 Projectile.prototype.draw = function () {
     //if (this.underworld) return;
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x , this.y);
     Entity.prototype.draw.call(this);
 }
 

@@ -81,10 +81,12 @@ function loadSpriteSheets(AM){
 
 
 // Pharaoh "class". Represents the main character and all of his actions.
-function Pharaoh(game, assetManager) {
+function Pharaoh(game, assetManager, theCamera) {
 
     this.engine = game;
-    this.AM = assetManager;   
+    this.AM = assetManager;  
+    this.camera = theCamera;
+
     loadSpriteSheets(this.AM);
     console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
     this.ctx = game.ctx;
@@ -95,7 +97,7 @@ function Pharaoh(game, assetManager) {
     //state is a string which can be either: 'idle' 'jumping' or 'moving'
     this.state = "idle"; 
     //direction is a string which can be either: 'left' or 'right'
-    this.direction = "right";
+    this.direction = 'right';
     this.x = 500; 
     //jump variables
     this.height = 200;
@@ -125,10 +127,14 @@ Pharaoh.prototype.constructor = Pharaoh;
 //update is called once per frame
 Pharaoh.prototype.update = function () {
     this.x += this.game.clockTick * this.speed;
+
     controlAnimation(this);
     controlMovement(this);
     controlJump(this);
+    this.camera.setX(this.x);                      ///For camera
+
     Entity.prototype.update.call(this);
+
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
         if (ent.name === "arrow") { 
@@ -136,8 +142,7 @@ Pharaoh.prototype.update = function () {
                 console.log("collided"); 
             }
         }
-    }   
-    //console.log("spam!");
+    }  
     
 }
 
@@ -145,8 +150,8 @@ Pharaoh.prototype.update = function () {
 Pharaoh.prototype.draw = function () {
     //if (this.underworld) return;
     //console.log(this.animation);
-    this.ctx.strokeRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    this.ctx.strokeRect(this.boundingBox.x - this.camera.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
+    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.camera.x, this.y);                    //important for camera to work
     // this.ctx.strokeRect(this.x, this.y, 10, 10);
     Entity.prototype.draw.call(this);
 }
@@ -435,7 +440,7 @@ function controlJump(pharaoh){
         // debugger;
         for (var i = 0; i < platforms.length; i++) {
             var pf = platforms[i];
-            debugger;
+//            debugger;
             var a = pharaoh.boundingBox.collide(pf.boundingBox);
             var b = !pharaoh.onPlatform;
             if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.lastBottom < pf.boundingBox.top) {                
@@ -524,26 +529,27 @@ function controlJump(pharaoh){
 
 // called by the update method. controlls the movement.
 function controlMovement(pharaoh){
-    if (pharaoh.x > 1200) pharaoh.x = -230;
-    if (pharaoh.x < -230) pharaoh.x = 1200;
+    // if (pharaoh.x > 1200) pharaoh.x = -230;
+    // if (pharaoh.x < -230) pharaoh.x = 1200;
     // //console.log("debug");
-    // if (!pharaoh.isJumping) {
-    //     pharaoh.boundingBox = new BoundingBox (pharaoh.x + 30, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 60, pharaoh.animation.frameHeight * SCALE - 60);
-    //     for (var i = 0; i < platforms.length; i++) {
-    //         var pf = platforms[i];
-    //         if (pharaoh.boundingBox.collide(pf.boundingBox)) {
-    //             if (pharaoh.direction === "right") {
-    //                 pharaoh.speed = 0;
-    //                 pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 29;
-    //                 pharaoh.setToDefault();
-    //             } else if (pharaoh.direction === "left") {
-    //                 pharaoh.speed = 0;
-    //                 pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 151;
-    //                 pharaoh.setToDefault();
-    //             }
-    //         }
-    //     }
-    // }
+
+    if (!pharaoh.isJumping) {
+        pharaoh.boundingBox = new BoundingBox (pharaoh.x + 30, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 60, pharaoh.animation.frameHeight * SCALE - 60);
+        for (var i = 0; i < platforms.length; i++) {
+            var pf = platforms[i];
+            if (pharaoh.boundingBox.collide(pf.boundingBox)) {
+                if (pharaoh.direction === "right") {
+                    pharaoh.speed = 0;
+                    pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 29;
+                    pharaoh.setToDefault();
+                } else if (pharaoh.direction === "left") {
+                    pharaoh.speed = 0;
+                    pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 151;
+                    pharaoh.setToDefault();
+                }
+            }
+        }
+    }
 }
 
 Pharaoh.prototype.getState = function(){
@@ -552,6 +558,10 @@ Pharaoh.prototype.getState = function(){
 Pharaoh.prototype.setState = function(theState){
     this.state = theState;
 }
+Pharaoh.prototype.getX = function(){
+    return this.x;
+}
+
 Pharaoh.prototype.getY = function(){
     return this.y;
 }
@@ -562,9 +572,7 @@ Pharaoh.prototype.getGroundLevel = function(){
 Pharaoh.prototype.getDirection = function(){
     return this.direction;
 }
-Pharaoh.prototype.getDirection = function(){
-    return this.direction;
-}
+
 Pharaoh.prototype.setDirection = function(theDirection){
     this.direction = theDirection;
 }
@@ -581,7 +589,6 @@ Pharaoh.prototype.collideWithProjectile = function(other) {
         return true; 
    } 
 }
-
 
 
 
