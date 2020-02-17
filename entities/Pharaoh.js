@@ -106,7 +106,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.yVelocity = 0;
     this.isJumping = false;
     this.width = 180; 
-
+    this.time = 100; 
     // this is true if we only want to play the animation once
     this.playingTempAnimation = false;
 
@@ -127,9 +127,9 @@ Pharaoh.prototype.constructor = Pharaoh;
 //update is called once per frame
 Pharaoh.prototype.update = function () {
     this.x += this.game.clockTick * this.speed;
-
+    this.time++; 
     controlAnimation(this);
-    controlMovement(this);
+    controlMovement(this);  
     controlJump(this);
     this.camera.setX(this.x);                      ///For camera
 
@@ -282,56 +282,59 @@ Pharaoh.prototype.slash = function () {
 
 //makes the pharaoh throw
 Pharaoh.prototype.throw = function () {
-    if (this.underworld){
-        if (this.direction === 'right'){
-            if (this.state === 'idle'){
-                this.animation = new Animation(spriteSheets['throwing1'], 900, 900, 12, 0.05, 12, false, SCALE);
-            } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['throwing in the air1'], 900, 900, 12, 0.05, 12, false, SCALE);
-            } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['run throwing1'], 900, 900, 12, 0.05, 12, false, SCALE);
-            }   
-            var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheet.png"),
-                    "right", this.x + 10, this.y+10);
-            this.engine.addEntity(comet);
+    if (this.time > 100) {
+        this.time = 0;
+        if (this.underworld){
+            if (this.direction === 'right'){
+                if (this.state === 'idle'){
+                    this.animation = new Animation(spriteSheets['throwing1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                } else if (this.state === 'jumping'){
+                    this.animation = new Animation(spriteSheets['throwing in the air1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                } else if (this.state === 'running'){
+                    this.animation = new Animation(spriteSheets['run throwing1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                }   
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheet.png"),
+                        "right", this.x + 10, this.y+10);
+                this.engine.addEntity(comet);
+            } else {
+                if (this.state === 'idle'){
+                    this.animation = new Animation(spriteSheets['throwing flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                } else if (this.state === 'jumping'){
+                    this.animation = new Animation(spriteSheets['throwing in the air flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                } else if (this.state === 'running'){
+                    this.animation = new Animation(spriteSheets['run throwing flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                }   
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheetflip.png"),
+                       "left", this.x - 10, this.y+10);
+                this.engine.addEntity(comet);
+            }
         } else {
-            if (this.state === 'idle'){
-                this.animation = new Animation(spriteSheets['throwing flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
-            } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['throwing in the air flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
-            } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['run throwing flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
-            }   
-            var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheetflip.png"),
-                   "left", this.x - 10, this.y+10);
-            this.engine.addEntity(comet);
+            if (this.direction === 'right'){
+                if (this.state === 'idle'){
+                    this.animation = new Animation(spriteSheets['throwing'], 900, 900, 12, 0.05, 12, false, SCALE);
+                } else if (this.state === 'jumping'){
+                    this.animation = new Animation(spriteSheets['throwing in the air'], 900, 900, 12, 0.05, 12, false, SCALE);
+                } else if (this.state === 'running'){
+                    this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, SCALE);
+                }   
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheet.png"),
+                        "right", this.x + 10, this.y+10);
+                this.engine.addEntity(comet);
+            } else {
+                if (this.state === 'idle'){
+                    this.animation = new Animation(spriteSheets['throwing flip'], 900, 900, 12, 0.05, 12, false, SCALE);
+                } else if (this.state === 'jumping'){
+                    this.animation = new Animation(spriteSheets['throwing in the air flip'], 900, 900, 12, 0.05, 12, false, SCALE);
+                } else if (this.state === 'running'){
+                    this.animation = new Animation(spriteSheets['run throwing flip'], 900, 900, 12, 0.05, 12, false, SCALE);
+                }   
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheetflip.png"),
+                       "left", this.x - 10, this.y+10);
+                this.engine.addEntity(comet);
+            }
         }
-    } else {
-        if (this.direction === 'right'){
-            if (this.state === 'idle'){
-                this.animation = new Animation(spriteSheets['throwing'], 900, 900, 12, 0.05, 12, false, SCALE);
-            } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['throwing in the air'], 900, 900, 12, 0.05, 12, false, SCALE);
-            } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, SCALE);
-            }   
-            var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheet.png"),
-                    "right", this.x + 10, this.y+10);
-            this.engine.addEntity(comet);
-        } else {
-            if (this.state === 'idle'){
-                this.animation = new Animation(spriteSheets['throwing flip'], 900, 900, 12, 0.05, 12, false, SCALE);
-            } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['throwing in the air flip'], 900, 900, 12, 0.05, 12, false, SCALE);
-            } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['run throwing flip'], 900, 900, 12, 0.05, 12, false, SCALE);
-            }   
-            var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheetflip.png"),
-                   "left", this.x - 10, this.y+10);
-            this.engine.addEntity(comet);
-        }
+        this.playingTempAnimation = true;
     }
-    this.playingTempAnimation = true;
 }
 
 //makes the pharaoh take damage
