@@ -6,6 +6,7 @@ function Platform(game, sprite, x, y, width, height) {
     this.platformSheet = sprite;
     this.game = game;
     this.ctx = game.ctx;
+    this.live = 1; 
     this.boundingBox = new BoundingBox(x * 100, y * 100 + 40, width, height);
     this.game.addEntity(this);
 }

@@ -7,6 +7,7 @@ function Snake(game, spritesheet) {
     this.height = 85; 
     this.game = game;
     this.ctx = game.ctx;
+    this.live = 1; 
     this.name = "snake"; 
 
     var underworld = false;
@@ -17,6 +18,11 @@ function Snake(game, spritesheet) {
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
+            if (this.live === 1) {
+                this.live = 0;
+            } else {
+                this.live = 1; 
+            }
             that.underworld = !that.underworld;
         }
     });
@@ -29,6 +35,7 @@ Snake.prototype.draw = function () {
 }
 
 Snake.prototype.update = function () {
+    if (this.live === 0) return; 
     this.x += this.game.clockTick * this.speed;
     Entity.prototype.update.call(this);
 }

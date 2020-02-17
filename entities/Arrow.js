@@ -14,12 +14,18 @@ function Arrow(game, AssetManager) {
 	this.speed = 280; 
 	this.game = game; 
 	this.name = "arrow";  
+    this.live = 0; 
 	var underworld = false; 
 	var that = this; 
 	document.addEventListener("keydown", function (e) {
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
+            if (this.live === 0) {
+                this.live = 1;
+            } else {
+                this.live = 0; 
+            }
             that.underworld = !that.underworld;
         }
     });
@@ -35,6 +41,7 @@ Arrow.prototype.draw = function () {
 }
 
 Arrow.prototype.update = function () {
+    if (this.live === 0) return; 
     this.x += this.game.clockTick * this.speed;
     Entity.prototype.update.call(this);
     for (var i = 0; i < this.game.entities.length; i++) {

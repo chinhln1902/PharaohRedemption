@@ -109,7 +109,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.time = 100; 
     // this is true if we only want to play the animation once
     this.playingTempAnimation = false;
-
+    this.live = 1; 
     //this.pharaohController = new pharaohController(this);
     this.underworld = false;
     // To check if pharaoh is standing on platform or not.

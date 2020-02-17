@@ -17,6 +17,7 @@ function Archer(game, AssetManager) {
 	this.game = game;  
 	this.width = 182; 
 	this.name = "archer"; 
+	this.live = 0; 
 	this.PlayingTempAnimation = false; 
 	var underworld = false; 
 	var that = this; 
@@ -24,6 +25,11 @@ function Archer(game, AssetManager) {
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
+            if (this.live === 0) {
+            	this.live = 1;
+            } else {
+            	this.live = 0; 
+            }
             that.underworld = !that.underworld;
         }
     });
@@ -39,6 +45,7 @@ Archer.prototype.draw = function () {
 }
 
 Archer.prototype.update = function () {
+	if (this.live === 0) return; 
 	var that = this; 
     this.x += this.game.clockTick * this.speed;
     ControlAnimation(this); 

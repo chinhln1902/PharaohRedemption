@@ -9,7 +9,7 @@ function Projectile(game, spritesheet, direction, startX, startY) {
     }
     this.x = startX;
     this.y = startY;
-    
+    this.live = 1; 
     this.game = game;
     this.ctx = game.ctx;
     this.timeAlive = 0;
