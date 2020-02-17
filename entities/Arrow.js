@@ -3,13 +3,13 @@ function loadArrowSpriteSheets(AM) {
 	spritesheets['shoot'] = AM.getAsset("./assets/sprites/Arrow.png");  
 }
 
-function Arrow(game, AssetManager) {
+function Arrow(game, AssetManager, startX, startY) {
 	this.AM = AssetManager; 
 	loadArrowSpriteSheets(this.AM);
 	this.animation = new Animation(spritesheets['shoot'], 320, 128, 1, .1, 1, true, .2);
 	this.ctx = game.ctx; 
-	this.x = 50;
-	this.y = 590;
+	this.x = startX;
+	this.y = startY;
 	this.width = 20; 
 	this.speed = 280; 
 	this.game = game; 
@@ -21,10 +21,10 @@ function Arrow(game, AssetManager) {
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
-            if (this.live === 0) {
-                this.live = 1;
+            if (that.live === 0) {
+                that.live = 1;
             } else {
-                this.live = 0; 
+                that.live = 0; 
             }
             that.underworld = !that.underworld;
         }
