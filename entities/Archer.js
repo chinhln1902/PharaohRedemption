@@ -10,7 +10,7 @@ function Archer(game, AssetManager) {
 	this.ctx = game.ctx; 
 	this.idle(); 
 	this.state = "idle"; 
-	this.x = 125;
+	this.x = 75;
 	this.y = 485;
 	this.speed = 0; 
 	this.time = 0; 
@@ -23,13 +23,13 @@ function Archer(game, AssetManager) {
 	var that = this; 
 	document.addEventListener("keydown", function (e) {
 		if (e.code === "Space"){
+			if (that.live === 0) {
+            	that.live = 1;
+            } else {
+            	that.live = 0; 
+            }
             console.log("underworld: " + that.underworld);
             e.preventDefault();
-            if (this.live === 0) {
-            	this.live = 1;
-            } else {
-            	this.live = 0; 
-            }
             that.underworld = !that.underworld;
         }
     });
@@ -40,12 +40,12 @@ Archer.prototype.constructor = Archer;
 
 Archer.prototype.draw = function () {
 	if (!this.underworld) return; 
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
     Entity.prototype.draw.call(this);
 }
 
 Archer.prototype.update = function () {
-	//if (this.live === 0) return;
+	if (this.live === 0) return; 
 	var that = this; 
     this.x += this.game.clockTick * this.speed;
     ControlAnimation(this); 
@@ -62,7 +62,7 @@ Archer.prototype.shooting = function() {
 		if (!this.underworld) return; 
 		if (this.time > 100) {
 		this.animation = new Animation(spritesheets['attack'], 910, 900, 9, .03, 9, false, .2); 
-		var arrow = new Arrow(this.game, this.AM); 
+		var arrow = new Arrow(this.game, this.AM, this.x + 130, this.y + 105); 
 		this.game.addEntity(arrow); 
 		this.PlayingTempAnimation = true; 
 		this.time = 0; 

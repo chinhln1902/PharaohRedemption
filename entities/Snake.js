@@ -1,6 +1,6 @@
 function Snake(game, spritesheet) {
     this.animation = new Animation(spritesheet, 94.8, 85, 12, .1, 12, .5, true, .2);
-    this.x = 600;
+    this.x = 700;
     this.y = 555;
     this.speed = 0;
     this.width = 93;
@@ -18,10 +18,10 @@ function Snake(game, spritesheet) {
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
-            if (this.live === 1) {
-                this.live = 0;
+            if (that.live === 1) {
+                that.live = 0;
             } else {
-                this.live = 1; 
+                that.live = 1; 
             }
             that.underworld = !that.underworld;
         }

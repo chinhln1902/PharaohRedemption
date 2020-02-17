@@ -3,28 +3,28 @@ function loadArrowSpriteSheets(AM) {
 	spritesheets['shoot'] = AM.getAsset("./assets/sprites/Arrow.png");  
 }
 
-function Arrow(game, AssetManager) {
+function Arrow(game, AssetManager, startX, startY) {
 	this.AM = AssetManager; 
 	loadArrowSpriteSheets(this.AM);
 	this.animation = new Animation(spritesheets['shoot'], 320, 128, 1, .1, 1, true, .2);
 	this.ctx = game.ctx; 
-	this.x = 50;
-	this.y = 590;
+	this.x = startX;
+	this.y = startY;
 	this.width = 20; 
 	this.speed = 280; 
 	this.game = game; 
 	this.name = "arrow";  
-    this.live = 0; 
+    this.live = 1; 
 	var underworld = false; 
 	var that = this; 
 	document.addEventListener("keydown", function (e) {
 		if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
-            if (this.live === 0) {
-                this.live = 1;
+            if (that.live === 0) {
+                that.live = 1;
             } else {
-                this.live = 0; 
+                that.live = 0; 
             }
             that.underworld = !that.underworld;
         }
@@ -36,13 +36,14 @@ Arrow.prototype.constructor = Arrow;
 
 Arrow.prototype.draw = function () {
 	if(this.underworld) return; 
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
     Entity.prototype.draw.call(this);
 }
 
 Arrow.prototype.update = function () {
     if (this.live === 0) return; 
     this.x += this.game.clockTick * this.speed;
+    console.log("arrow is updating"); 
     Entity.prototype.update.call(this);
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];
