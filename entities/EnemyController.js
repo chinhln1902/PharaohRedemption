@@ -1,5 +1,6 @@
-function EnemyController(game){
+function EnemyController(game, camera){
     this.gameEngine = game;
+    this.cam = camera; 
 }
 
 // enemyController.prototype = new Entity();

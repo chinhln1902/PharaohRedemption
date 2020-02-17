@@ -31,7 +31,7 @@ Goul.prototype.draw = function () {
 }
 
 Goul.prototype.update = function () {
-    if (this.live === 0) return; 
+    if (this.live === 0) return;
     var that = this;
     if (this.x > 1200) this.x = -230;
     if (this.x < -230) this.x = 1200;

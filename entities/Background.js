@@ -7,7 +7,7 @@ function Background(game, png1, png2, speed) {
     this.y1 = 0;
     this.x2 = 1200;
     this.y2 = 0;
-
+    this.live = 1; 
     this.currentFrame = "x2";
 
     this.width = 1200;
