@@ -17,14 +17,14 @@ function PlatformController (game, assetManager) {
 PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
-    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],0, 5, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 5, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 5, 100, 100));
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],0, 7));
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 7));
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 7));
     
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 3, 150, 50));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'],10, 4, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['sandMid'],10, 5, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'],9, 5, 100, 100));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 5));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],10, 6));
+    platforms.push(new Platform(this.engine, platformSheets['sandMid'],10, 7));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],9, 7));
     
 
     // var woodenBarrel1 = new Platform(this.engine, platformSheets['wooden barrel']);

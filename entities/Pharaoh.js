@@ -361,7 +361,7 @@ Pharaoh.prototype.takeDamage = function (damage) {
 }
 
 Pharaoh.prototype.die = function (){
-    this.animation = null;
+    this.animation = animation = new Animation(spriteSheets['dying'], 900, 900, 18, 0.05, 18, false, SCALE);
     console.log("Game Over");
 }
 
