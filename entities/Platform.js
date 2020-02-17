@@ -1,12 +1,12 @@
-function Platform(game, sprite, x, y) {
+function Platform(game, sprite, x, y, width, height) {
     this.x = x * 100;
     this.y = y * 100 + 40;
-    this.width = 100;
-    this.height = 100;
+    this.width = width;
+    this.height = height;
     this.platformSheet = sprite;
     this.game = game;
     this.ctx = game.ctx;
-    this.boundingBox = new BoundingBox(x * 100, y * 100 + 40, this.width, this.height);
+    this.boundingBox = new BoundingBox(x * 100, y * 100 + 40, width, height);
     this.game.addEntity(this);
 }
 

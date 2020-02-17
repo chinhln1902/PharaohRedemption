@@ -115,7 +115,7 @@ function Pharaoh(game, assetManager) {
     this.platform = null;
 
 
-    this.boundingBox = new BoundingBox(this.x + 30, this.y + 30, this.animation.frameWidth * SCALE - 60, this.animation.frameHeight * SCALE - 60);
+    this.boundingBox = new BoundingBox(this.x + 40, this.y + 30, this.animation.frameWidth * SCALE - 80, this.animation.frameHeight * SCALE - 60);
 }
 
 //inheritence
@@ -431,10 +431,13 @@ function controlJump(pharaoh){
         pharaoh.y -= pharaoh.yVelocity;
 
         pharaoh.lastBottom = pharaoh.boundingBox.bottom;
-        pharaoh.boundingBox = new BoundingBox (pharaoh.x + 30, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 60, pharaoh.animation.frameHeight * SCALE - 60);
+        pharaoh.boundingBox = new BoundingBox (pharaoh.x + 40, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 80, pharaoh.animation.frameHeight * SCALE - 60);
         // debugger;
         for (var i = 0; i < platforms.length; i++) {
             var pf = platforms[i];
+            debugger;
+            var a = pharaoh.boundingBox.collide(pf.boundingBox);
+            var b = !pharaoh.onPlatform;
             if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.lastBottom < pf.boundingBox.top) {                
                 pharaoh.isJumping = false;
                 pharaoh.onPlatform = true;
@@ -443,11 +446,43 @@ function controlJump(pharaoh){
                 pharaoh.state = pharaoh.previousState;
                 pharaoh.groundLevel = pharaoh.y;
                 pharaoh.setToDefault();
+            } 
+            // else if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.boundingBox.top < pf.boundingBox.bottom) {
+            //     pharaoh.yVelocity = 0;
+            // } 
+            // else if (pharaoh.boundingBox.collide(pf.boundingBox) && !pharaoh.onPlatform) {
+
+            //     if (pharaoh.direction === "right") {
+            //         pharaoh.speed = 0;
+            //         pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 39;
+            //         pharaoh.setToDefault();
+            //     } else if (pharaoh.direction === "left") {
+            //         pharaoh.speed = 0;
+            //         pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 141;
+            //         pharaoh.setToDefault();
+            //     }
+            // }
+        }
+    } else {
+        pharaoh.boundingBox = new BoundingBox (pharaoh.x + 40, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 80, pharaoh.animation.frameHeight * SCALE - 60);
+        for (var i = 0; i < platforms.length; i++) {
+            var pf = platforms[i];
+            if (pharaoh.boundingBox.collide(pf.boundingBox)) {
+                if (pharaoh.direction === "right") {
+                    pharaoh.speed = 0;
+                    pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 39;
+                    pharaoh.setToDefault();
+                } else if (pharaoh.direction === "left") {
+                    pharaoh.speed = 0;
+                    pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 141;
+                    pharaoh.setToDefault();
+                }
             }
         }
     }
+    //when pharaoh is not jumping but still on platform
     if (!pharaoh.isJumping && pharaoh.onPlatform) {
-        pharaoh.boundingBox = new BoundingBox (pharaoh.x + 30, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 60, pharaoh.animation.frameHeight * SCALE - 60);
+        pharaoh.boundingBox = new BoundingBox (pharaoh.x + 40, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 80, pharaoh.animation.frameHeight * SCALE - 60);
         for (var i = 0; i < platforms.length; i++) {
             var pf = platforms[i];
             if (pharaoh.boundingBox.collide(pf.boundingBox)) {
@@ -490,23 +525,23 @@ function controlMovement(pharaoh){
     if (pharaoh.x > 1200) pharaoh.x = -230;
     if (pharaoh.x < -230) pharaoh.x = 1200;
     // //console.log("debug");
-    if (!pharaoh.isJumping) {
-        pharaoh.boundingBox = new BoundingBox (pharaoh.x + 30, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 60, pharaoh.animation.frameHeight * SCALE - 60);
-        for (var i = 0; i < platforms.length; i++) {
-            var pf = platforms[i];
-            if (pharaoh.boundingBox.collide(pf.boundingBox)) {
-                if (pharaoh.direction === "right") {
-                    pharaoh.speed = 0;
-                    pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 29;
-                    pharaoh.setToDefault();
-                } else if (pharaoh.direction === "left") {
-                    pharaoh.speed = 0;
-                    pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 151;
-                    pharaoh.setToDefault();
-                }
-            }
-        }
-    }
+    // if (!pharaoh.isJumping) {
+    //     pharaoh.boundingBox = new BoundingBox (pharaoh.x + 30, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 60, pharaoh.animation.frameHeight * SCALE - 60);
+    //     for (var i = 0; i < platforms.length; i++) {
+    //         var pf = platforms[i];
+    //         if (pharaoh.boundingBox.collide(pf.boundingBox)) {
+    //             if (pharaoh.direction === "right") {
+    //                 pharaoh.speed = 0;
+    //                 pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 29;
+    //                 pharaoh.setToDefault();
+    //             } else if (pharaoh.direction === "left") {
+    //                 pharaoh.speed = 0;
+    //                 pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 151;
+    //                 pharaoh.setToDefault();
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 Pharaoh.prototype.getState = function(){
