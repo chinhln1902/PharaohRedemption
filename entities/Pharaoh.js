@@ -106,6 +106,8 @@ function Pharaoh(game, assetManager, theCamera) {
     this.yVelocity = 0;
     this.isJumping = false;
     this.width = 180; 
+    this.health = 100;
+    this.maxHealth = 100;
     this.time = 100; 
     // this is true if we only want to play the animation once
     this.playingTempAnimation = false;
@@ -338,7 +340,9 @@ Pharaoh.prototype.throw = function () {
 }
 
 //makes the pharaoh take damage
-Pharaoh.prototype.takeDamage = function () {
+Pharaoh.prototype.takeDamage = function (damage) {
+    this.health -= damage;
+    if (this.health <= 0) this.die();
     if (this.underworld){
         if (this.direction === 'right'){
             this.animation = new Animation(spriteSheets['hurt1'], 900, 900, 18, 0.05, 18, false, SCALE); 
@@ -354,6 +358,11 @@ Pharaoh.prototype.takeDamage = function () {
     }
     this.playingTempAnimation = true;
     console.log("took damage");
+}
+
+Pharaoh.prototype.die = function (){
+    this.animation = null;
+    console.log("Game Over");
 }
 
 //makes the pharaoh blink. only works when he idle
