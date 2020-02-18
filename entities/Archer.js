@@ -58,12 +58,29 @@ Archer.prototype.update = function () {
     			this.removeFromWorld = true; 
     		}
 	    }
+	    if (ent.name === 'pharaoh' && ent.attacking === true) {
+	    	if (this.collideSlash(ent)) {
+	    		this.removeFromWorld = true; 
+	    	}
+	    }
     }	
     this.shooting();   
 }
 
 Archer.prototype.collide = function(other) {
     if ((other.x - 30) < this.x && this.x < (other.x + 30) && this.y >= (other.y - 100) && this.y <= (other.y + 200)) {
+   		return true; 
+   }
+}
+
+Archer.prototype.collide = function(other) {
+    if ((other.x - 30) < this.x && this.x < (other.x + 30) && this.y >= (other.y - 100) && this.y <= (other.y + 200)) {
+   		return true; 
+   }
+}
+
+Archer.prototype.collideSlash = function(other) {
+    if ((other.x - 200) < this.x && this.x < (other.x + 200) && this.y >= (other.y - 100) && this.y <= (other.y + 200)) {
    		return true; 
    }
 }

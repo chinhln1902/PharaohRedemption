@@ -39,7 +39,33 @@ Goul.prototype.update = function () {
     this.x += 2; //for walking
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;
+    for (var i = 0; i < this.game.entities.length; i++) {
+        var ent = this.game.entities[i];
+        if (ent.name === 'comet') {
+            if (this.collide(ent)) {
+                this.removeFromWorld = true; 
+            }
+        }
+        if (ent.name === 'pharaoh' && ent.attacking === true) {
+            if (this.collideSlash(ent)) {
+                this.removeFromWorld = true; 
+            }
+        }
+    }   
 }
+
+Goul.prototype.collide = function(other) {
+    if ((other.x - 30) < this.x && this.x < (other.x + 30) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+        return true; 
+   }
+}
+
+Goul.prototype.collideSlash = function(other) {
+    if ((other.x - 300) < this.x && this.x < (other.x + 300) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+        return true; 
+   }
+}
+
 Goul.prototype.swapWorld = function(){
     if (this.live === 0) {
         this.live = 1;

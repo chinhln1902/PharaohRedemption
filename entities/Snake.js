@@ -36,10 +36,34 @@ Snake.prototype.draw = function () {
 }
 
 Snake.prototype.update = function () {
-    if (this.live === 0) return; 
-    console.log("snake updates"); 
+    if (this.live === 0) return;  
     this.x += this.game.clockTick * this.speed;
     Entity.prototype.update.call(this);
+    for (var i = 0; i < this.game.entities.length; i++) {
+        var ent = this.game.entities[i];
+        if (ent.name === 'comet') {
+            if (this.collide(ent)) {
+                this.removeFromWorld = true; 
+            }
+        }
+        if (ent.name === 'pharaoh' && ent.attacking === true) {
+            if (this.collideSlash(ent)) {
+                this.removeFromWorld = true; 
+            }
+        }
+    }   
+}
+
+Snake.prototype.collide = function(other) {
+    if ((other.x - 30) < this.x && this.x < (other.x + 30) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+        return true; 
+   }
+}
+
+Snake.prototype.collideSlash = function(other) {
+    if ((other.x - 200) < this.x && this.x < (other.x + 200) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+        return true; 
+   }
 }
 
 
