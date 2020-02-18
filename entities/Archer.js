@@ -10,7 +10,7 @@ function Archer(game, AssetManager) {
 	this.ctx = game.ctx; 
 	this.idle(); 
 	this.state = "idle"; 
-	this.x = 75;
+	this.x = 25;
 	this.y = 485;
 	this.speed = 0; 
 	this.time = 0; 
@@ -51,7 +51,21 @@ Archer.prototype.update = function () {
     ControlAnimation(this); 
     Entity.prototype.update.call(this);
     this.time++;
+    for (var i = 0; i < this.game.entities.length; i++) {
+    	var ent = this.game.entities[i];
+    	if (ent.name === 'comet') {
+    		if (this.collide(ent)) {
+    			this.removeFromWorld = true; 
+    		}
+	    }
+    }	
     this.shooting();   
+}
+
+Archer.prototype.collide = function(other) {
+    if ((other.x - 30) < this.x && this.x < (other.x + 30) && this.y >= (other.y - 100) && this.y <= (other.y + 200)) {
+   		return true; 
+   }
 }
 
 Archer.prototype.idle = function() {

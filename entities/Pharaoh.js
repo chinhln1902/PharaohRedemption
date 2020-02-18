@@ -98,7 +98,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.state = "idle"; 
     //direction is a string which can be either: 'left' or 'right'
     this.direction = 'right';
-    this.x = 500; 
+    this.x = 350; 
     //jump variables
     this.height = 200;
     this.groundLevel = GROUND_LEVEL;
