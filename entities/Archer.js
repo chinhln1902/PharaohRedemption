@@ -2,6 +2,7 @@ var spritesheets = [];
 function loadArcherSpriteSheets(AM) {
 	spritesheets['idle'] = AM.getAsset("./assets/sprites/Archer-Idle.png"); 
 	spritesheets['attack'] = AM.getAsset("./assets/sprites/Archer-Shooting.png"); 
+	spritesheets['dying'] = AM.getAsset("./assets/sprites/Archer-Dying.png"); 
 }
 
 function Archer(game, AssetManager) {
@@ -15,6 +16,8 @@ function Archer(game, AssetManager) {
 	this.speed = 0; 
 	this.time = 0; 
 	this.game = game;  
+	this.dead = false; 
+	this.aftermath = 0; 
 	this.width = 182; 
 	this.name = "archer"; 
 	this.live = 0; 
@@ -46,6 +49,8 @@ Archer.prototype.draw = function () {
 
 Archer.prototype.update = function () {
 	if (this.live === 0) return; 
+	if (this.dead === true) this.aftermath++; 
+	if (this.aftermath > 35) this.removeFromWorld = true; 
 	var that = this; 
     this.x += this.game.clockTick * this.speed;
     ControlAnimation(this); 
@@ -54,23 +59,13 @@ Archer.prototype.update = function () {
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];
     	if (ent.name === 'comet') {
-    		if (this.collide(ent)) {
-    			this.removeFromWorld = true; 
-    		}
+    		if (this.collide(ent)) this.die();
 	    }
 	    if (ent.name === 'pharaoh' && ent.attacking === true) {
-	    	if (this.collideSlash(ent)) {
-	    		this.removeFromWorld = true; 
-	    	}
+	    	if (this.collideSlash(ent)) this.die();
 	    }
     }	
     this.shooting();   
-}
-
-Archer.prototype.collide = function(other) {
-    if ((other.x - 30) < this.x && this.x < (other.x + 30) && this.y >= (other.y - 100) && this.y <= (other.y + 200)) {
-   		return true; 
-   }
 }
 
 Archer.prototype.collide = function(other) {
@@ -83,6 +78,11 @@ Archer.prototype.collideSlash = function(other) {
     if ((other.x - 200) < this.x && this.x < (other.x + 200) && this.y >= (other.y - 100) && this.y <= (other.y + 200)) {
    		return true; 
    }
+}
+
+Archer.prototype.die = function() {
+	this.dead = true; 
+	this.animation = new Animation(spritesheets['dying'], 910, 900, 15, .05, 15, false, .2); 
 }
 
 Archer.prototype.idle = function() {

@@ -100,7 +100,10 @@ function loadAssets(){
     AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/01.png");
     AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/02.png");
     //Enemies
-    AM.queueDownload("./assets/sprites/PSNAKE-IDLE2.png"); //Snake
+    //Snake
+    AM.queueDownload("./assets/sprites/PSNAKE-IDLE2.png"); 
+    
+
     AM.queueDownload("./assets/sprites/Bat Fly Flip.png"); //Bat
     AM.queueDownload("./assets/sprites/Goul Walk.png");//Goul 
     //AM.queueDownload("./../assets/sprites/Goul Die.png");
@@ -111,7 +114,8 @@ function loadAssets(){
 
     //Archer
     AM.queueDownload("./assets/sprites/Archer-Idle.png"); 
-    AM.queueDownload("./assets/sprites/Archer-Shooting.png")
+    AM.queueDownload("./assets/sprites/Archer-Shooting.png");
+    AM.queueDownload("./assets/sprites/Archer-Dying.png"); 
 
     //Arrow for the archer
     AM.queueDownload("./assets/sprites/Arrow.png"); 
