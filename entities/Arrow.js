@@ -51,7 +51,6 @@ Arrow.prototype.update = function () {
     		if (this.collide(ent)) {
     			this.remove(); 
     			this.removeFromWorld = true; 
-    			//console.log("collided"); 
     		}
 	    }
     }	
