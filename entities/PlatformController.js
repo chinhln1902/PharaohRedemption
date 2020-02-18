@@ -21,7 +21,7 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
     platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 7));
     platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 7));
     
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 5));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 5.2));
     platforms.push(new Platform(this.engine, platformSheets['sandTop'],11, 6));
     platforms.push(new Platform(this.engine, platformSheets['sandMid'],11, 7));
     platforms.push(new Platform(this.engine, platformSheets['sandTop'],10, 7));
@@ -35,12 +35,4 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
     platforms.push(new Platform(this.engine, platformSheets['sandMid'],19, 6));
     platforms.push(new Platform(this.engine, platformSheets['sandMid'],19, 7));
     platforms.push(new Platform(this.engine, platformSheets['sandTop'],19, 5));
-
-    // var woodenBarrel1 = new Platform(this.engine, platformSheets['wooden barrel']);
-    // woodenBarrel1.x = 200;
-    // woodenBarrel1.y = 540;
-    // woodenBarrel.width = 116;
-    // woodenBarrel.height = 122;
-    // platforms.push(woodenBarrel1);
-    // this.engine.addEntity(woodenBarrel1);
 }
