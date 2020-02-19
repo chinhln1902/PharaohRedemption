@@ -31,24 +31,13 @@ Background.prototype.setSpeed = function(theSpeed){
 
 Background.prototype.draw = function () {
 
-    // if (this.underworld === true){
-    //     console.log("Switch underworld");
-
-    //     this.ctx.drawImage(this.pngUnderworld,
-    //         this.x1, this.y1, 1200, 780);
-
-    //     this.ctx.drawImage(this.pngUnderworld,
-    //             this.x2, this.y2, 1200, 780);
-
-    // } else {
-
         this.ctx.drawImage(this.currentPng,
             this.x1, this.y1, 1200, 780);
 
         this.ctx.drawImage(this.currentPng,
                 this.x2, this.y2, 1200, 780);
 
-//    }        
+       
 }
 
 Background.prototype.update = function () {

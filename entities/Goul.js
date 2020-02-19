@@ -1,6 +1,9 @@
 var spritesheets = [];
 function loadGoulSpriteSheets(AM) {
     spritesheets['fly'] = AM.getAsset("./assets/sprites/Goul Walk.png"); 
+    spritesheets['dying'] = AM.getAsset("./assets/sprites/Goul Die.png"); 
+
+
 }
 
 //inheritence
@@ -64,6 +67,7 @@ Goul.prototype.update = function () {
 Goul.prototype.collide = function(other) {
     if ((other.x - 30) < this.x && this.x < (other.x + 30) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
         return true; 
+
    }
 }
 
@@ -77,6 +81,13 @@ Goul.prototype.fly = function() {
     this.animation = new Animation(spritesheets['fly'], 713, 842, 10, 0.1, 10, true, .3); 
 }
 
+Goul.prototype.die = function () {
+    this.animation = new Animation(spritesheet['dying'], 852, 872, 10, 0.08, 10, true, .3);
+    this.y = 350;
+    this.speed = 0;
+
+}
+
 Goul.prototype.swapWorld = function(){
     if (this.live === 0) {
         this.live = 1;
@@ -85,9 +96,3 @@ Goul.prototype.swapWorld = function(){
     }
     this.underworld = !this.underworld;
 }
-// Goul.prototype.die = function () {
-//     this.animation = new Animation(spritesheet['dying'], 852, 872, 10, 0.08, 10, true, .3);
-//     this.x = 0;
-//     this.y = 350;
-
-// }

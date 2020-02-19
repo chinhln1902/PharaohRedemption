@@ -223,6 +223,7 @@ Pharaoh.prototype.walkRight = function () {
 
 //makes the pharaoh jump
 Pharaoh.prototype.jump = function () {
+    this.ctx.save();
     this.state = 'jumping';
     this.attacking = false; 
     this.isJumping = true;
@@ -242,6 +243,7 @@ Pharaoh.prototype.jump = function () {
         }
     }
     this.playingTempAnimation = true;
+    this.ctx.restore();
     console.log("pharaoh has jumped");
 }
 
