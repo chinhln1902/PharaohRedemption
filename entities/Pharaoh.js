@@ -534,9 +534,9 @@ Pharaoh.prototype.collideLeft = function (other) {
 }
 
 Pharaoh.prototype.collideWithPlatforms = function (other) {
-    var x = this.y - 90 + this.height < other.y;
-    var y = this.x + 90 < other.x + other.width;
-    var x1 = this.x - 80 + this.width > other.x;
+    // var x = this.y - 90 + this.height < other.y;
+    // var y = this.x + 90 < other.x + other.width;
+    // var x1 = this.x - 80 + this.width > other.x;
     return (this.y - 90 + this.height < other.y) && (this.x + 90 < other.x + other.width) && (this.x - 80 + this.width > other.x);    
 }
 
