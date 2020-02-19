@@ -98,7 +98,8 @@ function Pharaoh(game, assetManager, theCamera) {
     this.state = "idle"; 
     //direction is a string which can be either: 'left' or 'right'
     this.direction = 'right';
-    this.x = 350; 
+    this.x = 350;
+    this.attacking = false;  
     //jump variables
     this.height = 200;
     this.groundLevel = GROUND_LEVEL;
@@ -160,6 +161,7 @@ Pharaoh.prototype.draw = function () {
 
 //sets state to idle
 Pharaoh.prototype.idle = function () {
+    this.attacking = false; 
     if (this.underworld){
         if (this.direction === 'right'){
             this.animation = new Animation(spriteSheets['idle1'], 900, 900, 18, 0.05, 18, true, SCALE); //idle animation
@@ -181,6 +183,7 @@ Pharaoh.prototype.idle = function () {
 
 //sets state to running
 Pharaoh.prototype.runRight = function () {
+    this.attacking = false; 
     console.log("this.underworld = " + this.underworld + " Is it true: " + (this.underworld === true));
     if (this.underworld){
         this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
@@ -197,7 +200,7 @@ Pharaoh.prototype.runRight = function () {
 
 //sets state to running
 Pharaoh.prototype.runLeft = function () {
-    
+    this.attacking = false; 
     if (this.underworld){
         this.animation = new Animation(spriteSheets['running flip1'], 900, 900, 12, 0.05, 12, true, SCALE); //running left animation
     } else {
@@ -212,6 +215,7 @@ Pharaoh.prototype.runLeft = function () {
 
 //ignore this for now
 Pharaoh.prototype.walkRight = function () {
+    this.attacking = false; 
     this.animation = new Animation(spriteSheets['walking'], 900, 900, 24, 0.05, 24, true, SCALE); //walking animation
     this.speed = 85;
     console.log("pharaoh is walking");
@@ -220,6 +224,7 @@ Pharaoh.prototype.walkRight = function () {
 //makes the pharaoh jump
 Pharaoh.prototype.jump = function () {
     this.state = 'jumping';
+    this.attacking = false; 
     this.isJumping = true;
     this.yVelocity = 15;
     this.previousAnimation = this.animation;
@@ -242,6 +247,7 @@ Pharaoh.prototype.jump = function () {
 
 //makes the pharaoh slash
 Pharaoh.prototype.slash = function () {
+    this.attacking = true; 
     if (this.underworld){
         if (this.direction === 'right'){
             if (this.state === 'idle'){
@@ -341,6 +347,7 @@ Pharaoh.prototype.throw = function () {
 
 //makes the pharaoh take damage
 Pharaoh.prototype.takeDamage = function (damage) {
+    this.attacking = false; 
     this.health -= damage;
     if (this.health <= 0) this.die();
     if (this.underworld){
@@ -386,6 +393,7 @@ Pharaoh.prototype.blink = function () {
 
 //sets the animation back to the default for that state
 Pharaoh.prototype.setToDefault = function () {
+    this.attacking = false; 
     if (this.underworld){
         if (this.direction === 'right'){
             if (this.state === 'idle'){
