@@ -41,7 +41,6 @@ Background.prototype.draw = function () {
     //             this.x2, this.y2, 1200, 780);
 
     // } else {
-        console.log("Current png: " + this.currentPng);
 
         this.ctx.drawImage(this.currentPng,
             this.x1, this.y1, 1200, 780);
@@ -85,6 +84,5 @@ Background.prototype.switch = function(){
     } else {
         this.currentPng = this.png1;
     }
-    console.log("Underworld value: " + this.underworld);
 
 }

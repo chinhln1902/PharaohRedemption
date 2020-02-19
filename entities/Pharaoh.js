@@ -119,7 +119,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.onPlatform = false;
     this.platform = null;
 
-
+    this.backgroundManager = new BackgroundManager(assetManager, game);
     this.boundingBox = new BoundingBox(this.x + 60, this.y + 30, this.animation.frameWidth * SCALE - 120, this.animation.frameHeight * SCALE - 60);
 }
 
@@ -479,10 +479,12 @@ function controlJump(pharaoh){
                 if (pharaoh.direction === "right") {
                     pharaoh.speed = 0;
                     pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;
+                    pharaoh.backgroundManager.stopSpeed();
                     pharaoh.setToDefault();
                 } else if (pharaoh.direction === "left") {
                     pharaoh.speed = 0;
                     pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 125;
+                    pharaoh.backgroundManager.stopSpeed();
                     pharaoh.setToDefault();
                 }
             }

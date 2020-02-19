@@ -59,7 +59,7 @@ function BackgroundManager(AM, game) {
     }, false);
 }
 
-
+BackgroundManager.prototype.constructor = BackgroundManager;
 BackgroundManager.prototype.stopSpeed = function(){
  
     for(var i = 0; i < desertBackground.length; i++){

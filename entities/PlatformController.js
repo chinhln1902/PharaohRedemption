@@ -29,6 +29,7 @@ PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
     if (!this.underworld) {
+        // removePlatforms();
         platforms.splice(0, platforms.length);
         platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],0, 7));
         platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 7));
@@ -48,9 +49,25 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         platforms.push(new Platform(this.engine, platformSheets['sandMid'],19, 6));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'],19, 7));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'],19, 5));
+    } else {
+        removePlatforms();
+        platforms.splice(0, platforms.length);
     }
 }
 
 PlatformController.prototype.swapWorld = function () {
+    debugger;
     this.underworld = !this.underworld;
+    var a = this.engine.entities.length;
+    this.loadPlatformsLevel1();
 }
+
+// function removePlatforms() {
+//     var that = this;
+//     for (var i = 0; i < that.engine.entities.length; i++) {
+//         var ent = that.engine.entities[i];
+//         if (ent.name === "Platform") {
+//             that`.engine.entities.splice(i, 1);
+//         }
+//     }
+// }
