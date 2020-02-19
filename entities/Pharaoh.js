@@ -158,6 +158,7 @@ Pharaoh.prototype.draw = function () {
 
 //sets state to idle
 Pharaoh.prototype.idle = function () {
+
     if (this.underworld){
         if (this.direction === 'right'){
             this.animation = new Animation(spriteSheets['idle1'], 900, 900, 18, 0.05, 18, true, SCALE); //idle animation
@@ -217,6 +218,7 @@ Pharaoh.prototype.walkRight = function () {
 
 //makes the pharaoh jump
 Pharaoh.prototype.jump = function () {
+    this.ctx.save();
     this.state = 'jumping';
     this.isJumping = true;
     this.yVelocity = 15;
@@ -235,6 +237,7 @@ Pharaoh.prototype.jump = function () {
         }
     }
     this.playingTempAnimation = true;
+    this.ctx.restore();
     console.log("pharaoh has jumped");
 }
 
