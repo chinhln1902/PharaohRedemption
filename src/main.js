@@ -8,7 +8,3 @@ AM.downloadAll(function () {
     LC.level1();
     console.log("All Done!"); 
 });
-
-
-
-

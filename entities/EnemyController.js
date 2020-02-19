@@ -7,12 +7,14 @@ function EnemyController(game, camera){
 EnemyController.prototype.constructor = EnemyController;
 
 EnemyController.prototype.level1 = function(){
-    var goul = new Goul(this.gameEngine, AM.getAsset("./assets/sprites/Goul Walk.png"));
-    var bat = new Bat(this.gameEngine, AM.getAsset("./assets/sprites/Bat Fly Flip.png"));
-    var archer = new Archer(this.gameEngine, AM); 
-    var enemy = new Snake(this.gameEngine, AM.getAsset("./assets/sprites/PSNAKE-IDLE2.png")); 
+    var goul = new Goul(this.gameEngine, AM, 100, 350);
+    var bat = new Bat(this.gameEngine, AM, 1000, 360);
+    var archer = new Archer(this.gameEngine, AM, 25, 485); 
+    var snake = new Snake(this.gameEngine, AM, 550, 555); 
+    //var snaker = new Snaker(this.gameEngine, AM, 300, 555);  
 
-    this.gameEngine.addEntity(enemy);  
+    //this.gameEngine.addEntity(snaker); 
+    this.gameEngine.addEntity(snake);  
     this.gameEngine.addEntity(bat);  
     this.gameEngine.addEntity(archer); 
 	this.gameEngine.addEntity(goul);

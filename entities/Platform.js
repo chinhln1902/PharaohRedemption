@@ -1,13 +1,15 @@
-function Platform(game, sprite, x, y, width, height) {
-    this.x = x * 100;
-    this.y = y * 100 + 40;
-    this.width = width;
-    this.height = height;
+function Platform(game, sprite, x, y) {
+    var YOFFSET = 70;
+    var SCALE = 70;
+    this.x = x * SCALE;
+    this.y = y * SCALE + YOFFSET;
+    this.width = SCALE;
+    this.height = this.width;
     this.platformSheet = sprite;
     this.game = game;
     this.ctx = game.ctx;
     this.live = 1; 
-    this.boundingBox = new BoundingBox(x * 100, y * 100 + 40, width, height);
+    this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);
     this.game.addEntity(this);
 }
 

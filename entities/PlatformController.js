@@ -17,14 +17,25 @@ function PlatformController (game, assetManager) {
 PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
-    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],0, 5, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 5, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 5, 100, 100));
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],0, 7));
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 7));
+    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 7));
     
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 3, 150, 50));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'],10, 4, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['sandMid'],10, 5, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'],9, 5, 100, 100));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 5));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],11, 6));
+    platforms.push(new Platform(this.engine, platformSheets['sandMid'],11, 7));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],10, 7));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],12, 6));
+    platforms.push(new Platform(this.engine, platformSheets['sandMid'],12, 7));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],13, 7));
+
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],18, 6));
+    platforms.push(new Platform(this.engine, platformSheets['sandMid'],18, 7));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],17, 7));
+    platforms.push(new Platform(this.engine, platformSheets['sandMid'],19, 6));
+    platforms.push(new Platform(this.engine, platformSheets['sandMid'],19, 7));
+    platforms.push(new Platform(this.engine, platformSheets['sandTop'],19, 5));
+
     // var woodenBarrel1 = new Platform(this.engine, platformSheets['wooden barrel']);
     // woodenBarrel1.x = 200;
     // woodenBarrel1.y = 540;
