@@ -26,8 +26,4 @@ levelcontroller.prototype.level1 = function(){
     gameEngine.addEntityMainCharacter(mainCharacter);
     gameEngine.addEntityCamera(camera);
 
-
-
-
-    
 }
