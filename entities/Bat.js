@@ -12,6 +12,7 @@ function Bat(game, spritesheet) {
     this.ctx = game.ctx;
     this.name = "bat"; 
     this.underworld = false;
+    this.live = 0; 
     var that = this;
 
     document.addEventListener("keydown", function (e) {
@@ -32,8 +33,8 @@ Bat.prototype.draw = function () {
 }
 
 Bat.prototype.update = function () {
+    if (this.live === 0) return;
     this.x -= 3;
-
     if (this.x < -230) this.x = 1200;
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;
@@ -41,5 +42,10 @@ Bat.prototype.update = function () {
 }
 
 Bat.prototype.swapWorld = function(){
+    if (this.live === 0) {
+        this.live = 1;
+    } else {
+        this.live = 0; 
+    }
     this.underworld = !this.underworld;
 }

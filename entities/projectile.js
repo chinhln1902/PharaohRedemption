@@ -9,7 +9,7 @@ function Projectile(game, spritesheet, direction, startX, startY) {
     }
     this.x = startX;
     this.y = startY;
-    
+    this.live = 1; 
     this.game = game;
     this.ctx = game.ctx;
     this.timeAlive = 0;
@@ -33,7 +33,7 @@ Projectile.prototype.constructor = Projectile;
 
 Projectile.prototype.draw = function () {
     //if (this.underworld) return;
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x , this.y);
     Entity.prototype.draw.call(this);
 }
 
