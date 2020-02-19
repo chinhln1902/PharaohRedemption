@@ -75,6 +75,5 @@ Background.prototype.switch = function(){
     } else {
         this.currentPng = this.png1;
     }
-    console.log("Underworld value: " + this.underworld);
 
 }

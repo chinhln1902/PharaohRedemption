@@ -114,24 +114,6 @@ BackgroundManager.prototype.loadDesert = function(){
     }
 }
 
-// BackgroundManager.prototype.loadUnderworld = function(){
-
-
-//     underworldBackground[0] = new Background(this.game, AM.getAsset("./assets/backgrounds/Underworld Layers/1.png"), 0);
-//     underworldBackground[1]  = new Background(this.game, AM.getAsset("./assets/backgrounds/Underworld Layers/1.png"), 0);
-//     underworldBackground[2]  = new Background(this.game, AM.getAsset("./assets/backgrounds/Underworld Layers/2.png"), 0);
-//     underworldBackground[3]  = new Background(this.game, AM.getAsset("./assets/backgrounds/Underworld Layers/3.png"), 0);
-//     underworldBackground[4]  = new Background(this.game, AM.getAsset("./assets/backgrounds/Underworld Layers/4.png"), 0);
-//     underworldBackground[5]  = new Background(this.game, AM.getAsset("./assets/backgrounds/Underworld Layers/5.png"), 0);
-//     underworldBackground[6]  = new Background(this.game, AM.getAsset("./assets/backgrounds/Underworld Layers/6.png"), 0);
-
-
-//     for(var i = 0; i < underworldBackground.length; i++){
-//         this.game.addEntity(underworldBackground[i]);
-
-//     }
-
-// }
 
 BackgroundManager.prototype.removeBackground = function(){
     desertBackground[0].switch();

@@ -106,6 +106,7 @@ function loadAssets(){
 
     AM.queueDownload("./assets/sprites/Bat Fly Flip.png"); //Bat
     AM.queueDownload("./assets/sprites/Goul Walk.png");//Goul 
+    AM.queueDownload("./img/Goul Die.png");
     //AM.queueDownload("./../assets/sprites/Goul Die.png");
 
     //Projectile for pharaoh
