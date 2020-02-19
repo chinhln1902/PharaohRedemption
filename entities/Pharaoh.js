@@ -449,10 +449,8 @@ function controlJump(pharaoh){
 
         pharaoh.lastBottom = pharaoh.boundingBox.bottom;
         pharaoh.boundingBox = new BoundingBox (pharaoh.x + 60, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 120, pharaoh.animation.frameHeight * SCALE - 60);
-        // debugger;
         for (var i = 0; i < platforms.length; i++) {
             var pf = platforms[i];
-//            debugger;
             var a = pharaoh.boundingBox.collide(pf.boundingBox);
             var b = !pharaoh.onPlatform;
             if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.lastBottom < pf.boundingBox.top) {                
