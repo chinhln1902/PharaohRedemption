@@ -1,11 +1,18 @@
+var spritesheets = [];
+function loadGoulSpriteSheets(AM) {
+    spritesheets['fly'] = AM.getAsset("./assets/sprites/Goul Walk.png"); 
+}
+
 //inheritence
 Goul.prototype = new Entity();
 Goul.prototype.constructor = Goul;
 
-function Goul(game, spritesheet) {
-    this.animation = new Animation(spritesheet, 713, 842, 10, 0.1, 10, true, .3); //walking animation
-    this.x = 100;
-    this.y = 350;
+function Goul(game, AssetManager, startX, startY) {
+    this.AM = AssetManager; 
+    loadGoulSpriteSheets(this.AM); 
+    this.fly(); 
+    this.x = startX;
+    this.y = startY;
     this.speed = 0;
     this.game = game;
     this.ctx = game.ctx;
@@ -64,6 +71,10 @@ Goul.prototype.collideSlash = function(other) {
     if ((other.x - 300) < this.x && this.x < (other.x + 300) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
         return true; 
    }
+}
+
+Goul.prototype.fly = function() {
+    this.animation = new Animation(spritesheets['fly'], 713, 842, 10, 0.1, 10, true, .3); 
 }
 
 Goul.prototype.swapWorld = function(){

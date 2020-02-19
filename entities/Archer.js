@@ -5,14 +5,14 @@ function loadArcherSpriteSheets(AM) {
 	spritesheets['dying'] = AM.getAsset("./assets/sprites/Archer-Dying.png"); 
 }
 
-function Archer(game, AssetManager) {
+function Archer(game, AssetManager, startX, startY) {
 	this.AM = AssetManager; 
 	loadArcherSpriteSheets(this.AM);
 	this.ctx = game.ctx; 
 	this.idle(); 
 	this.state = "idle"; 
-	this.x = 25;
-	this.y = 485;
+	this.x = startX;
+	this.y = startY;
 	this.speed = 0; 
 	this.time = 0; 
 	this.game = game;  
@@ -50,7 +50,7 @@ Archer.prototype.draw = function () {
 Archer.prototype.update = function () {
 	if (this.live === 0) return; 
 	if (this.dead === true) this.aftermath++; 
-	if (this.aftermath > 35) this.removeFromWorld = true; 
+	if (this.aftermath > 30) this.removeFromWorld = true; 
 	var that = this; 
     this.x += this.game.clockTick * this.speed;
     ControlAnimation(this); 
@@ -69,7 +69,7 @@ Archer.prototype.update = function () {
 }
 
 Archer.prototype.collide = function(other) {
-    if ((other.x - 30) < this.x && this.x < (other.x + 30) && this.y >= (other.y - 100) && this.y <= (other.y + 200)) {
+    if ((other.x - 50) < this.x && this.x < (other.x + 50) && this.y >= (other.y - 100) && this.y <= (other.y + 200)) {
    		return true; 
    }
 }
