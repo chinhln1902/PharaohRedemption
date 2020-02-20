@@ -486,7 +486,7 @@ function controlJump(pharaoh){
                 } else if (pharaoh.direction === "left") {
                     pharaoh.speed = 0;
                     pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 125;
-                    pharaoh.backgroundManager.stopSpeed();
+                    pharaoh.backgroundManager.stopSpeed();  
                     pharaoh.setToDefault();
                 }
             }
