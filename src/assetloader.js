@@ -99,6 +99,20 @@ function loadAssets(){
     AM.queueDownload("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
     AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/01.png");
     AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/02.png");
+    AM.queueDownload("./assets/platforms/PNG/Platformer/Spikes.png");
+    AM.queueDownload("./assets/platforms/PNG/Platformer/Gap1.png");
+    AM.queueDownload("./assets/platforms/PNG/Platformer/Side Left 2.png");
+    AM.queueDownload("./assets/platforms/PNG/Platformer/Side Left.png");
+    AM.queueDownload("./assets/platforms/PNG/Platformer/Side Right.png");
+    AM.queueDownload("./assets/platforms/PNG/Platformer/Side Right 2.png");
+    AM.queueDownload("./assets/platforms/PNG/Platformer/Square Ground.png");
+
+    AM.queueDownload("./assets/platforms/PNG/Environment/Arrow1.png");
+    AM.queueDownload("./assets/platforms/PNG/Environment/Arrow2.png");
+    AM.queueDownload("./assets/platforms/PNG/Environment/Arrow3.png");
+    AM.queueDownload("./assets/platforms/PNG/Environment/Caution.png");
+    AM.queueDownload("./assets/platforms/PNG/Environment/Skull.png");
+
     //Enemies
     //Snake
     AM.queueDownload("./assets/sprites/PSNAKE-IDLE2.png"); 

@@ -40,8 +40,6 @@ Projectile.prototype.draw = function () {
 Projectile.prototype.update = function () {
     if (this.timeAlive > 20) this.speed = 0;
     this.x += this.game.clockTick * this.speed;
-    if (this.x > 1200) this.x = -230;
-    if (this.x < -230) this.x = 1200;
     Entity.prototype.update.call(this);
     //console.log("this position: " + this.x);
     this.timeAlive ++;

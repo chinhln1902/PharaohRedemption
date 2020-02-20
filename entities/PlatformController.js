@@ -5,6 +5,18 @@ function loadPlatforms(AM) {
     platformSheets['wooden barrel'] = AM.getAsset("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
     platformSheets['sandTop'] = AM.getAsset("./assets/platforms/DesertPlatforms/tiles/01.png");
     platformSheets['sandMid'] = AM.getAsset("./assets/platforms/DesertPlatforms/tiles/02.png");
+    platformSheets['spikes'] = AM.getAsset("./assets/platforms/PNG/Platformer/Spikes.png");
+    platformSheets['gap1'] = AM.getAsset("./assets/platforms/PNG/Platformer/Gap1.png");
+    platformSheets['side left 2'] = AM.getAsset("./assets/platforms/PNG/Platformer/Side Left 2.png");
+    platformSheets['side left'] = AM.getAsset("./assets/platforms/PNG/Platformer/Side Left.png");
+    platformSheets['side right'] = AM.getAsset("./assets/platforms/PNG/Platformer/Side Right.png");
+    platformSheets['side right 2'] = AM.getAsset("./assets/platforms/PNG/Platformer/Side Right 2.png");
+    platformSheets['square ground'] = AM.getAsset("./assets/platforms/PNG/Platformer/Square Ground.png");
+    platformSheets['arrow 1'] = AM.getAsset("./assets/platforms/PNG/Environment/Arrow1.png");
+    platformSheets['arrow 2'] = AM.getAsset("./assets/platforms/PNG/Environment/Arrow2.png");
+    platformSheets['arrow 3'] = AM.getAsset("./assets/platforms/PNG/Environment/Arrow3.png");
+    platformSheets['caution'] = AM.getAsset("./assets/platforms/PNG/Environment/Caution.png");
+    platformSheets['skull'] = AM.getAsset("./assets/platforms/PNG/Environment/Skull.png");
 }
 
 function PlatformController (game, assetManager) {
@@ -46,6 +58,7 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         platforms.push(new Platform(this.engine, platformSheets['sandMid'],19, 6));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'],19, 7));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'],19, 5));
+        platforms.push(new Platform(this.engine, platformSheets['arrow 1'], -2, 7));
 
         platformsUnderworld.push(new Platform(this.engine, platformSheets['sandTop'],3, 5.2));
         platformsUnderworld.push(new Platform(this.engine, platformSheets['sandTop'],4, 5.2));
