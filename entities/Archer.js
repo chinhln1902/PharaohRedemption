@@ -50,7 +50,7 @@ Archer.prototype.draw = function () {
 Archer.prototype.update = function () {
 	if (this.live === 0) return; 
 	if (this.dead === true) this.aftermath++; 
-	if (this.aftermath > 30) this.removeFromWorld = true; 
+	if (this.aftermath > 40) this.removeFromWorld = true; 
 	var that = this; 
     this.x += this.game.clockTick * this.speed;
     ControlAnimation(this); 
@@ -59,7 +59,7 @@ Archer.prototype.update = function () {
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];
     	if (ent.name === 'comet') {
-    		if (this.collide(ent)) this.die();
+    		if (this.collide(ent)) this.die(); 
 	    }
 	    if (ent.name === 'pharaoh' && ent.attacking === true) {
 	    	if (this.collideSlash(ent)) this.die();
@@ -69,7 +69,7 @@ Archer.prototype.update = function () {
 }
 
 Archer.prototype.collide = function(other) {
-    if ((other.x - 50) < this.x && this.x < (other.x + 50) && this.y >= (other.y - 100) && this.y <= (other.y + 200)) {
+    if ((other.x - 70) < this.x && this.x < (other.x + 70) && this.y >= (other.y - 100) && this.y <= (other.y + 200)) {
    		return true; 
    }
 }
