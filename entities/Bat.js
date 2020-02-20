@@ -1,6 +1,8 @@
 var spritesheets = [];
 function loadBatSpriteSheets(AM) {
     spritesheets['fly'] = AM.getAsset("./assets/sprites/Bat Fly Flip.png"); 
+    spritesheets['die'] = AM.getAsset("./assets/sprites/Bat Die.png"); 
+
 }
 //inheritence
 Bat.prototype = new Entity();
@@ -73,6 +75,10 @@ Bat.prototype.collideSlash = function(other) {
 
 Bat.prototype.fly = function() {
     this.animation = new Animation(spritesheets['fly'], 631, 634, 10, 0.07, 10, true, .34); 
+}
+
+Bat.prototype.die = function() {
+    this.animation = new Animation(spritesheets['die'], 631, 634, 10, 0.07, 10, false, .34); 
 }
 
 Bat.prototype.swapWorld = function(){
