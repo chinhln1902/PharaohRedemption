@@ -17,6 +17,9 @@ function loadPlatforms(AM) {
     platformSheets['arrow 3'] = AM.getAsset("./assets/platforms/PNG/Environment/Arrow3.png");
     platformSheets['caution'] = AM.getAsset("./assets/platforms/PNG/Environment/Caution.png");
     platformSheets['skull'] = AM.getAsset("./assets/platforms/PNG/Environment/Skull.png");
+    
+    platformSheets['stoneMid'] = AM.getAsset("./assets/platforms/volcanoTiles/tiles/02.png");
+    platformSheets['stoneTop'] = AM.getAsset("./assets/platforms/volcanoTiles/tiles/01.png");
 }
 
 function PlatformController (game, assetManager) {
@@ -40,28 +43,33 @@ PlatformController.prototype.constructor = PlatformController;
 PlatformController.prototype.loadPlatformsLevel1 = function () {
         // removePlatforms();
         // platforms.splice(0, platforms.length);
-        platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],0, 7));
-        platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 7));
-        platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 7));
-        
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 5.2));
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'],11, 6));
-        platforms.push(new Platform(this.engine, platformSheets['sandMid'],11, 7));
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'],10, 7));
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'],12, 6));
-        platforms.push(new Platform(this.engine, platformSheets['sandMid'],12, 7));
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'],13, 7));
-
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'],18, 6));
-        platforms.push(new Platform(this.engine, platformSheets['sandMid'],18, 7));
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'],17, 7));
-        platforms.push(new Platform(this.engine, platformSheets['sandMid'],19, 6));
-        platforms.push(new Platform(this.engine, platformSheets['sandMid'],19, 7));
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'],19, 5));
         platforms.push(new Platform(this.engine, platformSheets['arrow 1'], -2, 7));
 
-        platformsUnderworld.push(new Platform(this.engine, platformSheets['sandTop'],3, 5.2));
-        platformsUnderworld.push(new Platform(this.engine, platformSheets['sandTop'],4, 5.2));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 8, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 9, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 10, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 15, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 15, 6));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 19, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 19, 6));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 19, 5));
+        platforms.push(new Platform(this.engine, platformSheets['caution'], 21, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 6));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 5));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 4));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 23, 3));
+
+        platformsUnderworld.push(new Platform(this.engine, platformSheets['stoneTop'],8, 7));
+        platformsUnderworld.push(new Platform(this.engine, platformSheets['stoneTop'],9, 7));
+        platformsUnderworld.push(new Platform(this.engine, platformSheets['stoneTop'],10, 7));
+        platformsUnderworld.push(new Platform(this.engine, platformSheets['stoneMid'],15, 7));
+        platformsUnderworld.push(new Platform(this.engine, platformSheets['stoneTop'],15, 6));
+        platformsUnderworld.push(new Platform(this.engine, platformSheets['stoneMid'],19, 7));
+        platformsUnderworld.push(new Platform(this.engine, platformSheets['stoneMid'],19, 6));
+        platformsUnderworld.push(new Platform(this.engine, platformSheets['stoneTop'],19, 5));
+        platformsUnderworld.push(new Platform(this.engine, platformSheets['stoneMid'],23, 4));
+        platformsUnderworld.push(new Platform(this.engine, platformSheets['stoneTop'],23, 3));
     // } else {
     //     // removePlatforms();
     //     platforms.splice(0, platforms.length);
