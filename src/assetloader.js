@@ -120,10 +120,12 @@ function loadAssets(){
     //Enemies
     //Snake
     AM.queueDownload("./assets/sprites/PSNAKE-IDLE2.png"); 
+    AM.queueDownload("./assets/sprites/PSNAKE-DIE.png");
+
     
 
     AM.queueDownload("./assets/sprites/Bat Fly Flip.png"); //Bat
-    AM.queueDownload("./assets/sprites/Bat Die.png"); //Bat Die
+    AM.queueDownload("./assets/sprites/Bat-Die.png"); //Bat Die
     AM.queueDownload("./assets/sprites/Goul Walk.png");//Goul 
     AM.queueDownload("./assets/sprites/Goul Die.png");
     //AM.queueDownload("./../assets/sprites/Goul Die.png");

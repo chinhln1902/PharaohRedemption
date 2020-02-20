@@ -1,6 +1,7 @@
 var snakespritesheets = []; 
 function loadSnakeSpriteSheets(AM) {
     snakespritesheets['idle'] = AM.getAsset("./assets/sprites/PSNAKE-IDLE2.png");  
+    snakespritesheets['die'] = AM.getAsset("./assets/sprites/PSNAKE-DIE.png"); 
 }
 
 function Snake(game, AssetManager, startX, startY) {
@@ -13,6 +14,8 @@ function Snake(game, AssetManager, startX, startY) {
     this.speed = 0;
     this.width = 93;
     this.height = 85; 
+    this.aftermath = 0;
+    this.dead = false; 
     this.game = game;
     this.live = 1; 
     this.name = "snake"; 
@@ -44,18 +47,20 @@ Snake.prototype.draw = function () {
 
 Snake.prototype.update = function () {
     if (this.live === 0) return;  
+    if (this.dead) this.aftermath++;
+    if (this.aftermath > 40) this.removeFromWorld = true; 
     this.x += this.game.clockTick * this.speed;
     Entity.prototype.update.call(this);
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
         if (ent.name === 'comet') {
             if (this.collide(ent)) {
-                this.removeFromWorld = true; 
+                this.die(); 
             }
         }
         if (ent.name === 'pharaoh' && ent.attacking === true) {
             if (this.collideSlash(ent)) {
-                this.removeFromWorld = true; 
+                this.die();  
             }
         }
     }   
@@ -65,6 +70,11 @@ Snake.prototype.collide = function(other) {
     if ((other.x - 30) < this.x && this.x < (other.x + 30) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
         return true; 
    }
+}
+
+Snake.prototype.die = function() { 
+    this.dead = true; 
+    this.animation = new Animation(snakespritesheets['die'], 94.8, 114, 7, .1, 7, .5, true, .95);
 }
 
 Snake.prototype.idle = function() {

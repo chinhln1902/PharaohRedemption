@@ -38,7 +38,10 @@ Projectile.prototype.draw = function () {
 }
 
 Projectile.prototype.update = function () {
-    if (this.timeAlive > 20) this.speed = 0;
+    if (this.timeAlive > 20) {
+        this.speed = 0;
+        this.removeFromWorld = true; 
+    }
     this.x += this.game.clockTick * this.speed;
     Entity.prototype.update.call(this);
     //console.log("this position: " + this.x);
