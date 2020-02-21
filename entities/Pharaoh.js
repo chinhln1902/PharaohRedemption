@@ -457,7 +457,7 @@ function controlAnimation(pharaoh){
 function controlJump(pharaoh){
     //in the air 
     if (pharaoh.isJumping){
-        pharaoh.yVelocity -= 0.7 ;
+        pharaoh.yVelocity -= 0.68 ;
         pharaoh.y -= pharaoh.yVelocity;
 
         pharaoh.lastBottom = pharaoh.boundingBox.bottom;
