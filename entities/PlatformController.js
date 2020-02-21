@@ -38,9 +38,6 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         // platforms.splice(0, platforms.length);
         decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 1'], -2, 7));
 
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 3, 7, false));
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 3, 6, true));
-
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 8, 7, true));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 9, 7, true));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 10, 7, true));
