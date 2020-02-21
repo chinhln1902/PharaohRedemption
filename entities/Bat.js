@@ -1,7 +1,7 @@
 var spritesheets = [];
 function loadBatSpriteSheets(AM) {
     spritesheets['fly'] = AM.getAsset("./assets/sprites/Bat Fly Flip.png"); 
-    spritesheets['die'] = AM.getAsset("./assets/sprites/Bat Die.png"); 
+    spritesheets['die'] = AM.getAsset("./assets/sprites/Bat-Die.png"); 
 
 }
 //inheritence
@@ -17,6 +17,8 @@ function Bat(game, AssetManager, startX, startY) {
     this.speed = 0;
     this.game = game;
     this.ctx = game.ctx;
+    this.dead = false;
+    this.aftermath = 0; 
     this.name = "bat"; 
     this.underworld = false;
     this.live = 0; 
@@ -24,8 +26,8 @@ function Bat(game, AssetManager, startX, startY) {
 
     document.addEventListener("keydown", function (e) {
         console.log(e);
-		//Running right 
-		if (e.code === "Space"){
+        //Running right 
+        if (e.code === "Space"){
             console.log("underworld: " + that.underworld);
             e.preventDefault();
             that.swapWorld();
@@ -42,6 +44,8 @@ Bat.prototype.draw = function () {
 Bat.prototype.update = function () {
     if (this.live === 0) return;
     this.x -= 3;
+    if (this.dead) this.aftermath++; 
+    if (this.aftermath > 30) this.removeFromWorld = true; 
     if (this.x < -230) this.x = 1200;
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;
@@ -49,12 +53,12 @@ Bat.prototype.update = function () {
         var ent = this.game.entities[i];
         if (ent.name === 'comet') {
             if (this.collide(ent)) {
-                this.removeFromWorld = true; 
+                this.die();  
             }
         }
         if (ent.name === 'pharaoh' && ent.attacking === true) {
             if (this.collideSlash(ent)) {
-                this.removeFromWorld = true; 
+                this.die(); 
             }
         }
     }   
@@ -78,7 +82,7 @@ Bat.prototype.fly = function() {
 }
 
 Bat.prototype.die = function() {
-    this.animation = new Animation(spritesheets['die'], 631, 634, 10, 0.07, 10, false, .34); 
+    this.animation = new Animation(spritesheets['die'], 693, 580, 7, 0.07, 7, false, .34); 
 }
 
 Bat.prototype.swapWorld = function(){

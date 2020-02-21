@@ -1,7 +1,7 @@
-var spritesheets = [];
+var goulspritesheets = [];
 function loadGoulSpriteSheets(AM) {
-    spritesheets['fly'] = AM.getAsset("./assets/sprites/Goul Walk.png"); 
-    spritesheets['dying'] = AM.getAsset("./assets/sprites/Goul Die.png"); 
+    goulspritesheets['fly'] = AM.getAsset("./assets/sprites/Goul Walk.png"); 
+    goulspritesheets['dying'] = AM.getAsset("./assets/sprites/Goul Die.png"); 
 
 
 }
@@ -22,6 +22,8 @@ function Goul(game, AssetManager, startX, startY) {
     this.name = "goul"; 
     this.underworld = false;
     this.live = 0; 
+    this.dead = false;
+    this.aftermath = 0; 
     var that = this;
     
     document.addEventListener("keydown", function (e) {
@@ -45,7 +47,8 @@ Goul.prototype.update = function () {
     var that = this;
     if (this.x > 1200) this.x = -230;
     if (this.x < -230) this.x = 1200;
-
+    if (this.dead) this.aftermath++;
+    if (this.aftermath > 30) this.removeFromWorld = true; 
     this.x += 2; //for walking
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;
@@ -53,12 +56,12 @@ Goul.prototype.update = function () {
         var ent = this.game.entities[i];
         if (ent.name === 'comet') {
             if (this.collide(ent)) {
-                this.removeFromWorld = true; 
+                this.die(); 
             }
         }
         if (ent.name === 'pharaoh' && ent.attacking === true) {
             if (this.collideSlash(ent)) {
-                this.removeFromWorld = true; 
+                this.die(); 
             }
         }
     }   
@@ -78,11 +81,11 @@ Goul.prototype.collideSlash = function(other) {
 }
 
 Goul.prototype.fly = function() {
-    this.animation = new Animation(spritesheets['fly'], 713, 842, 10, 0.1, 10, true, .3); 
+    this.animation = new Animation(goulspritesheets['fly'], 713, 842, 10, 0.1, 10, true, .3); 
 }
 
 Goul.prototype.die = function () {
-    this.animation = new Animation(spritesheet['dying'], 852, 872, 10, 0.08, 10, true, .3);
+    this.animation = new Animation(goulspritesheets['dying'], 852, 872, 10, 0.08, 10, false, .3);
     this.y = 350;
     this.speed = 0;
 
