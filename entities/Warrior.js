@@ -102,6 +102,7 @@ Warrior.prototype.die = function () {
 }
 
 Warrior.prototype.throw = function () {
+    if (!this.underworld) return; 
     this.animation = new Animation(Warriorspritesheets['throw'], 900, 900, 12, 0.08, 12, true, .2); 
     this.game.addEntity(new Rock(this.game, AM.getAsset("./assets/sprites/Rock2.png"), this.x + 300, this.y + 75));
 

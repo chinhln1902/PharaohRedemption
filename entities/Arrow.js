@@ -15,6 +15,7 @@ function Arrow(game, AssetManager, startX, startY) {
 	this.game = game; 
 	this.name = "arrow";  
     this.live = 1; 
+    this.timeAlive = 0; 
 	var underworld = false; 
 	var that = this; 
 	document.addEventListener("keydown", function (e) {
@@ -42,12 +43,13 @@ Arrow.prototype.draw = function () {
 
 Arrow.prototype.update = function () {
     if (this.live === 0) return; 
+    this.timeAlive++; 
     this.x += this.game.clockTick * this.speed;
     Entity.prototype.update.call(this);
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];
     	if (ent.name === "pharaoh") {
-    		if (this.collide(ent)) {
+    		if (this.collide(ent) || this.timeAlive > 70) {
     			this.remove(); 
     			this.removeFromWorld = true; 
     		}

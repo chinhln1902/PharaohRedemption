@@ -14,7 +14,6 @@ function Rock(game, spritesheet, startX, startY) {
     this.timeAlive = 0;
     this.underworld = false;
     var that = this;
-
     document.addEventListener("keydown", function (e) {
 		if (e.code === "Space"){
             console.log("Rock before switch underworld: " + that.underworld);
@@ -49,7 +48,6 @@ Rock.prototype.swapWorld = function(){
         this.live = 1;
     } else {
         this.live = 0; 
-
     }
    this.underworld = !this.underworld;
 }
