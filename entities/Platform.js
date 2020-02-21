@@ -1,4 +1,4 @@
-function Platform(game, sprite, x, y) {
+function Platform(game, sprite, x, y, isTopPlatform) {
     var YOFFSET = 70;
     var SCALE = 70;
     this.x = x * SCALE;
@@ -9,6 +9,7 @@ function Platform(game, sprite, x, y) {
     this.game = game;
     this.ctx = game.ctx;
     this.underworld = false;
+    this.isTopPlatform = isTopPlatform;
     this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);
     this.game.addEntity(this);
     var that = this;

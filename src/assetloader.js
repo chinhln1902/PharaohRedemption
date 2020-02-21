@@ -100,6 +100,7 @@ function loadAssets(){
     AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/01.png");
     AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/02.png");
 
+    
     AM.queueDownload("./assets/platforms/PNG/Platformer/Spikes.png");
     AM.queueDownload("./assets/platforms/PNG/Platformer/Gap1.png");
     AM.queueDownload("./assets/platforms/PNG/Platformer/Side Left 2.png");
