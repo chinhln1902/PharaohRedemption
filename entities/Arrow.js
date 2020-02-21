@@ -43,7 +43,6 @@ Arrow.prototype.draw = function () {
 Arrow.prototype.update = function () {
     if (this.live === 0) return; 
     this.x += this.game.clockTick * this.speed;
-    console.log("arrow is updating"); 
     Entity.prototype.update.call(this);
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];

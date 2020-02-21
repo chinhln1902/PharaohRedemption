@@ -23,59 +23,55 @@ function Warrior(game, AssetManager, startX, startY) {
     this.ctx = game.ctx;
     this.name = "Warrior"; 
     this.underworld = false;
-    this.live = 0; 
+    this.live = 1; 
     this.dead = false;
     this.aftermath = 0; 
     var that = this;
     this.frames = 0;
 
-    // this.throwIdle(); //dang smarty pants
-    
-    // document.addEventListener("keydown", function (e) {
-    //     console.log(e);
-	// 	//Running right 
-	// 	if (e.code === "Space"){
-    //         console.log("underworld: " + that.underworld);
-    //         e.preventDefault();
-    //         that.swapWorld();
-    //     }
-    // });
+    document.addEventListener("keydown", function (e) {
+        console.log(e);
+		//Running right 
+		if (e.code === "Space"){
+            console.log("underworld: " + that.underworld);
+            e.preventDefault();
+            that.swapWorld();
+        }
+    });
 }
 
 
 Warrior.prototype.draw = function () {
-   // if (this.underworld) return;
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x , this.y);
+    if (this.underworld) return;
+    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
 
 }
 
 Warrior.prototype.update = function () {
-    debugger;
-// if (this.live === 0) return;
-    // if (this.x > 1200) this.x = -230;
-    // if (this.x < -230) this.x = 1200;
+    if (this.live === 0) return;
+    if (this.dead) this.aftermath++;
+    if (this.aftermath > 30) this.removeFromWorld = true; 
+  //  this.x += 2; //for walking
+    if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
+        this.x += this.game.clockTick * this.speed;
 
-//     if (this.dead) this.aftermath++;
-//     if (this.aftermath > 30) this.removeFromWorld = true; 
-//   //  this.x += 2; //for walking
-//     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
-//         this.x += this.game.clockTick * this.speed;
+    for (var i = 0; i < this.game.entities.length; i++) {
+        var ent = this.game.entities[i];
+        if (ent.name === 'comet') {
+            if (this.collide(ent)) {
+               this.die(); 
+            }
+        }
+        if (ent.name === 'pharaoh' && ent.attacking === true) {
+            if (this.collideSlash(ent)) {
+                this.die(); 
+            }
+        }
+    }   
+    if (this.live > 0){
+        this.throwIdle();
 
-//     for (var i = 0; i < this.game.entities.length; i++) {
-//         var ent = this.game.entities[i];
-//         if (ent.name === 'comet') {
-//             if (this.collide(ent)) {
-//                this.die(); 
-//             }
-//         }
-//         if (ent.name === 'pharaoh' && ent.attacking === true) {
-//             if (this.collideSlash(ent)) {
-//                 this.die(); 
-//             }
-//         }
-//     }   
-
-    Warrior.prototype.throwIdle.call();
+    }
 
 }
 
@@ -101,12 +97,12 @@ Warrior.prototype.slashLeft = function() {
 }
 
 Warrior.prototype.die = function () {
-    this.animation = new Animation(Warriorspritesheets['die'], 900, 900, 15, 0.05, 15, false, .2); 
+    this.animation = new Animation(Warriorspritesheets['die'], 900, 900, 15, 0.05, 15, false, .2);
+    this.live = 0; 
 }
 
 Warrior.prototype.throw = function () {
     this.animation = new Animation(Warriorspritesheets['throw'], 900, 900, 12, 0.08, 12, true, .2); 
-    console.log("throw!!")
     this.game.addEntity(new Rock(this.game, AM.getAsset("./assets/sprites/Rock2.png"), this.x + 300, this.y + 75));
 
 }
@@ -116,17 +112,13 @@ Warrior.prototype.idleLeft = function () {
 }
 
 Warrior.prototype.throwIdle = function () {
-    console.log("throw!!")
-
-    if(this.frames < 10){
-        this.animation = new Animation(Warriorspritesheets['idle left'], 900, 900, 18, 0.05, 18, true, .2); 
+    if(this.frames < 50){
         this.frames = this.frames + 1;
-        console.log("throw!!")
 
     } else {
-        this.throw();
+        this.animation = new Animation(Warriorspritesheets['throw'], 900, 900, 12, 0.08, 12, true, .2); 
+        this.game.addEntity(new Rock(this.game, AM.getAsset("./assets/sprites/Rock2.png"), this.x - 8, this.y + 78));        this.frames = 0;
         this.frames = 0;
-
     }
 }
 
@@ -135,7 +127,7 @@ Warrior.prototype.swapWorld = function(){
     if (this.live === 0) {
         this.live = 1;
     } else {
-        this.live = 0; 
+        this.live = 1; 
     }
-    this.underworld = !this.underworld;
+   this.underworld = !this.underworld;
 }
