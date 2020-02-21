@@ -12,6 +12,7 @@ function Archer(game, AssetManager, startX, startY) {
 	this.idle(); 
 	this.state = "idle"; 
 	this.x = startX;
+	this.type = "enemy"; 
 	this.y = startY;
 	this.speed = 0; 
 	this.time = 0; 

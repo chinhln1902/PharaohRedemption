@@ -93,7 +93,8 @@ function Pharaoh(game, assetManager, theCamera) {
     this.idle();
     Entity.call(this, game, 500, 250);
     this.name = "pharaoh"; 
-
+    this.health = 6; 
+    this.type = "main"
     //state is a string which can be either: 'idle' 'jumping' or 'moving'
     this.state = "idle"; 
     //direction is a string which can be either: 'left' or 'right'
@@ -102,13 +103,13 @@ function Pharaoh(game, assetManager, theCamera) {
     this.attacking = false;  
     //jump variables
     this.height = 200;
+    this.dead = false; 
+    this.aftermath = 0; 
     this.groundLevel = GROUND_LEVEL;
     this.y = this.groundLevel;
     this.yVelocity = 0;
     this.isJumping = false;
     this.width = 180; 
-    this.health = 100;
-    this.maxHealth = 100;
     this.time = 100; 
     // this is true if we only want to play the animation once
     this.playingTempAnimation = false;
@@ -132,17 +133,20 @@ Pharaoh.prototype.update = function () {
     this.x += this.game.clockTick * this.speed;
     this.time++; 
     controlAnimation(this);
-  
     controlJump(this);
     this.camera.setX(this.x);                      ///For camera
-
     Entity.prototype.update.call(this);
-
+    if (this.dead === true) this.aftermath++;
+    if (this.aftermath > 50) {
+        this.removeFromWorld = true; 
+        alert("game over"); 
+    }
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
         if (ent.name === "arrow") { 
             if (this.collideWithProjectile(ent)) { 
                 console.log("collided"); 
+                this.takeDamage(); 
             }
         }
     }  
@@ -348,9 +352,9 @@ Pharaoh.prototype.throw = function () {
 }
 
 //makes the pharaoh take damage
-Pharaoh.prototype.takeDamage = function (damage) {
+Pharaoh.prototype.takeDamage = function () {
     this.attacking = false; 
-    this.health -= damage;
+    this.health -= 1;
     if (this.health <= 0) this.die();
     if (this.underworld){
         if (this.direction === 'right'){
@@ -370,8 +374,8 @@ Pharaoh.prototype.takeDamage = function (damage) {
 }
 
 Pharaoh.prototype.die = function (){
-    this.animation = animation = new Animation(spriteSheets['dying'], 900, 900, 18, 0.05, 18, false, SCALE);
-    console.log("Game Over");
+    this.animation = animation = new Animation(spriteSheets['dying'], 900, 900, 15, 0.05, 15, false, SCALE);
+    this.dead = true; 
 }
 
 //makes the pharaoh blink. only works when he idle
@@ -655,9 +659,9 @@ Pharaoh.prototype.swapWorld = function(){
 }
 
 Pharaoh.prototype.collideWithProjectile = function(other) {
-    if ((other.x - 30) < this.x && this.x < (other.x + 30)) {
+    if ((other.x - 40) < this.x && this.x < (other.x + 40) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
         return true; 
-   } 
+   }
 }
 
 

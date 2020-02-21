@@ -20,6 +20,7 @@ function Goul(game, AssetManager, startX, startY) {
     this.game = game;
     this.ctx = game.ctx;
     this.name = "goul"; 
+    this.type = "enemy"; 
     this.underworld = false;
     this.live = 0; 
     this.dead = false;

@@ -19,6 +19,7 @@ function Warrior(game, AssetManager, startX, startY) {
     this.x = startX;
     this.y = startY;
     this.speed = 0;
+    this.type = "enemy"; 
     this.game = game;
     this.ctx = game.ctx;
     this.name = "Warrior"; 
@@ -78,7 +79,6 @@ Warrior.prototype.update = function () {
 Warrior.prototype.collide = function(other) {
     if ((other.x - 30) < this.x && this.x < (other.x + 30) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
         return true; 
-
    }
 }
 
@@ -102,6 +102,7 @@ Warrior.prototype.die = function () {
 }
 
 Warrior.prototype.throw = function () {
+    if (!this.underworld) return; 
     this.animation = new Animation(Warriorspritesheets['throw'], 900, 900, 12, 0.08, 12, true, .2); 
     this.game.addEntity(new Rock(this.game, AM.getAsset("./assets/sprites/Rock2.png"), this.x + 300, this.y + 75));
 
