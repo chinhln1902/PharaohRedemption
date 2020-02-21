@@ -124,10 +124,6 @@ Warrior.prototype.throwIdle = function () {
 
 
 Warrior.prototype.swapWorld = function(){
-    if (this.live === 0) {
-        this.live = 1;
-    } else {
-        this.live = 1; 
-    }
+
    this.underworld = !this.underworld;
 }
