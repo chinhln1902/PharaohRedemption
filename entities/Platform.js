@@ -25,13 +25,17 @@ Platform.prototype.constructor = Platform;
 
 Platform.prototype.draw = function() {
     if (this.underworld) {
-        for (var i = 0; i < platformsUnderworld.length; i++) {
-            var pf = platformsUnderworld[i];
+        for (var i = 0; i < underworldPlatforms.length; i++) {
+            var pf = underworldPlatforms[i];
             this.ctx.drawImage(pf.platformSheet , pf.x - pf.game.getCamera().getX(), pf.y, pf.width, pf.height);
         }
     } else {
         for (var i = 0; i < platforms.length; i++) {
             var pf = platforms[i];
+            this.ctx.drawImage(pf.platformSheet , pf.x - pf.game.getCamera().getX(), pf.y, pf.width, pf.height);
+        }
+        for (var i = 0; i < decorativePlatforms.length; i++) {
+            var pf = decorativePlatforms[i];
             this.ctx.drawImage(pf.platformSheet , pf.x - pf.game.getCamera().getX(), pf.y, pf.width, pf.height);
         }
     }
