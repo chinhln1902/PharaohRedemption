@@ -7,7 +7,7 @@ function Background(game, png1, png2, speed) {
     this.y1 = 0;
     this.x2 = 1200;
     this.y2 = 0;
-
+    this.live = 1; 
     this.currentFrame = "x2";
 
     this.width = 1200;
@@ -31,25 +31,13 @@ Background.prototype.setSpeed = function(theSpeed){
 
 Background.prototype.draw = function () {
 
-    // if (this.underworld === true){
-    //     console.log("Switch underworld");
-
-    //     this.ctx.drawImage(this.pngUnderworld,
-    //         this.x1, this.y1, 1200, 780);
-
-    //     this.ctx.drawImage(this.pngUnderworld,
-    //             this.x2, this.y2, 1200, 780);
-
-    // } else {
-        console.log("Current png: " + this.currentPng);
-
         this.ctx.drawImage(this.currentPng,
             this.x1, this.y1, 1200, 780);
 
         this.ctx.drawImage(this.currentPng,
                 this.x2, this.y2, 1200, 780);
 
-//    }        
+       
 }
 
 Background.prototype.update = function () {
@@ -85,6 +73,5 @@ Background.prototype.switch = function(){
     } else {
         this.currentPng = this.png1;
     }
-    console.log("Underworld value: " + this.underworld);
 
 }

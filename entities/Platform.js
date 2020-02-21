@@ -1,24 +1,51 @@
-function Platform(game, sprite, x, y, width, height) {
-    this.x = x * 100;
-    this.y = y * 100 + 40;
-    this.width = width;
-    this.height = height;
+function Platform(game, sprite, x, y) {
+    var YOFFSET = 70;
+    var SCALE = 70;
+    this.x = x * SCALE;
+    this.y = y * SCALE + YOFFSET;
+    this.width = SCALE;
+    this.height = this.width;
     this.platformSheet = sprite;
     this.game = game;
     this.ctx = game.ctx;
-    this.boundingBox = new BoundingBox(x * 100, y * 100 + 40, width, height);
+    this.underworld = false;
+    this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);
     this.game.addEntity(this);
+    var that = this;
+    document.addEventListener("keydown", function (e) {
+            if (e.code === "Space") {
+                e.preventDefault();
+                that.underworld = !that.underworld;
+            }
+    });    
 }
 
 Platform.prototype = new Entity();
 Platform.prototype.constructor = Platform;
 
-Platform.prototype.draw = function () {
-    // this.boundingBox = new BoundingBox (this.x, this.y, this.width, this.height);
-    this.ctx.strokeRect(this.boundingBox.x - this.game.getCamera().getX(), this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
-    this.ctx.drawImage(this.platformSheet , this.x - this.game.getCamera().getX(), this.y, this.width, this.height);
+Platform.prototype.draw = function() {
+    if (this.underworld) {
+        for (var i = 0; i < underworldPlatforms.length; i++) {
+            var pf = underworldPlatforms[i];
+            this.ctx.drawImage(pf.platformSheet , pf.x - pf.game.getCamera().getX(), pf.y, pf.width, pf.height);
+        }
+    } else {
+        for (var i = 0; i < platforms.length; i++) {
+            var pf = platforms[i];
+            this.ctx.drawImage(pf.platformSheet , pf.x - pf.game.getCamera().getX(), pf.y, pf.width, pf.height);
+        }
+        for (var i = 0; i < decorativePlatforms.length; i++) {
+            var pf = decorativePlatforms[i];
+            this.ctx.drawImage(pf.platformSheet , pf.x - pf.game.getCamera().getX(), pf.y, pf.width, pf.height);
+        }
+    }
 }
 
-Platform.prototype.idle = function () {
-    this.state = 'idle';
+Platform.prototype.swichWorlds() = function(){
+    this.underworld = !this.underworld;
 }
+
+// Platform.prototype.update = function() {
+//     console.log("platform update is being called"); 
+//     Entity.prototype.update.call(this);
+// }

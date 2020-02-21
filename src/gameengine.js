@@ -73,7 +73,7 @@ GameEngine.prototype.update = function () {
     var entitiesCount = this.entities.length; 
     for (var i = 0; i < entitiesCount; i++) {
         var entity = this.entities[i];
-        if (entity.removeFromWorld === false) {
+        if (entity.removeFromWorld === false && entity.live === 1) {
             entity.update();
         }   
     }
@@ -86,7 +86,7 @@ GameEngine.prototype.update = function () {
 
 GameEngine.prototype.loop = function () {
     this.clockTick = this.timer.tick();
-    this.update();
+    window.setInterval(this.update(),10);
     this.draw();
 }
 

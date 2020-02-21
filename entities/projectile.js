@@ -9,11 +9,11 @@ function Projectile(game, spritesheet, direction, startX, startY) {
     }
     this.x = startX;
     this.y = startY;
-    
+    this.live = 1; 
     this.game = game;
     this.ctx = game.ctx;
     this.timeAlive = 0;
-
+    this.name = 'comet'; 
     this.underworld = false;
     var that = this;
     document.addEventListener("keydown", function (e) {
@@ -33,15 +33,16 @@ Projectile.prototype.constructor = Projectile;
 
 Projectile.prototype.draw = function () {
     //if (this.underworld) return;
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x , this.y);
+    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
     Entity.prototype.draw.call(this);
 }
 
 Projectile.prototype.update = function () {
-    if (this.timeAlive > 20) this.speed = 0;
+    if (this.timeAlive > 20) {
+        this.speed = 0;
+        this.removeFromWorld = true; 
+    }
     this.x += this.game.clockTick * this.speed;
-    if (this.x > 1200) this.x = -230;
-    if (this.x < -230) this.x = 1200;
     Entity.prototype.update.call(this);
     //console.log("this position: " + this.x);
     this.timeAlive ++;

@@ -12,12 +12,11 @@ levelcontroller.prototype.level1 = function(){
     gameEngine.init(ctx);
     gameEngine.start();
 
-    var parallax = new BackgroundManager(AM, gameEngine);
     var camera = new Camera(gameEngine);      
     var mainCharacter = new Pharaoh(gameEngine, AM, camera);
     var characterControl = new pharaohController(mainCharacter);
 
-    var enemyController = new EnemyController(gameEngine);
+    var enemyController = new EnemyController(gameEngine, camera);
     enemyController.level1();
 
     var platformController = new PlatformController(gameEngine, AM);
@@ -26,8 +25,4 @@ levelcontroller.prototype.level1 = function(){
     gameEngine.addEntityMainCharacter(mainCharacter);
     gameEngine.addEntityCamera(camera);
 
-
-
-
-    
 }

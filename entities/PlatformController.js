@@ -1,9 +1,26 @@
 var platformSheets = [];
 var platforms = [];
+var underworldPlatforms = [];   
+var decorativePlatforms = [];
 function loadPlatforms(AM) {
     platformSheets['wooden barrel'] = AM.getAsset("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
     platformSheets['sandTop'] = AM.getAsset("./assets/platforms/DesertPlatforms/tiles/01.png");
     platformSheets['sandMid'] = AM.getAsset("./assets/platforms/DesertPlatforms/tiles/02.png");
+    platformSheets['spikes'] = AM.getAsset("./assets/platforms/PNG/Platformer/Spikes.png");
+    platformSheets['gap1'] = AM.getAsset("./assets/platforms/PNG/Platformer/Gap1.png");
+    platformSheets['side left 2'] = AM.getAsset("./assets/platforms/PNG/Platformer/Side Left 2.png");
+    platformSheets['side left'] = AM.getAsset("./assets/platforms/PNG/Platformer/Side Left.png");
+    platformSheets['side right'] = AM.getAsset("./assets/platforms/PNG/Platformer/Side Right.png");
+    platformSheets['side right 2'] = AM.getAsset("./assets/platforms/PNG/Platformer/Side Right 2.png");
+    platformSheets['square ground'] = AM.getAsset("./assets/platforms/PNG/Platformer/Square Ground.png");
+    platformSheets['arrow 1'] = AM.getAsset("./assets/platforms/PNG/Environment/Arrow1.png");
+    platformSheets['arrow 2'] = AM.getAsset("./assets/platforms/PNG/Environment/Arrow2.png");
+    platformSheets['arrow 3'] = AM.getAsset("./assets/platforms/PNG/Environment/Arrow3.png");
+    platformSheets['caution'] = AM.getAsset("./assets/platforms/PNG/Environment/Caution.png");
+    platformSheets['skull'] = AM.getAsset("./assets/platforms/PNG/Environment/Skull.png");
+    
+    platformSheets['stoneMid'] = AM.getAsset("./assets/platforms/volcanoTiles/tiles/02.png");
+    platformSheets['stoneTop'] = AM.getAsset("./assets/platforms/volcanoTiles/tiles/01.png");
 }
 
 function PlatformController (game, assetManager) {
@@ -11,27 +28,51 @@ function PlatformController (game, assetManager) {
     loadPlatforms(this.AM);
     this.engine = game;
     this.ctx = game.ctx;
+//     this.underworld = false;
+//     var that = this;
+//     document.addEventListener("keydown", function (e) {
+//         if (e.code === "Space") {
+//             e.preventDefault();
+//             that.underworld = !that.underworld;
+//         }
+// });    
 }
 
 // PlatformController.prototype = new Entity();
 PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
-    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],0, 5, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],3, 5, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['wooden barrel'],4, 5, 100, 100));
-    
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'],7, 3, 150, 50));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'],10, 4, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['sandMid'],10, 5, 100, 100));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'],9, 5, 100, 100));
-    
+        // removePlatforms();
+        // platforms.splice(0, platforms.length);
+        decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 1'], -2, 7));
 
-    // var woodenBarrel1 = new Platform(this.engine, platformSheets['wooden barrel']);
-    // woodenBarrel1.x = 200;
-    // woodenBarrel1.y = 540;
-    // woodenBarrel.width = 116;
-    // woodenBarrel.height = 122;
-    // platforms.push(woodenBarrel1);
-    // this.engine.addEntity(woodenBarrel1);
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 8, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 9, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 10, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 15, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 15, 6));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 19, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 19, 6));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 19, 5));
+        decorativePlatforms.push(new Platform(this.engine, platformSheets['caution'], 21, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 7));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 6));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 5));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 4));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 23, 3));
+
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],8, 7));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],9, 7));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],10, 7));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],15, 7));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],15, 6));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],19, 7));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],19, 6));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],19, 5));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],23, 4));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],23, 3));
+    // } else {
+    //     // removePlatforms();
+    //     platforms.splice(0, platforms.length);
+    // }
 }
