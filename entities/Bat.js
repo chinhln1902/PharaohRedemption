@@ -38,7 +38,7 @@ function Bat(game, AssetManager, startX, startY) {
 
 Bat.prototype.draw = function () {
     if (!this.underworld) return;
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
 }
 
 Bat.prototype.update = function () {

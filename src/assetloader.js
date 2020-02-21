@@ -123,7 +123,16 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/PSNAKE-IDLE2.png"); 
     AM.queueDownload("./assets/sprites/PSNAKE-DIE.png");
 
-    
+    //Warrior
+    AM.queueDownload("./assets/sprites/Warrior Slash Left.png"); //Warrior
+    AM.queueDownload("./assets/sprites/Warrior Slash Right.png"); //Warrior
+    AM.queueDownload("./assets/sprites/Warrior Throw.png"); //Warrior
+    AM.queueDownload("./assets/sprites/Warrior Die.png"); //Warrior
+    AM.queueDownload("./assets/sprites/Warrior Idle Left.png"); //Warrior
+
+    //Rock Projectile
+    AM.queueDownload("./assets/sprites/Rock2.png"); //Rock
+
 
     AM.queueDownload("./assets/sprites/Bat Fly Flip.png"); //Bat
     AM.queueDownload("./assets/sprites/Bat-Die.png"); //Bat Die
