@@ -13,6 +13,7 @@ function Projectile(game, spritesheet, direction, startX, startY) {
     this.game = game;
     this.ctx = game.ctx;
     this.timeAlive = 0;
+    this.type = "main"; 
     this.name = 'comet'; 
     this.underworld = false;
     var that = this;

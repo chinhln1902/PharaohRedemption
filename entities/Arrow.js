@@ -12,6 +12,7 @@ function Arrow(game, AssetManager, startX, startY) {
 	this.y = startY;
 	this.width = 20; 
 	this.speed = 280; 
+    this.type = "enemy"; 
 	this.game = game; 
 	this.name = "arrow";  
     this.live = 1; 

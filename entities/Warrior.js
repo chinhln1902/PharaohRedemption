@@ -19,6 +19,7 @@ function Warrior(game, AssetManager, startX, startY) {
     this.x = startX;
     this.y = startY;
     this.speed = 0;
+    this.type = "enemy"; 
     this.game = game;
     this.ctx = game.ctx;
     this.name = "Warrior"; 
@@ -78,7 +79,6 @@ Warrior.prototype.update = function () {
 Warrior.prototype.collide = function(other) {
     if ((other.x - 30) < this.x && this.x < (other.x + 30) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
         return true; 
-
    }
 }
 

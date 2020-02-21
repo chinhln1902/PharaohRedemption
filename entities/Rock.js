@@ -10,6 +10,8 @@ function Rock(game, spritesheet, startX, startY) {
     this.y = startY;
     this.live = 1; 
     this.game = game;
+    this.type = "enemy"; 
+    this.name = "rock"; 
     this.ctx = game.ctx;
     this.timeAlive = 0;
     this.underworld = false;

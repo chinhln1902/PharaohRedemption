@@ -16,6 +16,7 @@ function Snake(game, AssetManager, startX, startY) {
     this.height = 85; 
     this.aftermath = 0;
     this.dead = false; 
+    this.type = "enemy"; 
     this.game = game;
     this.live = 1; 
     this.name = "snake"; 

@@ -8,6 +8,7 @@ function Platform(game, sprite, x, y, isTopPlatform) {
     this.platformSheet = sprite;
     this.game = game;
     this.ctx = game.ctx;
+    this.type = "platform"; 
     this.underworld = false;
     this.isTopPlatform = isTopPlatform;
     this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);

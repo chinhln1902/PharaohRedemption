@@ -16,6 +16,7 @@ function Bat(game, AssetManager, startX, startY) {
     this.y = startY;
     this.speed = 0;
     this.game = game;
+    this.type = "enemy"; 
     this.ctx = game.ctx;
     this.dead = false;
     this.aftermath = 0; 
