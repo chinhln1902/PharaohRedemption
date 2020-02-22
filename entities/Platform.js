@@ -14,7 +14,6 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
     } else {
         this.underworld = false;
     }
-    
     this.isTopPlatform = isTopPlatform;
     this.causeDamage = causeDamage;
     this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);

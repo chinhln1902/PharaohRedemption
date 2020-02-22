@@ -484,6 +484,18 @@ function controlAnimation(pharaoh){
 
 // called by the update method. controlls the jumping.
 function controlJump(pharaoh){
+    var insideSign = false;
+    for (var i = 0; i < signs.length; i++) {
+        var pf = signs[i];
+        if (pharaoh.boundingBox.collide(pf.boundingBox) && !insideSign) {  
+            pf.displayMessage();
+            insideSign = true;
+        } else if (!pharaoh.boundingBox.collide(pf.boundingBox)){
+            pf.dontDisplay();
+            insideSign = false;
+        }
+    }
+
     //in the air 
     if (pharaoh.isJumping){
         pharaoh.yVelocity -= 1.6; //90 * pharaoh.game.clockTick
@@ -491,6 +503,7 @@ function controlJump(pharaoh){
 
         pharaoh.lastBottom = pharaoh.boundingBox.bottom;
         pharaoh.boundingBox = new BoundingBox (pharaoh.x + 60, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 120, pharaoh.animation.frameHeight * SCALE - 60);
+        
         if (!pharaoh.underworld) {
             for (var i = 0; i < platforms.length; i++) {
                 var pf = platforms[i];
