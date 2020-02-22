@@ -161,7 +161,7 @@ Pharaoh.prototype.update = function () {
             var pf = ent;
             if (pf.causeDamage && this.underworld === pf.underworld) {
                 if (this.boundingBox.collide(pf.boundingBox)) {
-                   //this.die();
+                   this.die();
                 }
             }
         }
