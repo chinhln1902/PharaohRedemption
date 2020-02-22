@@ -233,7 +233,7 @@ Pharaoh.prototype.jump = function () {
     this.state = 'jumping';
     this.attacking = false; 
     this.isJumping = true;
-    this.yVelocity = 15;
+    this.yVelocity = 50;
     this.previousAnimation = this.animation;
     if (this.underworld){
         if (this.direction === 'right'){
@@ -477,7 +477,7 @@ function controlAnimation(pharaoh){
 function controlJump(pharaoh){
     //in the air 
     if (pharaoh.isJumping){
-        pharaoh.yVelocity -= 0.68 ;
+        pharaoh.yVelocity -= 125 * pharaoh.game.clockTick//0.68 ;
         pharaoh.y -= pharaoh.yVelocity;
 
         pharaoh.lastBottom = pharaoh.boundingBox.bottom;
