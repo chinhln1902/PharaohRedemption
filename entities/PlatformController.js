@@ -134,7 +134,7 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],47, 5, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],48, 5, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],59, 7, false));
-        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],59, 6, false));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],59, 6, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],59, 3, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],59, 2, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],66, 7, true));
