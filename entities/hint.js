@@ -1,18 +1,19 @@
-function Platform(game, sprite, x, y, isTopPlatform) {
+function Hint(game, sprite, x, y, underworld, message) {
     var YOFFSET = 70;
     var SCALE = 70;
     this.x = x * SCALE;
     this.y = y * SCALE + YOFFSET;
     this.width = SCALE;
     this.height = this.width;
-    this.platformSheet = sprite;
+    this.sprite = sprite;
     this.game = game;
     this.ctx = game.ctx;
-    this.type = "platform"; 
-    this.underworld = false;
-    this.isTopPlatform = isTopPlatform;
-    this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);
+    this.underworld = underworld;
+    this.message = message;
     this.game.addEntity(this);
+    this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);
+    //this.pharaoh = game.entities[21] //game.entities.indexOf(mainCharacter)
+    //console.log("pharaoh is " + game.entities.indexOf("mainCharacter"));
     var that = this;
     document.addEventListener("keydown", function (e) {
             if (e.code === "Space") {
@@ -23,19 +24,34 @@ function Platform(game, sprite, x, y, isTopPlatform) {
     
 }
 
-Platform.prototype = new Entity();
-Platform.prototype.constructor = Platform;
+Hint.prototype = new Entity();
+Hint.prototype.constructor = Hint;
 
-Platform.prototype.draw = function() {
-
-    this.ctx.drawImage(pf.platformSheet , pf.x - pf.game.getCamera().getX(), pf.y, pf.width, pf.height);
+Hint.prototype.update = function() {
+    
 }
 
-// Platform.prototype.swichWorlds() = function(){
+
+Hint.prototype.draw = function() {
+    
+    this.ctx.drawImage(this.sprite , this.x - this.game.getCamera().getX(), this.y, this.width, this.height);
+}
+
+// Hint.prototype.swichWorlds() = function(){
 //     this.underworld = !this.underworld;
 // }
 
-// Platform.prototype.update = function() {
-//     console.log("platform update is being called"); 
-//     Entity.prototype.update.call(this);
-// }
+Hint.prototype.displayMessage = function(){
+    console.log("displaying message");
+    var msgDiv = document.getElementById("msg");
+    msgDiv.innerHTML = this.message;
+   
+}
+
+Hint.prototype.dontDisplay = function(){
+    var msgDiv = document.getElementById("msg");
+    msgDiv.innerHTML = "";
+}
+
+
+

@@ -138,8 +138,8 @@ Pharaoh.prototype.update = function () {
     Entity.prototype.update.call(this);
     if (this.dead === true) this.aftermath++;
     if (this.aftermath > 30) {
-        // this.removeFromWorld = true; 
-        // alert("game over"); 
+        this.removeFromWorld = true; 
+        alert("game over"); 
     }
     if (this.x >= 7360){
         this.removeFromWorld = true; 
@@ -160,7 +160,7 @@ Pharaoh.prototype.update = function () {
             var pf = ent;
             if (pf.causeDamage && this.underworld === pf.underworld) {
                 if (this.boundingBox.collide(pf.boundingBox)) {
-                    this.die();
+                    //this.die();
                 }
             }
         }
@@ -259,7 +259,7 @@ Pharaoh.prototype.jump = function () {
     this.state = 'jumping';
     this.attacking = false; 
     this.isJumping = true;
-    this.yVelocity = 27;
+    this.yVelocity = 25;//27;
     this.previousAnimation = this.animation;
     if (this.underworld){
         if (this.direction === 'right'){
@@ -383,12 +383,13 @@ Pharaoh.prototype.throw = function () {
 Pharaoh.prototype.takeDamage = function () {
     this.attacking = false; 
         this.attacking = false; 
-    this.attacking = false; 
-    this.health -= 1;
-    if (this.health <= 0) this.die();
-    if (this.underworld){
-        if (this.direction === 'right'){
-            this.animation = new Animation(spriteSheets['hurt1'], 900, 900, 18, 0.05, 18, false, SCALE); 
+        this.health -= 1;
+        if (this.health <= 0) {
+            //this.die();
+            return; 
+        }
+        if (this.underworld){
+            if (this.direction === 'right'){
                 this.animation = new Animation(spriteSheets['hurt1'], 900, 900, 18, 0.05, 18, false, SCALE); 
             this.animation = new Animation(spriteSheets['hurt1'], 900, 900, 18, 0.05, 18, false, SCALE); 
         } else {
@@ -495,13 +496,26 @@ function controlAnimation(pharaoh){
 
 // called by the update method. controlls the jumping.
 function controlJump(pharaoh){
+    /*var insideSign = false;
+    for (var i = 0; i < signs.length; i++) {
+        var pf = signs[i];
+        if (pharaoh.boundingBox.collide(pf.boundingBox) && !insideSign) {  
+            pf.displayMessage();
+            insideSign = true;
+        } else if (!pharaoh.boundingBox.collide(pf.boundingBox)){
+            pf.dontDisplay();
+            insideSign = false;
+        }
+    }*/
+
     //in the air 
     if (pharaoh.isJumping){
-        pharaoh.yVelocity -= 90 * pharaoh.game.clockTick//0.68 ;
+        pharaoh.yVelocity -= 1.6; //90 * pharaoh.game.clockTick
         pharaoh.y -= pharaoh.yVelocity;
 
         pharaoh.lastBottom = pharaoh.boundingBox.bottom;
         pharaoh.boundingBox = new BoundingBox (pharaoh.x + 60, pharaoh.y + 30, pharaoh.animation.frameWidth * SCALE - 120, pharaoh.animation.frameHeight * SCALE - 60);
+        
         if (!pharaoh.underworld) {
             for (var i = 0; i < platforms.length; i++) {
                 var pf = platforms[i];

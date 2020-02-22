@@ -83,7 +83,7 @@ Snake.prototype.idle = function() {
 }
 
 Snake.prototype.collideSlash = function(other) {
-    if ((other.x - 200) < this.x && this.x < (other.x + 200) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+    if ((other.x - 200) < this.x && this.x < (other.x + 200) && (other.y - 70) < this.y && this.y < (other.y + 70)) {
         return true; 
    }
 }
