@@ -31,7 +31,7 @@ function pharaohController(mainCharacter){
 			LeftKeyPressed = "true";
 
 			//Jumping
-		} if (e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
+		} else if (e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
 			e.preventDefault();
 				that.Pharaoh.jump();
 				
@@ -44,17 +44,7 @@ function pharaohController(mainCharacter){
 				UpArrowPressed = "true";
 			
 			//World switching
-		} if (e.code === "ArrowUp" || e.code === "ArrowRight"  && (RightKeyPressed === "true" || LeftKeyPressed === "true") && that.Pharaoh.getState() === "jumping") {
-			//debugger;
-			if (that.Pharaoh.getDirection() === "right") {
-				that.Pharaoh.runRight();
-
-			} else if (that.Pharaoh.getDirection() === "left"){
-
-				that.Pharaoh.runLeft();
-			}
-			
-		} else if(e.code === "Space"){
+		}  else if(e.code === "Space"){
 
 				that.Pharaoh.swapWorld();
 

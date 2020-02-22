@@ -190,21 +190,11 @@ Pharaoh.prototype.runRight = function () {
     this.attacking = false; 
     console.log("this.underworld = " + this.underworld + " Is it true: " + (this.underworld === true));
     if (this.underworld){
-        if (this.isJumping) {
-            this.animation = new Animation(spriteSheets['jump start1'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
-        } else {
-            this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
-        }
   
-           //this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+        this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
     } else {
 
-        if (this.isJumping) {
-            this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
-        } else {
-            this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
-        }
-        //this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+        this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
     }
     console.log("the animation is "+ this.animation);
     this.speed = 300;
@@ -218,21 +208,11 @@ Pharaoh.prototype.runRight = function () {
 Pharaoh.prototype.runLeft = function () {
     this.attacking = false; 
     if (this.underworld){
-        if (this.isJumping) {
-        
-            this.animation = new Animation(spriteSheets['jump start flip1'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
-        } else {
-            this.animation = new Animation(spriteSheets['running flip1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
-        }
-        //this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, SCALE); //running left animation
+
+        this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, SCALE); //running left animation
     } else {
 
-        if (this.isJumping) {
-            this.animation = new Animation(spriteSheets['jump start flip'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
-        } else {
-            this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
-        }
-        //this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, SCALE); //running left animation
+        this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, SCALE); //running left animation
     }
     this.speed = -300;
     this.previousState = 'running';
