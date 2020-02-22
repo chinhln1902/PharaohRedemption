@@ -188,21 +188,14 @@ Pharaoh.prototype.idle = function () {
 }
 
 //sets state to running
+//sets state to running
 Pharaoh.prototype.runRight = function () {
     this.attacking = false; 
     console.log("this.underworld = " + this.underworld + " Is it true: " + (this.underworld === true));
     if (this.underworld){
-        if (this.isJumping) {
-            this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
-        } else {
-            this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
-        }
+        this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
     } else {
-        if (this.isJumping) {
-            this.animation = new Animation(spriteSheets['jump start1'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
-        } else {
-            this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
-        }
+        this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
     }
     console.log("the animation is "+ this.animation);
     this.speed = 300;
@@ -485,6 +478,7 @@ function controlAnimation(pharaoh){
 function controlJump(pharaoh){
     //in the air 
     if (pharaoh.isJumping){
+        debugger;
         pharaoh.yVelocity -= 0.68 ;
         pharaoh.y -= pharaoh.yVelocity;
 
@@ -529,7 +523,7 @@ function controlJump(pharaoh){
                     pharaoh.groundLevel = pharaoh.y;
                     pharaoh.setToDefault();
                 } else {
-                    if (pharaoh.boundingBox.collide(pf.boundingBox)) {
+                    if (pharaoh.boundingBox.collide(pf.boundingBox)  && !pf.isTopPlatform) {
                         if (pharaoh.direction === "right") {
                             pharaoh.speed = 0;
                             pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;

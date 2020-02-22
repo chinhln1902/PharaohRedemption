@@ -27,7 +27,7 @@ Platform.prototype = new Entity();
 Platform.prototype.constructor = Platform;
 
 Platform.prototype.draw = function() {
-
+    
     if (this.underworld) {
         for (var i = 0; i < underworldPlatforms.length; i++) {
             var pf = underworldPlatforms[i];
