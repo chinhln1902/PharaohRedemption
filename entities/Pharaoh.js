@@ -119,6 +119,7 @@ function Pharaoh(game, assetManager, theCamera) {
     // To check if pharaoh is standing on platform or not.
     this.onPlatform = false;
     this.platform = null;
+    this.insideSign = false;
 
     this.backgroundManager = new BackgroundManager(assetManager, game);
     this.boundingBox = new BoundingBox(this.x + 60, this.y + 30, this.animation.frameWidth * SCALE - 120, this.animation.frameHeight * SCALE - 60);
@@ -172,7 +173,7 @@ Pharaoh.prototype.update = function () {
 Pharaoh.prototype.draw = function () {
     //if (this.underworld) return;
     //console.log(this.animation);
-    this.ctx.strokeRect(this.boundingBox.x - this.camera.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
+    //this.ctx.strokeRect(this.boundingBox.x - this.camera.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.camera.x, this.y);                    //important for camera to work
     // this.ctx.strokeRect(this.x, this.y, 10, 10);
     Entity.prototype.draw.call(this);
@@ -259,7 +260,7 @@ Pharaoh.prototype.jump = function () {
     this.state = 'jumping';
     this.attacking = false; 
     this.isJumping = true;
-    this.yVelocity = 25;//27;
+    this.yVelocity = 20;//27;
     this.previousAnimation = this.animation;
     if (this.underworld){
         if (this.direction === 'right'){
@@ -496,21 +497,24 @@ function controlAnimation(pharaoh){
 
 // called by the update method. controlls the jumping.
 function controlJump(pharaoh){
-    /*var insideSign = false;
+    
+    var insideSign = false;
     for (var i = 0; i < signs.length; i++) {
+        //var insideSign = false;
         var pf = signs[i];
-        if (pharaoh.boundingBox.collide(pf.boundingBox) && !insideSign) {  
+        if (pharaoh.boundingBox.collide(pf.boundingBox) && !this.insideSign) {  
             pf.displayMessage();
-            insideSign = true;
+            this.insideSign = true;
+            break;
         } else if (!pharaoh.boundingBox.collide(pf.boundingBox)){
             pf.dontDisplay();
-            insideSign = false;
+            this.insideSign = false;
         }
-    }*/
+    }
 
     //in the air 
     if (pharaoh.isJumping){
-        pharaoh.yVelocity -= 1.6; //90 * pharaoh.game.clockTick
+        pharaoh.yVelocity -= 1.00; //90 * pharaoh.game.clockTick
         pharaoh.y -= pharaoh.yVelocity;
 
         pharaoh.lastBottom = pharaoh.boundingBox.bottom;
