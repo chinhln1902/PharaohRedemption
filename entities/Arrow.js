@@ -12,7 +12,7 @@ function Arrow(game, AssetManager, startX, startY) {
 	this.y = startY;
 	this.width = 20; 
 	this.speed = -280; 
-    this.type = "enemy"; 
+    this.type = "projectile"; 
 	this.game = game; 
 	this.name = "arrow";  
     this.live = 1; 
@@ -49,12 +49,9 @@ Arrow.prototype.update = function () {
     Entity.prototype.update.call(this);
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];
-    	if (ent.name === "pharaoh") {
-    		if (this.collide(ent) || this.timeAlive > 70) {
-    			this.remove(); 
-    			this.removeFromWorld = true; 
-    		}
-	    }
+        if (this.timeAlive > 70) {
+            this.removeFromWorld = true; 
+        }
     }	
 }
 

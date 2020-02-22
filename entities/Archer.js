@@ -94,7 +94,7 @@ Archer.prototype.shooting = function() {
 		if (!this.underworld) return; 
 		if (this.time > 100) {
 		this.animation = new Animation(spritesheets['attack'], 910, 900, 9, .03, 9, false, .2); 
-		var arrow = new Arrow(this.game, this.AM, this.x - 130, this.y + 105); 
+		var arrow = new Arrow(this.game, this.AM, this.x - 70, this.y + 105); 
 		this.game.addEntity(arrow); 
 		this.PlayingTempAnimation = true; 
 		this.time = 0; 

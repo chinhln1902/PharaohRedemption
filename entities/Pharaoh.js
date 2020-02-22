@@ -101,6 +101,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.direction = 'right';
     this.x = 350;
     this.attacking = false;  
+    this.immune = 45; 
     //jump variables
     this.height = 200;
     this.dead = false; 
@@ -135,7 +136,8 @@ Pharaoh.prototype.update = function () {
     this.time++; 
     controlAnimation(this);
     controlJump(this);
-    this.camera.setX(this.x);                      ///For camera
+    this.camera.setX(this.x);                     ///For camera
+    this.immune++; 
     Entity.prototype.update.call(this);
     if (this.dead === true) this.aftermath++;
     if (this.aftermath > 30) {
@@ -153,8 +155,13 @@ Pharaoh.prototype.update = function () {
 
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
+        if (ent.type === "projectile" && ent.live === 1) {
+            if (this.collideWithProjectile(ent)) {
+                this.takeDamage(); 
+            }
+        }
         if (ent.type === "enemy" && ent.live === 1) { 
-            if (this.collideWithProjectile(ent)) { 
+            if (this.collide(ent)) { 
                 console.log("collided"); 
                 this.takeDamage(); 
             }
@@ -384,6 +391,8 @@ Pharaoh.prototype.throw = function () {
 
 //makes the pharaoh take damage
 Pharaoh.prototype.takeDamage = function () {
+    if (this.immune < 45) return; 
+    this.immune = 0; 
     this.attacking = false; 
         this.attacking = false; 
         this.health -= 1;
@@ -418,7 +427,19 @@ Pharaoh.prototype.takeDamage = function () {
 }
 
 Pharaoh.prototype.die = function (){
-    this.animation = animation = new Animation(spriteSheets['dying'], 900, 900, 15, 0.05, 15, false, SCALE);
+    if (this.underworld) {
+        if (this.direction === "right") {
+            this.animation = new Animation(spriteSheets['dying1'], 900, 900, 15, 0.05, 15, false, SCALE); 
+        } else {
+            this.animation = new Animation(spriteSheets['dying flip1'], 900, 900, 15, 0.05, 15, false, SCALE);
+        }
+    } else {
+        if (this.direction === "right") {
+            this.animation = new Animation(spriteSheets['dying'], 900, 900, 15, 0.05, 15, false, SCALE);
+        } else {
+            this.animation = new Animation(spriteSheets['dyingflip'], 900, 900, 15, 0.05, 15, false, SCALE)
+        }
+    }
     this.dead = true; 
 }
 
@@ -719,6 +740,12 @@ Pharaoh.prototype.swapWorld = function(){
 }
 
 Pharaoh.prototype.collideWithProjectile = function(other) {
+    if ((other.x - 60) < this.x && this.x < (other.x + 60) && (other.y - 40) < this.y && this.y < (other.y + 40)) {
+        return true; 
+   }
+}
+
+Pharaoh.prototype.collide = function(other) {
     if ((other.x - 60) < this.x && this.x < (other.x + 60) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
         return true; 
    }
