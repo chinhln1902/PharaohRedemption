@@ -84,6 +84,7 @@ Bat.prototype.fly = function() {
 
 Bat.prototype.die = function() {
     this.animation = new Animation(spritesheets['die'], 693, 580, 7, 0.07, 7, false, .34); 
+    this.dead = true; 
 }
 
 Bat.prototype.swapWorld = function(){
