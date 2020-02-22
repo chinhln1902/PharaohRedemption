@@ -47,11 +47,14 @@ PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
     
+
+
         // removePlatforms();
         //page 1
         decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 1'], -2, 7,));
-        signs.push(new Hint(this.engine, platformSheets['question'], 0, 7, false, "hello world"));
+        signs.push(new Hint(this.engine, platformSheets['question'], 0, 7, false, "wrong way!"));
         //platforms.push(new Platform(this.engine, platformSheets['side left 2'], 6, 7, true));
+        signs.push(new Hint(this.engine, platformSheets['question'], 7, 7, false, "up arrow to jump"));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 8, 7, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 9, 7, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 10, 7, true, false, false));
@@ -60,8 +63,7 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 19, 7, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 19, 6, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 19, 5, true, false, false));
-        decorativePlatforms.push(new Platform(this.engine, platformSheets['question'], 21, 7, true, false, false));
-        UdecorativePlatforms.push(new Platform(this.engine, platformSheets['caution'], 28, 7, true, false, false));
+        signs.push(new Hint(this.engine, platformSheets['question'], 21, 7, false, "try pushing space"));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 7, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 6, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 5, false, false, false));
@@ -77,7 +79,9 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],19, 5, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],23, 4, false, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],23, 3, true, true, false));
-        //decorativePlatforms.push(new Platform(this.engine, platformSheets['caution'], 29, 7, true));
+        signs.push(new Hint(this.engine, platformSheets['question'], 27, 7, false, "use 'e' to attack"));
+        decorativePlatforms.push(new Platform(this.engine, platformSheets['caution'], 29, 7, true));
+        UdecorativePlatforms.push(new Platform(this.engine, platformSheets['caution'], 29, 7, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],30, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],31, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],32, 7, true, true, true));
@@ -99,6 +103,7 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         platforms.push(new Platform(this.engine, platformSheets['spikes'], 50, 7, true, false, true));
         //platforms.push(new Platform(this.engine, platformSheets['spikes'], 51, 7, true, false, true));
         //platforms.push(new Platform(this.engine, platformSheets['spikes'], 52, 7, true, false, true));
+        signs.push(new Hint(this.engine, platformSheets['question'], 55, 7, false, "use 'q' to throw"));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 40, 6, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 41, 6, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 45, 5, true, false, false));
