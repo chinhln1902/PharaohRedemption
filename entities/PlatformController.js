@@ -3,6 +3,7 @@ var platforms = [];
 var underworldPlatforms = [];   
 var decorativePlatforms = [];
 var UdecorativePlatforms = [];
+var signs = [];
 function loadPlatforms(AM) {
     platformSheets['barrel'] = AM.getAsset("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
     platformSheets['sandTop'] = AM.getAsset("./assets/platforms/DesertPlatforms/tiles/01.png");

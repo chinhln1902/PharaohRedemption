@@ -486,7 +486,7 @@ function controlAnimation(pharaoh){
 // called by the update method. controlls the jumping.
 function controlJump(pharaoh){
     
-    /*var insideSign = false;
+    var insideSign = false;
     for (var i = 0; i < signs.length; i++) {
         //var insideSign = false;
         var pf = signs[i];
@@ -498,7 +498,7 @@ function controlJump(pharaoh){
             pf.dontDisplay();
             this.insideSign = false;
         }
-    }*/
+    }
 
     //in the air 
     if (pharaoh.isJumping){
