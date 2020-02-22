@@ -156,7 +156,7 @@ Pharaoh.prototype.update = function () {
             var pf = ent;
             if (pf.causeDamage && this.underworld === pf.underworld) {
                 if (this.boundingBox.collide(pf.boundingBox)) {
-                    this.die();
+                    //this.die();
                 }
             }
         }
@@ -370,7 +370,7 @@ Pharaoh.prototype.takeDamage = function () {
         this.attacking = false; 
         this.health -= 1;
         if (this.health <= 0) {
-            this.die();
+            //this.die();
             return; 
         }
         if (this.underworld){
@@ -486,6 +486,7 @@ function controlAnimation(pharaoh){
 // called by the update method. controlls the jumping.
 function controlJump(pharaoh){
     
+    /*var insideSign = false;
     for (var i = 0; i < signs.length; i++) {
         //var insideSign = false;
         var pf = signs[i];
@@ -497,7 +498,7 @@ function controlJump(pharaoh){
             pf.dontDisplay();
             this.insideSign = false;
         }
-    }
+    }*/
 
     //in the air 
     if (pharaoh.isJumping){
