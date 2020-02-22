@@ -43,9 +43,9 @@ Platform.prototype.draw = function() {
     }
 }
 
-Platform.prototype.swichWorlds() = function(){
-    this.underworld = !this.underworld;
-}
+// Platform.prototype.swichWorlds() = function(){
+//     this.underworld = !this.underworld;
+// }
 
 // Platform.prototype.update = function() {
 //     console.log("platform update is being called"); 
