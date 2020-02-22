@@ -137,7 +137,7 @@ Pharaoh.prototype.update = function () {
     this.camera.setX(this.x);                      ///For camera
     Entity.prototype.update.call(this);
     if (this.dead === true) this.aftermath++;
-    if (this.aftermath > 50) {
+    if (this.aftermath > 30) {
         this.removeFromWorld = true; 
         alert("game over"); 
     }
@@ -355,7 +355,10 @@ Pharaoh.prototype.throw = function () {
 Pharaoh.prototype.takeDamage = function () {
     this.attacking = false; 
     this.health -= 1;
-    if (this.health <= 0) this.die();
+    if (this.health <= 0) {
+        this.die();
+        return; 
+    }
     if (this.underworld){
         if (this.direction === 'right'){
             this.animation = new Animation(spriteSheets['hurt1'], 900, 900, 18, 0.05, 18, false, SCALE); 
@@ -374,7 +377,19 @@ Pharaoh.prototype.takeDamage = function () {
 }
 
 Pharaoh.prototype.die = function (){
-    this.animation = animation = new Animation(spriteSheets['dying'], 900, 900, 15, 0.05, 15, false, SCALE);
+    if (this.underworld) {
+        if (this.direction === "right") {
+            this.animation = new Animation(spriteSheets['dying1'], 900, 900, 15, 0.05, 15, false, SCALE);
+        } else {
+            this.animation = new Animation(spriteSheets['dying flip1'], 900, 900, 15, 0.05, 15, false, SCALE);
+        }
+    } else {
+        if (this.direction === "right") {
+            this.animation = new Animation(spriteSheets['dying'], 900, 900, 15, 0.05, 15, false, SCALE);
+        } else {
+            this.animation = new Animation(spriteSheets['dying flip'], 900, 900, 15, 0.05, 15, false, SCALE);
+        }
+    }
     this.dead = true; 
 }
 
