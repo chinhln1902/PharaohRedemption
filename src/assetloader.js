@@ -113,10 +113,15 @@ function loadAssets(){
     AM.queueDownload("./assets/platforms/PNG/Environment/Arrow2.png");
     AM.queueDownload("./assets/platforms/PNG/Environment/Arrow3.png");
     AM.queueDownload("./assets/platforms/PNG/Environment/Caution.png");
+    AM.queueDownload("./assets/platforms/PNG/Environment/Question.png");
     AM.queueDownload("./assets/platforms/PNG/Environment/Skull.png");
 
     AM.queueDownload("./assets/platforms/volcanoTiles/tiles/01.png");
     AM.queueDownload("./assets/platforms/volcanoTiles/tiles/02.png");
+
+    AM.queueDownload("./assets/platforms/temple/tiles/01.png");
+    AM.queueDownload("./assets/platforms/temple/tiles/02.png");
+    AM.queueDownload("./assets/platforms/temple/tiles/03.png");
 
     //Enemies
     //Snake
