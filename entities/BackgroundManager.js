@@ -10,6 +10,8 @@ function BackgroundManager(AM, game) {
     this.game = game;
     this.ctx = game.ctx;
     this.underworld = false;
+    var BACKGROUND_SPEED = 3;
+    var NEG_BACKGROUND_SPEED = -3;
 
     //Right and left flags
     var RightKeyPressed = "false";
@@ -80,6 +82,7 @@ BackgroundManager.prototype.defaultNegativeSpeed = function(){
 
     for(var i = 0; i < desertBackground.length; i++){
         desertBackground[i].setSpeed(-(i/2));
+        console.log((-(i/2)));
     }
 }
 
