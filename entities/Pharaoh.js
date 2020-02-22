@@ -137,13 +137,13 @@ Pharaoh.prototype.update = function () {
     this.camera.setX(this.x);                      ///For camera
     Entity.prototype.update.call(this);
     if (this.dead === true) this.aftermath++;
-    if (this.aftermath > 50) {
+    if (this.aftermath > 30) {
         this.removeFromWorld = true; 
         alert("game over"); 
     }
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
-        if (ent.name === "arrow") { 
+        if (ent.type === "enemy" && ent.live === 1) { 
             if (this.collideWithProjectile(ent)) { 
                 console.log("collided"); 
                 this.takeDamage(); 
