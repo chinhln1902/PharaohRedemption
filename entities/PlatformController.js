@@ -168,8 +168,27 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],70, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],71, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],72, 7, true, true, false));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 75, 7, false, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 76, 7, false, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 77, 7, false, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 78, 7, false, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 79, 7, false, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 80, 7, false, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 81, 7, false, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 82, 7, false, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 83, 7, false, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 75, 6, true, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 76, 6, true, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 77, 6, true, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 78, 6, true, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 79, 6, true, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 80, 6, true, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 81, 6, true, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 82, 6, true, true, true));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 83, 6, true, true, true));
         
         //page 3
+        //these following spikes kill the pharaoh in the underworld even though they belong to the overworld
         platforms.push(new Platform(this.engine, platformSheets['spikes'], 75, 7, true, false, true));
         platforms.push(new Platform(this.engine, platformSheets['spikes'], 76, 7, true, false, true));
         platforms.push(new Platform(this.engine, platformSheets['spikes'], 77, 7, true, false, true));
