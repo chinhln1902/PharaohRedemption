@@ -1,6 +1,6 @@
 var spritesheets = []; 
 function loadArrowSpriteSheets(AM) {
-	spritesheets['shoot'] = AM.getAsset("./assets/sprites/Arrow.png");  
+	spritesheets['shoot'] = AM.getAsset("./assets/sprites/ArrowFlip.png");  
 }
 
 function Arrow(game, AssetManager, startX, startY) {
@@ -11,7 +11,7 @@ function Arrow(game, AssetManager, startX, startY) {
 	this.x = startX;
 	this.y = startY;
 	this.width = 20; 
-	this.speed = 280; 
+	this.speed = -280; 
     this.type = "enemy"; 
 	this.game = game; 
 	this.name = "arrow";  

@@ -158,12 +158,12 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/magic/PNG/comet/csheetflip.png");//projectile flip
 
     //Archer
-    AM.queueDownload("./assets/sprites/Archer-Idle.png"); 
-    AM.queueDownload("./assets/sprites/Archer-Shooting.png");
-    AM.queueDownload("./assets/sprites/Archer-Dying.png"); 
+    AM.queueDownload("./assets/sprites/Archer-IdleFlip.png"); 
+    AM.queueDownload("./assets/sprites/Archer-ShootingFlip.png");
+    AM.queueDownload("./assets/sprites/Archer-DyingFlip.png"); 
 
     //Arrow for the archer
-    AM.queueDownload("./assets/sprites/Arrow.png"); 
+    AM.queueDownload("./assets/sprites/ArrowFlip.png"); 
 
 }
 

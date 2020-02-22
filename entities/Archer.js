@@ -1,8 +1,8 @@
 var spritesheets = []; 
 function loadArcherSpriteSheets(AM) {
-	spritesheets['idle'] = AM.getAsset("./assets/sprites/Archer-Idle.png"); 
-	spritesheets['attack'] = AM.getAsset("./assets/sprites/Archer-Shooting.png"); 
-	spritesheets['dying'] = AM.getAsset("./assets/sprites/Archer-Dying.png"); 
+	spritesheets['idle'] = AM.getAsset("./assets/sprites/Archer-IdleFlip.png"); 
+	spritesheets['attack'] = AM.getAsset("./assets/sprites/Archer-ShootingFlip.png"); 
+	spritesheets['dying'] = AM.getAsset("./assets/sprites/Archer-DyingFlip.png"); 
 }
 
 function Archer(game, AssetManager, startX, startY) {
@@ -87,14 +87,14 @@ Archer.prototype.die = function() {
 }
 
 Archer.prototype.idle = function() {
-	this.animation = new Animation(spritesheets['idle'], 910, 900, 18, .05, 18, true, .2); 
+	this.animation = new Animation(spritesheets['idle'], 910, 900, 8, .05, 8, true, .2); 
 }
 
 Archer.prototype.shooting = function() {
 		if (!this.underworld) return; 
 		if (this.time > 100) {
 		this.animation = new Animation(spritesheets['attack'], 910, 900, 9, .03, 9, false, .2); 
-		var arrow = new Arrow(this.game, this.AM, this.x + 130, this.y + 105); 
+		var arrow = new Arrow(this.game, this.AM, this.x - 130, this.y + 105); 
 		this.game.addEntity(arrow); 
 		this.PlayingTempAnimation = true; 
 		this.time = 0; 

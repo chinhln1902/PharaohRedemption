@@ -161,7 +161,7 @@ Pharaoh.prototype.update = function () {
             var pf = ent;
             if (pf.causeDamage && this.underworld === pf.underworld) {
                 if (this.boundingBox.collide(pf.boundingBox)) {
-                    //this.die();
+                   //this.die();
                 }
             }
         }
@@ -717,7 +717,7 @@ Pharaoh.prototype.swapWorld = function(){
 }
 
 Pharaoh.prototype.collideWithProjectile = function(other) {
-    if ((other.x - 40) < this.x && this.x < (other.x + 40) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
+    if ((other.x - 60) < this.x && this.x < (other.x + 60) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
         return true; 
    }
 }
