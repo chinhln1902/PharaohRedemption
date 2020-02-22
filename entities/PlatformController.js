@@ -31,7 +31,8 @@ function loadPlatforms(AM) {
     platformSheets['stoneMid'] = AM.getAsset("./assets/platforms/volcanoTiles/tiles/02.png");
     platformSheets['stoneTop'] = AM.getAsset("./assets/platforms/volcanoTiles/tiles/01.png");
     platformSheets['spikes'] = AM.getAsset("./assets/platforms/PNG/Platformer/Spikes.png");
-    // platformSheets['spikes'] = AM.getAsset("./assets/platforms/temple/tiles/spikes.png");
+    platformSheets['silver chest'] = AM.getAsset("./assets/platforms/PNG/Collectable/Treasure Chest.png");
+    platformSheets['red flag'] = AM.getAsset("./assets/platforms/PNG/Environment/Red Flag.png");
 
 }
 
@@ -261,7 +262,14 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 106, 4, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 107, 4, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'], 108, 4, true, true, false));
-    // } else {
+   
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],33, 7, true, true, false));
+
+        decorativePlatforms.push(new Platform(this.engine, platformSheets['silver chest'], 107.1, 3.1, true, true, false));
+        decorativePlatforms.push(new Platform(this.engine, platformSheets['barrel'], 108, 3.1, true, true, false));
+        decorativePlatforms.push(new Platform(this.engine, platformSheets['red flag'], 108.3, 2.2, true, true, false));
+
+        // } else {
     //     // removePlatforms();
     //     platforms.splice(0, platforms.length);
     // }
