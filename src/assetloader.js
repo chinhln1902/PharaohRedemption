@@ -122,6 +122,11 @@ function loadAssets(){
     AM.queueDownload("./assets/platforms/temple/tiles/01.png");
     AM.queueDownload("./assets/platforms/temple/tiles/02.png");
     AM.queueDownload("./assets/platforms/temple/tiles/03.png");
+    AM.queueDownload("./assets/platforms/temple/tiles/breakable.png");
+    AM.queueDownload("./assets/platforms/temple/tiles/pedestal.png");
+    AM.queueDownload("./assets/platforms/temple/tiles/spikes.png");
+    AM.queueDownload("./assets/platforms/temple/tiles/bridge-2.png");
+    AM.queueDownload("./assets/platforms/temple/tiles/bridge-3.png");
 
     //Enemies
     //Snake

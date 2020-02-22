@@ -20,15 +20,21 @@ function Platform(game, sprite, x, y, isTopPlatform) {
                 that.underworld = !that.underworld;
             }
     });    
+    
 }
 
 Platform.prototype = new Entity();
 Platform.prototype.constructor = Platform;
 
 Platform.prototype.draw = function() {
+
     if (this.underworld) {
         for (var i = 0; i < underworldPlatforms.length; i++) {
             var pf = underworldPlatforms[i];
+            this.ctx.drawImage(pf.platformSheet , pf.x - pf.game.getCamera().getX(), pf.y, pf.width, pf.height);
+        }
+        for (var i = 0; i < UdecorativePlatforms.length; i++) {
+            var pf = UdecorativePlatforms[i];
             this.ctx.drawImage(pf.platformSheet , pf.x - pf.game.getCamera().getX(), pf.y, pf.width, pf.height);
         }
     } else {
