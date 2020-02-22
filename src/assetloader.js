@@ -115,6 +115,9 @@ function loadAssets(){
     AM.queueDownload("./assets/platforms/PNG/Environment/Caution.png");
     AM.queueDownload("./assets/platforms/PNG/Environment/Question.png");
     AM.queueDownload("./assets/platforms/PNG/Environment/Skull.png");
+    AM.queueDownload("./assets/platforms/PNG/Environment/Red Flag.png");
+
+    AM.queueDownload("./assets/platforms/PNG/Collectable/Treasure Chest.png");
 
     AM.queueDownload("./assets/platforms/volcanoTiles/tiles/01.png");
     AM.queueDownload("./assets/platforms/volcanoTiles/tiles/02.png");

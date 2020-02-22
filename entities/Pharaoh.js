@@ -138,8 +138,15 @@ Pharaoh.prototype.update = function () {
     Entity.prototype.update.call(this);
     if (this.dead === true) this.aftermath++;
     if (this.aftermath > 30) {
+        // this.removeFromWorld = true; 
+        // alert("game over"); 
+    }
+    if (this.x >= 7360){
         this.removeFromWorld = true; 
-        alert("game over"); 
+        alert("You beat this Level! You cheated death this time!");
+        this.Pharaoh.backgroundManager.stopSpeed();
+
+
     }
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
