@@ -102,7 +102,6 @@ Warrior.prototype.die = function () {
 }
 
 Warrior.prototype.throw = function () {
-    if (!this.underworld) return; 
     this.animation = new Animation(Warriorspritesheets['throw'], 900, 900, 12, 0.08, 12, true, .2); 
     this.game.addEntity(new Rock(this.game, AM.getAsset("./assets/sprites/Rock2.png"), this.x + 300, this.y + 75));
 
@@ -113,12 +112,13 @@ Warrior.prototype.idleLeft = function () {
 }
 
 Warrior.prototype.throwIdle = function () {
+    if (this.underworld) return;
     if(this.frames < 50){
         this.frames = this.frames + 1;
 
     } else {
         this.animation = new Animation(Warriorspritesheets['throw'], 900, 900, 12, 0.08, 12, true, .2); 
-        this.game.addEntity(new Rock(this.game, AM.getAsset("./assets/sprites/Rock2.png"), this.x - 8, this.y + 78));        this.frames = 0;
+        this.game.addEntity(new Rock(this.game, AM.getAsset("./assets/sprites/Rock2.png"), this.x - 8, this.y + 78));
         this.frames = 0;
     }
 }
