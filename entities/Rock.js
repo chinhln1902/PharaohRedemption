@@ -35,7 +35,7 @@ Rock.prototype.draw = function () {
 
 Rock.prototype.update = function () {
     if (this.live === 0) return;
-    if (this.timeAlive > 35) {
+    if (this.timeAlive > 20) {
         this.speed = 0;
         this.removeFromWorld = true; 
     }

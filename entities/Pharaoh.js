@@ -145,7 +145,7 @@ Pharaoh.prototype.update = function () {
     }
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
-        if (ent.name === "arrow" || ent.name === "rock") { 
+        if (ent.type === "enemy") { 
             if (this.collideWithProjectile(ent)) { 
                 console.log("collided"); 
                 this.takeDamage(); 
@@ -234,7 +234,7 @@ Pharaoh.prototype.jump = function () {
     this.state = 'jumping';
     this.attacking = false; 
     this.isJumping = true;
-    this.yVelocity = 15;
+    this.yVelocity = 27;
     this.previousAnimation = this.animation;
     if (this.underworld){
         if (this.direction === 'right'){
@@ -478,8 +478,7 @@ function controlAnimation(pharaoh){
 function controlJump(pharaoh){
     //in the air 
     if (pharaoh.isJumping){
-        debugger;
-        pharaoh.yVelocity -= 0.68 ;
+        pharaoh.yVelocity -= 90 * pharaoh.game.clockTick//0.68 ;
         pharaoh.y -= pharaoh.yVelocity;
 
         pharaoh.lastBottom = pharaoh.boundingBox.bottom;
