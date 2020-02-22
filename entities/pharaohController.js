@@ -1,4 +1,3 @@
-
 function pharaohController(mainCharacter){
 	var that = this;
 	var RightKeyPressed = "false";
@@ -20,21 +19,20 @@ function pharaohController(mainCharacter){
 		  	}
 
 			//Running right 
-		if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
-			that.Pharaoh.runRight();
-			RightKeyPressed = "true";
+			if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
+				that.Pharaoh.runRight();
+				RightKeyPressed = "true";
 
 			//Running left
-		} else if(e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false"){
+			} else if(e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false"){
 				
-			that.Pharaoh.runLeft();
-			LeftKeyPressed = "true";
+				that.Pharaoh.runLeft();
+				LeftKeyPressed = "true";
 
 			//Jumping
-		} if (e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
+		} else if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
 			e.preventDefault();
 				that.Pharaoh.jump();
-				
 				if (RightKeyPressed === "true" || LeftKeyPressed === "true"){
 					that.Pharaoh.setPreviousState("running");
 				} else {
@@ -44,27 +42,17 @@ function pharaohController(mainCharacter){
 				UpArrowPressed = "true";
 			
 			//World switching
-		} if (e.code === "ArrowUp" || e.code === "ArrowRight"  && (RightKeyPressed === "true" || LeftKeyPressed === "true") && that.Pharaoh.getState() === "jumping") {
-			//debugger;
-			if (that.Pharaoh.getDirection() === "right") {
-				that.Pharaoh.runRight();
-
-			} else if (that.Pharaoh.getDirection() === "left"){
-
-				that.Pharaoh.runLeft();
-			}
-			
-		} else if(e.code === "Space"){
+			} else if(e.code === "Space"){
 
 				that.Pharaoh.swapWorld();
 
 			//Slashing
-		} else if(e.code === "KeyE"){
+			} else if(e.code === "KeyE"){
 				console.log("Key E pressed");
 				that.Pharaoh.slash();
 				
 			//Bonus attack
-		} else if(e.code === "KeyF"){
+			} else if(e.code === "KeyF"){
 
 			//Projectile 
 			} else if(e.code === "KeyQ"){
@@ -96,4 +84,3 @@ function pharaohController(mainCharacter){
 	}, false);
 			
 }
-

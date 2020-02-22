@@ -149,6 +149,14 @@ Pharaoh.prototype.update = function () {
                 this.takeDamage(); 
             }
         }
+        if (ent.type === "platform") {
+            var pf = ent;
+            if (pf.causeDamage && this.underworld === pf.underworld) {
+                if (this.boundingBox.collide(pf.boundingBox)) {
+                    this.die();
+                }
+            }
+        }
     }  
     
 }
@@ -186,25 +194,14 @@ Pharaoh.prototype.idle = function () {
 }
 
 //sets state to running
+//sets state to running
 Pharaoh.prototype.runRight = function () {
     this.attacking = false; 
     console.log("this.underworld = " + this.underworld + " Is it true: " + (this.underworld === true));
     if (this.underworld){
-        if (this.isJumping) {
-            this.animation = new Animation(spriteSheets['jump start1'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
-        } else {
-            this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
-        }
-  
-           //this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+        this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
     } else {
-
-        if (this.isJumping) {
-            this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
-        } else {
-            this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
-        }
-        //this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+        this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
     }
     console.log("the animation is "+ this.animation);
     this.speed = 300;
@@ -255,7 +252,7 @@ Pharaoh.prototype.jump = function () {
     this.state = 'jumping';
     this.attacking = false; 
     this.isJumping = true;
-    this.yVelocity = 15;
+    this.yVelocity = 27;
     this.previousAnimation = this.animation;
     if (this.underworld){
         if (this.direction === 'right'){
@@ -493,7 +490,7 @@ function controlAnimation(pharaoh){
 function controlJump(pharaoh){
     //in the air 
     if (pharaoh.isJumping){
-        pharaoh.yVelocity -= 0.68 ;
+        pharaoh.yVelocity -= 90 * pharaoh.game.clockTick//0.68 ;
         pharaoh.y -= pharaoh.yVelocity;
 
         pharaoh.lastBottom = pharaoh.boundingBox.bottom;
@@ -538,7 +535,7 @@ function controlJump(pharaoh){
                     pharaoh.groundLevel = pharaoh.y;
                     pharaoh.setToDefault();
                 } else {
-                    if (pharaoh.boundingBox.collide(pf.boundingBox)) {
+                    if (pharaoh.boundingBox.collide(pf.boundingBox)  && !pf.isTopPlatform) {
                         if (pharaoh.direction === "right") {
                             pharaoh.speed = 0;
                             pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;

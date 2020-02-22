@@ -1,4 +1,4 @@
-function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
+function Platform(game, sprite, x, y, isTopPlatform) {
     var YOFFSET = 70;
     var SCALE = 70;
     this.x = x * SCALE;
@@ -9,14 +9,8 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
     this.game = game;
     this.ctx = game.ctx;
     this.type = "platform"; 
-    if (underworld){
-        this.underworld = underworld;
-    } else {
-        this.underworld = false;
-    }
-    
+    this.underworld = false;
     this.isTopPlatform = isTopPlatform;
-    this.causeDamage = causeDamage;
     this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);
     this.game.addEntity(this);
     var that = this;
@@ -34,16 +28,7 @@ Platform.prototype.constructor = Platform;
 
 Platform.prototype.draw = function() {
 
-    if (!this.underworld) {
-
-            this.ctx.drawImage(this.platformSheet , this.x - this.game.getCamera().getX(), this.y, this.width, this.height);
-
-
-    } else {
-
- 
-        
-    }
+    this.ctx.drawImage(pf.platformSheet , pf.x - pf.game.getCamera().getX(), pf.y, pf.width, pf.height);
 }
 
 // Platform.prototype.swichWorlds() = function(){
