@@ -1,4 +1,4 @@
-function Hint(game, sprite, x, y, underworld, message) {
+function hint(game, sprite, x, y, underworld, message) {
     var YOFFSET = 70;
     var SCALE = 70;
     this.x = x * SCALE;
@@ -24,31 +24,31 @@ function Hint(game, sprite, x, y, underworld, message) {
     
 }
 
-Hint.prototype = new Entity();
-Hint.prototype.constructor = Hint;
+hint.prototype = new Entity();
+hint.prototype.constructor = hint;
 
-Hint.prototype.update = function() {
+hint.prototype.update = function() {
     
 }
 
 
-Hint.prototype.draw = function() {
+hint.prototype.draw = function() {
     
     this.ctx.drawImage(this.sprite , this.x - this.game.getCamera().getX(), this.y, this.width, this.height);
 }
 
-// Hint.prototype.swichWorlds() = function(){
+// hint.prototype.swichWorlds() = function(){
 //     this.underworld = !this.underworld;
 // }
 
-Hint.prototype.displayMessage = function(){
+hint.prototype.displayMessage = function(){
     console.log("displaying message");
     var msgDiv = document.getElementById("msg");
     msgDiv.innerHTML = this.message;
    
 }
 
-Hint.prototype.dontDisplay = function(){
+hint.prototype.dontDisplay = function(){
     var msgDiv = document.getElementById("msg");
     msgDiv.innerHTML = "";
 }
