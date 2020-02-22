@@ -1,4 +1,3 @@
-
 function pharaohController(mainCharacter){
 	var that = this;
 	var RightKeyPressed = "false";
@@ -85,4 +84,3 @@ function pharaohController(mainCharacter){
 	}, false);
 			
 }
-

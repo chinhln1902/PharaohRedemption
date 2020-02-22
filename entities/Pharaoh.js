@@ -151,6 +151,14 @@ Pharaoh.prototype.update = function () {
                 this.takeDamage(); 
             }
         }
+        if (ent.type === "platform") {
+            var pf = ent;
+            if (pf.causeDamage && this.underworld === pf.underworld) {
+                if (this.boundingBox.collide(pf.boundingBox)) {
+                    this.die();
+                }
+            }
+        }
     }  
     
 }
@@ -187,6 +195,7 @@ Pharaoh.prototype.idle = function () {
     console.log("pharaoh is idle");
 }
 
+//sets state to running
 //sets state to running
 Pharaoh.prototype.runRight = function () {
     this.attacking = false; 
@@ -521,7 +530,7 @@ function controlJump(pharaoh){
                     pharaoh.groundLevel = pharaoh.y;
                     pharaoh.setToDefault();
                 } else {
-                    if (pharaoh.boundingBox.collide(pf.boundingBox)) {
+                    if (pharaoh.boundingBox.collide(pf.boundingBox)  && !pf.isTopPlatform) {
                         if (pharaoh.direction === "right") {
                             pharaoh.speed = 0;
                             pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;
