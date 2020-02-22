@@ -149,6 +149,8 @@ Pharaoh.prototype.update = function () {
 
 
     }
+    console.log("pharaoh's x value: " + this.x);
+
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
         if (ent.type === "enemy" && ent.live === 1) { 
@@ -161,7 +163,7 @@ Pharaoh.prototype.update = function () {
             var pf = ent;
             if (pf.causeDamage && this.underworld === pf.underworld) {
                 if (this.boundingBox.collide(pf.boundingBox)) {
-                   this.die();
+                   this.die();                                              ///CHANGEDS
                 }
             }
         }
@@ -386,7 +388,7 @@ Pharaoh.prototype.takeDamage = function () {
         this.attacking = false; 
         this.health -= 1;
         if (this.health <= 0) {
-            //this.die();
+            this.die();                                                                       ///CHANGED
             return; 
         }
         if (this.underworld){

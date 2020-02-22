@@ -42,6 +42,7 @@ Snake.prototype.constructor = Snake;
 
 Snake.prototype.draw = function () {
     if (this.underworld) return;
+
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
     Entity.prototype.draw.call(this);
 }
