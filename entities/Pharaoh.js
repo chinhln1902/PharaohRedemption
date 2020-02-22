@@ -145,7 +145,7 @@ Pharaoh.prototype.update = function () {
     }
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
-        if (ent.name === "arrow" || ent.name === "rock") { 
+        if (ent.type === "enemy") { 
             if (this.collideWithProjectile(ent)) { 
                 console.log("collided"); 
                 this.takeDamage(); 
