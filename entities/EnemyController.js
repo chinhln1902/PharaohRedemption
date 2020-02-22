@@ -19,9 +19,9 @@ EnemyController.prototype.level1 = function(){
     //this.gameEngine.addEntity(snaker); 
     this.gameEngine.addEntity(snake);  
     this.gameEngine.addEntity(bat);  
-    this.gameEngine.addEntity(archer); 
+    //this.gameEngine.addEntity(archer); 
     this.gameEngine.addEntity(goul);
-    this.gameEngine.addEntity(warrior);
+    //this.gameEngine.addEntity(warrior);
 
 }
 
