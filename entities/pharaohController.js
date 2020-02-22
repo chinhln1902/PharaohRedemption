@@ -12,20 +12,21 @@ function pharaohController(mainCharacter){
 	document.addEventListener("keydown", function (e) {
 
 			//Running right 
-			if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
-				that.Pharaoh.runRight();
-				RightKeyPressed = "true";
+		if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
+			that.Pharaoh.runRight();
+			RightKeyPressed = "true";
 
 			//Running left
-			} else if(e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false"){
+		} else if(e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false"){
 				
-				that.Pharaoh.runLeft();
-				LeftKeyPressed = "true";
+			that.Pharaoh.runLeft();
+			LeftKeyPressed = "true";
 
 			//Jumping
-		} else if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
+		} if (e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
 			e.preventDefault();
 				that.Pharaoh.jump();
+				
 				if (RightKeyPressed === "true" || LeftKeyPressed === "true"){
 					that.Pharaoh.setPreviousState("running");
 				} else {
@@ -35,17 +36,27 @@ function pharaohController(mainCharacter){
 				UpArrowPressed = "true";
 			
 			//World switching
-			} else if(e.code === "Space"){
+		} if (e.code === "ArrowUp" || e.code === "ArrowRight"  && (RightKeyPressed === "true" || LeftKeyPressed === "true") && that.Pharaoh.getState() === "jumping") {
+			//debugger;
+			if (that.Pharaoh.getDirection() === "right") {
+				that.Pharaoh.runRight();
+
+			} else if (that.Pharaoh.getDirection() === "left"){
+
+				that.Pharaoh.runLeft();
+			}
+			
+		} else if(e.code === "Space"){
 
 				that.Pharaoh.swapWorld();
 
 			//Slashing
-			} else if(e.code === "KeyE"){
+		} else if(e.code === "KeyE"){
 				console.log("Key E pressed");
 				that.Pharaoh.slash();
 				
 			//Bonus attack
-			} else if(e.code === "KeyF"){
+		} else if(e.code === "KeyF"){
 
 			//Projectile 
 			} else if(e.code === "KeyQ"){

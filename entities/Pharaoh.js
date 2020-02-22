@@ -190,9 +190,17 @@ Pharaoh.prototype.runRight = function () {
     this.attacking = false; 
     console.log("this.underworld = " + this.underworld + " Is it true: " + (this.underworld === true));
     if (this.underworld){
-        this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+        if (this.isJumping) {
+            this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
+        } else {
+            this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+        }
     } else {
-        this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+        if (this.isJumping) {
+            this.animation = new Animation(spriteSheets['jump start1'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
+        } else {
+            this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+        }
     }
     console.log("the animation is "+ this.animation);
     this.speed = 300;
@@ -465,7 +473,6 @@ function controlJump(pharaoh){
         if (!pharaoh.underworld) {
             for (var i = 0; i < platforms.length; i++) {
                 var pf = platforms[i];
-                debugger;
                 if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.lastBottom < pf.boundingBox.top && pf.isTopPlatform) {                
                     pharaoh.isJumping = false;
                     pharaoh.onPlatform = true;
