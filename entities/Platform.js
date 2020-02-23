@@ -9,7 +9,7 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
     this.game = game;
     this.ctx = game.ctx;
     this.type = "platform"; 
-
+    this.isUnderworld = underworld;
     var RightKeyPressed = "false";
     var LeftKeyPressed = "false";
 

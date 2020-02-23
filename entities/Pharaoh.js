@@ -154,6 +154,7 @@ Pharaoh.prototype.update = function () {
     console.log("pharaoh's x value: " + this.x);
 
     for (var i = 0; i < this.game.entities.length; i++) {
+        debugger;
         var ent = this.game.entities[i];
         if (ent.type === "projectile" && ent.live === 1) {
             if (this.collideWithProjectile(ent)) {
@@ -168,8 +169,10 @@ Pharaoh.prototype.update = function () {
         }
         if (ent.type === "platform") {
             var pf = ent;
-            if (pf.causeDamage && this.underworld === pf.underworld) {
+            if (pf.causeDamage && this.underworld === pf.isUnderworld) {
+                
                 if (this.boundingBox.collide(pf.boundingBox)) {
+                    
                    this.die();                                              ///CHANGEDS
                 }
             }
