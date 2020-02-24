@@ -91,7 +91,7 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         
         //page 2
         //platforms.push(new Platform(this.engine, platformSheets['spikes'], 39, 7, true, false, true));
-        platforms.push(new Platform(this.engine, platformSheets['spikes'], 40, 7, true, false, true));
+        //platforms.push(new Platform(this.engine, platformSheets['spikes'], 40, 7, true, false, true));
         platforms.push(new Platform(this.engine, platformSheets['spikes'], 41, 7, true, false, true));
         platforms.push(new Platform(this.engine, platformSheets['spikes'], 42, 7, true, false, true));
         platforms.push(new Platform(this.engine, platformSheets['spikes'], 43, 7, true, false, true));
