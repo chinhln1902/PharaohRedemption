@@ -88,7 +88,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.camera = theCamera;
 
     loadSpriteSheets(this.AM);
-    console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
+    //console.log("number of loaded assets: "+assetManager.getNumberOfAssets());
     this.ctx = game.ctx;
     this.idle();
     Entity.call(this, game, 500, 250);
@@ -124,6 +124,8 @@ function Pharaoh(game, assetManager, theCamera) {
 
     this.backgroundManager = new BackgroundManager(assetManager, game);
     this.boundingBox = new BoundingBox(this.x + 60, this.y + 30, this.animation.frameWidth * SCALE - 120, this.animation.frameHeight * SCALE - 60);
+    this.hud = new Hearts(this.engine);
+    this.engine.addEntity(this.hud);
 }
 
 //inheritence
@@ -151,10 +153,10 @@ Pharaoh.prototype.update = function () {
 
 
     }
-    console.log("pharaoh's x value: " + this.x);
+    //console.log("pharaoh's x value: " + this.x);
 
     for (var i = 0; i < this.game.entities.length; i++) {
-        debugger;
+        //debugger;
         var ent = this.game.entities[i];
         if (ent.type === "projectile" && ent.live === 1) {
             if (this.collideWithProjectile(ent)) {
@@ -163,7 +165,7 @@ Pharaoh.prototype.update = function () {
         }
         if (ent.type === "enemy" && ent.live === 1) { 
             if (this.collide(ent)) { 
-                console.log("collided"); 
+                //console.log("collided"); 
                 this.takeDamage(); 
             }
         }
@@ -217,13 +219,13 @@ Pharaoh.prototype.idle = function () {
 //sets state to running
 Pharaoh.prototype.runRight = function () {
     this.attacking = false; 
-    console.log("this.underworld = " + this.underworld + " Is it true: " + (this.underworld === true));
+    //console.log("this.underworld = " + this.underworld + " Is it true: " + (this.underworld === true));
     if (this.underworld){
         this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
     } else {
         this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
     }
-    console.log("the animation is "+ this.animation);
+    //console.log("the animation is "+ this.animation);
     this.speed = 300;
     this.state = 'running';
     this.previousState = 'running';
@@ -399,6 +401,7 @@ Pharaoh.prototype.takeDamage = function () {
     this.attacking = false; 
         this.attacking = false; 
         this.health -= 1;
+        this.hud.setHealth(this.health);
         if (this.health <= 0) {
             this.die();                                                                       ///CHANGED
             return; 
@@ -424,9 +427,7 @@ Pharaoh.prototype.takeDamage = function () {
         }
     }
     this.playingTempAnimation = true;
-    console.log("took damage");
-        console.log("took damage"); 
-    console.log("took damage");
+
 }
 
 Pharaoh.prototype.die = function (){
@@ -702,7 +703,6 @@ function controlJump(pharaoh){
             pharaoh.state = pharaoh.previousState;
             pharaoh.setToDefault();
         }
-        console.log("debug");
     }
 }
 

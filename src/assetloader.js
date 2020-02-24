@@ -2,15 +2,14 @@
 function loadAssets(){
         
     //Background Layers
-    AM.queueDownload("./assets/backgrounds/Desert Layers/1.png");
+    AM.queueDownload("./assets/backgrounds/Desert Layers/1.png"); //overworld
     AM.queueDownload("./assets/backgrounds/Desert Layers/2.png");
     AM.queueDownload("./assets/backgrounds/Desert Layers/3.png");
     AM.queueDownload("./assets/backgrounds/Desert Layers/4.png");
     AM.queueDownload("./assets/backgrounds/Desert Layers/5.png");
     AM.queueDownload("./assets/backgrounds/Desert Layers/6.png");
     AM.queueDownload("./assets/backgrounds/Desert Layers/7.png");
-
-    AM.queueDownload("./assets/backgrounds/Underworld Layers/1.png");
+    AM.queueDownload("./assets/backgrounds/Underworld Layers/1.png"); //underworld
     AM.queueDownload("./assets/backgrounds/Underworld Layers/2.png");
     AM.queueDownload("./assets/backgrounds/Underworld Layers/3.png");
     AM.queueDownload("./assets/backgrounds/Underworld Layers/4.png");
@@ -18,9 +17,7 @@ function loadAssets(){
     AM.queueDownload("./assets/backgrounds/Underworld Layers/6.png");
     AM.queueDownload("./assets/backgrounds/Underworld Layers/7.png");
 
-
     //Pharo
-    //AM.queueDownload("./assets/sprites/2_MUMMY/_IDLE/IDLE SpriteSheet.png"); //idle
     AM.queueDownload("./assets/sprites/2_MUMMY/_WALK/WALK SpriteSheet.png"); //walking
     AM.queueDownload("./assets/sprites/2_MUMMY/_RUN/RUN SpriteSheet.png"); //running
     //Pharaoh right
@@ -96,33 +93,26 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet flip.png"); //throwing in the air 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet flip.png");   
     //Platforms
-    AM.queueDownload("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
-    AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/01.png");
+    AM.queueDownload("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png"); // barrel
+    AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/01.png"); // dessert
     AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/02.png");
-
-    
-    AM.queueDownload("./assets/platforms/PNG/Platformer/Spikes.png");
+    AM.queueDownload("./assets/platforms/PNG/Platformer/Spikes.png"); // lava tiles
     AM.queueDownload("./assets/platforms/PNG/Platformer/Gap1.png");
     AM.queueDownload("./assets/platforms/PNG/Platformer/Side Left 2.png");
     AM.queueDownload("./assets/platforms/PNG/Platformer/Side Left.png");
     AM.queueDownload("./assets/platforms/PNG/Platformer/Side Right.png");
     AM.queueDownload("./assets/platforms/PNG/Platformer/Side Right 2.png");
     AM.queueDownload("./assets/platforms/PNG/Platformer/Square Ground.png");
-
-    AM.queueDownload("./assets/platforms/PNG/Environment/Arrow1.png");
+    AM.queueDownload("./assets/platforms/PNG/Environment/Arrow1.png"); // lava decorations
     AM.queueDownload("./assets/platforms/PNG/Environment/Arrow2.png");
     AM.queueDownload("./assets/platforms/PNG/Environment/Arrow3.png");
     AM.queueDownload("./assets/platforms/PNG/Environment/Caution.png");
     AM.queueDownload("./assets/platforms/PNG/Environment/Question.png");
     AM.queueDownload("./assets/platforms/PNG/Environment/Skull.png");
     AM.queueDownload("./assets/platforms/PNG/Environment/Red Flag.png");
-
-    AM.queueDownload("./assets/platforms/PNG/Collectable/Treasure Chest.png");
-
-    AM.queueDownload("./assets/platforms/volcanoTiles/tiles/01.png");
+    AM.queueDownload("./assets/platforms/volcanoTiles/tiles/01.png"); //volcano tiles
     AM.queueDownload("./assets/platforms/volcanoTiles/tiles/02.png");
-
-    AM.queueDownload("./assets/platforms/temple/tiles/01.png");
+    AM.queueDownload("./assets/platforms/temple/tiles/01.png"); //temple tiles
     AM.queueDownload("./assets/platforms/temple/tiles/02.png");
     AM.queueDownload("./assets/platforms/temple/tiles/03.png");
     AM.queueDownload("./assets/platforms/temple/tiles/breakable.png");
@@ -130,40 +120,29 @@ function loadAssets(){
     AM.queueDownload("./assets/platforms/temple/tiles/spikes.png");
     AM.queueDownload("./assets/platforms/temple/tiles/bridge-2.png");
     AM.queueDownload("./assets/platforms/temple/tiles/bridge-3.png");
-
     //Enemies
-    //Snake
-    AM.queueDownload("./assets/sprites/PSNAKE-IDLE2.png"); 
+    AM.queueDownload("./assets/sprites/PSNAKE-IDLE2.png"); //Snake
     AM.queueDownload("./assets/sprites/PSNAKE-DIE.png");
-
-    //Warrior
     AM.queueDownload("./assets/sprites/Warrior Slash Left.png"); //Warrior
-    AM.queueDownload("./assets/sprites/Warrior Slash Right.png"); //Warrior
-    AM.queueDownload("./assets/sprites/Warrior Throw.png"); //Warrior
-    AM.queueDownload("./assets/sprites/Warrior Die.png"); //Warrior
-    AM.queueDownload("./assets/sprites/Warrior Idle Left.png"); //Warrior
-
-    //Rock Projectile
-    AM.queueDownload("./assets/sprites/Rock2.png"); //Rock
-
-
-    AM.queueDownload("./assets/sprites/Bat Fly Flip.png"); //Bat
-    AM.queueDownload("./assets/sprites/Bat-Die.png"); //Bat Die
-    AM.queueDownload("./assets/sprites/Goul Walk.png");//Goul 
-    AM.queueDownload("./assets/sprites/Goul Die.png");
-    //AM.queueDownload("./../assets/sprites/Goul Die.png");
-
-    //Projectile for pharaoh
-    AM.queueDownload("./assets/sprites/magic/PNG/comet/csheet.png");//projectile
-    AM.queueDownload("./assets/sprites/magic/PNG/comet/csheetflip.png");//projectile flip
-
-    //Archer
-    AM.queueDownload("./assets/sprites/Archer-IdleFlip.png"); 
+    AM.queueDownload("./assets/sprites/Warrior Slash Right.png"); 
+    AM.queueDownload("./assets/sprites/Warrior Throw.png"); 
+    AM.queueDownload("./assets/sprites/Warrior Die.png"); 
+    AM.queueDownload("./assets/sprites/Warrior Idle Left.png"); 
+    AM.queueDownload("./assets/sprites/Archer-IdleFlip.png");  //Archer
     AM.queueDownload("./assets/sprites/Archer-ShootingFlip.png");
     AM.queueDownload("./assets/sprites/Archer-DyingFlip.png"); 
-
-    //Arrow for the archer
-    AM.queueDownload("./assets/sprites/ArrowFlip.png"); 
+    AM.queueDownload("./assets/sprites/Bat Fly Flip.png"); //Bat
+    AM.queueDownload("./assets/sprites/Bat-Die.png");
+    AM.queueDownload("./assets/sprites/Goul Walk.png");//Goul 
+    AM.queueDownload("./assets/sprites/Goul Die.png");
+    //Projectiles
+    AM.queueDownload("./assets/sprites/Rock2.png"); //Rock
+    AM.queueDownload("./assets/sprites/magic/PNG/comet/csheet.png");//projectile
+    AM.queueDownload("./assets/sprites/magic/PNG/comet/csheetflip.png");//projectile flip
+    AM.queueDownload("./assets/sprites/ArrowFlip.png"); //Arrow for the archer
+    //Other
+    AM.queueDownload("./assets/platforms/PNG/Collectable/heart.png"); //heart
+    AM.queueDownload("./assets/platforms/PNG/Collectable/Treasure Chest.png"); //chest
 
 }
 
