@@ -71,7 +71,8 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 6, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 5, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 4, false, false, false));
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 23, 3, true, false, false));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 3, false, false, false));
+        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 23, 2, true, false, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],8, 7, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],9, 7, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],10, 7, true, true, false));
@@ -81,7 +82,8 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],19, 6, false, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],19, 5, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],23, 4, false, true, false));
-        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],23, 3, true, true, false));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],23, 3, false, true, false));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],23, 2, true, true, false));
         signs.push(new hint(this.engine, platformSheets['question'], 25, 7, false, "now change back to the overworld"));
         signs.push(new hint(this.engine, platformSheets['question'], 27, 7, false, "use 'e' to attack"));
         decorativePlatforms.push(new Platform(this.engine, platformSheets['caution'], 29, 7, true));
