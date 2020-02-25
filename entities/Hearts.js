@@ -7,7 +7,7 @@ function Hearts(game) {
     this.y = 25;
     this.width = 128/3;
     this.height = 128/3;
-    this.nOfHearts = 6;
+    this.nOfHearts = 5;
     this.spacing = 40;
     // animation
     this.startSpots = [0];

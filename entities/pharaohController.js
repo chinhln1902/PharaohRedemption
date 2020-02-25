@@ -30,12 +30,16 @@ function pharaohController(mainCharacter){
 				LeftKeyPressed = "true";
 
 			//Jumping
-		} else if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
+		} if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
 			e.preventDefault();
 				that.Pharaoh.jump();
-				if (RightKeyPressed === "true" || LeftKeyPressed === "true"){
+				if (RightKeyPressed === "true"){
 					that.Pharaoh.setPreviousState("running");
-				} else {
+					that.Pharaoh.runRight();
+				} else if (LeftKeyPressed === "true"){
+					that.Pharaoh.setPreviousState("running");
+					that.Pharaoh.runLeft();
+				}else {
 					that.Pharaoh.setPreviousState("idle");
 				}
 				

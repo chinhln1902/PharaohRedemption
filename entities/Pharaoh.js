@@ -93,7 +93,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.idle();
     Entity.call(this, game, 500, 250);
     this.name = "pharaoh"; 
-    this.health = 6; 
+    this.health = 5; 
     this.type = "main"
     //state is a string which can be either: 'idle' 'jumping' or 'moving'
     this.state = "idle"; 
