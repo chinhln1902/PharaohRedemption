@@ -138,9 +138,7 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         platforms.push(new Platform(this.engine, platformSheets['brickChisled'], 72, 4, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['brickChisled'], 72, 3, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['brickTop'], 72, 2, true, false, false));
-        
-        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],39, 7, true, true, true));
-        underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],40, 7, true, true, true));
+
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],41, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],42, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],43, 7, true, true, true));
