@@ -93,7 +93,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.idle();
     Entity.call(this, game, 500, 250);
     this.name = "pharaoh"; 
-    this.health = 6; 
+    this.health = 5; 
     this.type = "main"
     //state is a string which can be either: 'idle' 'jumping' or 'moving'
     this.state = "idle"; 
@@ -145,7 +145,8 @@ Pharaoh.prototype.update = function () {
     if (this.dead === true) this.aftermath++;
     if (this.aftermath > 30) {
         this.removeFromWorld = true; 
-        alert("game over"); 
+        //alert("game over");
+        if(!alert('Game Over. Try again?')) window.location.reload();
     }
     if (this.x >= 7360){
         this.removeFromWorld = true; 

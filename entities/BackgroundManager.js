@@ -73,7 +73,7 @@ BackgroundManager.prototype.stopSpeed = function(){
 BackgroundManager.prototype.defaultSpeed = function(){
 
     for(var i = 0; i < desertBackground.length; i++){
-        desertBackground[i].setSpeed(i/2);
+        desertBackground[i].setSpeed(i/1.2);
     }
 }
 
@@ -81,7 +81,7 @@ BackgroundManager.prototype.defaultSpeed = function(){
 BackgroundManager.prototype.defaultNegativeSpeed = function(){
 
     for(var i = 0; i < desertBackground.length; i++){
-        desertBackground[i].setSpeed(-(i/2));
+        desertBackground[i].setSpeed(-(i/1.2));
         console.log((-(i/2)));
     }
 }

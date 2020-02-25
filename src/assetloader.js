@@ -128,7 +128,7 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Warrior Throw.png"); 
     AM.queueDownload("./assets/sprites/Warrior Die.png"); 
     AM.queueDownload("./assets/sprites/Warrior Idle Left.png"); 
-    AM.queueDownload("./assets/sprites/Archer-IdleFlip.png");  //Archer
+    AM.queueDownload("./assets/sprites/Archer/Idle/ArcherFlip.png");  //Archer
     AM.queueDownload("./assets/sprites/Archer-ShootingFlip.png");
     AM.queueDownload("./assets/sprites/Archer-DyingFlip.png"); 
     AM.queueDownload("./assets/sprites/Bat Fly Flip.png"); //Bat
