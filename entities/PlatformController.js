@@ -28,9 +28,11 @@ function loadPlatforms(AM) {
     platformSheets['bridge-2'] = AM.getAsset("./assets/platforms/temple/tiles/bridge-2.png");
     platformSheets['bridge-3'] = AM.getAsset("./assets/platforms/temple/tiles/bridge-3.png");
     
+    
     platformSheets['stoneMid'] = AM.getAsset("./assets/platforms/volcanoTiles/tiles/02.png");
     platformSheets['stoneTop'] = AM.getAsset("./assets/platforms/volcanoTiles/tiles/01.png");
-    platformSheets['spikes'] = AM.getAsset("./assets/platforms/PNG/Platformer/Spikes.png");
+    //platformSheets['spikes'] = AM.getAsset("./assets/platforms/PNG/Platformer/Spikes.png");
+    platformSheets['spikes'] = AM.getAsset("./assets/platforms/temple/tiles/spikes.png");
     platformSheets['silver chest'] = AM.getAsset("./assets/platforms/PNG/Collectable/Treasure Chest.png");
     platformSheets['red flag'] = AM.getAsset("./assets/platforms/PNG/Environment/Red Flag.png");
 

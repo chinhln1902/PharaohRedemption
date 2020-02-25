@@ -21,6 +21,9 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
     this.isTopPlatform = isTopPlatform;
     this.causeDamage = causeDamage;
     this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);
+    if (causeDamage){ //if (sprite === "./assets/platforms/temple/tiles/spikes.png"){
+        this.boundingBox = new BoundingBox(this.x, this.y+60, this.width, this.height-60);
+    }
     this.game.addEntity(this);
     var that = this;
 
@@ -60,7 +63,7 @@ Platform.prototype.draw = function() {
 
     if (!this.underworld) {
             if(this.RightKeyPressed === "true")
-            this.ctx.drawImage(this.platformSheet , this.x - this.game.getCamera().getX() - 3, this.y, this.width, this.height);
+                this.ctx.drawImage(this.platformSheet , this.x - this.game.getCamera().getX() - 3, this.y, this.width, this.height);
 
             else {
                 this.ctx.drawImage(this.platformSheet , this.x - this.game.getCamera().getX() + 3, this.y, this.width, this.height);
