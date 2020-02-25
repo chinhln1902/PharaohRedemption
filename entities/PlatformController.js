@@ -54,6 +54,7 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
 
         // removePlatforms();
         //page 1
+        decorativePlatforms.push(new Platform(this.engine, platformSheets['skull'], -50, 7,));
         decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 1'], -6, 7,));
         signs.push(new hint(this.engine, platformSheets['question'], -5, 7, false, "wrong way!"));
         //platforms.push(new Platform(this.engine, platformSheets['side left 2'], 6, 7, true));
