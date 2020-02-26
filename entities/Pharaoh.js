@@ -158,7 +158,6 @@ Pharaoh.prototype.update = function () {
     //console.log("pharaoh's x value: " + this.x);
 
     for (var i = 0; i < this.game.entities.length; i++) {
-        //debugger;
         var ent = this.game.entities[i];
         if (ent.type === "projectile" && ent.live === 1) {
             if (this.collideWithProjectile(ent)) {
@@ -175,8 +174,7 @@ Pharaoh.prototype.update = function () {
             var pf = ent;
             if (pf.causeDamage && this.underworld === pf.isUnderworld) {
                 
-                if (this.boundingBox.collide(pf.boundingBox)) {
-                    debugger;    
+                if (this.boundingBox.collide(pf.boundingBox)) { 
                     this.hud.setHealth(0);
                    this.die();                                              ///CHANGEDS
                 }
@@ -567,13 +565,13 @@ function controlJump(pharaoh){
                 else if (lastRight < pf.boundingBox.left || lastLeft > pf.boundingBox.right) {
                     if (pharaoh.boundingBox.collide(pf.boundingBox)) {
                         if (pharaoh.direction === "right") {
-                            pharaoh.speed = 0;
+                            // pharaoh.speed = 0;
                             pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;
                             pharaoh.backgroundManager.stopSpeed();
                             pharaoh.underneathPlatform = false;
                             pharaoh.setToDefault();
                         } else if (pharaoh.direction === "left") {
-                            pharaoh.speed = 0;
+                            // pharaoh.speed = 0;
                             pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 125;
                             pharaoh.backgroundManager.stopSpeed();
                             pharaoh.underneathPlatform = false;
@@ -587,6 +585,7 @@ function controlJump(pharaoh){
                         pharaoh.underneathPlatform = true;
                     }
                 }
+                // Death code???
                 else {
                     if (pharaoh.boundingBox.collide(pf.boundingBox) && !pf.isTopPlatform) {
                         if (pharaoh.direction === "right") {

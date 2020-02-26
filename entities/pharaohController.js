@@ -20,6 +20,7 @@ function pharaohController(mainCharacter){
 
 			//Running right 
 			if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
+				
 				that.Pharaoh.runRight();
 				RightKeyPressed = "true";
 
@@ -30,20 +31,20 @@ function pharaohController(mainCharacter){
 				LeftKeyPressed = "true";
 
 			//Jumping
-		} if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
-			e.preventDefault();
-				that.Pharaoh.jump();
-				if (RightKeyPressed === "true"){
-					that.Pharaoh.setPreviousState("running");
-					that.Pharaoh.runRight();
-				} else if (LeftKeyPressed === "true"){
-					that.Pharaoh.setPreviousState("running");
-					that.Pharaoh.runLeft();
-				}else {
-					that.Pharaoh.setPreviousState("idle");
-				}
-				
-				UpArrowPressed = "true";
+			} if(e.code === "ArrowUp" && that.Pharaoh.getState() !== "jumping" && (that.Pharaoh.getY() === that.Pharaoh.getGroundLevel())){
+				e.preventDefault();
+					that.Pharaoh.jump();
+					if (RightKeyPressed === "true"){
+						that.Pharaoh.setPreviousState("running");
+						that.Pharaoh.runRight();
+					} else if (LeftKeyPressed === "true"){
+						that.Pharaoh.setPreviousState("running");
+						that.Pharaoh.runLeft();
+					}else {
+						that.Pharaoh.setPreviousState("idle");
+					}
+					
+					UpArrowPressed = "true";
 			
 			//World switching
 			} else if(e.code === "Space"){
