@@ -109,6 +109,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.groundLevel = GROUND_LEVEL;
     this.y = this.groundLevel;
     this.yVelocity = 0;
+    this.lastSpeed = 0;
     this.isJumping = false;
     this.width = 180; 
     this.time = 100; 
@@ -188,7 +189,7 @@ Pharaoh.prototype.update = function () {
 Pharaoh.prototype.draw = function () {
     //if (this.underworld) return;
     //console.log(this.animation);
-    // this.ctx.strokeRect(this.boundingBox.x - this.camera.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
+    this.ctx.strokeRect(this.boundingBox.x - this.camera.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.camera.x, this.y);                    //important for camera to work
     // this.ctx.strokeRect(this.x, this.y, 10, 10);
     Entity.prototype.draw.call(this);
@@ -228,6 +229,7 @@ Pharaoh.prototype.runRight = function () {
     }
     //console.log("the animation is "+ this.animation);
     this.speed = 300;
+    this.lastSpeed = this.speed;
     this.state = 'running';
     this.previousState = 'running';
     this.direction = 'right';
@@ -255,6 +257,7 @@ Pharaoh.prototype.runLeft = function () {
         //this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, SCALE); //running left animation
     }
     this.speed = -300;
+    this.lastSpeed = this.speed;
     this.previousState = 'running';
     this.state = 'running';
     this.direction = 'left';
@@ -266,6 +269,7 @@ Pharaoh.prototype.walkRight = function () {
     this.attacking = false; 
     this.animation = new Animation(spriteSheets['walking'], 900, 900, 24, 0.05, 24, true, SCALE); //walking animation
     this.speed = 85;
+    this.lastSpeed = this.speed;
     console.log("pharaoh is walking");
 }
 
@@ -544,7 +548,7 @@ function controlJump(pharaoh){
     if (pharaoh.isJumping){
         pharaoh.yVelocity -= 1.00; //90 * pharaoh.game.clockTick
         pharaoh.y -= pharaoh.yVelocity;
-
+        
         pharaoh.lastBottom = pharaoh.boundingBox.bottom;
         var lastLeft = pharaoh.boundingBox.left;
         var lastRight = pharaoh.boundingBox.right;
@@ -561,41 +565,47 @@ function controlJump(pharaoh){
                     pharaoh.state = pharaoh.previousState;
                     pharaoh.groundLevel = pharaoh.y;
                     pharaoh.setToDefault();
+                    break;
                 } 
                 else if (lastRight < pf.boundingBox.left || lastLeft > pf.boundingBox.right) {
                     if (pharaoh.boundingBox.collide(pf.boundingBox)) {
                         if (pharaoh.direction === "right") {
-                            // pharaoh.speed = 0;
-                            pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;
+                            pharaoh.speed = 0;
+                            pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
                             pharaoh.backgroundManager.stopSpeed();
                             pharaoh.underneathPlatform = false;
                             pharaoh.setToDefault();
+                            break;
                         } else if (pharaoh.direction === "left") {
-                            // pharaoh.speed = 0;
-                            pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 125;
+                            pharaoh.speed = 0;
+                            pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 116;
                             pharaoh.backgroundManager.stopSpeed();
                             pharaoh.underneathPlatform = false;
                             pharaoh.setToDefault();
+                            break;
                         }
                     }
-                } else if (pharaoh.boundingBox.right > pf.boundingBox.left || pharaoh.boundingBox.left < pf.boundingBox.right) {
+                } 
+                else if (pharaoh.boundingBox.right > pf.boundingBox.left || pharaoh.boundingBox.left < pf.boundingBox.right) {
                     if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.boundingBox.top < pf.boundingBox.bottom) {
                         pharaoh.yVelocity = 0;
                         pharaoh.isJumping = true;
                         pharaoh.underneathPlatform = true;
+                        break;
                     }
                 }
-                // Death code???
+                // Death code??? - Chinh
                 else {
                     if (pharaoh.boundingBox.collide(pf.boundingBox) && !pf.isTopPlatform) {
+                        debugger;
                         if (pharaoh.direction === "right") {
                             pharaoh.speed = 0;
-                            pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;
+                            pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
                             pharaoh.backgroundManager.stopSpeed();
                             pharaoh.setToDefault();
                         } else if (pharaoh.direction === "left") {
                             pharaoh.speed = 0;
-                            pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 125;
+                            pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 116;
                             pharaoh.backgroundManager.stopSpeed();  
                             pharaoh.setToDefault();
                         }
@@ -618,14 +628,14 @@ function controlJump(pharaoh){
                 else if (lastRight < pf.boundingBox.left || lastLeft > pf.boundingBox.right) {
                     if (pharaoh.boundingBox.collide(pf.boundingBox)) {
                         if (pharaoh.direction === "right") {
-                            pharaoh.speed = 0;
-                            pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;
+                            // pharaoh.speed = 0;
+                            pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
                             pharaoh.backgroundManager.stopSpeed();
                             pharaoh.underneathPlatform = false;
                             pharaoh.setToDefault();
                         } else if (pharaoh.direction === "left") {
-                            pharaoh.speed = 0;
-                            pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 125;
+                            // pharaoh.speed = 0;
+                            pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 116;
                             pharaoh.backgroundManager.stopSpeed();
                             pharaoh.underneathPlatform = false;
                             pharaoh.setToDefault();
@@ -638,16 +648,17 @@ function controlJump(pharaoh){
                         pharaoh.underneathPlatform = true;
                     }
                 }
+                // Death code??? - Chinh
                 else {
                     if (pharaoh.boundingBox.collide(pf.boundingBox) && !pf.isTopPlatform) {
                         if (pharaoh.direction === "right") {
                             pharaoh.speed = 0;
-                            pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;
+                            pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
                             pharaoh.backgroundManager.stopSpeed();
                             pharaoh.setToDefault();
                         } else if (pharaoh.direction === "left") {
                             pharaoh.speed = 0;
-                            pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 125;
+                            pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 116;
                             pharaoh.backgroundManager.stopSpeed();  
                             pharaoh.setToDefault();
                         }
@@ -664,12 +675,12 @@ function controlJump(pharaoh){
                 if (pharaoh.boundingBox.collide(pf.boundingBox)) {
                     if (pharaoh.direction === "right") {
                         pharaoh.speed = 0;
-                        pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;
+                        pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
                         pharaoh.backgroundManager.stopSpeed();
                         pharaoh.setToDefault();
                     } else if (pharaoh.direction === "left") {
                         pharaoh.speed = 0;
-                        pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 125;
+                        pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 116;
                         pharaoh.backgroundManager.stopSpeed();  
                         pharaoh.setToDefault();
                     }
@@ -681,12 +692,12 @@ function controlJump(pharaoh){
                 if (pharaoh.boundingBox.collide(pf.boundingBox)) {
                     if (pharaoh.direction === "right") {
                         pharaoh.speed = 0;
-                        pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 55;
+                        pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
                         pharaoh.backgroundManager.stopSpeed();
                         pharaoh.setToDefault();
                     } else if (pharaoh.direction === "left") {
                         pharaoh.speed = 0;
-                        pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 125;
+                        pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 116;
                         pharaoh.backgroundManager.stopSpeed();  
                         pharaoh.setToDefault();
                     }
