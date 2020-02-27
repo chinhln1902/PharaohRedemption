@@ -7,8 +7,6 @@ levelcontroller.prototype.level1 = function(){
     console.log("loading level 1"); 
     var canvas = document.getElementById("gameWorld");
     canvas.style.marginTop = ((window.innerHeight - 780)/2) + "px";
-    // canvas.width = window.innerWidth * 0.8;
-    // canvas.height = window.innerHeight * 0.8;
     var ctx = canvas.getContext("2d");
     
     var gameEngine = new GameEngine();
