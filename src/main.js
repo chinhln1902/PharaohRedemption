@@ -1,6 +1,5 @@
 var AM = new AssetManager();
 
-
 loadAssets();
 var LC = new levelcontroller();
 

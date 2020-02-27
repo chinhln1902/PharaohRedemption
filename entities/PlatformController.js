@@ -61,6 +61,8 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         signs.push(new hint(this.engine, platformSheets['question'], 5, 7, false, "arrow keys to move"));
         signs.push(new hint(this.engine, platformSheets['question'], 7, 7, false, "up arrow to jump"));
         signs.push(new hint(this.engine, platformSheets['question'], 17, 7, false, "the highest you can jump is 2 blocks"));
+        // platforms.push(new Platform(this.engine, platformSheets['sandTop'], 6, 7, true, false, false)); //
+        // platforms.push(new Platform(this.engine, platformSheets['sandTop'], 7, 7, true, false, false)); //
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 8, 7, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 9, 7, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 10, 7, true, false, false));

@@ -35,10 +35,10 @@ function pharaohController(mainCharacter){
 				that.Pharaoh.jump();
 				if (RightKeyPressed === "true"){
 					that.Pharaoh.setPreviousState("running");
-					that.Pharaoh.runRight();
+					//that.Pharaoh.runRight();
 				} else if (LeftKeyPressed === "true"){
 					that.Pharaoh.setPreviousState("running");
-					that.Pharaoh.runLeft();
+					//that.Pharaoh.runLeft();
 				}else {
 					that.Pharaoh.setPreviousState("idle");
 				}
