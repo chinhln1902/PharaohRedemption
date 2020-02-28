@@ -33,7 +33,7 @@ button{
     font-weight: normal;
     text-align: center;
     text-transform: uppercase;
-    color: #eeeeee;
+    color: #ddffee;
     outline: none;
 }
 
@@ -45,18 +45,6 @@ button{
     margin-top: 10px;
 }
 
-#playBtn{
-    background-image: url('./assets/menu/Play.png');
-}
-#settBtn{
-    background-image: url('./assets/menu/Settings.png');
-}
-#infoBtn{
-    background-image: url('./assets/menu/Info.png');
-}
-#exitBtn{
-    background-image: url('./assets/menu/Exit.png');
-}
 
 #gameWorld{
     background-color: lightblue; 
