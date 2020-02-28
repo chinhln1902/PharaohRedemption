@@ -62,6 +62,7 @@ showMain = function(){
     backBtn.style.display = "none";
     hideInfo();
     hideLvls();
+    hideSett();
 }
 
 hideInfo = function() {
@@ -78,6 +79,24 @@ showInfo = function(){
     backBtn.style.display = "inline-block";
     hideMain();
     hideLvls();
+    hideSett();
+}
+
+hideSett = function() {
+    var buttons = document.querySelectorAll(".sett");
+    buttons.forEach(button => {
+        button.style.display = "none";
+    })
+}
+showSett = function(){
+    var buttons = document.querySelectorAll(".sett");
+    buttons.forEach(button => {
+        button.style.display = "block";
+    })
+    backBtn.style.display = "inline-block";
+    hideMain();
+    hideLvls();
+    hideInfo();
 }
 
 hideLvls = function() {
@@ -94,13 +113,13 @@ showLvls = function(){
     backBtn.style.display = "inline-block";
     hideMain();
     hideInfo();
+    hideSett();
 }
 
 playGame = function(){
     console.log("pressed play button");
     hideAll();
     showGame();
-    //playLevel1();
 }
 
 quitGame = function(){
@@ -130,6 +149,7 @@ function start(){
     exitBtn.addEventListener('click', quitGame);
     infoBtn.addEventListener('click', showInfo);
     backBtn.addEventListener('click', showMain);
+    settBtn.addEventListener('click', showSett);
     stryBtn.onclick = function(){window.location.href = './menu/story.html'};
     contBtn.onclick = function(){window.location.href = './menu/controls.html'};
     helpBtn.onclick = function(){window.location.href = './menu/help.html'};

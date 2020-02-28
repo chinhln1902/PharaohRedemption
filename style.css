@@ -59,3 +59,15 @@ button{
     width: 100px;
     margin-left: 90px;
 }
+
+input[type=checkbox]{
+    width: 40px;
+    height: 40px;
+}
+
+.settingLabel{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 26px;
+    color: rgb(21, 63, 179);
+    font-weight: bolder;
+}

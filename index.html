@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
     <body> 
-        <!-- <button id="hi">hi</button> -->
         <audio id="player" autoplay><source src="assets/sounds/Background Music.mp3" type="audio/mp3"></audio>
         <div id="menuBackground">
             <div id="msg" style=>Loading...</div>
@@ -16,11 +15,13 @@
                             <button id="playBtn" class="main" style="background-image: url('./assets/menu/Play.png');"></button>
                             <button id="stryBtn" class="info" style="background-image: url('./assets/menu/Story.png'); display:none;"></button>
                             <button id="Btn1" class="levels" style="background-image: url('./assets/menu/1.png'); display:none;"></button>
+                            <input  class="sett"type="checkbox" style="display: none;"> 
                         </td>
                         <td>
                             <button id="infoBtn" class="main" style="background-image: url('./assets/menu/Info.png');"></button>
                             <button id="contBtn" class="info" style="background-image: url('./assets/menu/Controls.png'); display:none;"></button>
                             <button id="Btn2" class="levels" style="background-image: url('./assets/menu/2.png'); display:none;"></button>
+                            <span class="sett settingLabel" style="display: none;">Music</span>
                         </td>
                     </tr>
                     <tr>
@@ -28,11 +29,13 @@
                             <button id="settBtn" class="main" style="background-image: url('./assets/menu/Settings.png');"></button>
                             <button id="helpBtn" class="info" style="background-image: url('./assets/menu/Help.png'); display:none;"></button>
                             <button id="Btn3" class="levels" style="background-image: url('./assets/menu/3.png'); display:none;"></button>
+                            <input  class="sett"type="checkbox" style="display: none;"> 
                         </td>
                         <td>
                             <button id="exitBtn" class="main" style="background-image: url('./assets/menu/Exit.png');"></button>
                             <button id="credBtn" class="info" style="background-image: url('./assets/menu/Credits.png'); display:none;"></button>
                             <button id="Btn4" class="levels" style="background-image: url('./assets/menu/4.png'); display:none;"></button>
+                            <span class="sett settingLabel" style="display: none;">Sound Effects</span>
                         </td>
                     </tr>
                     
@@ -42,14 +45,6 @@
             </div>
             <canvas id="gameWorld" width="1200" height="780"></canvas>
         </div>
-        <table>
-            <tr>
-                <td>
-                    
-                    <!-- <input type="button" style="z-index:2; position:absolute; top:x; left:y" value="test"/> -->
-                </td>
-            </tr>
-        </table>
         
         <script src="src/assetmanager.js"></script>
         <script src="src/gameengine.js"></script>
