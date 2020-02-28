@@ -4,7 +4,6 @@ loadAssets();
 var LC = new levelcontroller();
 
 var loaded = false;
-
 AM.downloadAll(function () {
     loaded = true;
     //console.log("All Done!"); 
