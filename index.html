@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Game</title>
+    <title>The Pharaohs Redemption</title>
+    <link rel="stylesheet" href="style.css">
 </head>
     <body> 
-
+        <!-- <button id="hi">hi</button> -->
         <audio id="player" autoplay><source src="assets/sounds/Background Music.mp3" type="audio/mp3"></audio>
-        <div style="
-        background-color:rgb(233, 233, 233); 
-        width: 100vw - 1px; 
-        height: 100vh;
-        margin-right: 10px;
-        text-align: center;
-        vertical-align:middle;
-        ">
-            <div id="msg" style="
-            position: absolute; 
-            margin-top:100px;
-            margin-left:500px;                  
-            font-size: 20px;
-            font-weight: normal;
-            text-align: center;
-            text-transform: uppercase;
-            color: #FFFFFF;
-            outline: none;">Loading...</div>
+        <div id="menuBackground">
+            <div id="msg" style=>Loading...</div>
+            <div id="menu">
+                <table id="menuButtons">
+                    <tr>
+                        <td><button id="playBtn"></button></td>
+                        <td><button id="infoBtn"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="settBtn"></button></td>
+                        <td><button id="exitBtn"></button></td>
+                    </tr>
+                </table>
+            </div>
             <canvas id="gameWorld" width="1200" height="780" style="
-            background-color: lightblue; 
-            z-index:1; 
-            display: inline-block;
-            line-height: 200px;
-            
-            
             "></canvas>
         </div>
         <table>
