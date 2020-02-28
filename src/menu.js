@@ -32,7 +32,6 @@ hideGame = function(){
     canvas.style.display = "none";
     hints.style.display = "none";
 }
-hideGame();
 showGame = function(){
     canvas.style.display = "inline-block";
     hints.style.display = "block";
@@ -58,6 +57,7 @@ showMain = function(){
     })
     backBtn.style.display = "none";
     hideInfo();
+    hideLvls();
 }
 
 hideInfo = function() {
@@ -73,23 +73,60 @@ showInfo = function(){
     })
     backBtn.style.display = "inline-block";
     hideMain();
+    hideLvls();
+}
+
+hideLvls = function() {
+    var buttons = document.querySelectorAll(".levels");
+    buttons.forEach(button => {
+        button.style.display = "none";
+    })
+}
+showLvls = function(){
+    var buttons = document.querySelectorAll(".levels");
+    buttons.forEach(button => {
+        button.style.display = "block";
+    })
+    backBtn.style.display = "inline-block";
+    hideMain();
+    hideInfo();
 }
 
 playGame = function(){
     console.log("pressed play button");
     hideAll();
     showGame();
-    playLevel1();
+    //playLevel1();
 }
 
+quitGame = function(){
+    console.log("thanks for playing!");
+    hideAll();
+    hideGame();
+    window.location.href = 'https://google.com';
+}
 
+createLevelBtns = function(){
+    var functions = [ //js is dumb :p
+        function(){loadLevel(1); playGame()},
+        function(){loadLevel(2); playGame()},
+        function(){loadLevel(3); playGame()},
+        function(){loadLevel(4); playGame()}
+    ];
+    var lvlBtns = document.querySelectorAll(".levels");
+    for (var i=0; i<lvlBtns.length; i++){
+        lvlBtns[i].addEventListener('click', functions[i]);
+    }
+}
 
 function start(){
+    hideGame();
     animateButtons();
-    playBtn.addEventListener('click', playGame);
-    exitBtn.addEventListener('click', function(){window.location.href = 'https://google.com'});
+    playBtn.addEventListener('click', showLvls);
+    exitBtn.addEventListener('click', quitGame);
     infoBtn.addEventListener('click', showInfo);
     backBtn.addEventListener('click', showMain);
+    createLevelBtns();
     showMain();
 }
 start();

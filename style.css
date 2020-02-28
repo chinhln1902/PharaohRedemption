@@ -52,3 +52,10 @@ button{
     display: inline-block;
     line-height: 200px;
 }
+
+.levels{
+    /* padding-left: 65px; */
+    height: 100px;
+    width: 100px;
+    margin-left: 90px;
+}

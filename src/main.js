@@ -10,12 +10,19 @@ AM.downloadAll(function () {
     //console.log("All Done!"); 
 });
 
-
-playLevel1 = function(){
+var levels = [
+    0,
+    LC.level1(),
+    LC.level2(),
+    LC.level3(),
+    LC.level4()
+];
+loadLevel = function(level){
+    console.log("loading level: " + level);
     if (loaded) {
-        LC.level1();
+        levels[level]
     } else {
-        playLevel1();
+        loadLevel(level);
     }
 }
 

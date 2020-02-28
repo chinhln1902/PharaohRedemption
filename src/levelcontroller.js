@@ -27,3 +27,6 @@ levelcontroller.prototype.level1 = function(){
     gameEngine.addEntityCamera(camera);
 
 }
+levelcontroller.prototype.level2 = function(){}
+levelcontroller.prototype.level3 = function(){}
+levelcontroller.prototype.level4 = function(){}
