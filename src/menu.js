@@ -1,5 +1,6 @@
 console.log("connected to the menu");
 
+//html elements, mostly buttons
 var menu = document.getElementById("menu");
 var canvas = document.getElementById("gameWorld");
 var hints = document.getElementById("msg");
@@ -13,7 +14,7 @@ var credBtn = document.getElementById("credBtn");
 var stryBtn = document.getElementById("stryBtn");
 var backBtn = document.getElementById("backBtn");
 
-
+//adds interaction anumations to the buttons
 function animateButtons(){
     var btns = document.querySelectorAll("button");
     btns.forEach(button => {
@@ -31,7 +32,7 @@ function animateButtons(){
         });
     })
 }
-
+// displays the game canvas
 hideGame = function(){
     canvas.style.display = "none";
     hints.style.display = "none";
@@ -41,6 +42,7 @@ showGame = function(){
     hints.style.display = "block";
 }
 
+// hides/shows all menus
 hideAll = function() {
     menu.style.display = "none";
 }
@@ -48,6 +50,7 @@ showAll = function(){
     menu.style.display = "inline-block"
 }
 
+// hides/shows the main menu
 hideMain = function() {
     var buttons = document.querySelectorAll(".main");
     buttons.forEach(button => {
@@ -65,6 +68,7 @@ showMain = function(){
     hideSett();
 }
 
+// hides/shows the info menu
 hideInfo = function() {
     var buttons = document.querySelectorAll(".info");
     buttons.forEach(button => {
@@ -82,6 +86,7 @@ showInfo = function(){
     hideSett();
 }
 
+// hides/shows the settings menu
 hideSett = function() {
     var buttons = document.querySelectorAll(".sett");
     buttons.forEach(button => {
@@ -99,6 +104,7 @@ showSett = function(){
     hideInfo();
 }
 
+// hides/shows the level selector menu
 hideLvls = function() {
     var buttons = document.querySelectorAll(".levels");
     buttons.forEach(button => {
@@ -116,12 +122,14 @@ showLvls = function(){
     hideSett();
 }
 
+// displays the game and hides the menu
 playGame = function(){
     console.log("pressed play button");
     hideAll();
     showGame();
 }
 
+// quits the game (for now it just sends you to google)
 quitGame = function(){
     console.log("thanks for playing!");
     hideAll();
@@ -129,6 +137,7 @@ quitGame = function(){
     window.location.href = 'https://google.com';
 }
 
+// links the level buttons with the game levels
 createLevelBtns = function(){
     var functions = [ //js is dumb :p
         function(){loadLevel(1); playGame()},
@@ -142,6 +151,7 @@ createLevelBtns = function(){
     }
 }
 
+// initializes 
 function start(){
     hideGame();
     animateButtons();
