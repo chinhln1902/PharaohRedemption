@@ -9,17 +9,17 @@ AM.downloadAll(function () {
     //console.log("All Done!"); 
 });
 
-var levels = [
+var levels = [ //make sure to properly name the levels in level controller
     0,
-    LC.level1(),
-    LC.level2(),
-    LC.level3(),
-    LC.level4()
+    LC.level1,
+    LC.level2,
+    LC.level3,
+    LC.level4
 ];
 loadLevel = function(level){
     console.log("loading level: " + level);
     if (loaded) {
-        levels[level]
+        levels[level]();
     } else {
         loadLevel(level);
     }

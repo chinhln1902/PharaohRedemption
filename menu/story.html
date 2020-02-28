@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Pharaohs Redemption</title>
+    <link rel="stylesheet" href="menuStyle.css">
+</head>
+    <body> 
+        <div id="menuBackground">
+            <div id="menu">
+                <div id="words" style="line-height: 1em;">
+                    <p> 
+                        You are a powerful pharaoh who was cursed and merged between the two worlds. You are half alive and half dead
+                        You have the power to switch between the two worlds freely
+                        but wherever you are, you will always be hated, atacked, and not welcomed!
+                    </p>
+
+                </div>
+                <div >
+                    <button id="backBtn" onclick="window.location.href = './../index.html';"></button>
+                
+                </div>
+            </div>
+        </div>
+    <script>
+        var button = document.getElementById("backBtn");
+        button.addEventListener("mouseenter", function(){
+            this.style.filter = "brightness(85%)";
+        });
+        button.addEventListener("mouseleave", function(){
+            this.style.filter = "brightness(100%)";
+        });
+        button.addEventListener("mousedown", function(){
+            this.style.filter = "brightness(70%)";
+        });
+        button.addEventListener("mouseup", function(){
+            this.style.filter = "brightness(85%)";
+        });
+    </script>
+    </body>
+</html>

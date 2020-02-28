@@ -7,6 +7,10 @@ var playBtn = document.getElementById("playBtn");
 var settBtn = document.getElementById("settBtn");
 var infoBtn = document.getElementById("infoBtn");
 var exitBtn = document.getElementById("exitBtn");
+var helpBtn = document.getElementById("helpBtn");
+var contBtn = document.getElementById("contBtn");
+var credBtn = document.getElementById("credBtn");
+var stryBtn = document.getElementById("stryBtn");
 var backBtn = document.getElementById("backBtn");
 
 
@@ -126,6 +130,10 @@ function start(){
     exitBtn.addEventListener('click', quitGame);
     infoBtn.addEventListener('click', showInfo);
     backBtn.addEventListener('click', showMain);
+    stryBtn.onclick = function(){window.location.href = './menu/story.html'};
+    contBtn.onclick = function(){window.location.href = './menu/controls.html'};
+    helpBtn.onclick = function(){window.location.href = './menu/help.html'};
+    credBtn.onclick = function(){window.location.href = './menu/credits.html'};
     createLevelBtns();
     showMain();
 }

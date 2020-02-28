@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Pharaohs Redemption</title>
+    <link rel="stylesheet" href="menuStyle.css">
+</head>
+    <body> 
+        <div id="menuBackground">
+            <div id="menu">
+                <div id="words">
+                    <p>"The Pharaoh's Redemption"</p>
+                    <p>Made by Howling Wolf Studio</p>
+                    <p>     - Max Malyshev</p>
+                    <p>     - Girkirat Jandu</p>
+                    <p>     - Ashlyn Weeks</p>
+                    <p>     - Chinh Le</p>
+                    <p>March 13 2020</p>
+                    <p>TCSS 491: Comp Worlds</p>
+                </div>
+                <div >
+                    <button id="backBtn" onclick="window.location.href = './../index.html';"></button>
+                
+                </div>
+            </div>
+        </div>
+    <script>
+        var button = document.getElementById("backBtn");
+        button.addEventListener("mouseenter", function(){
+            this.style.filter = "brightness(85%)";
+        });
+        button.addEventListener("mouseleave", function(){
+            this.style.filter = "brightness(100%)";
+        });
+        button.addEventListener("mousedown", function(){
+            this.style.filter = "brightness(70%)";
+        });
+        button.addEventListener("mouseup", function(){
+            this.style.filter = "brightness(85%)";
+        });
+    </script>
+    </body>
+</html>

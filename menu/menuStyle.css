@@ -1,0 +1,39 @@
+#menuBackground{
+    background-color:rgb(233, 233, 233); 
+        width: 100vw - 1px; 
+        height: 100vh;
+        margin-right: 10px;
+        text-align: center;
+        vertical-align:middle;
+}
+
+#menu{
+    background-image: url('./../assets/backgrounds/PharaohMenu3.png');
+            width: 1200px;
+            height: 780px;
+            display: inline-block;
+            margin-top: 10px;
+}
+
+#words{
+    width: 700px;
+                height: 300px;
+                display: inline-block;
+                margin-top: 160px;
+                color:white;
+                font-size: 45px;
+                font-weight: bold;
+                line-height:0.2em;
+}
+
+#backBtn{
+    background-image: url('./../assets/menu/Back.png');
+                        margin:4px;
+                        margin-top: 30px;
+                        height: 100px;
+                        width: 225px;
+                        background-repeat: no-repeat;
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+}
