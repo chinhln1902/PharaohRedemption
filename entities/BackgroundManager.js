@@ -82,7 +82,7 @@ BackgroundManager.prototype.defaultNegativeSpeed = function(){
 
     for(var i = 0; i < desertBackground.length; i++){
         desertBackground[i].setSpeed(-(i/1.2));
-        console.log((-(i/2)));
+        //console.log((-(i/2)));
     }
 }
 

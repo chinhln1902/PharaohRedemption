@@ -32,7 +32,7 @@ function Archer(game, AssetManager, startX, startY) {
             } else {
             	that.live = 0; 
             }
-            console.log("underworld: " + that.underworld);
+            //console.log("underworld: " + that.underworld);
             e.preventDefault();
             that.underworld = !that.underworld;
         }

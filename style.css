@@ -1,0 +1,66 @@
+button{
+    margin:4px;
+    height: 100px;
+    width: 225px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+#menuButtons{
+    display: inline-block;
+    margin-top: 200px;;
+    width: 480px;
+    height:230px;
+}
+
+#menuBackground{
+    background-color:rgb(233, 233, 233); 
+    width: 100vw - 1px; 
+    height: 100vh;
+    margin-right: 10px;
+    text-align: center;
+    vertical-align:middle;
+}
+
+#msg{
+    position: absolute; 
+    width: 98%;
+    height: 30%;
+    margin-top:100px;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #eeeeee;
+    outline: none;
+}
+
+#menu{
+    background-image: url('./assets/backgrounds/PharaohMenu.png');
+    width: 1200px;
+    height: 780px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#playBtn{
+    background-image: url('./assets/menu/Play.png');
+}
+#settBtn{
+    background-image: url('./assets/menu/Settings.png');
+}
+#infoBtn{
+    background-image: url('./assets/menu/Info.png');
+}
+#exitBtn{
+    background-image: url('./assets/menu/Exit.png');
+}
+
+#gameWorld{
+    background-color: lightblue; 
+    z-index:1; 
+    display: inline-block;
+    line-height: 200px;
+}
