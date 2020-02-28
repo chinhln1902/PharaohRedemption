@@ -18,15 +18,15 @@ function Projectile(game, spritesheet, direction, startX, startY) {
     this.underworld = false;
     var that = this;
     document.addEventListener("keydown", function (e) {
-        console.log(e);
+        //console.log(e);
 		//Running right 
 		if (e.code === "Space"){
-            console.log("underworld: " + that.underworld);
+            //console.log("underworld: " + that.underworld);
             e.preventDefault();
             that.underworld = !that.underworld;
         }
     });
-    console.log("projectile");
+    //console.log("projectile");
 }
 
 Projectile.prototype = new Entity();

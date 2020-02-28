@@ -42,7 +42,7 @@ hint.prototype.draw = function() {
 // }
 
 hint.prototype.displayMessage = function(){
-    console.log("displaying message");
+    //console.log("displaying message");
     var msgDiv = document.getElementById("msg");
     msgDiv.innerHTML = this.message;
    

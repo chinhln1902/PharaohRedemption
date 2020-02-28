@@ -1,10 +1,10 @@
 function levelcontroller(){
-    console.log("welcome to the level controller. Please select a level");
+    //console.log("welcome to the level controller. Please select a level");
     
 }
 
 levelcontroller.prototype.level1 = function(){
-    console.log("loading level 1"); 
+    //console.log("loading level 1"); 
     var canvas = document.getElementById("gameWorld");
     canvas.style.marginTop = ((window.innerHeight - 780)/2) + "px";
     var ctx = canvas.getContext("2d");

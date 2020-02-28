@@ -4,9 +4,9 @@ Enemy.prototype.constructor = Enemy;
 function Enemy() {
 	var that = this; 
 	document.addEventListener("keydown", function (e) {
-        console.log(e);
+        //console.log(e);
         if (e.code === "Space"){
-            console.log("underworld: " + that.underworld);
+            //console.log("underworld: " + that.underworld);
             e.preventDefault();
             if (that.live === 1) {
                 that.live = 0;
