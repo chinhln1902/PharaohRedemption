@@ -21,7 +21,7 @@ function Arrow(game, AssetManager, startX, startY) {
 	var that = this; 
 	document.addEventListener("keydown", function (e) {
 		if (e.code === "Space"){
-            console.log("underworld: " + that.underworld);
+            //console.log("underworld: " + that.underworld);
             e.preventDefault();
             if (that.live === 0) {
                 that.live = 1;

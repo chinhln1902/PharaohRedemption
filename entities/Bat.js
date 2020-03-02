@@ -26,10 +26,10 @@ function Bat(game, AssetManager, startX, startY) {
     var that = this;
 
     document.addEventListener("keydown", function (e) {
-        console.log(e);
+        //console.log(e);
         //Running right 
         if (e.code === "Space"){
-            console.log("underworld: " + that.underworld);
+            //console.log("underworld: " + that.underworld);
             e.preventDefault();
             that.swapWorld();
         }

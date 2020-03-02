@@ -214,7 +214,7 @@ Pharaoh.prototype.idle = function () {
     this.speed = 0;
     this.state = 'idle';
     this.previousState = 'idle';
-    console.log("pharaoh is idle");
+    //console.log("pharaoh is idle");
 }
 
 //sets state to running
@@ -233,7 +233,7 @@ Pharaoh.prototype.runRight = function () {
     this.state = 'running';
     this.previousState = 'running';
     this.direction = 'right';
-    console.log("pharaoh is running right");
+    //console.log("pharaoh is running right");
 }
 
 //sets state to running
@@ -261,7 +261,7 @@ Pharaoh.prototype.runLeft = function () {
     this.previousState = 'running';
     this.state = 'running';
     this.direction = 'left';
-    console.log("pharaoh is running left");
+    //console.log("pharaoh is running left");
 }
 
 //ignore this for now
@@ -269,8 +269,7 @@ Pharaoh.prototype.walkRight = function () {
     this.attacking = false; 
     this.animation = new Animation(spriteSheets['walking'], 900, 900, 24, 0.05, 24, true, SCALE); //walking animation
     this.speed = 85;
-    this.lastSpeed = this.speed;
-    console.log("pharaoh is walking");
+    //console.log("pharaoh is walking");
 }
 
 //makes the pharaoh jump
@@ -296,7 +295,7 @@ Pharaoh.prototype.jump = function () {
     }
     this.playingTempAnimation = true;
     this.ctx.restore();
-    console.log("pharaoh has jumped");
+    //console.log("pharaoh has jumped");
 }
 
 //makes the pharaoh slash
@@ -468,7 +467,7 @@ Pharaoh.prototype.blink = function () {
         }
     }
     this.playingTempAnimation = true;
-    console.log("blinked");
+    //console.log("blinked");
 }
 
 //sets the animation back to the default for that state
@@ -517,7 +516,7 @@ Pharaoh.prototype.setToDefault = function () {
 //test method for debugging
 Pharaoh.prototype.testAnimation = function () {
     //test here
-    console.log("testing animation");
+    //console.log("testing animation");
 }
 
 // called by the update method. controlls the animations.
