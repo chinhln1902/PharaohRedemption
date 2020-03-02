@@ -49,10 +49,7 @@ function PlatformController (game, assetManager) {
 PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
-
-        // platforms.push(new Platform(this.engine, platformSheets['sandTop'], 1, 5, true, false, false));
-        // platforms.push(new Platform(this.engine, platformSheets['sandTop'], 2, 5, true, false, false));
-
+    
 
         // removePlatforms();
         //page 1
