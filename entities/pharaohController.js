@@ -1,8 +1,8 @@
+var RightKeyPressed = "false";
+var LeftKeyPressed = "false";
+var UpArrowPressed = "false";
 function pharaohController(mainCharacter){
 	var that = this;
-	var RightKeyPressed = "false";
-	var LeftKeyPressed = "false";
-	var UpArrowPressed = "false";
 	var inAir = 0;
 	var music = document.getElementById('player');
 	var playingMusic = false;
@@ -80,7 +80,7 @@ function pharaohController(mainCharacter){
 				LeftKeyPressed = "false";
 
 			}   else if(e.code === "ArrowUp" && UpArrowPressed === "true"){
-				that.Pharaoh.idle();
+				
 				UpArrowPressed = "false";
 
 			} 

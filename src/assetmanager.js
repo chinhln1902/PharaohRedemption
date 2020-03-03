@@ -29,7 +29,7 @@ AssetManager.prototype.downloadAll = function (callback) {
         });
 
         img.addEventListener("error", function () {
-            console.log("Error loading " + this.src);
+            // console.log("Error loading " + this.src);
             that.errorCount++;
             if (that.isDone()) callback();
         });

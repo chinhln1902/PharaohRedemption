@@ -49,9 +49,8 @@ function PlatformController (game, assetManager) {
 PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
-    
 
-        // removePlatforms();
+         // removePlatforms();
         //page 1
         decorativePlatforms.push(new Platform(this.engine, platformSheets['skull'], -50, 7,));
         decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 1'], -6, 7,));
@@ -65,8 +64,8 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 8, 7, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 9, 7, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 10, 7, true, false, false));
-        decorativePlatforms.push(new Platform(this.engine,  platformSheets['sandMid'], 15, 7,));
-        //platforms.push(new Platform(this.engine, platformSheets['sandMid'], 15, 7, true, false, false));
+        // decorativePlatforms.push(new Platform(this.engine,  platformSheets['sandMid'], 15, 7,));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 15, 7, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 15, 6, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 19, 7, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 19, 6, false, false, false));
@@ -168,7 +167,7 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],51, 5, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],59, 7, false, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],59, 6, true, true, false));
-        UdecorativePlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],59, 3, false, true, false));
+        underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneMid'],59, 3, false, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],59, 2, false, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],66, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],67, 7, true, true, true));
@@ -304,4 +303,24 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
     //     // removePlatforms();
     //     platforms.splice(0, platforms.length);
     // }
+
+
+        // createPlatforms = function(level){
+        //         for(var i = 0; i < levels.length; i++){
+        //                 if (levels[i] === " "){
+
+        //                 }else if(levels[i] === "#"){
+        //                         underworldPlatforms.push(new Platform(this.engine, platformSheets['sandTop'], i, j, true, true, false));
+        //                 }
+        //         }
+        // }
+
+
+
+
+
+
+
+
+
 }
