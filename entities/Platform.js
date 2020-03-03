@@ -32,11 +32,11 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
                 e.preventDefault();
                 that.underworld = !that.underworld;
             }
-            if (e.code === "ArrowRight" && RightKeyPressed === "false"){
+            if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
                 RightKeyPressed = "true";
     
             } 
-             if (e.code === "ArrowLeft" && LeftKeyPressed === "false"){
+             if (e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false"){
                 LeftKeyPressed = "true";
              }
     }, false);    

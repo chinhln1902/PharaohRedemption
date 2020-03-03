@@ -69,7 +69,7 @@ function pharaohController(mainCharacter){
 	document.addEventListener("keyup", function (e) {
 		// console.log(e);
 
-			if (e.code === "ArrowRight" && RightKeyPressed === "true" ){
+			if (e.code === "ArrowRight" && RightKeyPressed === "true"){
 				//console.log("Right key up");
 				that.Pharaoh.idle();
 				RightKeyPressed = "false";
