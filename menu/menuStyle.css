@@ -37,3 +37,22 @@
                         outline: none;
                         border: none;
 }
+
+#gameover{
+    background-image: url('./../assets/backgrounds/gameoverbackground.png');
+            width: 1200px;
+            height: 780px;
+            display: inline-block;
+            margin-top: 10px;
+}
+
+
+
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
