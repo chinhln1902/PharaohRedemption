@@ -80,7 +80,7 @@ function pharaohController(mainCharacter){
 				LeftKeyPressed = "false";
 
 			}   else if(e.code === "ArrowUp" && UpArrowPressed === "true"){
-				
+				that.Pharaoh.idle();
 				UpArrowPressed = "false";
 
 			} 
