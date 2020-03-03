@@ -55,16 +55,12 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         decorativePlatforms.push(new Platform(this.engine, platformSheets['skull'], -50, 7,));
         decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 1'], -6, 7,));
         signs.push(new hint(this.engine, platformSheets['question'], -5, 7, false, "wrong way!"));
-        //platforms.push(new Platform(this.engine, platformSheets['side left 2'], 6, 7, true));
         signs.push(new hint(this.engine, platformSheets['question'], 5, 7, false, "arrow keys to move"));
         signs.push(new hint(this.engine, platformSheets['question'], 7, 7, false, "up arrow to jump"));
         signs.push(new hint(this.engine, platformSheets['question'], 17, 7, false, "the highest you can jump is 2 blocks"));
-        // platforms.push(new Platform(this.engine, platformSheets['sandTop'], 6, 7, true, false, false)); //
-        // platforms.push(new Platform(this.engine, platformSheets['sandTop'], 7, 7, true, false, false)); //
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 8, 7, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 9, 7, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 10, 7, true, false, false));
-        // decorativePlatforms.push(new Platform(this.engine,  platformSheets['sandMid'], 15, 7,));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 15, 7, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 15, 6, true, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 19, 7, false, false, false));
@@ -154,7 +150,6 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],49, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],50, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],51, 7, true, true, true));
-        //underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],52, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],40, 6, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],41, 6, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],44, 5, true, true, false));
@@ -174,7 +169,6 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],68, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],69, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],70, 7, true, true, true));
-        //underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'],71, 7, true, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],72, 7, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 75, 7, false, true, true));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['spikes'], 76, 7, false, true, true));

@@ -569,13 +569,8 @@ function controlJump(pharaoh){
                     } else {
                         if (pharaoh.direction === "right") {
                             pharaoh.speed = 300;
-                            pharaoh.backgroundManager.defaultNegativeSpeed();
-
                         } else if (pharaoh.direction === "left") {
                             pharaoh.speed = -300;
-                            pharaoh.backgroundManager.defaultSpeed();
-
-
                         }
                     }
                 }
