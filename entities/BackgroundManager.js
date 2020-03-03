@@ -23,12 +23,12 @@ function BackgroundManager(AM, game) {
     document.addEventListener("keydown", function (e) {
         //Running right ArrowRight
         
-        if (e.code === "ArrowRight" && RightKeyPressed === "false"){
+        if (e.code === "ArrowRight" && RightKeyPressed === "false"  && LeftKeyPressed === "false"){
             that.defaultNegativeSpeed();
             RightKeyPressed = "true";
 
         } 
-         if (e.code === "ArrowLeft" && LeftKeyPressed === "false"){
+         if (e.code === "ArrowLeft" && LeftKeyPressed === "false"  && RightKeyPressed === "false"){
             that.defaultSpeed();
             LeftKeyPressed = "true";
 

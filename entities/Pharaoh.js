@@ -1,4 +1,3 @@
-//An array containing all the spritesheets
 var spriteSheets = [];
 const GROUND_LEVEL = 490;
 const SCALE = 0.2;
@@ -570,8 +569,13 @@ function controlJump(pharaoh){
                     } else {
                         if (pharaoh.direction === "right") {
                             pharaoh.speed = 300;
+                            pharaoh.backgroundManager.defaultNegativeSpeed();
+
                         } else if (pharaoh.direction === "left") {
                             pharaoh.speed = -300;
+                            pharaoh.backgroundManager.defaultSpeed();
+
+
                         }
                     }
                 }
