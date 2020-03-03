@@ -147,7 +147,8 @@ Pharaoh.prototype.update = function () {
     if (this.aftermath > 30) {
         this.removeFromWorld = true; 
         //alert("game over");
-        if(!alert('Game Over. Try again?')) window.location.reload();
+        //if(!alert('Game Over. Try again?')) window.location.reload();
+        window.location.replace('./menu./gameover.html'); 
     }
     if (this.x >= 7360){
         this.removeFromWorld = true; 
