@@ -148,11 +148,12 @@ Pharaoh.prototype.update = function () {
         this.removeFromWorld = true; 
         //alert("game over");
         //if(!alert('Game Over. Try again?')) window.location.reload();
-        window.location.replace('./menu./gameover.html'); 
+        window.location.replace('./menu/gameover.html'); 
     }
     if (this.x >= 7360){
         this.removeFromWorld = true; 
-        alert("You beat this Level! You cheated death this time!");
+        //alert("You beat this Level! You cheated death this time!");
+        window.location.replace('./menu/win.html'); 
         this.Pharaoh.backgroundManager.stopSpeed();
 
 
