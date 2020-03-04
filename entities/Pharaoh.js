@@ -562,24 +562,21 @@ function controlJump(pharaoh){
         if (!pharaoh.underworld) {
             for (var i = 0; i < platforms.length; i++) {
                 var pf = platforms[i];
-
                 if (pharaoh.lastBottom < pf.boundingBox.top && pf.isTopPlatform) {
-
                     if (RightKeyPressed === "false" && LeftKeyPressed === "false") {
                         pharaoh.speed = 0;
                         pharaoh.lastSpeed = 0;
+                        
                     } else {
-                        debugger;
                         if (pharaoh.direction === "right") {
                             pharaoh.speed = 300;
-                            pharaoh.backgroundManager.defaultNegativeSpeed();
                         } else if (pharaoh.direction === "left") {
                             pharaoh.speed = -300;
-                            pharaoh.backgroundManager.defaultSpeed();
                         }
                     }
                 }
                 if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.lastBottom < pf.boundingBox.top && pf.isTopPlatform) {            
+
                     pharaoh.isJumping = false;
                     pharaoh.onPlatform = true;
                     pharaoh.y = pf.boundingBox.top - pharaoh.animation.frameHeight * SCALE + 30;
@@ -590,6 +587,7 @@ function controlJump(pharaoh){
                     break;
                 } 
                 else if (lastRight < pf.boundingBox.left || lastLeft > pf.boundingBox.right) {
+                    
                     if (pharaoh.boundingBox.collide(pf.boundingBox)) {
                         if (pharaoh.direction === "right") {
                             pharaoh.lastSpeed = pharaoh.speed;
@@ -666,6 +664,7 @@ function controlJump(pharaoh){
                 else if (lastRight < pf.boundingBox.left || lastLeft > pf.boundingBox.right) {
                     
                     if (pharaoh.boundingBox.collide(pf.boundingBox)) {
+                        debugger;
                         if (pharaoh.direction === "right") {
                             pharaoh.lastSpeed = pharaoh.speed;
                             pharaoh.speed = 0;
@@ -761,6 +760,7 @@ function controlJump(pharaoh){
             for (var i = 0; i < platforms.length; i++) {
                 var pf = platforms[i];
                 if (pharaoh.boundingBox.collide(pf.boundingBox) && pf.isTopPlatform) {
+                    debugger;
                     pharaoh.isJumping = false;
                     pharaoh.onPlatform = true;
                     pharaoh.speed = pharaoh.lastSpeed;
@@ -784,7 +784,7 @@ function controlJump(pharaoh){
         } else {
             for (var i = 0; i < underworldPlatforms.length; i++) {
                 var pf = underworldPlatforms[i];
-                if (pharaoh.boundingBox.collide(pf.boundingBox)) {
+                if (pharaoh.boundingBox.collide(pf.boundingBox) && pf.isTopPlatform) {
                     debugger;
                     pharaoh.speed = pharaoh.lastSpeed;
                     pharaoh.isJumping = false;
