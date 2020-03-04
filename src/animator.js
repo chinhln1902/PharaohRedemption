@@ -35,5 +35,5 @@ Animation.prototype.currentFrame = function () {
 }
 
 Animation.prototype.isDone = function () {
-    return (this.elapsedTime >= this.totalTime);
+    return (this.elapsedTime >= this.totalTime - 0.1);
 }

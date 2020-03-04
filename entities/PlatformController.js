@@ -303,28 +303,14 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         decorativePlatforms.push(new Platform(this.engine, platformSheets['barrel'], 108, 3.1, true, true, false));
         decorativePlatforms.push(new Platform(this.engine, platformSheets['red flag'], 108.3, 2.2, true, true, false));
 
-        // } else {
-    //     // removePlatforms();
-    //     platforms.splice(0, platforms.length);
-    // }
-
-
-        // createPlatforms = function(level){
-        //         for(var i = 0; i < levels.length; i++){
-        //                 if (levels[i] === " "){
-
-        //                 }else if(levels[i] === "#"){
-        //                         underworldPlatforms.push(new Platform(this.engine, platformSheets['sandTop'], i, j, true, true, false));
-        //                 }
-        //         }
-        // }
-
-
-
-
-
-
-
-
 
 }
+
+PlatformController.prototype.loadPlatformsLevel2 = function () {
+
+}
+
+PlatformController.prototype.loadLevelFrom = function() {
+
+}
+
