@@ -190,7 +190,7 @@ Pharaoh.prototype.update = function () {
 Pharaoh.prototype.draw = function () {
     //if (this.underworld) return;
     //console.log(this.animation);
-    //this.ctx.strokeRect(this.boundingBox.x - this.camera.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
+    this.ctx.strokeRect(this.boundingBox.x - this.camera.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.camera.x, this.y);                    //important for camera to work
     // this.ctx.strokeRect(this.x, this.y, 10, 10);
     Entity.prototype.draw.call(this);
@@ -664,7 +664,6 @@ function controlJump(pharaoh){
                 else if (lastRight < pf.boundingBox.left || lastLeft > pf.boundingBox.right) {
                     
                     if (pharaoh.boundingBox.collide(pf.boundingBox)) {
-                        debugger;
                         if (pharaoh.direction === "right") {
                             pharaoh.lastSpeed = pharaoh.speed;
                             pharaoh.speed = 0;
@@ -760,7 +759,6 @@ function controlJump(pharaoh){
             for (var i = 0; i < platforms.length; i++) {
                 var pf = platforms[i];
                 if (pharaoh.boundingBox.collide(pf.boundingBox) && pf.isTopPlatform) {
-                    debugger;
                     pharaoh.isJumping = false;
                     pharaoh.onPlatform = true;
                     pharaoh.speed = pharaoh.lastSpeed;
@@ -785,7 +783,6 @@ function controlJump(pharaoh){
             for (var i = 0; i < underworldPlatforms.length; i++) {
                 var pf = underworldPlatforms[i];
                 if (pharaoh.boundingBox.collide(pf.boundingBox) && pf.isTopPlatform) {
-                    debugger;
                     pharaoh.speed = pharaoh.lastSpeed;
                     pharaoh.isJumping = false;
                     pharaoh.onPlatform = true;
@@ -797,7 +794,6 @@ function controlJump(pharaoh){
                 } else {
                     if (pharaoh.boundingBox.left > pharaoh.platform.boundingBox.right || 
                         pharaoh.boundingBox.right < pharaoh.platform.boundingBox.left) {
-                            debugger;
                             pharaoh.speed = pharaoh.lastSpeed;
                             pharaoh.isJumping = true;
                             pharaoh.onPlatform = false;
