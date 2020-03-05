@@ -318,14 +318,58 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         decorativePlatforms.push(new Platform(this.engine, platformSheets['barrel'], 108, 3.1, true, true, false));
         decorativePlatforms.push(new Platform(this.engine, platformSheets['red flag'], 108.3, 2.2, true, true, false));
 
-
 }
+
+var testLevel =
+[
+    "                                              ",
+    "                                              ",
+    "                                              ",
+    "                                              ",
+    "                             #                ",
+    "                         #   #                ",
+    "               #     #   #                    ",
+    "             #####   #                        "
+]
+
 
 PlatformController.prototype.loadPlatformsLevel2 = function () {
-
+    signs.push(new hint(this.engine, platformSheets['question'], 0, 7, false, "Level 2"));
+    this.loadLevelFrom(Level2Txt);
 }
 
-PlatformController.prototype.loadLevelFrom = function() {
-
+PlatformController.prototype.loadLevelFrom = function(textFile) {
+    for(var y = 0; y < textFile.length; y++){
+        for(var x = 0; x < textFile[y].length; x++){
+            var plat;
+            var underworld = false;
+            if (y>9) underworld = true;
+            if       (textFile[y][x] === ' '){
+                // dont add a platform
+            } else if(textFile[y][x] === 's'){
+                plat = new Platform(this.engine, platformSheets['sandMid'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'S'){
+                plat = new Platform(this.engine, platformSheets['sandTop'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'b'){
+                plat = new Platform(this.engine, platformSheets['brickMid'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'B'){
+                plat = new Platform(this.engine, platformSheets['brickTop'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'C'){
+                plat = new Platform(this.engine, platformSheets['brickChisled'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'r'){
+                plat = new Platform(this.engine, platformSheets['stoneMid'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'R'){
+                plat = new Platform(this.engine, platformSheets['stoneTop'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === '_'){
+                plat = new Platform(this.engine, platformSheets['spikes'], x,y%9, true, underworld, true);
+            }
+         
+            if (plat && !underworld) {
+                platforms.push(plat);
+            } else if (plat && underworld){
+                underworldPlatforms.push(plat);
+            }
+        }
+    }
 }
 
