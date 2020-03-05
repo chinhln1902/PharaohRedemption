@@ -50,7 +50,7 @@ Snake.prototype.draw = function () {
 Snake.prototype.update = function () {
     if (this.live === 0) return;  
     if (this.dead) this.aftermath++;
-    if (this.aftermath > 40) this.removeFromWorld = true; 
+    if (this.aftermath > 35) this.removeFromWorld = true; 
     this.x += this.game.clockTick * this.speed;
     Entity.prototype.update.call(this);
     for (var i = 0; i < this.game.entities.length; i++) {

@@ -4,6 +4,9 @@ function loadArcherSpriteSheets(AM) {
 	spritesheets['attack'] = AM.getAsset("./assets/sprites/Archer-ShootingFlip.png"); 
 	spritesheets['dying'] = AM.getAsset("./assets/sprites/Archer-DyingFlip.png"); 
 }
+var id = spritesheets['idle'];
+var at = spritesheets['attack'];
+var dy = spritesheets['dying']; 
 
 function Archer(game, AssetManager, startX, startY) {
 	this.AM = AssetManager; 
@@ -51,7 +54,7 @@ Archer.prototype.draw = function () {
 Archer.prototype.update = function () {
 	if (this.live === 0) return; 
 	if (this.dead === true) this.aftermath++; 
-	if (this.aftermath > 40) this.removeFromWorld = true; 
+	if (this.aftermath > 35) this.removeFromWorld = true; 
 	var that = this; 
     this.x += this.game.clockTick * this.speed;
     ControlAnimation(this); 
@@ -91,6 +94,7 @@ Archer.prototype.idle = function() {
 }
 
 Archer.prototype.shooting = function() {
+		if (this.dead) return; 
 		if (!this.underworld) return; 
 		if (this.time > 100) {
 		this.animation = new Animation(spritesheets['attack'], 900, 900, 9, .05, 9, false, .2); 
