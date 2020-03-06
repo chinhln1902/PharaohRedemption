@@ -1,6 +1,7 @@
 var spritesheets = [];
 function loadBatSpriteSheets(AM) {
-    spritesheets['fly'] = AM.getAsset("./assets/sprites/Bat Fly Flip.png"); 
+    spritesheets['fly left'] = AM.getAsset("./assets/sprites/Bat Fly Flip.png");
+    spritesheets['fly right'] = AM.getAsset("./assets/sprites/Bat Fly Flip Right.png"); 
     spritesheets['die'] = AM.getAsset("./assets/sprites/Bat-Die.png"); 
 
 }
@@ -23,7 +24,12 @@ function Bat(game, AssetManager, startX, startY) {
     this.name = "bat"; 
     this.underworld = false;
     this.live = 0; 
+    this.pharaoh = game.mainCharacter;
+    this.Right = "false";
+    this.Left = "true";
+    this.count = 200;
     var that = this;
+
 
     document.addEventListener("keydown", function (e) {
         //console.log(e);
@@ -44,25 +50,56 @@ Bat.prototype.draw = function () {
 
 Bat.prototype.update = function () {
     if (this.live === 0) return;
-    this.x -= 3;
     if (this.dead) this.aftermath++; 
     if (this.aftermath > 30) this.removeFromWorld = true; 
-    if (this.x < -230) this.x = 1200;
+
+    //Moving character
+    if (this.Left ===  "true" && this.Right === "false" && this.game.getMainCharacter().getX() >= this.x - 400){
+        this.x -= 3;
+        //debugger;
+    }
+    if (this.Right === "false" && this.x <= this.game.getMainCharacter().getX() - 400 && this.count === 200){
+       // debugger;
+        this.flyRight(); 
+        this.Right = "true";
+        this.Left = "false"; 
+        this.count  = 0;
+
+        //debugger;
+
+    }
+    
+    if (this.Right === "true"){
+        this.x += 3;
+        this.count += 1;
+        debugger;
+        //this.Left = "true";
+
+        if (this.game.getMainCharacter().getX() >= this.x - 200 && this.count === 200){
+            this.fly();
+            this.Left = "true";
+            this.Right = "false";
+        }
+    } 
+
+    //Changing animation
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;
-    for (var i = 0; i < this.game.entities.length; i++) {
-        var ent = this.game.entities[i];
-        if (ent.name === 'comet') {
-            if (this.collide(ent)) {
-                this.die();  
-            }
-        }
-        if (ent.name === 'pharaoh' && ent.attacking === true) {
-            if (this.collideSlash(ent)) {
-                this.die(); 
-            }
-        }
-    }   
+
+    // //Collision code
+    // for (var i = 0; i < this.game.entities.length; i++) {
+    //     var ent = this.game.entities[i];
+    //     if (ent.name === 'comet') {
+    //         if (this.collide(ent)) {
+    //             this.die();  
+    //         }
+    //     }
+    //     if (ent.name === 'pharaoh' && ent.attacking === true) {
+    //         if (this.collideSlash(ent)) {
+    //             this.die(); 
+    //         }
+    //     }
+    // }   
     
 }
 
@@ -79,7 +116,15 @@ Bat.prototype.collideSlash = function(other) {
 }
 
 Bat.prototype.fly = function() {
-    this.animation = new Animation(spritesheets['fly'], 631, 634, 10, 0.07, 10, true, .34); 
+    this.animation = new Animation(spritesheets['fly left'], 631, 634, 10, 0.07, 10, true, .34); 
+    // Left = true;
+    // Right = false;
+}
+
+Bat.prototype.flyRight = function() {
+    this.animation = new Animation(spritesheets['fly right'], 631, 634, 10, 0.07, 10, true, .34); 
+    // Right = true;
+    // Left = false; 
 }
 
 Bat.prototype.die = function() {

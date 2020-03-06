@@ -46,12 +46,9 @@ function pharaohController(mainCharacter){
 				UpArrowPressed = "true";
 			
 			//World switching
-			} else if(e.code === "Space"){
-
-				that.Pharaoh.swapWorld();
-
+			} 
 			//Slashing
-			} else if(e.code === "KeyE"){
+			 else if(e.code === "KeyE"){
 				console.log("Key E pressed");
 				that.Pharaoh.slash();
 				
@@ -83,7 +80,11 @@ function pharaohController(mainCharacter){
 				
 				UpArrowPressed = "false";
 
-			} 
+			} else if(e.code === "Space"){
+
+				that.Pharaoh.swapWorld();
+
+			}
 
 	}, false);
 			

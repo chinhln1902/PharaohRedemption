@@ -172,6 +172,7 @@ Pharaoh.prototype.update = function () {
                 this.takeDamage(); 
             }
         }
+        
         if (ent.type === "platform") {
             var pf = ent;
             if (pf.causeDamage && this.underworld === pf.isUnderworld) {
@@ -782,7 +783,7 @@ function controlJump(pharaoh){
             for (var i = 0; i < underworldPlatforms.length; i++) {
                 var pf = underworldPlatforms[i];
                 if (pharaoh.boundingBox.collide(pf.boundingBox)) {
-                    debugger;
+                    //debugger;
                     pharaoh.speed = pharaoh.lastSpeed;
                     pharaoh.isJumping = false;
                     pharaoh.onPlatform = true;
@@ -794,7 +795,7 @@ function controlJump(pharaoh){
                 } else {
                     if (pharaoh.boundingBox.left > pharaoh.platform.boundingBox.right || 
                         pharaoh.boundingBox.right < pharaoh.platform.boundingBox.left) {
-                            debugger;
+                           // debugger;
                             pharaoh.speed = pharaoh.lastSpeed;
                             pharaoh.isJumping = true;
                             pharaoh.onPlatform = false;
