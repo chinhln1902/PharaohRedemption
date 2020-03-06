@@ -172,6 +172,7 @@ Pharaoh.prototype.update = function () {
                 this.takeDamage(); 
             }
         }
+        
         if (ent.type === "platform") {
             var pf = ent;
             if (pf.causeDamage && this.underworld === pf.isUnderworld) {

@@ -14,9 +14,31 @@
         'F' : floor - devides the over and under world platforms
         'r' : rocks
         'R' : rocks top
+        'H' : white rocks
+        'P' : pedestal
 
 */
 var Level2Txt = [
+    "                                              ", // Overworld
+    "                                              ",
+    "                                              ",
+    "               CCCC          H               B",
+    "         C                   H     B    B  B  ",
+    "                         B   b BBB    B       ",
+    "               S     S   b                    ",
+    "             SSsSS   s   b __     ____________",
+    "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+    "                                              ", // Underworld
+    "                                              ",
+    "                         P                    ",
+    "                      RRRR   B                ",
+    "         CBCC            b   C                ",
+    "                         b   b BB             ",
+    "               R     R   b       b            ",
+    "             RRrRR   r   b __     b           "
+]
+
+var Level3Txt = [
     "                                              ",
     "                                              ",
     "                                              ",

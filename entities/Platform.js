@@ -28,10 +28,10 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
     var that = this;
 
     document.addEventListener("keydown", function (e) {
-            if (e.code === "Space") {
-                e.preventDefault();
-                that.underworld = !that.underworld;
-            }
+            // if (e.code === "Space") {
+            //     e.preventDefault();
+            //     that.underworld = !that.underworld;
+            // }
             if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
                 RightKeyPressed = "true";
     
@@ -43,6 +43,10 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
 
     document.addEventListener("keyup", function (e) {
         //Running right 
+        if (e.code === "Space") {
+            e.preventDefault();
+            that.underworld = !that.underworld;
+        }
         if (e.code === "ArrowRight" && RightKeyPressed === "true"){
             RightKeyPressed = "false";
 

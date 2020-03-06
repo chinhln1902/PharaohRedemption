@@ -132,6 +132,7 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Archer-ShootingFlip.png");
     AM.queueDownload("./assets/sprites/Archer-DyingFlip.png"); 
     AM.queueDownload("./assets/sprites/Bat Fly Flip.png"); //Bat
+    AM.queueDownload("./assets/sprites/Bat Fly Flip Right.png"); //Bat
     AM.queueDownload("./assets/sprites/Bat-Die.png");
     AM.queueDownload("./assets/sprites/Goul Walk.png");//Goul 
     AM.queueDownload("./assets/sprites/Goul Die.png");

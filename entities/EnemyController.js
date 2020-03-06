@@ -8,7 +8,7 @@ EnemyController.prototype.constructor = EnemyController;
 
 EnemyController.prototype.level1 = function(){
     var goul = new Goul(this.gameEngine, AM, 100, 350);
-    var bat = new Bat(this.gameEngine, AM, 95*70, 4.5*70);
+    var bat = new Bat(this.gameEngine, AM, 80*70, 3.7*70);
     var archer = new Archer(this.gameEngine, AM, 58.2*70, 4.9*70); 
     var snake = new Snake(this.gameEngine, AM, 30.5*70, 8*70);
     var snake1 = new Snake(this.gameEngine, AM, 65.5*70, 5.9*70);

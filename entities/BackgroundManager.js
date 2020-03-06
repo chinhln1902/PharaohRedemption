@@ -33,11 +33,10 @@ function BackgroundManager(AM, game) {
             LeftKeyPressed = "true";
 
         }
-		if (e.code === "Space" && SpacePressed === "false"){
-            e.preventDefault();
-            that.removeBackground();
-            SpacePressed === "true";
-        }
+		// if (e.code === "Space" && SpacePressed === "false"){
+        //     e.preventDefault();
+        //     SpacePressed === "true";
+        // }
     }, false);
 
 
@@ -53,8 +52,9 @@ function BackgroundManager(AM, game) {
             LeftKeyPressed = "false";
 
         }
-		 if (e.code === "Space" && SpacePressed === "true"){
+		 if (e.code === "Space"){
             e.preventDefault();
+            that.removeBackground();
             SpacePressed === "false"
             
         }
@@ -126,6 +126,5 @@ BackgroundManager.prototype.removeBackground = function(){
     desertBackground[4].switch();
     desertBackground[5].switch();
     desertBackground[6].switch();
-
 
 }
