@@ -145,6 +145,17 @@ function loadAssets(){
     AM.queueDownload("./assets/platforms/PNG/Collectable/heart.png"); //heart
     AM.queueDownload("./assets/platforms/PNG/Collectable/Treasure Chest.png"); //chest
     AM.queueDownload("./assets/platforms/boxSpriteSheet.png"); //crate (box)
+    //Demon
+    AM.queueDownload("./assets/sprites/RedDemon/RedDemonIdle.png");
+    //AM.queueDownload("./assets/sprites/RedDemon/RedDemonIdleFlip.png");
+    AM.queueDownload("./assets/sprites/RedDemon/RedDemonAttack.png");
+    AM.queueDownload("./assets/sprites/RedDemon/RedDemonAttackFlip.png");
+    AM.queueDownload("./assets/sprites/RedDemon/RedDemonWalk.png");
+    //AM.queueDownload("./assets/sprites/RedDemon/RedDemonWalkFlip.png");
+    AM.queueDownload("./assets/sprites/RedDemon/RedDemonHurt.png");
+    //AM.queueDownload("./assets/sprites/RedDemon/RedDemonHurtFlip.png");
+    AM.queueDownload("./assets/sprites/RedDemon/RedDemonDie.png");
+    AM.queueDownload("./assets/sprites/RedDemon/RedDemonDieFlip.png");
 
 }
 

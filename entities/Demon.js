@@ -5,11 +5,11 @@ function loadDemonSpriteSheets(AM) {
 	demonspritesheets['dying'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonDie.png"); 
 	demonspritesheets['hurt'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonHurt.png");
 	demonspritesheets['walk'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonWalk.png");
-	demonspritesheets['idleflip'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonIdleFlip.png"); 
+	//demonspritesheets['idleflip'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonIdleFlip.png"); 
 	demonspritesheets['attackflip'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonAttackFlip.png"); 
 	demonspritesheets['dyingflip'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonDieFlip.png"); 
-	demonspritesheets['hurtflip'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonHurtFlip.png");
-	demonspritesheets['walkflip'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonWalkFlip.png");
+	//demonspritesheets['hurtflip'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonHurtFlip.png");
+	//demonspritesheets['walkflip'] = AM.getAsset("./assets/sprites/RedDemon/RedDemonWalkFlip.png");
 
 }
 
@@ -17,7 +17,7 @@ function Demon(game, AssetManager, startX, startY) {
 	this.AM = AssetManager; 
 	loadDemonSpriteSheets(this.AM);
 	this.ctx = game.ctx; 
-	this.idle(); 
+	this.walk(); 
 	this.state = "idle"; 
 	this.x = startX;
 	this.type = "enemy"; 
@@ -90,11 +90,11 @@ Demon.prototype.collideSlash = function(other) {
 
 Demon.prototype.die = function() {
 	this.dead = true; 
-	this.animation = new Animation(demonspritesheets['dying'], 720, 480, 15, .05, 15, false, .2); 
+	this.animation = new Animation(demonspritesheets['dying'], 722, 480, 15, .05, 15, false, .5); 
 }
 
-Demon.prototype.idle = function() {
-	this.animation = new Animation(demonspritesheets['idleflip'], 720, 480, 12, .05, 12, true, .2); 
+Demon.prototype.walk = function() {
+	this.animation = new Animation(demonspritesheets['idle'], 722, 480, 12, .08, 12, true, .5); 
 }
 
 
