@@ -4,9 +4,6 @@ function loadArcherSpriteSheets(AM) {
 	spritesheets['attack'] = AM.getAsset("./assets/sprites/Archer-ShootingFlip.png"); 
 	spritesheets['dying'] = AM.getAsset("./assets/sprites/Archer-DyingFlip.png"); 
 }
-var id = spritesheets['idle'];
-var at = spritesheets['attack'];
-var dy = spritesheets['dying']; 
 
 function Archer(game, AssetManager, startX, startY) {
 	this.AM = AssetManager; 
