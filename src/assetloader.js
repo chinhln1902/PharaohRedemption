@@ -144,6 +144,7 @@ function loadAssets(){
     //Other
     AM.queueDownload("./assets/platforms/PNG/Collectable/heart.png"); //heart
     AM.queueDownload("./assets/platforms/PNG/Collectable/Treasure Chest.png"); //chest
+    AM.queueDownload("./assets/platforms/boxSpriteSheet.png"); //crate (box)
 
 }
 

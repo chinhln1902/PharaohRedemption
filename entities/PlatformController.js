@@ -3,6 +3,7 @@ var platforms = [];
 var underworldPlatforms = [];   
 var decorativePlatforms = [];
 var UdecorativePlatforms = [];
+var crates = [];
 var signs = [];
 function loadPlatforms(AM) {
     platformSheets['barrel'] = AM.getAsset("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
@@ -309,6 +310,8 @@ var testLevel =
 
 PlatformController.prototype.loadPlatformsLevel2 = function () {
     signs.push(new hint(this.engine, platformSheets['question'], 0, 7, false, "Level 2"));
+    crates.push(new Box(this.engine, 21, 5));
+    crates.push(new Box(this.engine, 0, 7));
     this.loadLevelFrom(Level2Txt);
 }
 

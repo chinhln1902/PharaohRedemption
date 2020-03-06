@@ -139,6 +139,7 @@ Pharaoh.prototype.update = function () {
     this.time++; 
     controlAnimation(this);
     controlJump(this);
+    controlCrates(this);
     this.camera.setX(this.x);                     ///For camera
     this.immune++; 
     Entity.prototype.update.call(this);
@@ -819,6 +820,10 @@ function controlJump(pharaoh){
             pharaoh.setToDefault();
         }
     }
+}
+
+function controlCrates(pharaoh){
+
 }
 
 Pharaoh.prototype.getState = function(){
