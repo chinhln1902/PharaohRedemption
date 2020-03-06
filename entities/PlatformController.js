@@ -307,7 +307,6 @@ var testLevel =
     "             #####   #                        "
 ]
 
-
 PlatformController.prototype.loadPlatformsLevel2 = function () {
     signs.push(new hint(this.engine, platformSheets['question'], 0, 7, false, "Level 2"));
     this.loadLevelFrom(Level2Txt);
@@ -335,6 +334,10 @@ PlatformController.prototype.loadLevelFrom = function(textFile) {
                 plat = new Platform(this.engine, platformSheets['stoneMid'], x,y%9, true, underworld, false);
             } else if(textFile[y][x] === 'R'){
                 plat = new Platform(this.engine, platformSheets['stoneTop'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'H'){
+                plat = new Platform(this.engine, platformSheets['block'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'P'){
+                plat = new Platform(this.engine, platformSheets['pedestal'], x,y%9, true, underworld, false);
             } else if(textFile[y][x] === '_'){
                 plat = new Platform(this.engine, platformSheets['spikes'], x,y%9, true, underworld, true);
             }
