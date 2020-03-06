@@ -57,23 +57,18 @@ Bat.prototype.update = function () {
     //Moving character
     if (this.Left ===  "true" && this.Right === "false" && this.game.getMainCharacter().getX() >= this.x - 400){
         this.x -= 3;
-        //debugger;
     }
     if (this.Right === "false" && this.x <= this.game.getMainCharacter().getX() - 400 && this.count === 200){
-       // debugger;
         this.flyRight(); 
         this.Right = "true";
         this.Left = "false"; 
         this.count  = 0;
-        //debugger;
 
-    }
-    
+    }    
     if (this.Right === "true"){
         this.x += 3;
         this.count += 1;
         debugger;
-        //this.Left = "true";
 
         if (this.game.getMainCharacter().getX() >= this.x - 200 && this.count === 200){
             this.fly();
