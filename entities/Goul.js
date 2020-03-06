@@ -27,7 +27,7 @@ function Goul(game, AssetManager, startX, startY) {
     this.aftermath = 0; 
     var that = this;
     
-    document.addEventListener("keydown", function (e) {
+    document.addEventListener("keyup", function (e) {
         //console.log(e);
 		//Running right 
 		if (e.code === "Space"){

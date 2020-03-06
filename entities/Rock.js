@@ -16,7 +16,7 @@ function Rock(game, spritesheet, startX, startY) {
     this.timeAlive = 0;
     this.underworld = false;
     var that = this;
-    document.addEventListener("keydown", function (e) {
+    document.addEventListener("keyup", function (e) {
 		if (e.code === "Space"){
             //console.log("Rock before switch underworld: " + that.underworld);
             e.preventDefault();

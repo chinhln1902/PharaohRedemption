@@ -28,7 +28,7 @@ function Archer(game, AssetManager, startX, startY) {
 	this.PlayingTempAnimation = false; 
 	var underworld = false; 
 	var that = this; 
-	document.addEventListener("keydown", function (e) {
+	document.addEventListener("keyup", function (e) {
 		if (e.code === "Space"){
 			if (that.live === 0) {
             	that.live = 1;

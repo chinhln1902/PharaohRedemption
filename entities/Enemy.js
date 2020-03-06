@@ -3,7 +3,7 @@ Enemy.prototype.constructor = Enemy;
 
 function Enemy() {
 	var that = this; 
-	document.addEventListener("keydown", function (e) {
+	document.addEventListener("keyup", function (e) {
         //console.log(e);
         if (e.code === "Space"){
             //console.log("underworld: " + that.underworld);

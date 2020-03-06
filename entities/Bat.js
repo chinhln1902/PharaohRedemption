@@ -28,10 +28,11 @@ function Bat(game, AssetManager, startX, startY) {
     this.Right = "false";
     this.Left = "true";
     this.count = 200;
+    this.leftCount = 200;
     var that = this;
 
 
-    document.addEventListener("keydown", function (e) {
+    document.addEventListener("keyup", function (e) {
         //console.log(e);
         //Running right 
         if (e.code === "Space"){
@@ -64,7 +65,6 @@ Bat.prototype.update = function () {
         this.Right = "true";
         this.Left = "false"; 
         this.count  = 0;
-
         //debugger;
 
     }
@@ -79,6 +79,7 @@ Bat.prototype.update = function () {
             this.fly();
             this.Left = "true";
             this.Right = "false";
+            
         }
     } 
 
@@ -87,19 +88,19 @@ Bat.prototype.update = function () {
         this.x += this.game.clockTick * this.speed;
 
     // //Collision code
-    // for (var i = 0; i < this.game.entities.length; i++) {
-    //     var ent = this.game.entities[i];
-    //     if (ent.name === 'comet') {
-    //         if (this.collide(ent)) {
-    //             this.die();  
-    //         }
-    //     }
-    //     if (ent.name === 'pharaoh' && ent.attacking === true) {
-    //         if (this.collideSlash(ent)) {
-    //             this.die(); 
-    //         }
-    //     }
-    // }   
+    for (var i = 0; i < this.game.entities.length; i++) {
+        var ent = this.game.entities[i];
+        if (ent.name === 'comet') {
+            if (this.collide(ent)) {
+                this.die();  
+            }
+        }
+        if (ent.name === 'pharaoh' && ent.attacking === true) {
+            if (this.collideSlash(ent)) {
+                this.die(); 
+            }
+        }
+    }   
     
 }
 

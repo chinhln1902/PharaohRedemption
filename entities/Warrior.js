@@ -30,7 +30,7 @@ function Warrior(game, AssetManager, startX, startY) {
     var that = this;
     this.frames = 0;
 
-    document.addEventListener("keydown", function (e) {
+    document.addEventListener("keyup", function (e) {
         //console.log(e);
 		//Running right 
 		if (e.code === "Space"){
