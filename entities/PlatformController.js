@@ -340,6 +340,16 @@ PlatformController.prototype.loadLevelFrom = function(textFile) {
                 plat = new Platform(this.engine, platformSheets['pedestal'], x,y%9, true, underworld, false);
             } else if(textFile[y][x] === '_'){
                 plat = new Platform(this.engine, platformSheets['spikes'], x,y%9, true, underworld, true);
+            } else if(textFile[y][x] === 'd'){
+                new Platform(this.engine, platformSheets['bridge-3'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'D'){
+                new Platform(this.engine, platformSheets['bridge-2'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === '!'){
+                new Platform(this.engine, platformSheets['caution'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'f'){
+                new Platform(this.engine, platformSheets['red flag'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'A'){
+                new Platform(this.engine, platformSheets['arrow 1'], x,y%9, true, underworld, false);
             }
          
             if (plat && !underworld) {
