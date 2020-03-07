@@ -17,6 +17,7 @@
         'R' : rocks top
         'H' : white rocks
         'P' : pedestal
+        'E' : breakable crate
       Decorations:
         'd' : lower door
         'D' : upper door
@@ -26,23 +27,23 @@
 
 */
 var Level2Txt = [
-    "                                              ", // Overworld
-    "                                              ",
-    "                                             f",
-    "               CCCC          H               B",
-    "         C                   H     B    B  B  ",
-    "                         B   b BBB    B       ",
-    "               S     S   b                    ",
-    " A           SSsSS   s   b __     ____________",
-    "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
-    "                                              ", // Underworld
-    "                                              ",
-    "                         P                    ",
-    "                      RRRR   B                ",
-    "         CBCC        R   b   C                ",
-    "                     r   b   b BB             ",
-    "               R     D   b       b            ",
-    " A           RRrRR   d   b __     b !  !  !  !"
+    "                                                                    ", // Overworld
+    "                                                                    ",
+    "                                             f                      ",
+    "               CCCC          H               B                      ",
+    "         C                   H     B    B  B                        ",
+    "                         B   b BBB    B             bbbbbbbbbb      ",
+    "               S     S   b                          EEEEEEEEEE      ",
+    " A           SSsSS   s   b __     ____________      EEEEEEEEEE      ",
+    "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+    "                                                                    ", // Underworld
+    "                                                                    ",
+    "                         P                                          ",
+    "                      RRRR   B                                      ",
+    "         CBCC        R   b   C                                      ",
+    "                     r   b   b BB                                   ",
+    "               R     D   b       b                                  ",
+    " A           RRrRR   d   b __     b !  !  !  !                      "
 ]
 
 var Level3Txt = [

@@ -8,7 +8,7 @@ function Box(game, x, y) {
     this.y = y * SCALE + YOFFSET;
     this.animationScale = SCALE/318;
     this.spriteSheet = AM.getAsset("./assets/platforms/boxSpriteSheet.png");
-    this.animation = new Animation(this.spriteSheet, 475, 475, 1, 0.07, 1, true, this.animationScale); //idle animation
+    this.animation = new Animation(this.spriteSheet, 475, 475, 1, 0.06, 1, true, this.animationScale); //idle animation
     this.game = game;
     this.ctx = game.ctx;
     this.game.addEntity(this);
@@ -35,7 +35,7 @@ Box.prototype.draw = function() {
 }
 
 Box.prototype.break = function() {
-    this.animation = new Animation(this.spriteSheet, 475, 475, 14, 0.07, 14, false, this.animationScale);
+    this.animation = new Animation(this.spriteSheet, 475, 475, 14, 0.06, 14, false, this.animationScale);
     this.broken = true;
 }
 

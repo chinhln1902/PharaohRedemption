@@ -353,8 +353,10 @@ PlatformController.prototype.loadLevelFrom = function(textFile) {
                 new Platform(this.engine, platformSheets['red flag'], x,y%9, true, underworld, false);
             } else if(textFile[y][x] === 'A'){
                 new Platform(this.engine, platformSheets['arrow 1'], x,y%9, true, underworld, false);
+            } else if(textFile[y][x] === 'E'){
+                crates.push(new Box(this.engine, x,y));
             }
-         
+            
             if (plat && !underworld) {
                 platforms.push(plat);
             } else if (plat && underworld){
