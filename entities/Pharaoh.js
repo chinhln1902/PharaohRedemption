@@ -869,6 +869,11 @@ Pharaoh.prototype.collideWithProjectile = function(other) {
 }
 
 Pharaoh.prototype.collide = function(other) {
+    if (other.name === "demon") {
+        if ((other.x - 120) < this.x && this.x < (other.x + 120) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
+            return true; 
+        }
+    }
     if ((other.x - 60) < this.x && this.x < (other.x + 60) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
         return true; 
    }
