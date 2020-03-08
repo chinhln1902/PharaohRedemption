@@ -5,6 +5,7 @@ var decorativePlatforms = [];
 var UdecorativePlatforms = [];
 var crates = [];
 var signs = [];
+var powerUps = [];
 function loadPlatforms(AM) {
     platformSheets['barrel'] = AM.getAsset("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png");
     platformSheets['sandTop'] = AM.getAsset("./assets/platforms/DesertPlatforms/tiles/01.png");
@@ -310,8 +311,10 @@ var testLevel =
 
 PlatformController.prototype.loadPlatformsLevel2 = function () {
     signs.push(new hint(this.engine, platformSheets['question'], 0, 7, false, "Level 2"));
-    crates.push(new Box(this.engine, 21, 5));
-    crates.push(new Box(this.engine, 0, 7));
+    crates.push(new Box(this.engine, 21, 5, false));
+    crates.push(new Box(this.engine, 0, 7, false));
+    powerUps.push(new PowerUp(this.engine, 9, 3, false));
+    powerUps.push(new PowerUp(this.engine, 21, 4, false));
     this.loadLevelFrom(Level2Txt);
 }
 
@@ -354,7 +357,7 @@ PlatformController.prototype.loadLevelFrom = function(textFile) {
             } else if(textFile[y][x] === 'A'){
                 new Platform(this.engine, platformSheets['arrow 1'], x,y%9, true, underworld, false);
             } else if(textFile[y][x] === 'E'){
-                crates.push(new Box(this.engine, x,y));
+                crates.push(new Box(this.engine, x,y, underworld));
             }
             
             if (plat && !underworld) {

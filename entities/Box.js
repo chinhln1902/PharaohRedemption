@@ -1,5 +1,5 @@
 
-function Box(game, x, y) {
+function Box(game, x, y, underworld) {
     console.log("the box is made");
     var YOFFSET = 35;
     var XOFFSET = -35;
@@ -13,11 +13,9 @@ function Box(game, x, y) {
     this.ctx = game.ctx;
     this.game.addEntity(this);
     var that = this;
+    var underworld = underworld;
     document.addEventListener("keydown", function (e) {
-        console.log(e.code);
-             if (e.code === "KeyE" ){
-                //that.break();
-             }
+        if (e.code === "Space")that.underworld = !that.underworld;
     }, false); 
     this.platform = new Platform(this.game, null, x, y, true, false, false);
     this.i = platforms.length;
@@ -28,13 +26,14 @@ Box.prototype = new Entity();
 Box.prototype.constructor = Box;
 
 Box.prototype.draw = function() {
+    if (this.underworld === true) return;
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y); 
     Entity.prototype.draw.call(this);
-    //this.ctx.drawImage(this.BoxSheet , this.x - this.game.getCamera().getX() + 3, this.y, this.width, this.height);
     if (this.broken && this.animation.isDone()) this.delete();
 }
 
 Box.prototype.break = function() {
+    if (this.underworld === true) return;
     this.animation = new Animation(this.spriteSheet, 475, 475, 14, 0.06, 14, false, this.animationScale);
     this.broken = true;
 }

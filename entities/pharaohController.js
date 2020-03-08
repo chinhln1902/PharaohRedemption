@@ -23,7 +23,7 @@ function pharaohController(mainCharacter){
 
 		//Running right 
 		if ((e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false") || (e.code === "KeyD" && DKeyPressed === "false" && AKeyPressed === "false")){
-			console.log(e.code);
+			//console.log(e.code);
 			that.Pharaoh.runRight();
 			RightKeyPressed = "true";
 			DKeyPressed = "true";
@@ -56,12 +56,10 @@ function pharaohController(mainCharacter){
 			} 
 			//Slashing
 			 else if(e.code === "KeyE"){
-				console.log("Key E pressed");
 				that.Pharaoh.slash();
 				crates.forEach(crate =>{
 					console.log(Math.abs(crate.x - that.Pharaoh.x));
 					if (Math.abs(crate.x - that.Pharaoh.x)<100 && Math.abs(crate.y - that.Pharaoh.y)<100){
-						console.log("hit a crate!");
 						crate.break();
 					}
 					
@@ -69,7 +67,7 @@ function pharaohController(mainCharacter){
 				
 			//Bonus attack
 			} else if(e.code === "KeyF"){
-
+				that.Pharaoh.staff();
 			//Projectile 
 			} else if(e.code === "KeyQ"){
 				that.Pharaoh.throw();
@@ -83,7 +81,7 @@ function pharaohController(mainCharacter){
 
 			if ((e.code === "ArrowRight" && RightKeyPressed === "true") || (e.code === "KeyD" && DKeyPressed === "true")){
 
-				console.log("D key up");
+				//console.log("D key up");
 				that.Pharaoh.idle();
 				RightKeyPressed = "false";
 				DKeyPressed = "false"

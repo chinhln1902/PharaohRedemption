@@ -1,11 +1,12 @@
 function Projectile(game, spritesheet, direction, startX, startY) {
+    this.startSpeed = 900;
     if (direction === "right"){
         this.animation = new Animation(spritesheet, 128, 128, 14, .05, 14, false, 1);
-        this.speed = 900;
+        this.speed = this.startSpeed;
     } 
     if (direction === "left"){
         this.animation = new Animation(spritesheet, 128, 128, 14, .05, 14, false, 1);
-        this.speed = -900;
+        this.speed = 0-this.startSpeed;
     }
     this.x = startX;
     this.y = startY;
@@ -34,17 +35,23 @@ Projectile.prototype.constructor = Projectile;
 
 Projectile.prototype.draw = function () {
     //if (this.underworld) return;
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
-    Entity.prototype.draw.call(this);
+    if (this.timeAlive > 5){
+        this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
+        Entity.prototype.draw.call(this);
+    }
+    
 }
 
 Projectile.prototype.update = function () {
-    if (this.timeAlive > 20) {
+    if (this.timeAlive > 30) {
         this.speed = 0;
         this.removeFromWorld = true; 
     }
-    this.x += this.game.clockTick * this.speed;
-    Entity.prototype.update.call(this);
+    if (this.timeAlive > 5){
+        this.x += this.game.clockTick * this.speed;
+        Entity.prototype.update.call(this);
+    }
+    
     //console.log("this position: " + this.x);
     this.timeAlive ++;
 }
