@@ -865,7 +865,7 @@ function controlJump(pharaoh){
 function controlPowerUps(pharaoh){
    
     powerUps.forEach(powerUp => {
-        if (Math.abs(pharaoh.x - powerUp.x) + Math.abs(pharaoh.y - (powerUp.y-100)) < 100){
+        if (Math.abs(pharaoh.x - powerUp.x) + Math.abs(pharaoh.y - (powerUp.y-100)) < 50){
             if (powerUp.type === "heart") {
                 powerUp.giveHealthTo(pharaoh);
                 console.log(pharaoh.health);
