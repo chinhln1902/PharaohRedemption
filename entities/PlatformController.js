@@ -51,7 +51,7 @@ function PlatformController (game, assetManager) {
 PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
-
+        
          // removePlatforms();
         //page 1
         decorativePlatforms.push(new Platform(this.engine, platformSheets['skull'], -50, 7,));
@@ -313,8 +313,14 @@ PlatformController.prototype.loadPlatformsLevel2 = function () {
     signs.push(new hint(this.engine, platformSheets['question'], 0, 7, false, "Level 2"));
     crates.push(new Box(this.engine, 21, 5, false));
     crates.push(new Box(this.engine, 0, 7, false));
-    powerUps.push(new PowerUp(this.engine, 9, 3, false));
-    powerUps.push(new PowerUp(this.engine, 21, 4, false));
+    powerUps.push(new PowerUp(this.engine, "heart", -10, 7, false));
+    powerUps.push(new PowerUp(this.engine, "heart", -11, 7, false));
+    powerUps.push(new PowerUp(this.engine, "heart", -12, 7, false));
+    powerUps.push(new PowerUp(this.engine, "heart", -13, 7, false));
+    powerUps.push(new PowerUp(this.engine, "heart", -14, 7, false));
+    powerUps.push(new PowerUp(this.engine, "hypno", 2, 7, false));
+    powerUps.push(new PowerUp(this.engine, "hypno", 9, 3, false));
+    powerUps.push(new PowerUp(this.engine, "hypno", 21, 4, false));
     this.loadLevelFrom(Level2Txt);
 }
 

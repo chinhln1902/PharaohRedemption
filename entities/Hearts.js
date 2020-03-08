@@ -29,6 +29,9 @@ Hearts.prototype.draw = function() {
 
 Hearts.prototype.setHealth = function(nOfHearts) {
     this.nOfHearts = nOfHearts;
+    for (var i = 1; i < this.nOfHearts; i++){
+        this.startSpots[i] = this.startSpots[i-1]+20;
+    } 
 }
 
 Hearts.prototype.update = function() {

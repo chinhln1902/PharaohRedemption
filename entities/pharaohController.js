@@ -58,7 +58,7 @@ function pharaohController(mainCharacter){
 			 else if(e.code === "KeyE"){
 				that.Pharaoh.slash();
 				crates.forEach(crate =>{
-					console.log(Math.abs(crate.x - that.Pharaoh.x));
+					//console.log(Math.abs(crate.x - that.Pharaoh.x));
 					if (Math.abs(crate.x - that.Pharaoh.x)<100 && Math.abs(crate.y - that.Pharaoh.y)<100){
 						crate.break();
 					}
