@@ -127,7 +127,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.insideSign = false;
     this.underneathPlatform = false;
     this.powerUp = "none";
-
+    this.switchable = true;
     this.backgroundManager = new BackgroundManager(assetManager, game);
     this.boundingBox = new BoundingBox(this.x + 65, this.y + 35, this.animation.frameWidth * SCALE - 130, this.animation.frameHeight * SCALE - 65);
     this.hud = new Hearts(this.engine);
@@ -589,7 +589,6 @@ function controlJump(pharaoh){
             this.insideSign = false;
         }
     }
-
     //in the air
     if (pharaoh.isJumping){
         pharaoh.yVelocity -= 1.00; //90 * pharaoh.game.clockTick
@@ -602,6 +601,7 @@ function controlJump(pharaoh){
         pharaoh.boundingBox = new BoundingBox (pharaoh.x + 65, pharaoh.y + 35, pharaoh.animation.frameWidth * SCALE - 130, pharaoh.animation.frameHeight * SCALE - 65);
         
         if (!pharaoh.underworld) {
+
             for (var i = 0; i < platforms.length; i++) {
                 var pf = platforms[i];
                 // if (pharaoh.lastBottom < pf.boundingBox.top && pf.isTopPlatform) {
@@ -671,47 +671,29 @@ function controlJump(pharaoh){
                 } 
                 else if (pharaoh.boundingBox.right > pf.boundingBox.left || pharaoh.boundingBox.left < pf.boundingBox.right) {
                     if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.boundingBox.top < pf.boundingBox.bottom) {
-                        debugger;
                         pharaoh.yVelocity = 0;
                         pharaoh.isJumping = true;
                         pharaoh.underneathPlatform = true;
                         break;
                     }
                 }
-                // Death code??? - Chinh
-                // else {
-                //     if (pharaoh.boundingBox.collide(pf.boundingBox) && !pf.isTopPlatform) {
-                //         debugger;
-                //         if (pharaoh.direction === "right") {
-                //             pharaoh.speed = 0;
-                //             pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
-                //             pharaoh.backgroundManager.stopSpeed();
-                //             pharaoh.setToDefault();
-                //         } else if (pharaoh.direction === "left") {
-                //             pharaoh.speed = 0;
-                //             pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 116;
-                //             pharaoh.backgroundManager.stopSpeed();  
-                //             pharaoh.setToDefault();
-                //         }
-                //     }
-                // }
             }
         // When pharaoh is in underworld
         } else {
             for (var i = 0; i < underworldPlatforms.length; i++) {
                 var pf = underworldPlatforms[i];
-                if (pharaoh.lastBottom < pf.boundingBox.top && pf.isTopPlatform) {
-                    if (RightKeyPressed === "false" && LeftKeyPressed === "false") {
-                        pharaoh.speed = 0;
-                        pharaoh.lastSpeed = 0;
-                    } else {
-                        if (pharaoh.direction === "right") {
-                            pharaoh.speed = 300;
-                        } else if (pharaoh.direction === "left") {
-                            pharaoh.speed = -300;
-                        }
-                    }
-                }
+                // if (pharaoh.lastBottom < pf.boundingBox.top && pf.isTopPlatform) {
+                //     if (RightKeyPressed === "false" && LeftKeyPressed === "false") {
+                //         pharaoh.speed = 0;
+                //         pharaoh.lastSpeed = 0;
+                //     } else {
+                //         if (pharaoh.direction === "right") {
+                //             pharaoh.speed = 300;
+                //         } else if (pharaoh.direction === "left") {
+                //             pharaoh.speed = -300;
+                //         }
+                //     }
+                // }
                 if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.lastBottom < pf.boundingBox.top && pf.isTopPlatform) {            
 
                     pharaoh.isJumping = false;
@@ -743,6 +725,19 @@ function controlJump(pharaoh){
                             pharaoh.setToDefault();
                             break;
                         }
+                    } else {
+                        if (RightKeyPressed === "false" && LeftKeyPressed === "false") {
+                            pharaoh.speed = 0;
+                            pharaoh.lastSpeed = 0;
+                            
+                        } else {
+                            if (pharaoh.direction === "right") {
+                                pharaoh.speed = 300;
+                            }
+                            if (pharaoh.direction === "left") {
+                                pharaoh.speed = -300;
+                            }
+                        }
                     }
                 } 
                 else if (pharaoh.boundingBox.right > pf.boundingBox.left || pharaoh.boundingBox.left < pf.boundingBox.right) {
@@ -753,22 +748,6 @@ function controlJump(pharaoh){
                         break;
                     }
                 }
-                // Death code??? - Chinh
-                // else {
-                //     if (pharaoh.boundingBox.collide(pf.boundingBox) && !pf.isTopPlatform) {
-                //         if (pharaoh.direction === "right") {
-                //             pharaoh.speed = 0;
-                //             pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
-                //             pharaoh.backgroundManager.stopSpeed();
-                //             pharaoh.setToDefault();
-                //         } else if (pharaoh.direction === "left") {
-                //             pharaoh.speed = 0;
-                //             pharaoh.x = pf.boundingBox.right - pharaoh.animation.frameWidth * SCALE + 116;
-                //             pharaoh.backgroundManager.stopSpeed();  
-                //             pharaoh.setToDefault();
-                //         }
-                //     }
-                // }
             }
         }
     // When pharaoh is not jumping
@@ -923,6 +902,7 @@ Pharaoh.prototype.setPreviousState = function(state){
     this.previousState = state;
 }
 Pharaoh.prototype.swapWorld = function(){
+    debugger;
     this.underworld = !this.underworld;
     this.groundLevel = GROUND_LEVEL;
     this.yVelocity = 0;

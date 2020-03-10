@@ -69,9 +69,6 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 19, 6, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 19, 5, true, false, false));
         signs.push(new hint(this.engine, platformSheets['question'], 21, 7, false, "try pushing space"));
-
-        platforms.push(new Platform(this.engine, platformSheets['sandTop'], 22, 5, true, false, false));
-
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 7, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 6, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 5, false, false, false));

@@ -99,7 +99,6 @@ function pharaohController(mainCharacter){
 				WKeyPressed = "false";
 
 			} else if(e.code === "Space"){
-
 				that.Pharaoh.swapWorld();
 
 			}
