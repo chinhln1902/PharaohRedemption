@@ -582,7 +582,7 @@ function controlJump(pharaoh){
                 //         }
                 //     }
                 // }
-                if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.lastBottom < pf.boundingBox.top) {            
+                if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.lastBottom < pf.boundingBox.top && pf.isTopPlatform) {            
 
                     pharaoh.isJumping = false;
                     pharaoh.onPlatform = true;
