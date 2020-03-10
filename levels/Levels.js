@@ -26,7 +26,7 @@
         'A' : right arrow
 
 */
-var Level2Txt = [
+var TestLvlTxt = [
     "                                                                    ", // Overworld
     "                                                                    ",
     "                                             f                      ",
@@ -46,24 +46,24 @@ var Level2Txt = [
     " A           RRrRR   d   b __     b !  !  !  !                      "
 ]
 
-var Level3Txt = [
-    "                                              ",
-    "                                              ",
-    "                                              ",
-    "               CCCC          C               B",
-    "         C                   C     B    B  B  ",
-    "                         B   b BBB    B       ",
-    "               S     S   b                    ",
-    "             SSsSS   s   b __     ____________",
-    "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
-    "                                              ",
-    "                                              ",
-    "                                              ",
-    "                      RRRR   B                ",
-    "         CBCC            b   C                ",
-    "                         b   b BB             ",
-    "               R     R   b       b            ",
-    "             RRrRR   r   b __     b           "
+var Level2Txt = [
+    "                                                                                                                                          ",
+    "                            BBBBB                                                       BBBBBBBBBBBBBBBB                                  ",
+    "            bbbb            EEEE B                                                                                                        ",
+    "                         _  EEEE  B            C     C                                                                                    ",
+    "                 BBBBBBBBBBBBBBB   B         C         C            S        b   b   b                                                    ",
+    "            E       b              bBB    C     C   C     C  B      s                   BBBBBBBBB                                         ",
+    "            S       b              b  BB                     b      s                   E   C   E  C                                      ",
+    "       E    s       b              b  bb ___       ___       b      s             S     E   C   E  C______                                ",
+    "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+    "                                                                                                                                          ",
+    "                    _       C                                                                                                             ",
+    "                    C      C                                                  r   r   r                                                   ",
+    "       RRRR               C                                                                                                               ",
+    "           R     RRRR    C         R                              R R                                                                     ",
+    "           r        r   C          r                         R      r                   RRRRRRRRR                                         ",
+    "            R       r  C           r                         r    EEr             R     r   E   r  R                                      ",
+    "            r       r              r          ___       ___  r    rrr             r     r   E   r  r                                      "
 ]
 
 //XML attempt 1

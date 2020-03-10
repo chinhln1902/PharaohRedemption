@@ -6,20 +6,28 @@ function Box(game, x, y, underworld) {
     var SCALE = 70;
     this.x = x * SCALE + XOFFSET;
     this.y = y * SCALE + YOFFSET;
+    
     this.animationScale = SCALE/318;
     this.spriteSheet = AM.getAsset("./assets/platforms/boxSpriteSheet.png");
     this.animation = new Animation(this.spriteSheet, 475, 475, 1, 0.06, 1, true, this.animationScale); //idle animation
     this.game = game;
     this.ctx = game.ctx;
     this.game.addEntity(this);
+    this.underworld = underworld;
+    this.U = underworld;
     var that = this;
-    var underworld = underworld;
+    
     document.addEventListener("keydown", function (e) {
         if (e.code === "Space")that.underworld = !that.underworld;
     }, false); 
     this.platform = new Platform(this.game, null, x, y, true, false, false);
     this.i = platforms.length;
-    platforms.push(this.platform);   
+    if (!this.U){
+        platforms.push(this.platform);  
+    }else{
+        underworldPlatforms.push(this.platform);  
+    }
+    
 }
 
 Box.prototype = new Entity();
@@ -40,8 +48,14 @@ Box.prototype.break = function() {
 
 Box.prototype.delete = function() {
     this.removeFromWorld = true; 
-    platforms.splice(platforms.indexOf(this.platform),1);
-    this.platform.removeFromWorld = true;
+    if (!this.U){
+        platforms.splice(platforms.indexOf(this.platform),1);
+        this.platform.removeFromWorld = true;
+    }else{
+        underworldPlatforms.splice(underworldPlatforms.indexOf(this.platform),1);
+        this.platform.removeFromWorld = true;
+    }
+    
 }
 
 
