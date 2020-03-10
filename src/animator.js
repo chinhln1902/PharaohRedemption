@@ -22,12 +22,16 @@ Animation.prototype.drawFrame = function (tick, ctx, x, y) {
     xindex = frame % this.sheetWidth;
     yindex = Math.floor(frame / this.sheetWidth);
 
+    if (this.frameWidth === 1300){
+        x = x - 60;
+    }
     ctx.drawImage(this.spriteSheet,
-                 xindex * this.frameWidth, yindex * this.frameHeight,  // source from sheet
-                 this.frameWidth, this.frameHeight,
-                 x, y,
-                 this.frameWidth * this.scale,
-                 this.frameHeight * this.scale);
+            xindex * this.frameWidth, yindex * this.frameHeight,  // source from sheet
+            this.frameWidth, this.frameHeight,
+            x, y,
+            (this.frameWidth) * this.scale,
+            this.frameHeight * this.scale);
+        //console.log(this.spriteSheet.src);
 }
 
 Animation.prototype.currentFrame = function () {

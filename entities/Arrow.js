@@ -19,7 +19,7 @@ function Arrow(game, AssetManager, startX, startY) {
     this.timeAlive = 0; 
 	var underworld = false; 
 	var that = this; 
-	document.addEventListener("keydown", function (e) {
+	document.addEventListener("keyup", function (e) {
 		if (e.code === "Space"){
             //console.log("underworld: " + that.underworld);
             e.preventDefault();

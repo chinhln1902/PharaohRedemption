@@ -38,6 +38,7 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet.png");                       //throwing 
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet.png"); //throwing in the air 
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet.png");                         //walking 
+    AM.queueDownload("./assets/sprites/Egyptian Mummy/Staffing/StaffingSpriteSheet.png");                        //staffing
     //Pharaoh left
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet flip.png");                             //dying 
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet flip.png");               //falling down 
@@ -56,6 +57,7 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet flip.png");                       //throwing 
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet flip.png"); //throwing in the air 
     AM.queueDownload("./assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet flip.png");                         //walking 
+    AM.queueDownload("./assets/sprites/Egyptian Mummy/Staffing/StaffingSpriteSheetFlip.png");                        //staffing
     //Sentry right
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Dying/Dying SpriteSheet.png");                             //dying 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Falling Down/Falling Down SpriteSheet.png");               //falling down 
@@ -74,6 +76,7 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet.png");                       //throwing 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet.png"); //throwing in the air 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet.png");                         //walking 
+    AM.queueDownload("./assets/sprites/Egyptian Sentry/Staffing/StaffingSpriteSheet.png");                        //staffing 
     //Sentry left
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Dying/Dying SpriteSheet flip.png");                             //dying 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Falling Down/Falling Down SpriteSheet flip.png");               //falling down 
@@ -91,7 +94,8 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Sliding/Sliding SpriteSheet flip.png");                         //sliding
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet flip.png");                       //throwing 
     AM.queueDownload("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet flip.png"); //throwing in the air 
-    AM.queueDownload("./assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet flip.png");   
+    AM.queueDownload("./assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet flip.png");                         //walking
+    AM.queueDownload("./assets/sprites/Egyptian Sentry/Staffing/StaffingSpriteSheetFlip.png");                         //staffing 
     //Platforms
     AM.queueDownload("./assets/platforms/Volcano Level Set_Platformer - Wooden Barrel.png"); // barrel
     AM.queueDownload("./assets/platforms/DesertPlatforms/tiles/01.png"); // dessert
@@ -138,13 +142,27 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Goul Die.png");
     //Projectiles
     AM.queueDownload("./assets/sprites/Rock2.png"); //Rock
-    AM.queueDownload("./assets/sprites/magic/PNG/comet/csheet.png");//projectile
-    AM.queueDownload("./assets/sprites/magic/PNG/comet/csheetflip.png");//projectile flip
+    AM.queueDownload("./assets/sprites/magic/PNG/comet/csheet.png");//comet
+    AM.queueDownload("./assets/sprites/magic/PNG/comet/csheetflip.png");//comet flip
+    AM.queueDownload("./assets/sprites/magic/PNG/gypno/spiralSpriteSheet.png");//spiral
+    AM.queueDownload("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlip.png");//spiral flip
     AM.queueDownload("./assets/sprites/ArrowFlip.png"); //Arrow for the archer
+     //Demon
+     AM.queueDownload("./assets/sprites/RedDemon/RedDemonIdle.png");
+     AM.queueDownload("./assets/sprites/RedDemon/RedDemonIdleFlip.png");
+     AM.queueDownload("./assets/sprites/RedDemon/RedDemonAttack.png");
+     AM.queueDownload("./assets/sprites/RedDemon/RedDemonAttackFlip.png");
+     AM.queueDownload("./assets/sprites/RedDemon/RedDemonWalk.png");
+     AM.queueDownload("./assets/sprites/RedDemon/RedDemonWalkFlip.png");
+     AM.queueDownload("./assets/sprites/RedDemon/RedDemonHurt.png");
+     AM.queueDownload("./assets/sprites/RedDemon/RedDemonHurtFlip.png");
+     AM.queueDownload("./assets/sprites/RedDemon/RedDemonDie.png");
+     AM.queueDownload("./assets/sprites/RedDemon/RedDemonDieFlip.png");
     //Other
     AM.queueDownload("./assets/platforms/PNG/Collectable/heart.png"); //heart
     AM.queueDownload("./assets/platforms/PNG/Collectable/Treasure Chest.png"); //chest
-
+    AM.queueDownload("./assets/platforms/boxSpriteSheet.png"); //crate (box)
+    AM.queueDownload("./assets/sprites/powerUps/hypno.png"); //crate (box)
 }
 
 

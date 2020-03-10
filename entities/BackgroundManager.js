@@ -17,39 +17,43 @@ function BackgroundManager(AM, game) {
     var RightKeyPressed = "false";
     var LeftKeyPressed = "false";
     var SpacePressed = "false";
+    var AKeyPressed = "false";
+    var DKeyPressed = "false";
 
     this.loadDesert();
 
     document.addEventListener("keydown", function (e) {
         //Running right ArrowRight
         
-        if (e.code === "ArrowRight" && RightKeyPressed === "false"  && LeftKeyPressed === "false" ){
+		if ((e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false") || (e.code === "KeyD" && DKeyPressed === "false" && AKeyPressed === "false")){
             that.defaultNegativeSpeed();
             RightKeyPressed = "true";
+			DKeyPressed = "true";
 
         } 
-         if (e.code === "ArrowLeft" && LeftKeyPressed === "false"  && RightKeyPressed === "false"){
+        if((e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false") || (e.code === "KeyA" && DKeyPressed === "false" && AKeyPressed === "false")){
+
             that.defaultSpeed();
             LeftKeyPressed = "true";
+			AKeyPressed = "true";
 
         }
-		// if (e.code === "Space" && SpacePressed === "false"){
-        //     e.preventDefault();
-        //     SpacePressed === "true";
-        // }
+
     }, false);
 
 
     document.addEventListener("keyup", function (e) {
         //Running right 
-        if (e.code === "ArrowRight" && RightKeyPressed === "true"){
+        if ((e.code === "ArrowRight" && RightKeyPressed === "true") || (e.code === "KeyD" && DKeyPressed === "true")){
             that.stopSpeed();
             RightKeyPressed = "false";
+            DKeyPressed = "false"
 
         }
-         if (e.code === "ArrowLeft" && LeftKeyPressed === "true"){
+        if((e.code === "ArrowLeft" && LeftKeyPressed === "true") || (e.code === "KeyA" && AKeyPressed === "true")){            
             that.stopSpeed();
             LeftKeyPressed = "false";
+            AKeyPressed = "false";
 
         }
 		 if (e.code === "Space"){

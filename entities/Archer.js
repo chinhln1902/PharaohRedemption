@@ -4,9 +4,6 @@ function loadArcherSpriteSheets(AM) {
 	spritesheets['attack'] = AM.getAsset("./assets/sprites/Archer-ShootingFlip.png"); 
 	spritesheets['dying'] = AM.getAsset("./assets/sprites/Archer-DyingFlip.png"); 
 }
-var id = spritesheets['idle'];
-var at = spritesheets['attack'];
-var dy = spritesheets['dying']; 
 
 function Archer(game, AssetManager, startX, startY) {
 	this.AM = AssetManager; 
@@ -28,7 +25,7 @@ function Archer(game, AssetManager, startX, startY) {
 	this.PlayingTempAnimation = false; 
 	var underworld = false; 
 	var that = this; 
-	document.addEventListener("keydown", function (e) {
+	document.addEventListener("keyup", function (e) {
 		if (e.code === "Space"){
 			if (that.live === 0) {
             	that.live = 1;

@@ -64,7 +64,7 @@ Platform.prototype = new Entity();
 Platform.prototype.constructor = Platform;
 
 Platform.prototype.draw = function() {
-
+    if (!this.platformSheet) return;
     if (!this.underworld) {
             if(this.RightKeyPressed === "true")
                 this.ctx.drawImage(this.platformSheet , this.x - this.game.getCamera().getX() - 3, this.y, this.width, this.height);

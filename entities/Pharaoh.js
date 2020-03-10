@@ -21,6 +21,7 @@ function loadSpriteSheets(AM){
     spriteSheets['throwing'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet.png");
     spriteSheets['throwing in the air'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet.png");
     spriteSheets['walking'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet.png"); 
+    spriteSheets['staffing'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Staffing/StaffingSpriteSheet.png");
     //left
     spriteSheets['dying flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Dying/Dying SpriteSheet flip.png");
     spriteSheets['falling down flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Falling Down/Falling Down SpriteSheet flip.png");
@@ -39,6 +40,7 @@ function loadSpriteSheets(AM){
     spriteSheets['throwing flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Throwing/Throwing SpriteSheet flip.png");
     spriteSheets['throwing in the air flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Throwing in The Air/Throwing in The Air SpriteSheet flip.png");
     spriteSheets['walking flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Walking/Walking SpriteSheet flip.png");
+    spriteSheets['staffing flip'] = AM.getAsset("./assets/sprites/Egyptian Mummy/Staffing/StaffingSpriteSheetFlip.png");
     // Sentury
     //right
     spriteSheets['dying1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Dying/Dying SpriteSheet.png");
@@ -58,6 +60,7 @@ function loadSpriteSheets(AM){
     spriteSheets['throwing1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet.png");
     spriteSheets['throwing in the air1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet.png");
     spriteSheets['walking1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet.png"); 
+    spriteSheets['staffing1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Staffing/StaffingSpriteSheet.png"); 
     //left
     spriteSheets['dying flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Dying/Dying SpriteSheet flip.png");
     spriteSheets['falling down flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Falling Down/Falling Down SpriteSheet flip.png");
@@ -76,6 +79,7 @@ function loadSpriteSheets(AM){
     spriteSheets['throwing flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing/Throwing SpriteSheet flip.png");
     spriteSheets['throwing in the air flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Throwing in The Air/Throwing in The Air SpriteSheet flip.png");
     spriteSheets['walking flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Walking/Walking SpriteSheet flip.png");
+    spriteSheets['staffing flip1'] = AM.getAsset("./assets/sprites/Egyptian Sentry/Staffing/StaffingSpriteSheetFlip.png"); 
 }
 
 
@@ -122,6 +126,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.platform = null;
     this.insideSign = false;
     this.underneathPlatform = false;
+    this.powerUp = "none";
 
     this.backgroundManager = new BackgroundManager(assetManager, game);
     this.boundingBox = new BoundingBox(this.x + 65, this.y + 35, this.animation.frameWidth * SCALE - 130, this.animation.frameHeight * SCALE - 65);
@@ -139,6 +144,7 @@ Pharaoh.prototype.update = function () {
     this.time++; 
     controlAnimation(this);
     controlJump(this);
+    controlPowerUps(this);
     this.camera.setX(this.x);                     ///For camera
     this.immune++; 
     Entity.prototype.update.call(this);
@@ -397,6 +403,41 @@ Pharaoh.prototype.throw = function () {
             }
         }
         this.playingTempAnimation = true;
+    }
+}
+
+Pharaoh.prototype.staff = function () {
+    if (this.powerUp !== "hypno") return;
+    if (this.time > 100) {
+        this.time = 0;
+        if (this.underworld){
+            if (this.direction === 'right'){
+                this.animation = new Animation(spriteSheets['staffing1'], 1000, 900, 12, 0.05, 12, false, SCALE);
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheet.png"),
+                        "right", this.x + 10, this.y+10);
+                        comet.startSpeed = 200;
+                this.engine.addEntity(comet);
+            } else {
+                this.animation = new Animation(spriteSheets['staffing flip1'], 1300, 900, 12, 0.05, 12, false, SCALE);
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlip.png"),
+                       "left", this.x - 10, this.y+10);
+                this.engine.addEntity(comet);
+            }
+        } else {
+            if (this.direction === 'right'){
+                this.animation = new Animation(spriteSheets['staffing'], 1000, 900, 12, 0.05, 12, false, SCALE);
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheet.png"),
+                        "right", this.x + 10, this.y+10);
+                this.engine.addEntity(comet);
+            } else {
+                this.animation = new Animation(spriteSheets['staffing flip'], 1300, 900, 12, 0.05, 12, false, SCALE);
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlip.png"),
+                       "left", this.x - 10, this.y+10);
+                this.engine.addEntity(comet);
+            }
+        }
+        this.playingTempAnimation = true;
+        this.powerUp = "none";
     }
 }
 
@@ -840,6 +881,20 @@ function controlJump(pharaoh){
     }
 }
 
+function controlPowerUps(pharaoh){
+   
+    powerUps.forEach(powerUp => {
+        if (Math.abs(pharaoh.x - powerUp.x) + Math.abs(pharaoh.y - (powerUp.y-100)) < 50){
+            if (powerUp.type === "heart") {
+                powerUp.giveHealthTo(pharaoh);
+                console.log(pharaoh.health);
+            } else {
+                powerUp.givePowerTo(pharaoh);
+            }
+        }
+    });
+}
+
 Pharaoh.prototype.getState = function(){
     return this.state;
 }
@@ -883,6 +938,11 @@ Pharaoh.prototype.collideWithProjectile = function(other) {
 }
 
 Pharaoh.prototype.collide = function(other) {
+    if (other.name === "demon") {
+        if ((other.x - 120) < this.x && this.x < (other.x + 120) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
+            return true; 
+        }
+    }
     if ((other.x - 60) < this.x && this.x < (other.x + 60) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
         return true; 
    }
