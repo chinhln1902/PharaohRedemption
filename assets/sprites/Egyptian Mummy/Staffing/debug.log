@@ -3,3 +3,4 @@
 [0307/163818:WARNING:message_in_transit_queue.cc(18)] Destroying nonempty message queue
 [0307/163818:ERROR:renderer_main.cc(207)] Running without renderer sandbox
 [0307/163819:WARNING:message_in_transit_queue.cc(18)] Destroying nonempty message queue
+[0307/233049:WARNING:dns_config_service_win.cc(654)] Failed to read DnsConfig.

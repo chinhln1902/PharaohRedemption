@@ -311,16 +311,19 @@ var testLevel =
 
 PlatformController.prototype.loadPlatformsLevel2 = function () {
     signs.push(new hint(this.engine, platformSheets['question'], 0, 7, false, "Level 2"));
-    crates.push(new Box(this.engine, 21, 5, false));
-    crates.push(new Box(this.engine, 0, 7, false));
-    powerUps.push(new PowerUp(this.engine, "heart", -10, 7, false));
-    powerUps.push(new PowerUp(this.engine, "heart", -11, 7, false));
-    powerUps.push(new PowerUp(this.engine, "heart", -12, 7, false));
-    powerUps.push(new PowerUp(this.engine, "heart", -13, 7, false));
-    powerUps.push(new PowerUp(this.engine, "heart", -14, 7, false));
-    powerUps.push(new PowerUp(this.engine, "hypno", 2, 7, false));
-    powerUps.push(new PowerUp(this.engine, "hypno", 9, 3, false));
-    powerUps.push(new PowerUp(this.engine, "hypno", 21, 4, false));
+    // crates.push(new Box(this.engine, 21, 5, false));
+    // crates.push(new Box(this.engine, 0, 7, false));
+    // powerUps.push(new PowerUp(this.engine, "heart", -10, 7, false));
+    // powerUps.push(new PowerUp(this.engine, "heart", -11, 7, false));
+    // powerUps.push(new PowerUp(this.engine, "heart", -12, 7, false));
+    // powerUps.push(new PowerUp(this.engine, "heart", -13, 7, false));
+    // powerUps.push(new PowerUp(this.engine, "heart", -14, 7, false));
+    // powerUps.push(new PowerUp(this.engine, "hypno", 2, 7, false));
+    // powerUps.push(new PowerUp(this.engine, "hypno", 9, 3, false));
+    // powerUps.push(new PowerUp(this.engine, "hypno", 21, 4, false));
+    decorativePlatforms.push(new Platform(this.engine, platformSheets['silver chest'], 107.1, 3.1, true, true, false));
+    decorativePlatforms.push(new Platform(this.engine, platformSheets['barrel'], 108, 3.1, true, true, false));
+    decorativePlatforms.push(new Platform(this.engine, platformSheets['red flag'], 108.3, 2.2, true, true, false));
     this.loadLevelFrom(Level2Txt);
 }
 
@@ -363,7 +366,7 @@ PlatformController.prototype.loadLevelFrom = function(textFile) {
             } else if(textFile[y][x] === 'A'){
                 new Platform(this.engine, platformSheets['arrow 1'], x,y%9, true, underworld, false);
             } else if(textFile[y][x] === 'E'){
-                crates.push(new Box(this.engine, x,y, underworld));
+                crates.push(new Box(this.engine, x,y%9, underworld));
             }
             
             if (plat && !underworld) {
