@@ -59,7 +59,7 @@ function pharaohController(mainCharacter){
 				that.Pharaoh.slash();
 				crates.forEach(crate =>{
 					//console.log(Math.abs(crate.x - that.Pharaoh.x));
-					if (Math.abs(crate.x - that.Pharaoh.x)<100 && Math.abs(crate.y - that.Pharaoh.y)<100){
+					if (Math.abs(crate.x - that.Pharaoh.x)<140 && Math.abs(crate.y - that.Pharaoh.y)<140){
 						crate.break();
 					}
 					

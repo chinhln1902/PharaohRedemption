@@ -953,7 +953,7 @@ Pharaoh.prototype.swapWorld = function(){
 }
 
 Pharaoh.prototype.collideWithProjectile = function(other) {
-    if ((other.x - 60) < this.x && this.x < (other.x + 60) && (other.y - 40) < this.y && this.y < (other.y + 40)) {
+    if ((other.x - 60) < this.x && this.x < (other.x + 60) && (other.y - 30) < this.y && this.y < (other.y + 30)) {
         return true; 
    }
 }
@@ -964,7 +964,7 @@ Pharaoh.prototype.collide = function(other) {
             return true; 
         }
     }
-    if ((other.x - 60) < this.x && this.x < (other.x + 60) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
+    if ((other.x - 120) < this.x && this.x < (other.x + 120) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
         return true; 
    }
 }

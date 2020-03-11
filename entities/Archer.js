@@ -23,7 +23,7 @@ function Archer(game, AssetManager, startX, startY) {
 	this.name = "archer"; 
 	this.live = 0; 
 	this.PlayingTempAnimation = false; 
-	var underworld = false; 
+	var underworld = true; 
 	var that = this; 
 	document.addEventListener("keydown", function (e) {
         // console.log(e.code);
@@ -49,6 +49,7 @@ Archer.prototype = new Entity();
 Archer.prototype.constructor = Archer;
 
 Archer.prototype.draw = function () {
+	if (this.live === 0) return; 
 	if (!this.underworld) return; 
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
     Entity.prototype.draw.call(this);

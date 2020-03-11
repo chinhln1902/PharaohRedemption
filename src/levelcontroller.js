@@ -41,8 +41,8 @@ levelcontroller.prototype.level2 = function(){
     var mainCharacter = new Pharaoh(gameEngine, AM, camera);
     var characterControl = new pharaohController(mainCharacter);
 
-    // var enemyController = new EnemyController(gameEngine, camera);
-    // enemyController.level1();
+    var enemyController = new EnemyController(gameEngine, camera);
+    enemyController.level2();
 
     var platformController = new PlatformController(gameEngine, AM);
     platformController.loadPlatformsLevel2();
