@@ -35,7 +35,7 @@ function Bat(game, AssetManager, startX, startY) {
     document.addEventListener("keyup", function (e) {
         //console.log(e);
         //Running right 
-        if (e.code === "Space"){
+        if (e.code === "Space" && isSwitchable){
             //console.log("underworld: " + that.underworld);
             e.preventDefault();
             that.swapWorld();

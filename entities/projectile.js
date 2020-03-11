@@ -21,7 +21,7 @@ function Projectile(game, spritesheet, direction, startX, startY) {
     document.addEventListener("keydown", function (e) {
         //console.log(e);
 		//Running right 
-		if (e.code === "Space"){
+		if (e.code === "Space" && isSwitchable){
             //console.log("underworld: " + that.underworld);
             e.preventDefault();
             that.underworld = !that.underworld;

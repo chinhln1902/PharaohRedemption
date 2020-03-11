@@ -24,7 +24,7 @@ function Snake(game, AssetManager, startX, startY) {
     var that = this;
     document.addEventListener("keyup", function (e) {
         //console.log(e);
-        if (e.code === "Space"){
+        if (e.code === "Space" && isSwitchable){
             //console.log("underworld: " + that.underworld);
             e.preventDefault();
             if (that.live === 1) {

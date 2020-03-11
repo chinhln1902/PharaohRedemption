@@ -43,7 +43,7 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
 
     document.addEventListener("keyup", function (e) {
         //Running right 
-        if (e.code === "Space") {
+        if (e.code === "Space" && isSwitchable) {
             e.preventDefault();
             that.underworld = !that.underworld;
         }

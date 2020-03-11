@@ -18,7 +18,7 @@ function Box(game, x, y, underworld) {
     var that = this;
     
     document.addEventListener("keydown", function (e) {
-        if (e.code === "Space")that.underworld = !that.underworld;
+        if (e.code === "Space"  && isSwitchable)that.underworld = !that.underworld;
     }, false); 
     this.platform = new Platform(this.game, null, x, y, true, false, false);
     this.i = platforms.length;

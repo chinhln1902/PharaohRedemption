@@ -22,7 +22,7 @@ function PowerUp(game, type, x, y, underworld) {
     var that = this;
     document.addEventListener("keydown", function (e) {
        // console.log(e.code);
-             if (e.code === "Space")that.underworld = !that.underworld;
+             if (e.code === "Space" && isSwitchable)that.underworld = !that.underworld;
     }, false); 
     this.frame = 0;
     this.randomNo = Math.random()*100;

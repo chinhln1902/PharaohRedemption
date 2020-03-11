@@ -51,7 +51,8 @@ function PlatformController (game, assetManager) {
 PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
-        
+    
+
          // removePlatforms();
         //page 1
         decorativePlatforms.push(new Platform(this.engine, platformSheets['skull'], -50, 7,));
@@ -344,6 +345,7 @@ PlatformController.prototype.loadLevelFrom = function(textFile) {
             } else if(textFile[y][x] === 'B'){
                 plat = new Platform(this.engine, platformSheets['brickTop'], x,y%9, true, underworld, false);
             } else if(textFile[y][x] === 'C'){
+                
                 plat = new Platform(this.engine, platformSheets['brickChisled'], x,y%9, true, underworld, false);
             } else if(textFile[y][x] === 'r'){
                 plat = new Platform(this.engine, platformSheets['stoneMid'], x,y%9, true, underworld, false);

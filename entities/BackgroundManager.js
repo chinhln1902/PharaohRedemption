@@ -56,7 +56,7 @@ function BackgroundManager(AM, game) {
             AKeyPressed = "false";
 
         }
-		 if (e.code === "Space"){
+		 if (e.code === "Space" && isSwitchable){
             e.preventDefault();
             that.removeBackground();
             SpacePressed === "false"

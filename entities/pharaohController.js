@@ -98,7 +98,7 @@ function pharaohController(mainCharacter){
 				UpArrowPressed = "false";
 				WKeyPressed = "false";
 
-			} else if(e.code === "Space"){
+			} else if(e.code === "Space" && isSwitchable){
 				that.Pharaoh.swapWorld();
 
 			}
