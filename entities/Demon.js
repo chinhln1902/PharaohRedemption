@@ -62,7 +62,7 @@ function Demon(game, AssetManager, startX, startY, status) {
 	this.PlayingTempAnimation = false; 
 	var that = this; 
 	document.addEventListener("keyup", function (e) {
-		if (e.code === "Space"){
+		if (e.code === "Space" && isSwitchable){
 			if (that.live === 0) {
             	that.live = 1;
             } else {
