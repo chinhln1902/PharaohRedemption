@@ -5,6 +5,7 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
     this.y = y * SCALE + YOFFSET;
     this.width = SCALE;
     this.height = this.width;
+    this.isSwitchable = true;
     this.platformSheet = sprite;
     this.game = game;
     this.ctx = game.ctx;
@@ -28,10 +29,11 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
     var that = this;
 
     document.addEventListener("keydown", function (e) {
-            // if (e.code === "Space") {
-            //     e.preventDefault();
-            //     that.underworld = !that.underworld;
-            // }
+            if (e.code === "Space" && that.isSwitchable) {
+                e.preventDefault();
+                that.underworld = !that.underworld;
+                that.isSwitchable = false;
+            }
             if (e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false"){
                 RightKeyPressed = "true";
     
@@ -43,9 +45,9 @@ function Platform(game, sprite, x, y, isTopPlatform, underworld, causeDamage) {
 
     document.addEventListener("keyup", function (e) {
         //Running right 
-        if (e.code === "Space" && isSwitchable) {
+        if (e.code === "Space") {
             e.preventDefault();
-            that.underworld = !that.underworld;
+            that.isSwitchable = true;
         }
         if (e.code === "ArrowRight" && RightKeyPressed === "true"){
             RightKeyPressed = "false";

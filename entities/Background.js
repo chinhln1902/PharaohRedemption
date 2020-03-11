@@ -67,11 +67,12 @@ Background.prototype.update = function () {
 
 Background.prototype.switch = function(){
    // this.png = background;
-    this.underworld = !this.underworld;
+   this.underworld = !this.underworld;
     if(this.underworld){
         this.currentPng = this.png2;
     } else {
         this.currentPng = this.png1;
     }
+    
 
 }

@@ -15,11 +15,20 @@ function Box(game, x, y, underworld) {
     this.game.addEntity(this);
     this.underworld = underworld;
     this.U = underworld;
+    this.isSwitchable = true;
     var that = this;
     
     document.addEventListener("keydown", function (e) {
-        if (e.code === "Space"  && isSwitchable)that.underworld = !that.underworld;
+        if (e.code === "Space"  && that.isSwitchable){
+            that.underworld = !that.underworld;
+            that.isSwitchable = false;
+        }
     }, false); 
+    document.addEventListener('keyup', function (e) {
+        if (e.code === "Space"){
+            that.isSwitchable = true;
+        }
+    }, false);
     this.platform = new Platform(this.game, null, x, y, true, false, false);
     this.i = platforms.length;
     if (!this.U){
@@ -41,6 +50,7 @@ Box.prototype.draw = function() {
 }
 
 Box.prototype.break = function() {
+    if (this.broken) return;
     if (this.underworld === true) return;
     this.animation = new Animation(this.spriteSheet, 475, 475, 14, 0.06, 14, false, this.animationScale);
     this.broken = true;
