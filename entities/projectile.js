@@ -19,15 +19,18 @@ function Projectile(game, spritesheet, direction, startX, startY) {
     this.underworld = false;
     var that = this;
     document.addEventListener("keydown", function (e) {
-        //console.log(e);
-		//Running right 
-		if (e.code === "Space" && isSwitchable){
-            //console.log("underworld: " + that.underworld);
-            e.preventDefault();
-            that.underworld = !that.underworld;
-        }
-    });
-    //console.log("projectile");
+        // console.log(e.code);
+         if (e.code === "Space" && isSwitchable && !that.spaceDown){
+             that.underworld = !that.underworld;
+             that.spaceDown = true;
+         }
+     }, false); 
+     document.addEventListener("keyup", function (e) {
+         if (e.code === "Space") {
+             e.preventDefault();
+             that.spaceDown = false;
+         }
+     }, false);
 }
 
 Projectile.prototype = new Entity();

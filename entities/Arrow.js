@@ -19,18 +19,24 @@ function Arrow(game, AssetManager, startX, startY) {
     this.timeAlive = 0; 
 	var underworld = false; 
 	var that = this; 
-	document.addEventListener("keyup", function (e) {
-		if (e.code === "Space" && isSwitchable){
-            //console.log("underworld: " + that.underworld);
-            e.preventDefault();
-            if (that.live === 0) {
-                that.live = 1;
-            } else {
-                that.live = 0; 
-            }
-            that.underworld = !that.underworld;
-        }
-    });
+	document.addEventListener("keydown", function (e) {
+        // console.log(e.code);
+         if (e.code === "Space" && isSwitchable && !that.spaceDown){
+			if (that.live === 1) {
+				that.live = 0;
+			} else {
+				that.live = 1; 
+			}
+             that.underworld = !that.underworld;
+             that.spaceDown = true;
+         }
+     }, false); 
+     document.addEventListener("keyup", function (e) {
+         if (e.code === "Space") {
+             e.preventDefault();
+             that.spaceDown = false;
+         }
+     }, false);
 }
 
 Arrow.prototype = new Entity();

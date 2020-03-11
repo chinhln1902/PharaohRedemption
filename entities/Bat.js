@@ -31,16 +31,19 @@ function Bat(game, AssetManager, startX, startY) {
     this.leftCount = 200;
     var that = this;
 
-
-    document.addEventListener("keyup", function (e) {
-        //console.log(e);
-        //Running right 
-        if (e.code === "Space" && isSwitchable){
-            //console.log("underworld: " + that.underworld);
-            e.preventDefault();
-            that.swapWorld();
-        }
-    });
+    document.addEventListener("keydown", function (e) {
+        // console.log(e.code);
+         if (e.code === "Space" && isSwitchable && !that.spaceDown){
+             that.swapWorld();
+             that.spaceDown = true;
+         }
+     }, false); 
+     document.addEventListener("keyup", function (e) {
+         if (e.code === "Space") {
+             e.preventDefault();
+             that.spaceDown = false;
+         }
+     }, false);
 }
 
 

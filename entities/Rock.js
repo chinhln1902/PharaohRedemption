@@ -16,14 +16,19 @@ function Rock(game, spritesheet, startX, startY) {
     this.timeAlive = 0;
     this.underworld = false;
     var that = this;
-    document.addEventListener("keyup", function (e) {
-		if (e.code === "Space" && isSwitchable){
-            //console.log("Rock before switch underworld: " + that.underworld);
-            e.preventDefault();
-            that.swapWorld();
-        }
-
-    });
+    document.addEventListener("keydown", function (e) {
+        // console.log(e.code);
+         if (e.code === "Space" && isSwitchable && !that.spaceDown){
+             that.swapWorld();
+             that.spaceDown = true;
+         }
+     }, false); 
+     document.addEventListener("keyup", function (e) {
+         if (e.code === "Space") {
+             e.preventDefault();
+             that.spaceDown = false;
+         }
+     }, false);
 }
 
 
