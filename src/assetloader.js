@@ -158,6 +158,17 @@ function loadAssets(){
      AM.queueDownload("./assets/sprites/RedDemon/RedDemonHurtFlip.png");
      AM.queueDownload("./assets/sprites/RedDemon/RedDemonDie.png");
      AM.queueDownload("./assets/sprites/RedDemon/RedDemonDieFlip.png");
+     //PurpleDemon
+     AM.queueDownload("./assets/sprites/PurpleDemon/Idle/IdleSpriteSheet.png");
+     AM.queueDownload("./assets/sprites/PurpleDemon/Idle/IdleSpriteSheetFlip.png");
+     AM.queueDownload("./assets/sprites/PurpleDemon/Attacking/AttackSpriteSheet.png");
+     AM.queueDownload("./assets/sprites/PurpleDemon/Attacking/AttackSpriteSheetFlip.png");
+     AM.queueDownload("./assets/sprites/PurpleDemon/Dying/DyingSpriteSheet.png");
+     AM.queueDownload("./assets/sprites/PurpleDemon/Dying/DyingSpriteSheetFlip.png");
+     AM.queueDownload("./assets/sprites/PurpleDemon/Walking/WalkingSpriteSheet.png");
+     AM.queueDownload("./assets/sprites/PurpleDemon/Walking/WalkingSpriteSheetFlip.png");
+
+
     //Other
     AM.queueDownload("./assets/platforms/PNG/Collectable/heart.png"); //heart
     AM.queueDownload("./assets/platforms/PNG/Collectable/Treasure Chest.png"); //chest
