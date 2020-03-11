@@ -108,6 +108,7 @@ showSett = function(){
 hideLvls = function() {
     var buttons = document.querySelectorAll(".levels");
     buttons.forEach(button => {
+        buttons.disabled = true; 
         button.style.display = "none";
     })
 }

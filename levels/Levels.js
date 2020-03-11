@@ -60,9 +60,9 @@ var Level2Txt = [
     "                    _       C                                                                                                             ",
     "                    C      C                                                  r   r   r                                                   ",
     "       RRRR               C                                                                                                               ",
-    "           R     RRRR    C         R                              R R                                                                     ",
-    "           r        r   C          r                         R      r                   RRRRRRRRR                                         ",
-    "            R       r  C           r                         r    EEr             R     r   E   r  R                                      ",
+    "           R     RRRR    C         R                                R                                                                     ",
+    "           r        r   C          r                         R     Er                   RRRRRRRRR                                         ",
+    "            R       r  C           r                         r    REr             R     r   E   r  R                                      ",
     "            r       r              r          ___       ___  r    rrr             r     r   E   r  r                                      "
 ]
 
