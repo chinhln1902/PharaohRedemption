@@ -5,7 +5,7 @@ var underworldBackground = [];
 //Class to load all background and control world switching
 function BackgroundManager(AM, game) {
 
-    
+    var that = this;
     this.AM= AM;
     this.game = game;
     this.ctx = game.ctx;
@@ -19,11 +19,8 @@ function BackgroundManager(AM, game) {
     var SpacePressed = "false";
     var AKeyPressed = "false";
     var DKeyPressed = "false";
-    this.isSwitchable = true;
-    
+
     this.loadDesert();
-    var that = this;
-    //this.removeBackground();
 
     document.addEventListener("keydown", function (e) {
         //Running right ArrowRight
@@ -40,12 +37,6 @@ function BackgroundManager(AM, game) {
             LeftKeyPressed = "true";
 			AKeyPressed = "true";
 
-        }
-        if (e.code === "Space" && that.isSwitchable){
-            e.preventDefault();
-            that.removeBackground();
-            that.isSwitchable = false;
-            
         }
 
     }, false);
@@ -65,9 +56,10 @@ function BackgroundManager(AM, game) {
             AKeyPressed = "false";
 
         }
-		if (e.code === "Space"){
+		 if (e.code === "Space" && isSwitchable){
             e.preventDefault();
-            that.isSwitchable = true;
+            that.removeBackground();
+            SpacePressed === "false"
             
         }
     }, false);

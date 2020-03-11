@@ -9,15 +9,12 @@ function pharaohController(mainCharacter){
 	var inAir = 0;
 	var music = document.getElementById('player');
 	var playingMusic = false;
-	var isSwitchable = true;
+
 	this.Pharaoh = mainCharacter;
 
 	// Listens for key press events
 	document.addEventListener("keydown", function (e) {
-		if(e.code === "Space" && isSwitchable){
-			that.Pharaoh.swapWorld();
-			isSwitchable = false;
-		}
+
 		if (e.code == "KeyM") {
 			if (!playingMusic) music.play();
 			if (playingMusic) music.pause();
@@ -101,8 +98,8 @@ function pharaohController(mainCharacter){
 				UpArrowPressed = "false";
 				WKeyPressed = "false";
 
-			} else if(e.code === "Space"){
-				isSwitchable = false;
+			} else if(e.code === "Space" && isSwitchable){
+				that.Pharaoh.swapWorld();
 
 			}
 
