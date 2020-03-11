@@ -38,6 +38,12 @@ function BackgroundManager(AM, game) {
 			AKeyPressed = "true";
 
         }
+        if (e.code === "Space" && isSwitchable && !this.spaceDown){
+            e.preventDefault();
+            that.removeBackground();
+            SpacePressed === "false"
+            this.spaceDown = true;
+        }
 
     }, false);
 
@@ -56,10 +62,8 @@ function BackgroundManager(AM, game) {
             AKeyPressed = "false";
 
         }
-		 if (e.code === "Space" && isSwitchable){
-            e.preventDefault();
-            that.removeBackground();
-            SpacePressed === "false"
+		 if (e.code === "Space"){
+            this.spaceDown = false;
             
         }
     }, false);

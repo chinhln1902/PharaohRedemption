@@ -71,6 +71,9 @@ function pharaohController(mainCharacter){
 			//Projectile 
 			} else if(e.code === "KeyQ"){
 				that.Pharaoh.throw();
+			} else if(e.code === "Space" && isSwitchable && !that.spaceDown){
+				that.Pharaoh.swapWorld();
+				that.spaceDown = true;
 			}
 
 	}, false);
@@ -98,9 +101,10 @@ function pharaohController(mainCharacter){
 				UpArrowPressed = "false";
 				WKeyPressed = "false";
 
-			} else if(e.code === "Space" && isSwitchable){
-				that.Pharaoh.swapWorld();
-
+			} 
+			if (e.code === "Space") {
+				e.preventDefault();
+				that.spaceDown = false;
 			}
 
 	}, false);

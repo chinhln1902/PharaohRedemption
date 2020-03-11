@@ -18,8 +18,18 @@ function Box(game, x, y, underworld) {
     var that = this;
     
     document.addEventListener("keydown", function (e) {
-        if (e.code === "Space"  && isSwitchable)that.underworld = !that.underworld;
-    }, false); 
+        // console.log(e.code);
+         if (e.code === "Space" && isSwitchable && !that.spaceDown){
+             that.underworld = !that.underworld;
+             that.spaceDown = true;
+         }
+     }, false); 
+     document.addEventListener("keyup", function (e) {
+         if (e.code === "Space") {
+             e.preventDefault();
+             that.spaceDown = false;
+         }
+     }, false);
     this.platform = new Platform(this.game, null, x, y, true, false, false);
     this.i = platforms.length;
     if (!this.U){
