@@ -38,7 +38,7 @@ function Demon(game, AssetManager, startX, startY, status) {
 		this.underworld = true; 
 	}
 	this.ctx = game.ctx; 
-	//this.idle(); 
+	this.idle(); 
 	this.state = "idle"; 
 	this.x = startX;
 	this.type = "enemy"; 
@@ -52,6 +52,7 @@ function Demon(game, AssetManager, startX, startY, status) {
 	this.Right = true; 
 	this.walking = false; 
 	this.walkingright = false;
+	this.attacker = 0; 
 	this.health = 3; 
 	this.immune = false;
 	this.play = 0; 
@@ -99,23 +100,51 @@ Demon.prototype.update = function () {
     var mainX = this.game.getMainCharacter().getX(); 
     if (this.walking) this.x -= 2; 
     if (this.walkingright) this.x += 2; 
-    if (mainX >= this.x - 300 && mainX <= this.x - 150 && this.play === 0) {
+    if (mainX >= this.x - 120 && mainX <= this.x && this.attacker === 0) {
+    	this.attack();
+    	this.attacker = 1;
+    	this.play = 0; 
+    	this.walkingright = false;
+    	this.walking = false;
+    	this.idleplay = 0; 
+    }
+    if (mainX <= this.x + 240 && mainX >= this.x && this.attacker === 0) {
+    	this.attackright();
+    	this.attacker = 1;
+    	this.play = 0; 
+    	this.walkingright = false;
+    	this.walking = false;
+    	this.idleplay = 0; 
+    }
+    if (mainX >= this.x - 400 && mainX <= this.x - 120 && this.play === 0) {
     	this.walk(); 
     	this.idleplay = 0;
     	this.walkingright = false; 
     	this.play = 1; 
+    	this.attacker = 0;
     } 
-    if (mainX >= this.x + 150 && mainX <= this.x + 300 && this.play === 1) {
+    if (mainX >= this.x + 240 && mainX <= this.x + 620 && this.play === 1) {
     	this.walkright();
     	this.idleplay = 0; 
     	this.walking = false; 
     	this.play = 0; 
+    	this.attacker = 0;
     }
-    if ((mainX < this.x - 300 && this.idleplay === 0) || (mainX > this.x + 300 && this.idleplay === 0)) {
+    if (mainX < this.x - 401 && this.idleplay === 0) {
     	this.idleplay = 1; 
     	this.walking = false;
     	this.walkingright = false; 
+    	this.play = 0; 
+    	this.attacker = 0; 
     	this.idle(); 
+    }
+    if (mainX > this.x + 621 && this.idleplay === 0) {
+    	this.idleplay = 1;
+    	this.walking = false;
+    	this.walkingright = false;
+    	this.play = 1; 
+    	this.attacker = 0; 
+    	this.idleright(); 
     }
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];
@@ -151,14 +180,18 @@ Demon.prototype.hurtright = function() {
 
 Demon.prototype.attack = function() {
 	if (this.status === 0) {
-		this.animation = new Animation(demonspritesheets['attackflip'], 720, 485, 12, .05, 12, false, .5); 
+		this.animation = new Animation(demonspritesheets['attackflip'], 720, 485, 12, .05, 12, true, .5); 
 	} else {
-		this.animation = new Animation(underspritesheets['attackflip'], 720, 485, 12, .05, 12, false, .5); 
+		this.animation = new Animation(underspritesheets['attackflip'], 720, 485, 12, .05, 12, true, .5); 
 	}
 }
 
 Demon.prototype.attackright = function() {
-	this.animation = new Animation(demonspritesheets['attack'], 722, 480, 12, .05, 12, false, .5);
+	if (this.status === 0) {
+		this.animation = new Animation(demonspritesheets['attack'], 722, 480, 12, .05, 12, true, .5);
+	} else {
+		this.animation = new Animation(underspritesheets['attack'], 722, 480, 12, .05, 12, true, .5); 
+	}
 }
 
 Demon.prototype.walk = function() {
@@ -172,8 +205,13 @@ Demon.prototype.walk = function() {
 }
 
 Demon.prototype.walkright = function() {
-	this.animation = new Animation(demonspritesheets['walk'], 720, 500, 18, .05, 18, true, .5); 
-	this.walkingright = true; 
+	if (this.status === 0) {
+		this.animation = new Animation(demonspritesheets['walk'], 720, 500, 18, .05, 18, true, .5); 
+		this.walkingright = true; 
+	} else {
+		this.animation = new Animation(underspritesheets['walk'], 720, 500, 18, .05, 18, true, .5); 
+		this.walkingright = true; 
+	}
 }
 
 Demon.prototype.die = function() {
@@ -190,8 +228,7 @@ Demon.prototype.dieright = function() {
 	this.animation = new Animation(demonspritesheets['dying'], 722, 480, 15, .05, 15, false, .5); 
 }
 
-Demon.prototype.idle = function() {
-	//if (this.play === 0) return;  
+Demon.prototype.idle = function() { 
 	if (this.status === 0) {
 		this.animation = new Animation(demonspritesheets['idleflip'], 720, 450, 12, .08, 12, true, .5); 
 	} else {
@@ -200,7 +237,11 @@ Demon.prototype.idle = function() {
 }
 
 Demon.prototype.idleright = function() {
-	this.animation = new Animation(demonspritesheets['idle'], 720, 450, 12, .08, 12, true, .5); 
+	if (this.status === 0) {
+		this.animation = new Animation(demonspritesheets['idle'], 720, 450, 12, .08, 12, true, .5);
+	} else {
+		this.animation = new Animation(underspritesheets['idle'], 720, 450, 12, .08, 12, true, .5); 
+	}
 }
 
 function ControlAnimation(demon) {
