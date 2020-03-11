@@ -953,7 +953,7 @@ Pharaoh.prototype.swapWorld = function(){
 }
 
 Pharaoh.prototype.collideWithProjectile = function(other) {
-    if ((other.x - 60) < this.x && this.x < (other.x + 60) && (other.y - 30) < this.y && this.y < (other.y + 30)) {
+    if ((other.x - 70) < this.x && this.x < (other.x + 70) && (other.y - 30) < this.y && this.y < (other.y + 30)) {
         return true; 
    }
 }

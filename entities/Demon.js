@@ -154,7 +154,7 @@ Demon.prototype.update = function () {
     }
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];
-    	if (ent.name === 'comet') {
+    	if (ent.name === 'comet' || (ent.name === 'pharaoh' && ent.attacking)) {
     		if (this.collide(ent) && !this.immune) {
     			if (this.health === 1) {
     				this.die(); 
