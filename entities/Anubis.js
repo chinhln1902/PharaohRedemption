@@ -21,8 +21,6 @@ function loadanubisspritesheets(AM) {
     anubisspritesheets['jump cycle left'] = AM.getAsset("./assets/sprites/Anubis/Jump Cycle Left.png"); 
     anubisspritesheets['jump cycle right'] = AM.getAsset("./assets/sprites/Anubis/Jump Cycle Right.png"); 
 
-    // anubisspritesheets['lightning2'] = AM.getAsset("./assets/sprites/Anubis/Lightning2.png"); 
-
 }
 
 //inheritence
@@ -55,8 +53,12 @@ function Anubis(pharaoh, game, AssetManager, startX, startY) {
     this.flag = false;
     this.isJumping = false;
 
+    this.boundingBox = new BoundingBox(this.x + 65, this.y + 35, this.animation.frameWidth * SCALE - 130, this.animation.frameHeight * SCALE - 65);
+
     this.hud = new Hearts(AM.getAsset("./assets/platforms/PNG/Collectable/heart black.png"), this.game, 960, 25);
     this.game.addEntity(this.hud);
+
+
 
 }
 
@@ -78,9 +80,6 @@ Anubis.prototype.update = function () {
     if (this.dead) this.aftermath++;
     if (this.aftermath > 30) this.removeFromWorld = true; 
     Entity.prototype.update.call(this);
-
-    // if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
-    //     this.x += this.game.clockTick * this.speed;
 
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
@@ -264,11 +263,11 @@ Anubis.prototype.setToDefault = function() {
 
 Anubis.prototype.run = function() {
     if (this.direction === "right"){
-        this.speed = 300;
+        this.speed = 280;
         this.animation = new Animation(anubisspritesheets['run right'], 900, 900, 12, 0.05, 12, true, .28); 
 
     } else {
-        this.speed = -300;
+        this.speed = -280;
         this.animation = new Animation(anubisspritesheets['run left'], 900, 900, 12, 0.06, 12, true, .28); 
     }
     this.state = "running";
@@ -286,7 +285,22 @@ Anubis.prototype.controlJump = function() {
             this.yVelocity = 0; 
             this.isJumping = false;
         }
-    }    
+    }   
+    
+    // var lastLeft = pharaoh.boundingBox.left;
+    // var lastRight = pharaoh.boundingBox.right;
+
+    // for (var i = 0; i < platforms.length; i++) {
+    //     var pf = platforms[i];
+
+    //     if (this.boundingBox.collide(pf.boundingBox)) {
+    //         if (this.direction === "right") {
+    //             this.speed = 0;
+    //         }
+    //     }  else if (this.direction === "left") {
+    //         this.speed = 0;
+    //     }
+    // }
 }
 
 Anubis.prototype.jump = function() {
@@ -354,7 +368,7 @@ Anubis.prototype.strike = function() {
     }
     pharaohX = this.pharaoh.getX();
     console.log(pharaohX);
-    this.game.addEntity(new Thunder(this.game, pharaohX - 50,  this.pharaoh.getY() - 33));
+    this.game.addEntity(new Thunder(this.game, pharaohX,  this.pharaoh.getY() - 20));
     this.speed = 0;
     this.state === "strike";
     //this.game.addEntity(new Thunder(this.game, AM.getAsset("./assets/sprites/Anubis/Lightning2.png"), this.x + 300, this.y + 75));
@@ -364,11 +378,11 @@ Anubis.prototype.strike = function() {
 Anubis.prototype.slide = function () {
     if (this.direction === "right"){
         this.animation = new Animation(anubisspritesheets['slide right'], 900, 900, 6, 0.05, 6, true, .28);
-        this.speed = 350;
+        this.speed = 280;
 
     } else {
         this.animation = new Animation(anubisspritesheets['slide left'], 900, 900, 6, 0.05, 6, true, .28); 
-        this.speed = -350;
+        this.speed = -280;
 
     }
 

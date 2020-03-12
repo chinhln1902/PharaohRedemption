@@ -129,7 +129,12 @@ function Pharaoh(game, assetManager, theCamera) {
     this.underneathPlatform = false;
     this.powerUp = "none";
     this.switchable = true;
+    this.level4 = false;
+
     this.backgroundManager = new BackgroundManager(assetManager, game);
+
+    
+
     this.boundingBox = new BoundingBox(this.x + 65, this.y + 35, this.animation.frameWidth * SCALE - 130, this.animation.frameHeight * SCALE - 65);
     
     this.hud = new Hearts(AM.getAsset("./assets/platforms/PNG/Collectable/heart.png"), this.engine, 25, 25);

@@ -86,9 +86,8 @@ levelcontroller.prototype.level4 = function(){
     gameEngine.start();
 
     var camera = new Camera(gameEngine);      
-    var mainCharacter = new Pharaoh(gameEngine, AM, camera);
+    var mainCharacter = new Pharaoh(gameEngine, AM, camera); 
     var characterControl = new pharaohController(mainCharacter);
-    mainCharacter.setX(530);
     var anubis = new Anubis(mainCharacter, gameEngine, AM, 10*70, 6.15*70);
 
     var platformController = new PlatformController(gameEngine, AM);
@@ -96,6 +95,7 @@ levelcontroller.prototype.level4 = function(){
 
     gameEngine.addEntityMainCharacter(mainCharacter);
     gameEngine.addEntity(anubis);
-   // camera.level4 = true;
+    camera.level4 = true;
+    mainCharacter.backgroundManager.level4 = true;
     gameEngine.addEntityCamera(camera);
 }
