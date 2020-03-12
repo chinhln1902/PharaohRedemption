@@ -322,7 +322,7 @@ PlatformController.prototype.loadPlatformsLevel2 = function () {
     signs.push(new hint(this.engine, platformSheets['question'], 62, 7, false, "Think this through really carefully before breaking any crates"));
     signs.push(new hint(this.engine, platformSheets['question'], 65, 7, false, "Remember, just because you can, doesnt mean you should."));
     signs.push(new hint(this.engine, platformSheets['question'], 85, 7, false, "Collect hearts to replenish your health"));
-    decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 2'], 75, 3,));
+    decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 2'], 77, 3,));
     powerUps.push(new PowerUp(this.engine, "heart", 90, 7, false));
     powerUps.push(new PowerUp(this.engine, "heart", 94, 7, true));
     // powerUps.push(new PowerUp(this.engine, "hypno", 21, 4, false));
@@ -330,6 +330,24 @@ PlatformController.prototype.loadPlatformsLevel2 = function () {
     decorativePlatforms.push(new Platform(this.engine, platformSheets['barrel'], 108, 3.1, true, true, false));
     decorativePlatforms.push(new Platform(this.engine, platformSheets['red flag'], 108.3, 2.2, true, true, false));
     this.loadLevelFrom(Level2Txt);
+}
+
+PlatformController.prototype.loadPlatformsLevel3 = function () {
+    signs.push(new hint(this.engine, platformSheets['question'], -3, 7, false, "Level 3"));
+    signs.push(new hint(this.engine, platformSheets['question'], 5, 7, false, "That powerUp gives you the ability to freeze your enemies"));
+    signs.push(new hint(this.engine, platformSheets['question'], 6, 7, false, "however, you can only use it once, press f to use"));
+    signs.push(new hint(this.engine, platformSheets['question'], 13, 7, false, "Sometimes you can find powerups in crates!"));
+    signs.push(new hint(this.engine, platformSheets['question'], 28, 7, false, "How do you get up there? Switch worlds while jumping"));
+    signs.push(new hint(this.engine, platformSheets['question'], 50, 4, false, "this requires a perfectly timed jump"));
+    powerUps.push(new PowerUp(this.engine, "hypno", 4, 1, false));
+    powerUps.push(new PowerUp(this.engine, "hypno", 14, 7, false));
+    powerUps.push(new PowerUp(this.engine, "hypno", 47, 4, false));
+    powerUps.push(new PowerUp(this.engine, "hypno", 68, 7, true));
+    powerUps.push(new PowerUp(this.engine, "hypno", 98, 7, false));
+    decorativePlatforms.push(new Platform(this.engine, platformSheets['silver chest'], 107.1, 3.1, true, true, false));
+    decorativePlatforms.push(new Platform(this.engine, platformSheets['barrel'], 108, 3.1, true, true, false));
+    decorativePlatforms.push(new Platform(this.engine, platformSheets['red flag'], 108.3, 2.2, true, true, false));
+    this.loadLevelFrom(Level3Txt);
 }
 
 PlatformController.prototype.loadPlatformsLevel4 = function () {

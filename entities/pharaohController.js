@@ -88,12 +88,18 @@ function pharaohController(mainCharacter){
 				
 				RightKeyPressed = "false";
 				DKeyPressed = "false"
+				if (RightKeyPressed === "false" && LeftKeyPressed === "false"){
+					that.Pharaoh.idle();
+				}
 
 			}	if((e.code === "ArrowLeft" && LeftKeyPressed === "true") || (e.code === "KeyA" && AKeyPressed === "true")){
 				//console.log("Left key up");
 				
 				LeftKeyPressed = "false";
 				AKeyPressed = "false";
+				if (RightKeyPressed === "false" && LeftKeyPressed === "false"){
+					that.Pharaoh.idle();
+				}
 
 
 			}   else if((e.code === "ArrowUp" && UpArrowPressed === "true") || (e.code === "KeyW" && WKeyPressed === "true")){
@@ -107,9 +113,7 @@ function pharaohController(mainCharacter){
 				that.spaceDown = false;
 			}
 
-			if (RightKeyPressed === "false" && LeftKeyPressed === "false"){
-				that.Pharaoh.idle();
-			}
+			
 			
 
 	}, false);
