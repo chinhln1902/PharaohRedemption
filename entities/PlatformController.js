@@ -52,7 +52,6 @@ PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
     
-
          // removePlatforms();
         //page 1
         decorativePlatforms.push(new Platform(this.engine, platformSheets['skull'], -50, 7,));
@@ -71,20 +70,15 @@ PlatformController.prototype.loadPlatformsLevel1 = function () {
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 19, 5, true, false, false));
         signs.push(new hint(this.engine, platformSheets['question'], 21, 7, false, "try pushing space"));
 
-
-        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 2, 5, false, false, false));
-        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 1, 5, false, false, false));
-
-        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 22, 5, false, false, false));
-        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 24, 5, false, false, false));
-
-
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 7, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 6, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 5, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 4, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandMid'], 23, 3, false, false, false));
         platforms.push(new Platform(this.engine, platformSheets['sandTop'], 23, 2, true, false, false));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 22, 5, true, false, false));
+        platforms.push(new Platform(this.engine, platformSheets['sandMid'], 24, 5, true, false, false));
+
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],8, 7, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],9, 7, true, true, false));
         underworldPlatforms.push(new Platform(this.engine, platformSheets['stoneTop'],10, 7, true, true, false));

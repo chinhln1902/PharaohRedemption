@@ -200,7 +200,7 @@ Pharaoh.prototype.update = function () {
 Pharaoh.prototype.draw = function () {
     //if (this.underworld) return;
     //console.log(this.animation);
-    this.ctx.strokeRect(this.boundingBox.x - this.camera.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
+    // this.ctx.strokeRect(this.boundingBox.x - this.camera.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.camera.x, this.y);                    //important for camera to work
     // this.ctx.strokeRect(this.x, this.y, 10, 10);
     Entity.prototype.draw.call(this);
@@ -644,11 +644,12 @@ function controlJump(pharaoh){
                     pharaoh.groundLevel = pharaoh.y;
                     pharaoh.setToDefault();
                     break;
-                } 
+                }                 
                 else if (lastRight < pf.boundingBox.left || lastLeft > pf.boundingBox.right) {
                     
                     if (pharaoh.boundingBox.collide(pf.boundingBox)) {
                         if (pharaoh.direction === "right") {
+                            debugger;
                             pharaoh.lastSpeed = pharaoh.speed;
                             pharaoh.speed = 0;
                             pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
@@ -665,7 +666,8 @@ function controlJump(pharaoh){
                             pharaoh.setToDefault();
                             break;
                         }
-                    }  else {
+                    }  
+                    else {
                         if (RightKeyPressed === "false" && LeftKeyPressed === "false") {
                             pharaoh.speed = 0;
                             pharaoh.lastSpeed = 0;
@@ -680,11 +682,10 @@ function controlJump(pharaoh){
                         }
                     }
                 } 
-                else if (pharaoh.boundingBox.right > pf.boundingBox.left || pharaoh.boundingBox.left < pf.boundingBox.right) {
+                else if (lastRight > pf.boundingBox.left || lastLeft < pf.boundingBox.right) {
                     if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.boundingBox.top < pf.boundingBox.bottom) {
-                        debugger;
+                        pharaoh.y = pf.boundingBox.bottom - 10;
                         pharaoh.yVelocity = 0;
-                        // pharaoh.speed = 0;
                         pharaoh.isJumping = true;
                         pharaoh.underneathPlatform = true;
                         break;
@@ -764,6 +765,7 @@ function controlJump(pharaoh){
                 } 
                 else if (pharaoh.boundingBox.right > pf.boundingBox.left || pharaoh.boundingBox.left < pf.boundingBox.right) {
                     if (pharaoh.boundingBox.collide(pf.boundingBox) && pharaoh.boundingBox.top < pf.boundingBox.bottom) {
+                        pharaoh.y = pf.boundingBox.bottom - 10;
                         pharaoh.yVelocity = 0;
                         pharaoh.isJumping = true;
                         pharaoh.underneathPlatform = true;
