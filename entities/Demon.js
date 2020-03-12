@@ -44,6 +44,7 @@ function Demon(game, AssetManager, startX, startY, status) {
 	this.type = "enemy"; 
 	this.y = startY;
 	this.speed = 0; 
+	this.originalx = startX; 
 	this.game = game;  
 	this.dead = false; 
 	this.aftermath = 0; 
@@ -103,7 +104,9 @@ Demon.prototype.update = function () {
     this.x += this.game.clockTick * this.speed;
     ControlAnimation(this); 
     Entity.prototype.update.call(this);
-    var mainX = this.game.getMainCharacter().getX(); 
+    var mainX = this.game.getMainCharacter().getX();
+    if (this.x <= this.originalx - 500) this.walking = false;  
+    if (this.x > this.originalx + 10) this.walkingright = false; 
     if (this.walking) this.x -= 2; 
     if (this.walkingright) this.x += 2; 
     if (mainX >= this.x - 120 && mainX <= this.x && this.attacker === 0) {
