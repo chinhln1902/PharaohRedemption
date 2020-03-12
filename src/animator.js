@@ -22,7 +22,7 @@ Animation.prototype.drawFrame = function (tick, ctx, x, y) {
     xindex = frame % this.sheetWidth;
     yindex = Math.floor(frame / this.sheetWidth);
 
-    if (this.frameWidth === 1300){
+    if (this.frameWidth === 260){
         x = x - 60;
     }
     ctx.drawImage(this.spriteSheet,

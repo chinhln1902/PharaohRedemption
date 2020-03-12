@@ -66,6 +66,26 @@ var Level2Txt = [
     "            r       r              r          ___       ___  r    RRr             r     r   E   r  r______                                "
 ]
 
+var Level3Txt = [
+  "                                                                                                                            ",
+  "                                                                                                                            ",
+  "    C                                                                                                                       ",
+  "                                                                                                                            ",
+  "                                                                                                                            ",
+  "       S                                                                                                                    ",
+  "       s                                                                                                                    ",
+  "       s                                                                                                                    ",
+  "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+  "                                                                                                                            ",
+  "                                                                                                                            ",
+  "    C                                                                                                                       ",
+  "    b                                                                                                                       ",
+  "   b                                                                                                                        ",
+  "   b   R                                                                                                                    ",
+  "  b    r                                                                                                                    ",
+  "  b    r                                                                                                                    "
+]
+
 var Level4Txt = [
   "                ", // Overworld
   "                ",

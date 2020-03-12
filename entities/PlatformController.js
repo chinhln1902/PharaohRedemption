@@ -329,6 +329,12 @@ PlatformController.prototype.loadPlatformsLevel2 = function () {
     this.loadLevelFrom(Level2Txt);
 }
 
+PlatformController.prototype.loadPlatformsLevel3 = function () {
+    signs.push(new hint(this.engine, platformSheets['question'], -3, 7, false, "Level 3"));
+    powerUps.push(new PowerUp(this.engine, "hypno", 4, 1, false));
+    this.loadLevelFrom(Level3Txt);
+}
+
 PlatformController.prototype.loadPlatformsLevel4 = function () {
     //Why doesn't this show up?
      //decorativePlatforms.push(new Platform(this.engine, AM.getAsset("./assets/sprites/pplatforms/Skull.png"), 100, 3.1, true, true, true));

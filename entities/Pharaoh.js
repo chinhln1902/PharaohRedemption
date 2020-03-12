@@ -415,25 +415,25 @@ Pharaoh.prototype.staff = function () {
         this.time = 0;
         if (this.underworld){
             if (this.direction === 'right'){
-                this.animation = new Animation(spriteSheets['staffing1'], 1000, 180, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['staffing1'], 200, 180, 12, 0.05, 12, false, SCALE);
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheet.png"),
                         "right", this.x + 10, this.y+10);
                         comet.startSpeed = 200;
                 this.engine.addEntity(comet);
             } else {
-                this.animation = new Animation(spriteSheets['staffing flip1'], 1300, 180, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['staffing flip1'], 260, 180, 12, 0.05, 12, false, SCALE);
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlip.png"),
                        "left", this.x - 10, this.y+10);
                 this.engine.addEntity(comet);
             }
         } else {
             if (this.direction === 'right'){
-                this.animation = new Animation(spriteSheets['staffing'], 1000, 180, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['staffing'], 200, 180, 12, 0.05, 12, false, SCALE);
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheet.png"),
                         "right", this.x + 10, this.y+10);
                 this.engine.addEntity(comet);
             } else {
-                this.animation = new Animation(spriteSheets['staffing flip'], 1300, 180, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['staffing flip'], 260, 180, 12, 0.05, 12, false, SCALE);
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlip.png"),
                        "left", this.x - 10, this.y+10);
                 this.engine.addEntity(comet);
