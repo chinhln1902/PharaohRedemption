@@ -105,7 +105,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.direction = 'right';
     this.x = 350;
     this.attacking = false;  
-    this.immune = 45; 
+    this.immune = 55; 
     //jump variables
     this.height = 200;
     this.dead = false; 

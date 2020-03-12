@@ -114,13 +114,13 @@ Demon.prototype.update = function () {
     	this.walking = false;
     	this.idleplay = 0; 
     }
-    if (mainX <= this.x + 240 && mainX >= this.x && this.attacker === 0) {
+    if (mainX <= this.x + 160 && mainX >= this.x && this.attacker === 1) {
     	this.attackright();
-    	this.attacker = 1;
-    	this.play = 0; 
+    	this.attacker = 0;
+    	this.play = 1; 
     	this.walkingright = false;
     	this.walking = false;
-    	this.idleplay = 0; 
+    	this.idleplay = 1; 
     }
     if (mainX >= this.x - 400 && mainX <= this.x - 120 && this.play === 0) {
     	this.walk(); 
@@ -129,12 +129,12 @@ Demon.prototype.update = function () {
     	this.play = 1; 
     	this.attacker = 0;
     } 
-    if (mainX >= this.x + 240 && mainX <= this.x + 620 && this.play === 1) {
+    if (mainX >= this.x + 160 && mainX <= this.x + 620 && this.play === 1) {
     	this.walkright();
-    	this.idleplay = 0; 
+    	this.idleplay = 1; 
     	this.walking = false; 
     	this.play = 0; 
-    	this.attacker = 0;
+    	this.attacker = 1;
     }
     if (mainX < this.x - 401 && this.idleplay === 0) {
     	this.idleplay = 1; 
@@ -144,12 +144,12 @@ Demon.prototype.update = function () {
     	this.attacker = 0; 
     	this.idle(); 
     }
-    if (mainX > this.x + 621 && this.idleplay === 0) {
-    	this.idleplay = 1;
+    if (mainX > this.x + 621 && this.idleplay === 1) {
+    	this.idleplay = 0;
     	this.walking = false;
     	this.walkingright = false;
     	this.play = 1; 
-    	this.attacker = 0; 
+    	this.attacker = 1; 
     	this.idleright(); 
     }
     for (var i = 0; i < this.game.entities.length; i++) {
