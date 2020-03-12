@@ -7,7 +7,6 @@ function Thunder(game, myX, myY) {
     this.animation = new Animation(AM.getAsset("./assets/sprites/Anubis/Lightning2.png"), 590, 602, 5, .05, 5, false, .3);
     this.x = myX;
     this.y = myY;
-    debugger;
     this.game = game;
     this.type = "projectile"; 
     this.name = "Thunder"; 

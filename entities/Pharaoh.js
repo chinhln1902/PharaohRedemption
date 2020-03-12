@@ -649,7 +649,6 @@ function controlJump(pharaoh){
                     
                     if (pharaoh.boundingBox.collide(pf.boundingBox)) {
                         if (pharaoh.direction === "right") {
-                            debugger;
                             pharaoh.lastSpeed = pharaoh.speed;
                             pharaoh.speed = 0;
                             pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
