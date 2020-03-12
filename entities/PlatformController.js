@@ -319,7 +319,7 @@ PlatformController.prototype.loadPlatformsLevel2 = function () {
     signs.push(new hint(this.engine, platformSheets['question'], 62, 7, false, "Think this through really carefully before breaking any crates"));
     signs.push(new hint(this.engine, platformSheets['question'], 65, 7, false, "Remember, just because you can, doesnt mean you should."));
     signs.push(new hint(this.engine, platformSheets['question'], 85, 7, false, "Collect hearts to replenish your health"));
-    decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 2'], 75, 3,));
+    decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 2'], 77, 3,));
     powerUps.push(new PowerUp(this.engine, "heart", 90, 7, false));
     powerUps.push(new PowerUp(this.engine, "heart", 94, 7, true));
     // powerUps.push(new PowerUp(this.engine, "hypno", 21, 4, false));
