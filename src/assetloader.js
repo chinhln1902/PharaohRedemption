@@ -171,9 +171,34 @@ function loadAssets(){
 
     //Other
     AM.queueDownload("./assets/platforms/PNG/Collectable/heart.png"); //heart
+    AM.queueDownload("./assets/platforms/PNG/Collectable/heart black.png"); //heart
+
     AM.queueDownload("./assets/platforms/PNG/Collectable/Treasure Chest.png"); //chest
     AM.queueDownload("./assets/platforms/boxSpriteSheet.png"); //crate (box)
     AM.queueDownload("./assets/sprites/powerUps/hypno.png"); //crate (box)
+
+        //Anubis 
+    AM.queueDownload("./assets/sprites/Anubis/Running Right.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Running Left.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Idle Right.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Idle Left.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Hurt Left.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Hurt Right.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Strike Left.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Strike Right.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Slash Right.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Slash Left.png"); 
+    // AM.queueDownload("./assets/sprites/Anubis/Jump Loop Left.png"); 
+    // AM.queueDownload("./assets/sprites/Anubis/Jump Loop Right.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Slide Left.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Slide Right.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Die Left.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Die Right.png"); 
+    // AM.queueDownload("./assets/sprites/Anubis/Jump Start Left.png"); 
+    // AM.queueDownload("./assets/sprites/Anubis/Jump Start Right.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Lightning2.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Jump Cycle Right.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Jump Cycle Left.png"); 
 }
 
 

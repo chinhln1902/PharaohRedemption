@@ -131,8 +131,10 @@ function Pharaoh(game, assetManager, theCamera) {
     this.switchable = true;
     this.backgroundManager = new BackgroundManager(assetManager, game);
     this.boundingBox = new BoundingBox(this.x + 65, this.y + 35, this.animation.frameWidth * SCALE - 130, this.animation.frameHeight * SCALE - 65);
-    this.hud = new Hearts(this.engine);
+    
+    this.hud = new Hearts(AM.getAsset("./assets/platforms/PNG/Collectable/heart.png"), this.engine, 25, 25);
     this.engine.addEntity(this.hud);
+
 }
 
 //inheritence
@@ -451,7 +453,8 @@ Pharaoh.prototype.takeDamage = function () {
         this.health -= 1;
         this.hud.setHealth(this.health);
         if (this.health <= 0) {
-            this.die();                                                                       ///CHANGED
+            this.die();  
+            window.location.replace('./menu/gameover.html'); 
             return; 
         }
         if (this.underworld){
@@ -928,6 +931,11 @@ Pharaoh.prototype.getX = function(){
 Pharaoh.prototype.getY = function(){
     return this.y;
 }
+
+Pharaoh.prototype.setX = function(value){
+    this.x = value;
+}
+
 Pharaoh.prototype.getGroundLevel = function(){
     return this.groundLevel;
 }

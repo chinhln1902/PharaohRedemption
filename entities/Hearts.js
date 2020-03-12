@@ -1,10 +1,10 @@
-function Hearts(game) {
+function Hearts(sprite, game, xValue, yValue) {
     this.game = game;
     this.ctx = game.ctx;
     this.health = 100;
-    this.sprite = AM.getAsset("./assets/platforms/PNG/Collectable/heart.png");
-    this.x = 25;
-    this.y = 25;
+    this.sprite = sprite;
+    this.x = xValue;
+    this.y = yValue;
     this.width = 128/3;
     this.height = 128/3;
     this.nOfHearts = 5;
@@ -31,6 +31,13 @@ Hearts.prototype.setHealth = function(nOfHearts) {
     this.nOfHearts = nOfHearts;
     for (var i = 1; i < this.nOfHearts; i++){
         this.startSpots[i] = this.startSpots[i-1]+20;
+    } 
+}
+
+Hearts.prototype.setHealthOpposite = function(nOfHearts) {
+    this.nOfHearts = nOfHearts;
+    for (var i = 1; i < this.nOfHearts; i++){
+        this.startSpots[i] = this.startSpots[i+1]+20;
     } 
 }
 
