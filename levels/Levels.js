@@ -67,23 +67,23 @@ var Level2Txt = [
 ]
 
 var Level3Txt = [
-  "                                                                                                                            ",
-  "                                                                                                                            ",
-  "    C                                                                                                                       ",
-  "                                                                                                                            ",
-  "                                                                                                                            ",
-  "       S                                                                                                                    ",
-  "       s                                                                                                                    ",
-  "       s                                                                                                                    ",
+  "                                                    BB      P                                                               ",
+  "                                          _         bb      C            !             ___           P                      ",
+  "    C                    S    SCCCCCCCCC  CCCCCCCCCCbbCCCCCCCCCCCCCCC   CCC  C  CCCCCCCCCCC   CCCCCCCC                      ",
+  "                         s    s     EE    b         bb      D      b    EEE  b        D              b                      ",
+  "                         s    s     EE    b         bb      d      b    EEE  bB       d              bCCCCCCC               ",
+  "                         s    s  BBBBBBBBBb   BBBBBBbbBBBBB BBB    BBBBBBBBBBBBBB BBBBBBBBBB BBBBBBBBB                      ",
+  "       s      E      S   s   Ss              b      bb      b  B   D         b        bEE            b                      ",
+  "       s !  ! E !  ! s   s   ss !  !         b  !   bb      b   B  d     !   b        bEE            b                      ",
   "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
   "                                                                                                                            ",
-  "                                                                                                                            ",
-  "    C                                                                                                                       ",
-  "    b                                                                                                                       ",
-  "   b                                                                                                                        ",
-  "   b   R                                                                                                                    ",
-  "  b    r                                                                                                                    ",
-  "  b    r                                                                                                                    "
+  "                                          !                             ___            ___           P                      ",
+  "    C                    R                RRRRRRRRRR  RRRRRRRRRR   RRRRRRRRRRRRRRRRRRRRRRRR   RRRRRRRR                      ",
+  "    b                    r                r        D  D     EE    Rr         H        D EEr  R       r                      ",
+  "   b                         RR           r        d  d     EE   Rrr         H        d EEr R        rCCCCCCC               ",
+  "   b   R                     rr           r  RRRRRRR  RRRRRRRRRRRRRRRR RRRRRRRRRRRRRRRRRRRr RRRRRRRRRr                      ",
+  "  b    r             R   R   rr           r                 r          r           H                 r                      ",
+  "  b    r_____________r   r   rr_____      rR   __           r          r___        H                 r                      "
 ]
 
 var Level4Txt = [
