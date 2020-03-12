@@ -52,6 +52,7 @@ Box.prototype.draw = function() {
 
 Box.prototype.break = function() {
     if (this.underworld === true) return;
+    if (this.broken) return;
     this.animation = new Animation(this.spriteSheet, 475, 475, 14, 0.06, 14, false, this.animationScale);
     this.broken = true;
 }

@@ -311,16 +311,17 @@ var testLevel =
 ]
 
 PlatformController.prototype.loadPlatformsLevel2 = function () {
-    signs.push(new hint(this.engine, platformSheets['question'], 0, 7, false, "Level 2"));
-    // crates.push(new Box(this.engine, 21, 5, false));
-    // crates.push(new Box(this.engine, 0, 7, false));
-    // powerUps.push(new PowerUp(this.engine, "heart", -10, 7, false));
-    // powerUps.push(new PowerUp(this.engine, "heart", -11, 7, false));
-    // powerUps.push(new PowerUp(this.engine, "heart", -12, 7, false));
-    // powerUps.push(new PowerUp(this.engine, "heart", -13, 7, false));
-    // powerUps.push(new PowerUp(this.engine, "heart", -14, 7, false));
-    // powerUps.push(new PowerUp(this.engine, "hypno", 2, 7, false));
-    // powerUps.push(new PowerUp(this.engine, "hypno", 9, 3, false));
+    signs.push(new hint(this.engine, platformSheets['question'], -3, 7, false, "Level 2"));
+    signs.push(new hint(this.engine, platformSheets['question'], 6, 7, false, "This is a crate. Hit it with your sword to break it"));
+    signs.push(new hint(this.engine, platformSheets['question'], 11, 7, false, "To break this crate, hit it while in the air"));
+    signs.push(new hint(this.engine, platformSheets['question'], 20, 3, false, "Danger signs indicate death in the other dimension, switching worlds is risky"));
+    signs.push(new hint(this.engine, platformSheets['question'], 36, 7, false, "How did you get in here?"));
+    signs.push(new hint(this.engine, platformSheets['question'], 62, 7, false, "Think this through really carefully before breaking any crates"));
+    signs.push(new hint(this.engine, platformSheets['question'], 65, 7, false, "Remember, just because you can, doesnt mean you should."));
+    signs.push(new hint(this.engine, platformSheets['question'], 85, 7, false, "Collect hearts to replenish your health"));
+    decorativePlatforms.push(new Platform(this.engine, platformSheets['arrow 2'], 75, 3,));
+    powerUps.push(new PowerUp(this.engine, "heart", 90, 7, false));
+    powerUps.push(new PowerUp(this.engine, "heart", 94, 7, true));
     // powerUps.push(new PowerUp(this.engine, "hypno", 21, 4, false));
     decorativePlatforms.push(new Platform(this.engine, platformSheets['silver chest'], 107.1, 3.1, true, true, false));
     decorativePlatforms.push(new Platform(this.engine, platformSheets['barrel'], 108, 3.1, true, true, false));
@@ -345,7 +346,6 @@ PlatformController.prototype.loadLevelFrom = function(textFile) {
             } else if(textFile[y][x] === 'B'){
                 plat = new Platform(this.engine, platformSheets['brickTop'], x,y%9, true, underworld, false);
             } else if(textFile[y][x] === 'C'){
-                
                 plat = new Platform(this.engine, platformSheets['brickChisled'], x,y%9, true, underworld, false);
             } else if(textFile[y][x] === 'r'){
                 plat = new Platform(this.engine, platformSheets['stoneMid'], x,y%9, true, underworld, false);

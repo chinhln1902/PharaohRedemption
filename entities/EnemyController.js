@@ -35,8 +35,8 @@ EnemyController.prototype.level2 = function() {
     var bat = new Bat(this.gameEngine, AM, 11*70, 1.5*70);
     var archer = new Archer(this.gameEngine, AM, 25.1*70, 1.9*70); 
     var snake = new Snake(this.gameEngine, AM, 31.7*70, .9*70);
-    var bat2 = new Bat(this.gameEngine, AM, 52*70, 3*70);
-    var bat3 = new Bat(this.gameEngine, AM, 58*70, 3*70);
+    var bat2 = new Bat(this.gameEngine, AM, 72*70, 3*70);
+    var bat3 = new Bat(this.gameEngine, AM, 78*70, 3*70);
     var demon = new Demon(this.gameEngine, AM, 93.5*70, 2.8*70, 0); 
 
     this.gameEngine.addEntity(bat);

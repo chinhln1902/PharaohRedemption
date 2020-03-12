@@ -49,21 +49,21 @@ var TestLvlTxt = [
 var Level2Txt = [
     "                                                                                                                                          ",
     "                            BBBBB                                                       BBBBBBBBBBBBBBBB                                  ",
-    "            bbbb            EEEE B                                                                                                        ",
-    "                         _  EEEE  B            C     C                                                                                    ",
-    "                 BBBBBBBBBBBBBBB   B         C         C            S        b   b   b                                                    ",
-    "            E       b              bBB    C     C   C     C  B      s                   BBBBBBBBB                                         ",
-    "            S       b              b  BB                     b      s                   E   C   E  C                                      ",
-    "       E    s       b              b  bb ___       ___       b      s             S     E   C   E  C______                                ",
+    "            bbbb            EEEE B                               S                                                                        ",
+    "                         _  EEEE  B            C     C           s                                                                        ",
+    "                 BBBBBBBBBBBBBBB   B         C         C         s  S        b   b   b                                                    ",
+    "            E       b              bBB    C     C   C     C  B   s  s                   BBBBBBBBB                                         ",
+    "            S       b              b  BB                     b   s  s                   E   C   E  C                                      ",
+    "       E    s       b              b  bb ___       ___       b   s  s             S     E   C   E  C______                                ",
     "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
     "                                                                                                                                          ",
     "                    _       C                                                                                                             ",
     "                    C      C                                                  r   r   r                                                   ",
     "       RRRR               C                                                                                                               ",
-    "           R     RRRR    C         R                                R                                                                     ",
-    "           r        r   C          r                         R     Er                   RRRRRRRRR                                         ",
-    "            R       r  C           r                         r    REr             R     r   E   r  R                                      ",
-    "            r       r              r          ___       ___  r    rrr             r     r   E   r  r                                      "
+    "           R     RRRR   _C         R                              R R                                                                     ",
+    "           r        r   C          r                         R      r                   RRRRRRRRR                                         ",
+    "            R       r  C           r                         r    EEr             R     r   E   r  R                                      ",
+    "            r       r              r          ___       ___  r    RRr             r     r   E   r  r______                                "
 ]
 
 //XML attempt 1

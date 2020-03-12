@@ -10,8 +10,10 @@ Bat.prototype = new Entity();
 Bat.prototype.constructor = Bat;
 
 function Bat(game, AssetManager, startX, startY) {
+    
     this.AM = AssetManager; 
     loadBatSpriteSheets(this.AM); 
+    this.scale = 0.25;
     this.fly(); 
     this.x = startX;
     this.y = startY;
@@ -56,10 +58,15 @@ Bat.prototype.update = function () {
     if (this.live === 0) return;
     if (this.dead) this.aftermath++; 
     if (this.aftermath > 30) this.removeFromWorld = true; 
-
+    if (this.game.getMainCharacter().y > this.y){
+        this.y+=0.5
+    }
+    if (this.game.getMainCharacter().y < this.y){
+        this.y-=0.5
+    }
     //Moving character
     if (this.Left ===  "true" && this.Right === "false" && this.game.getMainCharacter().getX() >= this.x - 400){
-        this.x -= 3;
+        this.x -= 2;
     }
     if (this.Right === "false" && this.x <= this.game.getMainCharacter().getX() - 400 && this.count === 200){
         this.flyRight(); 
@@ -69,7 +76,7 @@ Bat.prototype.update = function () {
 
     }    
     if (this.Right === "true"){
-        this.x += 3;
+        this.x += 2;
         this.count += 1;
         debugger;
 
@@ -115,19 +122,19 @@ Bat.prototype.collideSlash = function(other) {
 }
 
 Bat.prototype.fly = function() {
-    this.animation = new Animation(spritesheets['fly left'], 631, 634, 10, 0.07, 10, true, .34); 
+    this.animation = new Animation(spritesheets['fly left'], 631, 634, 10, 0.07, 10, true, this.scale); 
     // Left = true;
     // Right = false;
 }
 
 Bat.prototype.flyRight = function() {
-    this.animation = new Animation(spritesheets['fly right'], 631, 634, 10, 0.07, 10, true, .34); 
+    this.animation = new Animation(spritesheets['fly right'], 631, 634, 10, 0.07, 10, true, this.scale); 
     // Right = true;
     // Left = false; 
 }
 
 Bat.prototype.die = function() {
-    this.animation = new Animation(spritesheets['die'], 693, 580, 7, 0.07, 7, false, .34); 
+    this.animation = new Animation(spritesheets['die'], 693, 580, 7, 0.07, 7, false, this.scale); 
     this.dead = true; 
 }
 
