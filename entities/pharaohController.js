@@ -22,15 +22,14 @@ function pharaohController(mainCharacter){
 		}
 
 		//Running right 
-		if ((e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false") || (e.code === "KeyD" && DKeyPressed === "false" && AKeyPressed === "false")){
+		if ((e.code === "ArrowRight" && RightKeyPressed === "false") || (e.code === "KeyD" && DKeyPressed === "false" && AKeyPressed === "false")){
 			//console.log(e.code);
 			that.Pharaoh.runRight();
 			RightKeyPressed = "true";
 			DKeyPressed = "true";
 
 		//Running left
-		} else if((e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false") || (e.code === "KeyA" && DKeyPressed === "false" && AKeyPressed === "false")){
-				
+		} if((e.code === "ArrowLeft" && LeftKeyPressed === "false") || (e.code === "KeyA" && DKeyPressed === "false" && AKeyPressed === "false")){
 			that.Pharaoh.runLeft();
 			LeftKeyPressed = "true";
 			AKeyPressed = "true";
@@ -75,6 +74,7 @@ function pharaohController(mainCharacter){
 				that.Pharaoh.swapWorld();
 				that.spaceDown = true;
 			}
+			
 
 	}, false);
 	
@@ -85,13 +85,13 @@ function pharaohController(mainCharacter){
 			if ((e.code === "ArrowRight" && RightKeyPressed === "true") || (e.code === "KeyD" && DKeyPressed === "true")){
 
 				//console.log("D key up");
-				that.Pharaoh.idle();
+				
 				RightKeyPressed = "false";
 				DKeyPressed = "false"
 
-			}	else if((e.code === "ArrowLeft" && LeftKeyPressed === "true") || (e.code === "KeyA" && AKeyPressed === "true")){
+			}	if((e.code === "ArrowLeft" && LeftKeyPressed === "true") || (e.code === "KeyA" && AKeyPressed === "true")){
 				//console.log("Left key up");
-				that.Pharaoh.idle();
+				
 				LeftKeyPressed = "false";
 				AKeyPressed = "false";
 
@@ -106,6 +106,11 @@ function pharaohController(mainCharacter){
 				e.preventDefault();
 				that.spaceDown = false;
 			}
+
+			if (RightKeyPressed === "false" && LeftKeyPressed === "false"){
+				that.Pharaoh.idle();
+			}
+			
 
 	}, false);
 			

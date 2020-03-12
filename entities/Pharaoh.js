@@ -1,7 +1,7 @@
 var spriteSheets = [];
 var isSwitchable = true;
 const GROUND_LEVEL = 490;
-const SCALE = 0.2;
+const SCALE = 1;
 function loadSpriteSheets(AM){
     //mummy
     //right
@@ -209,15 +209,15 @@ Pharaoh.prototype.idle = function () {
     this.attacking = false; 
     if (this.underworld){
         if (this.direction === 'right'){
-            this.animation = new Animation(spriteSheets['idle1'], 900, 900, 18, 0.05, 18, true, SCALE); //idle animation
+            this.animation = new Animation(spriteSheets['idle1'], 180, 180, 18, 0.05, 18, true, SCALE); //idle animation
         } else {
-            this.animation = new Animation(spriteSheets['idle flip1'], 900, 900, 18, 0.05, 18, true, SCALE);
+            this.animation = new Animation(spriteSheets['idle flip1'], 180, 180, 18, 0.05, 18, true, SCALE);
         }
     } else {
         if (this.direction === 'right'){
-            this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, SCALE); //idle animation
+            this.animation = new Animation(spriteSheets['idle'], 180, 180, 18, 0.05, 18, true, SCALE); //idle animation
         } else {
-            this.animation = new Animation(spriteSheets['idle flip'], 900, 900, 18, 0.05, 18, true, SCALE);
+            this.animation = new Animation(spriteSheets['idle flip'], 180, 180, 18, 0.05, 18, true, SCALE);
         }
     }
     this.speed = 0;
@@ -232,9 +232,9 @@ Pharaoh.prototype.runRight = function () {
     this.attacking = false; 
     //console.log("this.underworld = " + this.underworld + " Is it true: " + (this.underworld === true));
     if (this.underworld){
-        this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+        this.animation = new Animation(spriteSheets['running1'], 180, 180, 12, 0.05, 12, true, SCALE); //running right animation
     } else {
-        this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+        this.animation = new Animation(spriteSheets['running'], 180, 180, 12, 0.05, 12, true, 1); //running right animation
     }
     //console.log("the animation is "+ this.animation);
     this.speed = 300;
@@ -251,19 +251,19 @@ Pharaoh.prototype.runLeft = function () {
     if (this.underworld){
         if (this.isJumping) {
         
-            this.animation = new Animation(spriteSheets['jump start flip1'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
+            this.animation = new Animation(spriteSheets['jump start flip1'], 180, 180, 6, 0.05, 6, false, SCALE); //jump start animation
         } else {
-            this.animation = new Animation(spriteSheets['running flip1'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+            this.animation = new Animation(spriteSheets['running flip1'], 180, 180, 12, 0.05, 12, true, SCALE); //running right animation
         }
-        //this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, SCALE); //running left animation
+        //this.animation = new Animation(spriteSheets['running flip'], 180, 180, 12, 0.05, 12, true, SCALE); //running left animation
     } else {
 
         if (this.isJumping) {
-            this.animation = new Animation(spriteSheets['jump start flip'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
+            this.animation = new Animation(spriteSheets['jump start flip'], 180, 180, 6, 0.05, 6, false, SCALE); //jump start animation
         } else {
-            this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, SCALE); //running right animation
+            this.animation = new Animation(spriteSheets['running flip'], 180, 180, 12, 0.05, 12, true, 1); //running right animation
         }
-        //this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, SCALE); //running left animation
+        //this.animation = new Animation(spriteSheets['running flip'], 180, 180, 12, 0.05, 12, true, SCALE); //running left animation
     }
     this.speed = -300;
     this.lastSpeed = this.speed;
@@ -276,7 +276,7 @@ Pharaoh.prototype.runLeft = function () {
 //ignore this for now
 Pharaoh.prototype.walkRight = function () {
     this.attacking = false; 
-    this.animation = new Animation(spriteSheets['walking'], 900, 900, 24, 0.05, 24, true, SCALE); //walking animation
+    this.animation = new Animation(spriteSheets['walking'], 180, 180, 24, 0.05, 24, true, SCALE); //walking animation
     this.speed = 85;
     //console.log("pharaoh is walking");
 }
@@ -291,15 +291,15 @@ Pharaoh.prototype.jump = function () {
     this.previousAnimation = this.animation;
     if (this.underworld){
         if (this.direction === 'right'){
-            this.animation = new Animation(spriteSheets['jump start1'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
+            this.animation = new Animation(spriteSheets['jump start1'], 180, 180, 6, 0.05, 6, false, SCALE); //jump start animation
         } else {
-            this.animation = new Animation(spriteSheets['jump start flip1'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
+            this.animation = new Animation(spriteSheets['jump start flip1'], 180, 180, 6, 0.05, 6, false, SCALE); //jump start animation
         }
     } else {
         if (this.direction === 'right'){
-            this.animation = new Animation(spriteSheets['jump start'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
+            this.animation = new Animation(spriteSheets['jump start'], 180, 180, 6, 0.05, 6, false, SCALE); //jump start animation
         } else {
-            this.animation = new Animation(spriteSheets['jump start flip'], 900, 900, 6, 0.05, 6, false, SCALE); //jump start animation
+            this.animation = new Animation(spriteSheets['jump start flip'], 180, 180, 6, 0.05, 6, false, SCALE); //jump start animation
         }
     }
     this.playingTempAnimation = true;
@@ -313,37 +313,37 @@ Pharaoh.prototype.slash = function () {
     if (this.underworld){
         if (this.direction === 'right'){
             if (this.state === 'idle'){
-                this.animation = new Animation(spriteSheets['slashing1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['slashing1'], 180, 180, 12, 0.05, 12, false, SCALE);
             } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['slashing in the air1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['slashing in the air1'], 180, 180, 12, 0.05, 12, false, SCALE);
             } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['run slashing1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['run slashing1'], 180, 180, 12, 0.05, 12, false, SCALE);
             }   
         }else{
             if (this.state === 'idle'){
-                this.animation = new Animation(spriteSheets['slashing flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['slashing flip1'], 180, 180, 12, 0.05, 12, false, SCALE);
             } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['slashing in the air flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['slashing in the air flip1'], 180, 180, 12, 0.05, 12, false, SCALE);
             } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['run slashing flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['run slashing flip1'], 180, 180, 12, 0.05, 12, false, SCALE);
             }
         }
     } else {
         if (this.direction === 'right'){
             if (this.state === 'idle'){
-                this.animation = new Animation(spriteSheets['slashing'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['slashing'], 180, 180, 12, 0.05, 12, false, SCALE);
             } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['slashing in the air'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['slashing in the air'], 180, 180, 12, 0.05, 12, false, SCALE);
             } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['run slashing'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['run slashing'], 180, 180, 12, 0.05, 12, false, SCALE);
             }   
         }else{
             if (this.state === 'idle'){
-                this.animation = new Animation(spriteSheets['slashing flip'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['slashing flip'], 180, 180, 12, 0.05, 12, false, SCALE);
             } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['slashing in the air flip'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['slashing in the air flip'], 180, 180, 12, 0.05, 12, false, SCALE);
             } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['run slashing flip'], 900, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['run slashing flip'], 180, 180, 12, 0.05, 12, false, SCALE);
             }
         }
     }
@@ -357,22 +357,22 @@ Pharaoh.prototype.throw = function () {
         if (this.underworld){
             if (this.direction === 'right'){
                 if (this.state === 'idle'){
-                    this.animation = new Animation(spriteSheets['throwing1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['throwing1'], 180, 180, 12, 0.05, 12, false, SCALE);
                 } else if (this.state === 'jumping'){
-                    this.animation = new Animation(spriteSheets['throwing in the air1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['throwing in the air1'], 180, 180, 12, 0.05, 12, false, SCALE);
                 } else if (this.state === 'running'){
-                    this.animation = new Animation(spriteSheets['run throwing1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['run throwing1'], 180, 180, 12, 0.05, 12, false, SCALE);
                 }   
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheet.png"),
                         "right", this.x + 10, this.y+10);
                 this.engine.addEntity(comet);
             } else {
                 if (this.state === 'idle'){
-                    this.animation = new Animation(spriteSheets['throwing flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['throwing flip1'], 180, 180, 12, 0.05, 12, false, SCALE);
                 } else if (this.state === 'jumping'){
-                    this.animation = new Animation(spriteSheets['throwing in the air flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['throwing in the air flip1'], 180, 180, 12, 0.05, 12, false, SCALE);
                 } else if (this.state === 'running'){
-                    this.animation = new Animation(spriteSheets['run throwing flip1'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['run throwing flip1'], 180, 180, 12, 0.05, 12, false, SCALE);
                 }   
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheetflip.png"),
                        "left", this.x - 10, this.y+10);
@@ -381,22 +381,22 @@ Pharaoh.prototype.throw = function () {
         } else {
             if (this.direction === 'right'){
                 if (this.state === 'idle'){
-                    this.animation = new Animation(spriteSheets['throwing'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['throwing'], 180, 180, 12, 0.05, 12, false, SCALE);
                 } else if (this.state === 'jumping'){
-                    this.animation = new Animation(spriteSheets['throwing in the air'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['throwing in the air'], 180, 180, 12, 0.05, 12, false, SCALE);
                 } else if (this.state === 'running'){
-                    this.animation = new Animation(spriteSheets['run throwing'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['run throwing'], 180, 180, 12, 0.05, 12, false, SCALE);
                 }   
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheet.png"),
                         "right", this.x + 10, this.y+10);
                 this.engine.addEntity(comet);
             } else {
                 if (this.state === 'idle'){
-                    this.animation = new Animation(spriteSheets['throwing flip'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['throwing flip'], 180, 180, 12, 0.05, 12, false, SCALE);
                 } else if (this.state === 'jumping'){
-                    this.animation = new Animation(spriteSheets['throwing in the air flip'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['throwing in the air flip'], 180, 180, 12, 0.05, 12, false, SCALE);
                 } else if (this.state === 'running'){
-                    this.animation = new Animation(spriteSheets['run throwing flip'], 900, 900, 12, 0.05, 12, false, SCALE);
+                    this.animation = new Animation(spriteSheets['run throwing flip'], 180, 180, 12, 0.05, 12, false, SCALE);
                 }   
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/comet/csheetflip.png"),
                        "left", this.x - 10, this.y+10);
@@ -413,25 +413,25 @@ Pharaoh.prototype.staff = function () {
         this.time = 0;
         if (this.underworld){
             if (this.direction === 'right'){
-                this.animation = new Animation(spriteSheets['staffing1'], 1000, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['staffing1'], 1000, 180, 12, 0.05, 12, false, SCALE);
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheet.png"),
                         "right", this.x + 10, this.y+10);
                         comet.startSpeed = 200;
                 this.engine.addEntity(comet);
             } else {
-                this.animation = new Animation(spriteSheets['staffing flip1'], 1300, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['staffing flip1'], 1300, 180, 12, 0.05, 12, false, SCALE);
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlip.png"),
                        "left", this.x - 10, this.y+10);
                 this.engine.addEntity(comet);
             }
         } else {
             if (this.direction === 'right'){
-                this.animation = new Animation(spriteSheets['staffing'], 1000, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['staffing'], 1000, 180, 12, 0.05, 12, false, SCALE);
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheet.png"),
                         "right", this.x + 10, this.y+10);
                 this.engine.addEntity(comet);
             } else {
-                this.animation = new Animation(spriteSheets['staffing flip'], 1300, 900, 12, 0.05, 12, false, SCALE);
+                this.animation = new Animation(spriteSheets['staffing flip'], 1300, 180, 12, 0.05, 12, false, SCALE);
                 var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlip.png"),
                        "left", this.x - 10, this.y+10);
                 this.engine.addEntity(comet);
@@ -456,22 +456,22 @@ Pharaoh.prototype.takeDamage = function () {
         }
         if (this.underworld){
             if (this.direction === 'right'){
-                this.animation = new Animation(spriteSheets['hurt1'], 900, 900, 18, 0.05, 18, false, SCALE); 
-            this.animation = new Animation(spriteSheets['hurt1'], 900, 900, 18, 0.05, 18, false, SCALE); 
+                this.animation = new Animation(spriteSheets['hurt1'], 180, 180, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['hurt1'], 180, 180, 18, 0.05, 18, false, SCALE); 
         } else {
-            this.animation = new Animation(spriteSheets['hurt flip1'], 900, 900, 18, 0.05, 18, false, SCALE); 
-                this.animation = new Animation(spriteSheets['hurt flip1'], 900, 900, 18, 0.05, 18, false, SCALE); 
-            this.animation = new Animation(spriteSheets['hurt flip1'], 900, 900, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['hurt flip1'], 180, 180, 18, 0.05, 18, false, SCALE); 
+                this.animation = new Animation(spriteSheets['hurt flip1'], 180, 180, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['hurt flip1'], 180, 180, 18, 0.05, 18, false, SCALE); 
         }
     } else {
         if (this.direction === 'right'){
-            this.animation = new Animation(spriteSheets['hurt'], 900, 900, 18, 0.05, 18, false, SCALE); 
-                this.animation = new Animation(spriteSheets['hurt'], 900, 900, 18, 0.05, 18, false, SCALE); 
-            this.animation = new Animation(spriteSheets['hurt'], 900, 900, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['hurt'], 180, 180, 18, 0.05, 18, false, SCALE); 
+                this.animation = new Animation(spriteSheets['hurt'], 180, 180, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['hurt'], 180, 180, 18, 0.05, 18, false, SCALE); 
         } else {
-            this.animation = new Animation(spriteSheets['hurt flip'], 900, 900, 18, 0.05, 18, false, SCALE); 
-                this.animation = new Animation(spriteSheets['hurt flip'], 900, 900, 18, 0.05, 18, false, SCALE); 
-            this.animation = new Animation(spriteSheets['hurt flip'], 900, 900, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['hurt flip'], 180, 180, 18, 0.05, 18, false, SCALE); 
+                this.animation = new Animation(spriteSheets['hurt flip'], 180, 180, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['hurt flip'], 180, 180, 18, 0.05, 18, false, SCALE); 
         }
     }
     this.playingTempAnimation = true;
@@ -481,15 +481,15 @@ Pharaoh.prototype.takeDamage = function () {
 Pharaoh.prototype.die = function (){
     if (this.underworld) {
         if (this.direction === "right") {
-            this.animation = new Animation(spriteSheets['dying1'], 900, 900, 15, 0.05, 15, false, SCALE); 
+            this.animation = new Animation(spriteSheets['dying1'], 180, 180, 15, 0.05, 15, false, SCALE); 
         } else {
-            this.animation = new Animation(spriteSheets['dying flip1'], 900, 900, 15, 0.05, 15, false, SCALE);
+            this.animation = new Animation(spriteSheets['dying flip1'], 180, 180, 15, 0.05, 15, false, SCALE);
         }
     } else {
         if (this.direction === "right") {
-            this.animation = new Animation(spriteSheets['dying'], 900, 900, 15, 0.05, 15, false, SCALE);
+            this.animation = new Animation(spriteSheets['dying'], 180, 180, 15, 0.05, 15, false, SCALE);
         } else {
-            this.animation = new Animation(spriteSheets['dyingflip'], 900, 900, 15, 0.05, 15, false, SCALE)
+            this.animation = new Animation(spriteSheets['dyingflip'], 180, 180, 15, 0.05, 15, false, SCALE)
         }
     }
     this.dead = true; 
@@ -499,15 +499,15 @@ Pharaoh.prototype.die = function (){
 Pharaoh.prototype.blink = function () {
     if (this.underworld){
         if (this.direction === 'right'){
-            this.animation = new Animation(spriteSheets['idle blinking1'], 900, 900, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['idle blinking1'], 180, 180, 18, 0.05, 18, false, SCALE); 
         } else {
-            this.animation = new Animation(spriteSheets['idle blinking flip1'], 900, 900, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['idle blinking flip1'], 180, 180, 18, 0.05, 18, false, SCALE); 
         }
     } else {
         if (this.direction === 'right'){
-            this.animation = new Animation(spriteSheets['idle blinking'], 900, 900, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['idle blinking'], 180, 180, 18, 0.05, 18, false, SCALE); 
         } else {
-            this.animation = new Animation(spriteSheets['idle blinking flip'], 900, 900, 18, 0.05, 18, false, SCALE); 
+            this.animation = new Animation(spriteSheets['idle blinking flip'], 180, 180, 18, 0.05, 18, false, SCALE); 
         }
     }
     this.playingTempAnimation = true;
@@ -521,40 +521,40 @@ Pharaoh.prototype.setToDefault = function () {
         if (this.direction === 'right'){
             if (this.state === 'idle'){
                 this.idle();
-                this.animation = new Animation(spriteSheets['idle1'], 900, 900, 18, 0.05, 18, true, SCALE);
+                this.animation = new Animation(spriteSheets['idle1'], 180, 180, 18, 0.05, 18, true, SCALE);
             } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['jump loop1'], 900, 900, 6, 0.05, 6, true, SCALE);
+                this.animation = new Animation(spriteSheets['jump loop1'], 180, 180, 6, 0.05, 6, true, SCALE);
             } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['running1'], 900, 900, 12, 0.05, 12, true, SCALE);
+                this.animation = new Animation(spriteSheets['running1'], 180, 180, 12, 0.05, 12, true, SCALE);
             }
         } else {
             if (this.state === 'idle'){
                 this.idle();
-                this.animation = new Animation(spriteSheets['idle flip1'], 900, 900, 18, 0.05, 18, true, SCALE);
+                this.animation = new Animation(spriteSheets['idle flip1'], 180, 180, 18, 0.05, 18, true, SCALE);
             } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['jump loop flip1'], 900, 900, 6, 0.05, 6, true, SCALE);
+                this.animation = new Animation(spriteSheets['jump loop flip1'], 180, 180, 6, 0.05, 6, true, SCALE);
             } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['running flip1'], 900, 900, 12, 0.05, 12, true, SCALE);
+                this.animation = new Animation(spriteSheets['running flip1'], 180, 180, 12, 0.05, 12, true, SCALE);
             }
         }
     } else {
         if (this.direction === 'right'){
             if (this.state === 'idle'){
                 this.idle();
-                this.animation = new Animation(spriteSheets['idle'], 900, 900, 18, 0.05, 18, true, SCALE);
+                this.animation = new Animation(spriteSheets['idle'], 180, 180, 18, 0.05, 18, true, SCALE);
             } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['jump loop'], 900, 900, 6, 0.05, 6, true, SCALE);
+                this.animation = new Animation(spriteSheets['jump loop'], 180, 180, 6, 0.05, 6, true, SCALE);
             } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['running'], 900, 900, 12, 0.05, 12, true, SCALE);
+                this.animation = new Animation(spriteSheets['running'], 180, 180, 12, 0.05, 12, true, SCALE);
             }
         } else {
             if (this.state === 'idle'){
                 this.idle();
-                this.animation = new Animation(spriteSheets['idle flip'], 900, 900, 18, 0.05, 18, true, SCALE);
+                this.animation = new Animation(spriteSheets['idle flip'], 180, 180, 18, 0.05, 18, true, SCALE);
             } else if (this.state === 'jumping'){
-                this.animation = new Animation(spriteSheets['jump loop flip'], 900, 900, 6, 0.05, 6, true, SCALE);
+                this.animation = new Animation(spriteSheets['jump loop flip'], 180, 180, 6, 0.05, 6, true, SCALE);
             } else if (this.state === 'running'){
-                this.animation = new Animation(spriteSheets['running flip'], 900, 900, 12, 0.05, 12, true, SCALE);
+                this.animation = new Animation(spriteSheets['running flip'], 180, 180, 12, 0.05, 12, true, SCALE);
             }
         }
     }
@@ -605,7 +605,7 @@ function controlJump(pharaoh){
             for(var i = 0; i < underworldPlatforms.length; i++) {
                 var pf = underworldPlatforms[i];
                 if ((pharaoh.boundingBox.right > pf.boundingBox.left + 20 || pharaoh.boundingBox.left < pf.boundingBox.right - 20) && pharaoh.boundingBox.collide(pf.boundingBox)) {
-                    debugger;
+                    //debugger;
                     isSwitchable = false;
                     break;
                 } else {
@@ -777,7 +777,7 @@ function controlJump(pharaoh){
             for(var i = 0; i < underworldPlatforms.length; i++) {
                 var pf = underworldPlatforms[i];
                 if ((pharaoh.boundingBox.right > pf.boundingBox.left + 20 || pharaoh.boundingBox.left < pf.boundingBox.right - 20) && pharaoh.boundingBox.collide(pf.boundingBox)) {
-                    debugger;
+                    //debugger;
                     isSwitchable = false;
                     break;
                 } else {

@@ -25,13 +25,13 @@ function BackgroundManager(AM, game) {
     document.addEventListener("keydown", function (e) {
         //Running right ArrowRight
         
-		if ((e.code === "ArrowRight" && RightKeyPressed === "false" && LeftKeyPressed === "false") || (e.code === "KeyD" && DKeyPressed === "false" && AKeyPressed === "false")){
+		if ((e.code === "ArrowRight" && RightKeyPressed === "false") || (e.code === "KeyD" && DKeyPressed === "false" && AKeyPressed === "false")){
             that.defaultNegativeSpeed();
             RightKeyPressed = "true";
 			DKeyPressed = "true";
 
         } 
-        if((e.code === "ArrowLeft" && LeftKeyPressed === "false" && RightKeyPressed === "false") || (e.code === "KeyA" && DKeyPressed === "false" && AKeyPressed === "false")){
+        if((e.code === "ArrowLeft" && LeftKeyPressed === "false") || (e.code === "KeyA" && DKeyPressed === "false" && AKeyPressed === "false")){
 
             that.defaultSpeed();
             LeftKeyPressed = "true";
@@ -51,13 +51,13 @@ function BackgroundManager(AM, game) {
     document.addEventListener("keyup", function (e) {
         //Running right 
         if ((e.code === "ArrowRight" && RightKeyPressed === "true") || (e.code === "KeyD" && DKeyPressed === "true")){
-            that.stopSpeed();
+            
             RightKeyPressed = "false";
             DKeyPressed = "false"
 
         }
         if((e.code === "ArrowLeft" && LeftKeyPressed === "true") || (e.code === "KeyA" && AKeyPressed === "true")){            
-            that.stopSpeed();
+            
             LeftKeyPressed = "false";
             AKeyPressed = "false";
 
@@ -65,6 +65,9 @@ function BackgroundManager(AM, game) {
 		 if (e.code === "Space"){
             this.spaceDown = false;
             
+        }
+        if (LeftKeyPressed === "false" && RightKeyPressed === "false"){
+            that.stopSpeed();
         }
     }, false);
 }
