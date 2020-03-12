@@ -10,6 +10,8 @@ function BackgroundManager(AM, game) {
     this.game = game;
     this.ctx = game.ctx;
     this.underworld = false;
+    this.level4 = false;
+
     var BACKGROUND_SPEED = 3;
     var NEG_BACKGROUND_SPEED = -3;
 
@@ -24,7 +26,7 @@ function BackgroundManager(AM, game) {
 
     document.addEventListener("keydown", function (e) {
         //Running right ArrowRight
-        
+    if (!this.level4){   
 		if ((e.code === "ArrowRight" && RightKeyPressed === "false") || (e.code === "KeyD" && DKeyPressed === "false" && AKeyPressed === "false")){
             that.defaultNegativeSpeed();
             RightKeyPressed = "true";
@@ -45,7 +47,7 @@ function BackgroundManager(AM, game) {
             this.spaceDown = true;
         }
 
-    }, false);
+    }}, false);
 
 
     document.addEventListener("keyup", function (e) {
@@ -82,21 +84,26 @@ BackgroundManager.prototype.stopSpeed = function(){
 
 //change movement to deafult speed 
 BackgroundManager.prototype.defaultSpeed = function(){
-
-    for(var i = 0; i < desertBackground.length; i++){
-        desertBackground[i].setSpeed(i/1.2);
+    debugger;
+    if (this.level4 === false) {
+        for(var i = 0; i < desertBackground.length; i++){
+            desertBackground[i].setSpeed(i/1.2);
+        }
     }
+
 }
 
 //change movement to deafult speed 
 BackgroundManager.prototype.defaultNegativeSpeed = function(){
-
-    for(var i = 0; i < desertBackground.length; i++){
-        desertBackground[i].setSpeed(-(i/1.2));
-        //console.log((-(i/2)));
+    debugger;
+    if (this.level4 === false) {
+        for(var i = 0; i < desertBackground.length; i++){
+            desertBackground[i].setSpeed(-(i/1.2));
+            //console.log((-(i/2)));
+        }
     }
 }
-
+//
 //maybe function change entity? 
 BackgroundManager.prototype.loadDesert = function(){
 
