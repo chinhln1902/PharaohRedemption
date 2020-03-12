@@ -66,6 +66,25 @@ var Level2Txt = [
     "            r       r              r          ___       ___  r    RRr             r     r   E   r  r______                                "
 ]
 
+var Level4Txt = [
+  "                ", // Overworld
+  "                ",
+  "                ",
+  "S              S",
+  "s              s",
+  "s              s",
+  "s              s",
+  "ss            !s",
+  "FFFFFFFFFFFFFFFF",
+  "                ", // Underworld
+  "                ",
+  "                ",
+  "R              R",
+  "r              r",
+  "r              r",
+  "r              r",
+  "r              r"
+]
 //XML attempt 1
 // var client = new XMLHttpRequest();
 // client.open('GET', '/Level2.txt');

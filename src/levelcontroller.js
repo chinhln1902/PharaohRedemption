@@ -52,4 +52,27 @@ levelcontroller.prototype.level2 = function(){
 
 }
 levelcontroller.prototype.level3 = function(){}
-levelcontroller.prototype.level4 = function(){}
+levelcontroller.prototype.level4 = function(){
+    
+    var canvas = document.getElementById("gameWorld");
+    canvas.style.marginTop = ((window.innerHeight - 780)/2) + "px";
+    var ctx = canvas.getContext("2d");
+    
+    var gameEngine = new GameEngine();
+    gameEngine.init(ctx);
+    gameEngine.start();
+
+    var camera = new Camera(gameEngine);      
+    var mainCharacter = new Pharaoh(gameEngine, AM, camera);
+    var characterControl = new pharaohController(mainCharacter);
+    mainCharacter.setX(530);
+    var anubis = new Anubis(mainCharacter, gameEngine, AM, 10*70, 6.15*70);
+
+    var platformController = new PlatformController(gameEngine, AM);
+    platformController.loadPlatformsLevel4();
+
+    gameEngine.addEntityMainCharacter(mainCharacter);
+    gameEngine.addEntity(anubis);
+   // camera.level4 = true;
+    gameEngine.addEntityCamera(camera);
+}
