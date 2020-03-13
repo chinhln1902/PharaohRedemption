@@ -89,12 +89,12 @@ var Level3Txt = [
 var Level4Txt = [
   "                ", // Overworld
   "                ",
-  "                ",
   "S              S",
   "s              s",
+  "s      SSS     s",
+  "s   S      S   s",
   "s              s",
-  "s              s",
-  "ss            !s",
+  "sS            Ss",
   "FFFFFFFFFFFFFFFF",
   "                ", // Underworld
   "                ",

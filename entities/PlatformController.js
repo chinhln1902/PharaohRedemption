@@ -52,24 +52,6 @@ PlatformController.prototype.constructor = PlatformController;
 
 PlatformController.prototype.loadPlatformsLevel1 = function () {
     
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'], 1, 7, true, false, false));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'], 1, 6, true, false, false));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'], 0, 5, true, false, false));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'], 0, 4, true, false, false));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'], -1, 3, true, false, false));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'], -1, 2, true, false, false));
-    platforms.push(new Platform(this.engine, platformSheets['sandTop'], -1, 1, true, false, false));
-
-
-
-    underworldPlatforms.push(new Platform(this.engine, platformSheets['sandTop'], 1, 7, true, true, false));
-    underworldPlatforms.push(new Platform(this.engine, platformSheets['sandTop'], 1, 6, true, true, false));
-    underworldPlatforms.push(new Platform(this.engine, platformSheets['sandTop'], 0, 5, true, true, false));
-    underworldPlatforms.push(new Platform(this.engine, platformSheets['sandTop'], 0, 4, true, true, false));
-    underworldPlatforms.push(new Platform(this.engine, platformSheets['sandTop'], -1, 3, true, true, false));
-    underworldPlatforms.push(new Platform(this.engine, platformSheets['sandTop'], -1, 2, true, true, false));
-    underworldPlatforms.push(new Platform(this.engine, platformSheets['sandTop'], -1, 1, true, true, false));
-
          // removePlatforms();
         //page 1
         decorativePlatforms.push(new Platform(this.engine, platformSheets['skull'], -50, 7,));
@@ -371,7 +353,7 @@ PlatformController.prototype.loadPlatformsLevel3 = function () {
 PlatformController.prototype.loadPlatformsLevel4 = function () {
     //Why doesn't this show up?
      //decorativePlatforms.push(new Platform(this.engine, AM.getAsset("./assets/sprites/pplatforms/Skull.png"), 100, 3.1, true, true, true));
-     powerUps.push(new PowerUp(this.engine, "hypno", 4, 6, false));
+     powerUps.push(new PowerUp(this.engine, "hypno", 8, 3, false));
      powerUps.push(new PowerUp(this.engine, "heart", 10, 7, false));
      powerUps.push(new PowerUp(this.engine, "heart", 11, 7, false));
      powerUps.push(new PowerUp(this.engine, "heart", 12, 7, false));

@@ -54,18 +54,17 @@ function Anubis(pharaoh, game, AssetManager, startX, startY) {
     this.flag = false;
     this.isJumping = false;
 
-    this.boundingBox = new BoundingBox(this.x + 65, this.y + 35, this.animation.frameWidth * SCALE - 130, this.animation.frameHeight * SCALE - 65);
+    // this.boundingBox = new BoundingBox(this.x + 65, this.y + 35, this.animation.frameWidth * SCALE - 130, this.animation.frameHeight * SCALE - 65);
 
     this.hud = new Hearts(AM.getAsset("./assets/platforms/PNG/Collectable/heart black.png"), this.game, 960, 25);
     this.game.addEntity(this.hud);
 
-    this.boundingBox = new BoundingBox(this.x + 100, this.y + 60, this.animation.frameWidth * this.scale - 170, this.animation.frameHeight * this.scale - 110);
+    this.boundingBox = new BoundingBox(this.x + 100, this.y + 65, this.animation.frameWidth * this.scale - 170, this.animation.frameHeight * this.scale - 110);
 }
 
 
 Anubis.prototype.draw = function () {
-    debugger;
-    this.ctx.strokeRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
+    // this.ctx.strokeRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
 
 }
@@ -106,7 +105,6 @@ Anubis.prototype.update = function () {
 }
 
 Anubis.prototype.chooseAction = function() {
-    this.boundingBox = new BoundingBox(this.x + 100, this.y + 60, this.animation.frameWidth * this.scale - 170, this.animation.frameHeight * this.scale - 110);
     if (this.runTimes < 1){
 
         if (this.flag){
@@ -134,7 +132,7 @@ Anubis.prototype.chooseAction = function() {
                 this.run();
     
             }
-            if (this.counter === 130){
+            if (this.counter === 160){
                 this.direction = "right";
                 this.run();
             }
@@ -250,6 +248,8 @@ Anubis.prototype.setToDefault = function() {
             this.jump();
         } else if (this.state === 'running'){
             this.run();
+        } else if (this.state === 'slide') {
+            this.slide();
         }
     } else {
         if (this.state === "idle"){
@@ -259,6 +259,8 @@ Anubis.prototype.setToDefault = function() {
             this.jump()
         } else if (this.state === 'running'){
             this.run();                               
+        } else if (this.state === 'slide') {
+            this.slide();
         }
     }
 }
@@ -277,32 +279,50 @@ Anubis.prototype.run = function() {
 
 }
 Anubis.prototype.controlJump = function() {
-    
     if (this.isJumping){
+        this.boundingBox = new BoundingBox(this.x + 100, this.y + 65, this.animation.frameWidth * this.scale - 170, this.animation.frameHeight * this.scale - 110);
         this.yVelocity -= 1.00; 
         this.y -= this.yVelocity;
 
         if (this.y >= 430.5){
             this.isJumping = false;
             this.yVelocity = 0; 
-            this.isJumping = false;
+        }
+        for(var i = 0; i < platforms.length; i++) {
+            var pf = platforms[i];
+            if (this.boundingBox.collide(pf.boundingBox) && this.boundingBox.top < pf.boundingBox.bottom) {
+                this.yVelocity = 0;
+                break;
+            }
+        }
+    } else {
+        this.boundingBox = new BoundingBox(this.x + 100, this.y + 65, this.animation.frameWidth * this.scale - 170, this.animation.frameHeight * this.scale - 110);
+        for(var i = 0; i < platforms.length; i++) {
+            var pf = platforms[i];
+                if (this.boundingBox.collide(pf.boundingBox)) {
+                    
+                // if(this.direction === "right") {
+                //     debugger;
+                //     this.idle();
+                //     this.x = pf.boundingBox.left - 50;
+                //     this.setToDefault();
+                // } else 
+                if (this.direction === "left") {
+                    
+                    this.idle();
+                    this.x = pf.boundingBox.right - this.animation.frameWidth * this.scale + 170;
+                    this.setToDefault();
+                    break;
+                } else if (this.direction === "right") {
+                    debugger;
+                    this.idle();
+                    this.x = pf.boundingBox.left - this.animation.frameWidth * this.scale + 50;
+                    this.setToDefault();
+                    break;
+                }
+            }
         }
     }   
-    
-    // var lastLeft = pharaoh.boundingBox.left;
-    // var lastRight = pharaoh.boundingBox.right;
-
-    // for (var i = 0; i < platforms.length; i++) {
-    //     var pf = platforms[i];
-
-    //     if (this.boundingBox.collide(pf.boundingBox)) {
-    //         if (this.direction === "right") {
-    //             this.speed = 0;
-    //         }
-    //     }  else if (this.direction === "left") {
-    //         this.speed = 0;
-    //     }
-    // }
 }
 
 Anubis.prototype.jump = function() {
@@ -347,7 +367,7 @@ Anubis.prototype.slash = function() {
 
     }
     this.playingTempAnimation = true;
-    this.state === "slash"
+    this.state = "slash";
 }
 
 Anubis.prototype.die = function() {
@@ -372,7 +392,7 @@ Anubis.prototype.strike = function() {
     console.log(pharaohX);
     this.game.addEntity(new Thunder(this.game, pharaohX,  this.pharaoh.getY() - 20));
     this.speed = 0;
-    this.state === "strike";
+    this.state = "strike";
     //this.game.addEntity(new Thunder(this.game, AM.getAsset("./assets/sprites/Anubis/Lightning2.png"), this.x + 300, this.y + 75));
 }
 
@@ -387,7 +407,7 @@ Anubis.prototype.slide = function () {
         this.speed = -350;
 
     }
-
+    this.state = "slide";
 }
 
 Anubis.prototype.hurt = function() {
