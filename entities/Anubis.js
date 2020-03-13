@@ -52,7 +52,8 @@ function Anubis(pharaoh, game, AssetManager, startX, startY) {
     this.runTimes = 0;
     this.flag = false;
     this.isJumping = false;
-
+    this.winCount = 0;
+    this.won = false;
     this.boundingBox = new BoundingBox(this.x + 65, this.y + 35, this.animation.frameWidth * SCALE - 130, this.animation.frameHeight * SCALE - 65);
 
     this.hud = new Hearts(AM.getAsset("./assets/platforms/PNG/Collectable/heart black.png"), this.game, 960, 25);
@@ -224,7 +225,9 @@ Anubis.prototype.takeDamage = function() {
     console.log("taking damage");
     if (this.health <= 0) {
         this.die(); 
-        window.location.replace('./menu/win.html');    
+        var MagicSprite = new Magic(this.pharaoh, this.game, pharaohX, this.pharaoh.getY());
+        this.game.addEntity(MagicSprite);
+        this.pharaoh.won = true;
         return; 
     }
 
@@ -368,10 +371,9 @@ Anubis.prototype.strike = function() {
     }
     pharaohX = this.pharaoh.getX();
     console.log(pharaohX);
-    this.game.addEntity(new Thunder(this.game, pharaohX,  this.pharaoh.getY() - 20));
+    this.game.addEntity(new Thunder(this.pharaoh, this.game, pharaohX,  this.pharaoh.getY() - 20));
     this.speed = 0;
     this.state === "strike";
-    //this.game.addEntity(new Thunder(this.game, AM.getAsset("./assets/sprites/Anubis/Lightning2.png"), this.x + 300, this.y + 75));
 }
 
 

@@ -84,7 +84,6 @@ BackgroundManager.prototype.stopSpeed = function(){
 
 //change movement to deafult speed 
 BackgroundManager.prototype.defaultSpeed = function(){
-    debugger;
     if (this.level4 === false) {
         for(var i = 0; i < desertBackground.length; i++){
             desertBackground[i].setSpeed(i/1.2);
@@ -95,7 +94,6 @@ BackgroundManager.prototype.defaultSpeed = function(){
 
 //change movement to deafult speed 
 BackgroundManager.prototype.defaultNegativeSpeed = function(){
-    debugger;
     if (this.level4 === false) {
         for(var i = 0; i < desertBackground.length; i++){
             desertBackground[i].setSpeed(-(i/1.2));

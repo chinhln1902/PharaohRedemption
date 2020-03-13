@@ -130,7 +130,7 @@ function Pharaoh(game, assetManager, theCamera) {
     this.powerUp = "none";
     this.switchable = true;
     this.level4 = false;
-
+    this.won = false;
     this.backgroundManager = new BackgroundManager(assetManager, game);
 
     
@@ -958,12 +958,18 @@ Pharaoh.prototype.setPreviousState = function(state){
     this.previousState = state;
 }
 Pharaoh.prototype.swapWorld = function(){
-    this.underworld = !this.underworld;
-    this.groundLevel = GROUND_LEVEL;
-    this.yVelocity = 0;
-    this.isJumping = true;
-    // this.onPlatform = false;
-    this.setToDefault();
+    if (this.won === false){
+        this.underworld = !this.underworld;
+        this.groundLevel = GROUND_LEVEL;
+        this.yVelocity = 0;
+        this.isJumping = true;
+        // this.onPlatform = false;
+        this.setToDefault();
+
+    } else {
+        this.underworld = true;
+    }
+
 }
 
 Pharaoh.prototype.collideWithProjectile = function(other) {

@@ -198,7 +198,9 @@ function loadAssets(){
     // AM.queueDownload("./assets/sprites/Anubis/Jump Start Right.png"); 
     AM.queueDownload("./assets/sprites/Anubis/Lightning2.png"); 
     AM.queueDownload("./assets/sprites/Anubis/Jump Cycle Right.png"); 
-    AM.queueDownload("./assets/sprites/Anubis/Jump Cycle Left.png"); 
+    AM.queueDownload("./assets/sprites/Anubis/Jump Cycle Left.png");
+    AM.queueDownload("./assets/sprites/Anubis/Magic Sprite.png"); 
+ 
 }
 
 
