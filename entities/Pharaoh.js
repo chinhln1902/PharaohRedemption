@@ -1000,8 +1000,14 @@ Pharaoh.prototype.swapWorld = function(){
 
 Pharaoh.prototype.collideWithProjectile = function(other) {
     if (other.name === "rock") {
-        if ((other.x - 70) < this.x && this.x < (other.x + 70) && (other.y - 30) < this.y && this.y < (other.y + 30)) {
-            return true; 
+        if (this.level === 1) {
+            if ((other.x - 70) < this.x && this.x < (other.x + 70) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+                return true; 
+            }
+        } else {
+            if ((other.x - 70) < this.x && this.x < (other.x + 70) && (other.y - 30) < this.y && this.y < (other.y + 30)) {
+                return true; 
+            }
         }
     } else {
         if (this.level === 1) {
