@@ -56,7 +56,7 @@ Warrior.prototype.draw = function () {
 Warrior.prototype.update = function () {
     if (this.live === 0) return;
     if (this.dead) this.aftermath++;
-    if (this.aftermath > 10) this.removeFromWorld = true; 
+    if (this.aftermath > 2) this.removeFromWorld = true; 
   //  this.x += 2; //for walking
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;
@@ -66,11 +66,13 @@ Warrior.prototype.update = function () {
         if (ent.name === 'comet') {
             if (this.collide(ent)) {
                this.die(); 
+               //this.removeFromWorld = true;
             }
         }
         if (ent.name === 'pharaoh' && ent.attacking === true) {
             if (this.collideSlash(ent)) {
                 this.die(); 
+                //this.removeFromWorld = true; 
             }
         }
     }   
@@ -102,6 +104,7 @@ Warrior.prototype.slashLeft = function() {
 }
 
 Warrior.prototype.die = function () {
+    this.dead = true; 
     this.animation = new Animation(Warriorspritesheets['die'], 900, 900, 15, 0.05, 15, false, .2);
     this.live = 0; 
 }

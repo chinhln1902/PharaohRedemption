@@ -977,7 +977,7 @@ Pharaoh.prototype.collide = function(other) {
             return true; 
         }
     }
-    if ((other.x - 120) < this.x && this.x < (other.x + 120) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
+    if ((other.x - 120) < this.x && this.x < (other.x + 120) && (other.y - 120) < this.y && this.y < (other.y + 120)) {
         return true; 
    }
 }

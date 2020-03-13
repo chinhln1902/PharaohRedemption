@@ -37,7 +37,7 @@ EnemyController.prototype.level2 = function() {
     var snake = new Snake(this.gameEngine, AM, 31.7*70, .9*70);
     var bat2 = new Bat(this.gameEngine, AM, 72*70, 3*70);
     var bat3 = new Bat(this.gameEngine, AM, 78*70, 3*70);
-    var demon = new Demon(this.gameEngine, AM, 93.5*70, 2.8*70, 0); 
+    var demon = new Demon(this.gameEngine, AM, 93.5*70, 3.05*70, 0); 
 
     this.gameEngine.addEntity(bat);
     this.gameEngine.addEntity(archer);
@@ -65,8 +65,8 @@ EnemyController.prototype.level3 = function() {
  var archer2 = new Archer(this.gameEngine, AM, 54.5*70, 3.9*70);
  var snake8 = new Snake(this.gameEngine, AM, 56*70, 4.85*70);
  var warrior5 = new Warrior(this.gameEngine, AM, 61.2*70, 3.95*70); 
- var snake3 = new Snake(this.gameEngine, AM, 71.5*70, 1.9*70); 
- var snake7 = new Snake(this.gameEngine, AM, 74*70, 1.9*70);
+ //var snake3 = new Snake(this.gameEngine, AM, 71.5*70, 1.9*70); 
+ //var snake7 = new Snake(this.gameEngine, AM, 74*70, 1.9*70);
  var snake4 = new Snake(this.gameEngine, AM, 33*70, 7.95*70);
  var snake5 = new Snake(this.gameEngine, AM, 38*70, 7.95*70);
  var snake6 = new Snake(this.gameEngine, AM, 42*70, 7.95*70);
@@ -80,7 +80,7 @@ EnemyController.prototype.level3 = function() {
  var bat6 = new Bat(this.gameEngine, AM, 90*70, 10*70); 
  var bat7 = new Bat(this.gameEngine, AM, 96*70, 10*70);
  var demon7 = new Demon(this.gameEngine, AM, 66.2*70, .2*70, 0);  
- var warrior6 = new Warrior(this.gameEngine, AM, 76.5*70, .95*70);
+ //var warrior6 = new Warrior(this.gameEngine, AM, 76.5*70, .95*70);
  var warrior7 = new Warrior(this.gameEngine, AM, 83.5*70, 3.95*70); 
  
  //this.gameEngine.addEntity(bat);  
@@ -97,12 +97,12 @@ EnemyController.prototype.level3 = function() {
  this.gameEngine.addEntity(bat4);
  this.gameEngine.addEntity(bat5); 
  this.gameEngine.addEntity(archer2); 
- this.gameEngine.addEntity(snake3); 
+ //this.gameEngine.addEntity(snake3); 
  this.gameEngine.addEntity(snake4);
  this.gameEngine.addEntity(snake5);
  this.gameEngine.addEntity(snake6);
  this.gameEngine.addEntity(warrior4); 
- this.gameEngine.addEntity(snake7);
+ //this.gameEngine.addEntity(snake7);
  this.gameEngine.addEntity(demon3);  
  this.gameEngine.addEntity(demon4);
  this.gameEngine.addEntity(demon5); 
@@ -114,7 +114,7 @@ EnemyController.prototype.level3 = function() {
  this.gameEngine.addEntity(bat6);
  this.gameEngine.addEntity(bat7); 
  this.gameEngine.addEntity(demon7);
- this.gameEngine.addEntity(warrior6);
+ //this.gameEngine.addEntity(warrior6);
  this.gameEngine.addEntity(warrior7);  
 }
 

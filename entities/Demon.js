@@ -160,7 +160,11 @@ Demon.prototype.update = function () {
     	if (ent.name === 'comet' || (ent.name === 'pharaoh' && ent.attacking)) {
     		if (this.collide(ent) && !this.immune) {
     			if (this.health === 1) {
-    				this.die(); 
+    				if (this.idleplay === 0) {
+    					this.die();
+    				} else {
+    					this.dieright(); 
+    				}
     			} else {
     				this.immune = true; 
     				this.health--; 
@@ -234,7 +238,11 @@ Demon.prototype.die = function() {
 
 Demon.prototype.dieright = function() {
 	this.dead = true; 
-	this.animation = new Animation(demonspritesheets['dying'], 722, 480, 15, .05, 15, false, .45); 
+	if (this.status === 0) { 
+		this.animation = new Animation(demonspritesheets['dying'], 722, 480, 15, .05, 15, false, .45); 
+	} else {
+		this.animation = new Animation(underspritesheets['dying'], 722, 480, 15, .05, 15, false, .45); 
+	}
 }
 
 Demon.prototype.idle = function() { 
