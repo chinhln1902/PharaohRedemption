@@ -133,8 +133,6 @@ function Pharaoh(game, assetManager, theCamera) {
     this.won = false;
     this.backgroundManager = new BackgroundManager(assetManager, game);
 
-    
-
     this.boundingBox = new BoundingBox(this.x + 65, this.y + 35, this.animation.frameWidth * SCALE - 130, this.animation.frameHeight * SCALE - 65);
     
     this.hud = new Hearts(AM.getAsset("./assets/platforms/PNG/Collectable/heart.png"), this.engine, 25, 25);
@@ -168,7 +166,10 @@ Pharaoh.prototype.update = function () {
         //alert("You beat this Level! You cheated death this time!");
         window.location.replace('./menu/win.html'); 
         this.Pharaoh.backgroundManager.stopSpeed();
+    }
 
+    if (this.won === true){
+        this.underworld = true;
 
     }
     //console.log("pharaoh's x value: " + this.x);
@@ -184,6 +185,7 @@ Pharaoh.prototype.update = function () {
             if (this.collide(ent)) { 
                 //console.log("collided"); 
                 this.takeDamage(); 
+                console.log("Pharaoh collide with anubis");
             }
         }
         
@@ -458,8 +460,9 @@ Pharaoh.prototype.takeDamage = function () {
         this.health -= 1;
         this.hud.setHealth(this.health);
         if (this.health <= 0) {
+
             this.die();  
-            window.location.replace('./menu/gameover.html'); 
+            //window.location.replace('./menu/gameover.html'); 
             return; 
         }
         if (this.underworld){
@@ -569,6 +572,7 @@ Pharaoh.prototype.setToDefault = function () {
     
 }
 
+
 //test method for debugging
 Pharaoh.prototype.testAnimation = function () {
     //test here
@@ -654,7 +658,6 @@ function controlJump(pharaoh){
                     
                     if (pharaoh.boundingBox.collide(pf.boundingBox)) {
                         if (pharaoh.direction === "right") {
-                            debugger;
                             pharaoh.lastSpeed = pharaoh.speed;
                             pharaoh.speed = 0;
                             pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;

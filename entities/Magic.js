@@ -21,11 +21,8 @@ function Magic(pharaoh, game, myX, myY) {
 
 
 Magic.prototype.draw = function () {
+    if (this.winCount > 100) return;
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.pharaoh.x - 10, this.pharaoh.y);
-    if (this.winCount >= 100){
-        this.pharaoh.underworld = true;
-        //this.removeFromWorld = true;
-    }
     Entity.prototype.draw.call(this);
 }
 
@@ -35,10 +32,10 @@ Magic.prototype.update = function () {
     console.log("underworld?" + this.pharaoh.underworld);
 
     this.winCount++;
-    if (this.winCount >= 100){
-        this.pharaoh.underworld = true;
-        //this.removeFromWorld = true;
-    }
+    // if (this.winCount >= 100){
+    //     this.pharaoh.underworld = true;
+    //     //this.removeFromWorld = true;
+    // }
     Entity.prototype.update.call(this);
 }
 

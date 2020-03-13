@@ -13,23 +13,28 @@ function Thunder(pharaoh, game, myX, myY) {
     this.ctx = game.ctx;
     this.live = 1;
     this.pharaoh = pharaoh
+    this.timeAlive = 0;
 
 }
 
-
 Thunder.prototype.draw = function () {
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.pharaoh.x -10, this.pharaoh.y);
-    console.log("draw thunder");
-    //this.live = 0;
-    Entity.prototype.draw.call(this);
+    if (this.timeAlive > 5){
+        this.animation.drawFrame(this.game.clockTick, this.ctx, this.pharaoh.x -10, this.pharaoh.y);
+        Entity.prototype.draw.call(this);
+
+    }   
 }
 
 Thunder.prototype.update = function () {
-    if (this.live === 0) return;
-    this.live = 0;
+    if (this.timeAlive > 30) {
+        this.removeFromWorld = true; 
+    }
+    if (this.timeAlive > 5){
+        this.x += this.game.clockTick * this.speed;
+        Entity.prototype.update.call(this);
+    }
 
-    //  this.x += this.game.clockTick;
-    Entity.prototype.update.call(this);
+    this.timeAlive ++;
 }
 
 

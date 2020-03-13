@@ -353,7 +353,7 @@ PlatformController.prototype.loadPlatformsLevel3 = function () {
 PlatformController.prototype.loadPlatformsLevel4 = function () {
     //Why doesn't this show up?
      //decorativePlatforms.push(new Platform(this.engine, AM.getAsset("./assets/sprites/pplatforms/Skull.png"), 100, 3.1, true, true, true));
-     powerUps.push(new PowerUp(this.engine, "hypno", 4, 6, false));
+     powerUps.push(new PowerUp(this.engine, "hypno", 8, 3, false));
      powerUps.push(new PowerUp(this.engine, "heart", 10, 7, false));
      powerUps.push(new PowerUp(this.engine, "heart", 11, 7, false));
      powerUps.push(new PowerUp(this.engine, "heart", 12, 7, false));

@@ -78,7 +78,6 @@ Bat.prototype.update = function () {
     if (this.Right === "true"){
         this.x += 2;
         this.count += 1;
-        debugger;
 
         if (this.game.getMainCharacter().getX() >= this.x - 200 && this.count === 200){
             this.fly();
