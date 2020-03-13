@@ -69,7 +69,7 @@ var Level2Txt = [
 var Level3Txt = [
   "                                                    BB      P                                                               ",
   "                                          _         bb      C            !             ___           P                      ",
-  "    C                    S    SCCCCCCCCC  CCCCCCCCCCbbCCCCCCCCCCCCCCC   CCC  C  CCCCCCCCCCC   CCCCCCCC                      ",
+  "    C                    S    SCCCCCCCCC  CCCCCCCCCCbbCCCCCCCCCCCCCCC   CCC  C  CCCCCCCCCCC  CCCCCCCCC                      ",
   "                         s    s     EE    b         bb      D      b    EEE  b        D              b                      ",
   "                         s    s     EE    b         bb      d      b    EEE  bB       d              bCCCCCCC               ",
   "                         s    s  BBBBBBBBBb   BBBBBBbbBBBBB BBB    BBBBBBBBBBBBBB BBBBBBBBBB BBBBBBBBB                      ",
@@ -78,12 +78,12 @@ var Level3Txt = [
   "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
   "                                                                                                                            ",
   "                                          !                             ___            ___           P                      ",
-  "    C                    R                RRRRRRRRRR  RRRRRRRRRR   RRRRRRRRRRRRRRRRRRRRRRRR   RRRRRRRR                      ",
+  "    C                    R                RRRRRRRRRR  RRRRRRRRRR   RRRRRRRRRRRRRRRRRRRRRRRR  RRRRRRRRR                      ",
   "    b                    r                r        D  D     EE    Rr         H        D EEr  R       r                      ",
   "   b                         RR           r        d  d     EE   Rrr         H        d EEr R        rCCCCCCC               ",
   "   b   R                     rr           r  RRRRRRR  RRRRRRRRRRRRRRRR RRRRRRRRRRRRRRRRRRRr RRRRRRRRRr                      ",
   "  b    r             R   R   rr           r                 r          r           H                 r                      ",
-  "  b    r_____________r   r   rr_____      rR   __           r          r___        H                 r                      "
+  "  b    r_____________r   r   rr_____      rR   __           r          r           H                 r                      "
 ]
 
 var Level4Txt = [
