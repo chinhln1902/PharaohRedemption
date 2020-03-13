@@ -1008,14 +1008,18 @@ Pharaoh.prototype.collideWithProjectile = function(other) {
             if ((other.x - 30) < this.x && this.x < (other.x + 30) && (other.y - 40) < this.y && this.y < (other.y + 40)) {
                 return true; 
             } 
-        } else if (this.level === 2 || this.level === 3) {
-            if ((other.x - 110) < this.x && this.x < (other.x + 110) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+        } else if (this.level === 2) {
+            if ((other.x - 15) < this.x && this.x < (other.x + 10) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
                 return true; 
             }    
+        } else if (this.level === 3) {
+            if ((other.x - 110) < this.x && this.x < (other.x + 110) && (other.y - 120) < this.y && this.y < (other.y + 120)) {
+                return true; 
+            }  
         } else {
             if ((other.x - 110) < this.x && this.x < (other.x + 110) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
                 return true; 
-            }  
+            } 
         }
     }
 }
