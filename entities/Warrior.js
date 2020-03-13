@@ -56,7 +56,7 @@ Warrior.prototype.draw = function () {
 Warrior.prototype.update = function () {
     if (this.live === 0) return;
     if (this.dead) this.aftermath++;
-    if (this.aftermath > 30) this.removeFromWorld = true; 
+    if (this.aftermath > 10) this.removeFromWorld = true; 
   //  this.x += 2; //for walking
     if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
         this.x += this.game.clockTick * this.speed;
