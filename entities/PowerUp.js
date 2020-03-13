@@ -56,7 +56,7 @@ PowerUp.prototype.givePowerTo = function(pharaoh) {
 PowerUp.prototype.giveHealthTo = function(pharaoh){
     if (this.underworld === true) return;
     pharaoh.health += 1;
-    console.log(pharaoh.hud);
+    //console.log(pharaoh.hud);
     pharaoh.hud.setHealth(pharaoh.health);
     this.delete();
 }

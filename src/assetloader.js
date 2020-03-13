@@ -144,8 +144,8 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Rock2.png"); //Rock
     AM.queueDownload("./assets/sprites/magic/PNG/comet/csheet.png");//comet
     AM.queueDownload("./assets/sprites/magic/PNG/comet/csheetflip.png");//comet flip
-    AM.queueDownload("./assets/sprites/magic/PNG/gypno/spiralSpriteSheet.png");//spiral
-    AM.queueDownload("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlip.png");//spiral flip
+    AM.queueDownload("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetx.png");//spiral
+    AM.queueDownload("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlipx.png");//spiral flip
     AM.queueDownload("./assets/sprites/ArrowFlip.png"); //Arrow for the archer
      //Demon
      AM.queueDownload("./assets/sprites/RedDemon/RedDemonIdle.png");
@@ -167,17 +167,7 @@ function loadAssets(){
      AM.queueDownload("./assets/sprites/PurpleDemon/Dying/DyingSpriteSheetFlip.png");
      AM.queueDownload("./assets/sprites/PurpleDemon/Walking/WalkingSpriteSheet.png");
      AM.queueDownload("./assets/sprites/PurpleDemon/Walking/WalkingSpriteSheetFlip.png");
-
-
-    //Other
-    AM.queueDownload("./assets/platforms/PNG/Collectable/heart.png"); //heart
-    AM.queueDownload("./assets/platforms/PNG/Collectable/heart black.png"); //heart
-
-    AM.queueDownload("./assets/platforms/PNG/Collectable/Treasure Chest.png"); //chest
-    AM.queueDownload("./assets/platforms/boxSpriteSheet.png"); //crate (box)
-    AM.queueDownload("./assets/sprites/powerUps/hypno.png"); //crate (box)
-
-        //Anubis 
+    //Anubis 
     AM.queueDownload("./assets/sprites/Anubis/Running Right.png"); 
     AM.queueDownload("./assets/sprites/Anubis/Running Left.png"); 
     AM.queueDownload("./assets/sprites/Anubis/Idle Right.png"); 
@@ -200,6 +190,14 @@ function loadAssets(){
     AM.queueDownload("./assets/sprites/Anubis/Jump Cycle Right.png"); 
     AM.queueDownload("./assets/sprites/Anubis/Jump Cycle Left.png");
     AM.queueDownload("./assets/sprites/Anubis/Magic Sprite.png"); 
+
+    //Other
+    AM.queueDownload("./assets/platforms/PNG/Collectable/heart.png"); //heart
+    AM.queueDownload("./assets/platforms/PNG/Collectable/heart black.png"); //heart
+    AM.queueDownload("./assets/sprites/frozenParticles.png"); //particles
+    AM.queueDownload("./assets/platforms/PNG/Collectable/Treasure Chest.png"); //chest
+    AM.queueDownload("./assets/platforms/boxSpriteSheet.png"); //crate (box)
+    AM.queueDownload("./assets/sprites/powerUps/hypno.png"); //crate (box)
  
 }
 

@@ -59,7 +59,7 @@ function Anubis(pharaoh, game, AssetManager, startX, startY) {
 
     this.hud = new Hearts(AM.getAsset("./assets/platforms/PNG/Collectable/heart black.png"), this.game, 960, 25);
     this.game.addEntity(this.hud);
-
+    this.frozenTime = 0;
     this.boundingBox = new BoundingBox(this.x + 100, this.y + 65, this.animation.frameWidth * this.scale - 170, this.animation.frameHeight * this.scale - 110);
 }
 
@@ -71,17 +71,24 @@ Anubis.prototype.draw = function () {
 }
 
 Anubis.prototype.update = function () {
-        
+
         if (this.live === 0) return;
         this.x += this.game.clockTick * this.speed;
+        
+        if (this.frozen){
+            this.frozenTime ++;
+            if (this.frozenTime > 200){
+                this.frozen = false;
+                this.particles.removeFromWorld = true;
+            } 
+            return;
+        }
         this.chooseAction();
-        this.controlJump(this);
         controlAnimation(this);
-
+        this.controlJump(this);
         this.immune++; 
         this.counter++;
-
-        Entity.prototype.update.call(this);
+        //Entity.prototype.update.call(this);
         if (this.dead) this.aftermath++;
         if (this.aftermath >= 1) this.removeFromWorld = true; 
 
@@ -91,6 +98,7 @@ Anubis.prototype.update = function () {
                 if (this.collide(ent)) {
                 this.takeDamage(); 
                 }
+                console.log("comet");
             }
             if (ent.name === 'pharaoh' && ent.attacking === true) {
                 if (this.collideSlash(ent)) {
@@ -100,8 +108,19 @@ Anubis.prototype.update = function () {
             
             if (ent.name === 'hypno') {
                 if (this.collideSlash(ent)) {
-                    //this.die(); 
-                    //Freeze character
+                    if (this.frozen) return;
+                    this.takeDamage();
+                    console.log("hypno");
+                    this.particles = new Particles(this.game, this.x + 75, this.y-10);
+                    this.frozen = true;
+                    this.frozenTime = 0;
+                    if (this.direction === "left"){
+                        this.animation = new Animation(anubisspritesheets['hurt left'], 900, 900, 1, 0.05, 1, true, this.scale); 
+                
+                    } else {
+                        this.animation = new Animation(anubisspritesheets['hurt right'], 900, 900, 1, 0.05, 1, true, this.scale);
+                    }
+
                 }
             }      
         } 
@@ -322,7 +341,7 @@ Anubis.prototype.controlJump = function() {
                     this.setToDefault();
                     break;
                 } else if (this.direction === "right") {
-                    debugger;
+                    //debugger;
                     this.idle();
                     this.x = pf.boundingBox.left - this.animation.frameWidth * this.scale + 50;
                     this.checkDirection();  

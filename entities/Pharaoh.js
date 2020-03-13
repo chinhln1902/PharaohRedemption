@@ -137,7 +137,6 @@ function Pharaoh(game, assetManager, theCamera) {
     
     this.hud = new Hearts(AM.getAsset("./assets/platforms/PNG/Collectable/heart.png"), this.engine, 25, 25);
     this.engine.addEntity(this.hud);
-
 }
 
 //inheritence
@@ -185,13 +184,15 @@ Pharaoh.prototype.update = function () {
         if (ent.type === "enemy" && ent.live === 1 && this.dead === false) { 
             if (this.collide(ent)) { 
                 //console.log("collided"); 
-                this.takeDamage(); 
+                if (!ent.frozen) this.takeDamage(); 
             }
         }
 
         if (ent.name === 'Anubis' && ent.attacking === true && this.dead === false) {
             if (this.collideSlash(ent)) {
-                this.takeDamage(); 
+                console.log("frozen: " + ent.frozen);
+                if (!ent.frozen) this.takeDamage(); ;
+                
                 console.log("Pharaoh collide with anubis");
 
             }
@@ -437,25 +438,25 @@ Pharaoh.prototype.staff = function () {
         if (this.underworld){
             if (this.direction === 'right'){
                 this.animation = new Animation(spriteSheets['staffing1'], 200, 180, 12, 0.05, 12, false, SCALE);
-                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheet.png"),
-                        "right", this.x + 10, this.y+10);
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetx.png"),
+                        "right", this.x + 10, this.y+10, "hypno");
                         comet.startSpeed = 200;
                 this.engine.addEntity(comet);
             } else {
                 this.animation = new Animation(spriteSheets['staffing flip1'], 260, 180, 12, 0.05, 12, false, SCALE);
-                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlip.png"),
-                       "left", this.x - 10, this.y+10);
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlipx.png"),
+                       "left", this.x - 10, this.y+10, "hypno");
                 this.engine.addEntity(comet);
             }
         } else {
             if (this.direction === 'right'){
                 this.animation = new Animation(spriteSheets['staffing'], 200, 180, 12, 0.05, 12, false, SCALE);
-                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheet.png"),
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetx.png"),
                         "right", this.x + 10, this.y+10);
                 this.engine.addEntity(comet);
             } else {
                 this.animation = new Animation(spriteSheets['staffing flip'], 260, 180, 12, 0.05, 12, false, SCALE);
-                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlip.png"),
+                var comet = new Projectile(this.engine, AM.getAsset("./assets/sprites/magic/PNG/gypno/spiralSpriteSheetFlipx.png"),
                        "left", this.x - 10, this.y+10);
                 this.engine.addEntity(comet);
             }

@@ -50,7 +50,7 @@ var Level2Txt = [
     "                                                                                                                                          ",
     "                            BBBBB                                                       BBBBBBBBBBBBBBBB                                  ",
     "            bbbb            EEEE B                               S                                                                        ",
-    "                         _  EEEE  B            C     C           s                                                                        ",
+    "                        !_  EEEE  B            C     C           s                                                                        ",
     "                 BBBBBBBBBBBBBBB   B         C         C         s  S        b   b   b                                                    ",
     "            E       b              bBB    C     C   C     C  B   s  s                   BBBBBBBBB                                         ",
     "            S       b              b  BB                     b   s  s                   E   C   E  C                                      ",
