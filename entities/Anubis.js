@@ -82,7 +82,7 @@ Anubis.prototype.update = function () {
 
         Entity.prototype.update.call(this);
         if (this.dead) this.aftermath++;
-        if (this.aftermath > 30) this.removeFromWorld = true; 
+        if (this.aftermath >= 1) this.removeFromWorld = true; 
 
         for (var i = 0; i < this.game.entities.length; i++) {
             var ent = this.game.entities[i];
@@ -229,6 +229,7 @@ Anubis.prototype.takeDamage = function() {
         this.pharaoh.won = true;
         this.live = 0;
         this.removeFromWorld = true;
+        this.boundingBox.removeFromWorld = true;
         this.won = true;
         this.pharaoh.speed = 0;
         return; 

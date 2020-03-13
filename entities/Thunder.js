@@ -26,7 +26,7 @@ Thunder.prototype.draw = function () {
 }
 
 Thunder.prototype.update = function () {
-    if (this.timeAlive > 30) {
+    if (this.timeAlive > 10) {
         this.removeFromWorld = true; 
     }
     if (this.timeAlive > 5){
