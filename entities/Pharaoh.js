@@ -153,8 +153,9 @@ Pharaoh.prototype.update = function () {
     controlPowerUps(this);
     this.camera.setX(this.x);                     ///For camera
     this.immune++; 
-    Entity.prototype.update.call(this);
-    if (this.dead === true) this.aftermath++;
+    if (this.dead === true) this.aftermath = this.aftermath + 1;
+    
+    console.log(this.aftermath);
     if (this.aftermath > 30) {
         this.removeFromWorld = true; 
         //alert("game over");
@@ -171,25 +172,24 @@ Pharaoh.prototype.update = function () {
     if (this.won === true){
         this.underworld = true;
         
-
     }
     //console.log("pharaoh's x value: " + this.x);
 
     for (var i = 0; i < this.game.entities.length; i++) {
         var ent = this.game.entities[i];
-        if (ent.type === "projectile" && ent.live === 1) {
+        if (ent.type === "projectile" && ent.live === 1 && this.dead === false) {
             if (this.collideWithProjectile(ent)) {
                 this.takeDamage(); 
             }
         }
-        if (ent.type === "enemy" && ent.live === 1) { 
+        if (ent.type === "enemy" && ent.live === 1 && this.dead === false) { 
             if (this.collide(ent)) { 
                 //console.log("collided"); 
                 this.takeDamage(); 
             }
         }
 
-        if (ent.name === 'Anubis' && ent.attacking === true) {
+        if (ent.name === 'Anubis' && ent.attacking === true && this.dead === false) {
             if (this.collideSlash(ent)) {
                 this.takeDamage(); 
                 console.log("Pharaoh collide with anubis");
@@ -208,17 +208,23 @@ Pharaoh.prototype.update = function () {
             }
         }
     }  
+
+    Entity.prototype.update.call(this);
+
     
 }
 
 //draw is called after every update
 Pharaoh.prototype.draw = function () {
-    //if (this.underworld) return;
+    if (!this.dead){
+            //if (this.underworld) return;
     //console.log(this.animation);
     // this.ctx.strokeRect(this.boundingBox.x - this.camera.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.camera.x, this.y);                    //important for camera to work
     // this.ctx.strokeRect(this.x, this.y, 10, 10);
     Entity.prototype.draw.call(this);
+    }
+
 }
 
 //sets state to idle
@@ -467,8 +473,8 @@ Pharaoh.prototype.takeDamage = function () {
         this.attacking = false; 
         this.health -= 1;
         this.hud.setHealth(this.health);
-        if (this.health <= 0) {
-
+        if (this.health === 0) {
+            debugger;
             this.die();  
             //window.location.replace('./menu/gameover.html'); 
             return; 
