@@ -85,7 +85,7 @@ function loadSpriteSheets(AM){
 
 
 // Pharaoh "class". Represents the main character and all of his actions.
-function Pharaoh(game, assetManager, theCamera) {
+function Pharaoh(game, assetManager, theCamera, level) {
 
     this.engine = game;
     this.AM = assetManager;  
@@ -98,6 +98,7 @@ function Pharaoh(game, assetManager, theCamera) {
     Entity.call(this, game, 500, 250);
     this.name = "pharaoh"; 
     this.health = 5; 
+    this.level = level
     this.type = "main"
     //state is a string which can be either: 'idle' 'jumping' or 'moving'
     this.state = "idle"; 

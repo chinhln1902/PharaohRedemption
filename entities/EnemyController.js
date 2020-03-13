@@ -45,3 +45,5 @@ EnemyController.prototype.level2 = function() {
     this.gameEngine.addEntity(bat2);
     this.gameEngine.addEntity(bat3);
     this.gameEngine.addEntity(demon); 
+
+}

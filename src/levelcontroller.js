@@ -14,7 +14,7 @@ levelcontroller.prototype.level1 = function(){
     gameEngine.start();
 
     var camera = new Camera(gameEngine);      
-    var mainCharacter = new Pharaoh(gameEngine, AM, camera);
+    var mainCharacter = new Pharaoh(gameEngine, AM, camera, 1);
     var characterControl = new pharaohController(mainCharacter);
 
     var enemyController = new EnemyController(gameEngine, camera);
@@ -38,7 +38,7 @@ levelcontroller.prototype.level2 = function(){
     gameEngine.start();
 
     var camera = new Camera(gameEngine);      
-    var mainCharacter = new Pharaoh(gameEngine, AM, camera);
+    var mainCharacter = new Pharaoh(gameEngine, AM, camera, 2);
     var characterControl = new pharaohController(mainCharacter);
 
     var enemyController = new EnemyController(gameEngine, camera);
@@ -62,7 +62,7 @@ levelcontroller.prototype.level3 = function(){
     gameEngine.start();
 
     var camera = new Camera(gameEngine);      
-    var mainCharacter = new Pharaoh(gameEngine, AM, camera);
+    var mainCharacter = new Pharaoh(gameEngine, AM, camera, 3);
     var characterControl = new pharaohController(mainCharacter);
 
     var enemyController = new EnemyController(gameEngine, camera);
@@ -86,7 +86,7 @@ levelcontroller.prototype.level4 = function(){
     gameEngine.start();
 
     var camera = new Camera(gameEngine);      
-    var mainCharacter = new Pharaoh(gameEngine, AM, camera); 
+    var mainCharacter = new Pharaoh(gameEngine, AM, camera, 4); 
     var characterControl = new pharaohController(mainCharacter);
     var anubis = new Anubis(mainCharacter, gameEngine, AM, 10*70, 6.15*70);
 
