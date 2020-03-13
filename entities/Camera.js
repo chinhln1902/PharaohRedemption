@@ -33,7 +33,7 @@ Camera.prototype.setX = function (XValue) {
     }
 
     if (this.level4){
-        this.x = -10;
+        this.x = -15;
     }
 
 }

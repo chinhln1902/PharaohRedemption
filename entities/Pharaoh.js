@@ -971,6 +971,7 @@ Pharaoh.prototype.swapWorld = function(){
 
     } else {
         this.underworld = true;
+        //this.speed = 0;
     }
 
 }
