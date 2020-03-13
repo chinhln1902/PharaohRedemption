@@ -232,7 +232,7 @@ Anubis.prototype.takeDamage = function() {
         this.removeFromWorld = true;
         this.boundingBox.removeFromWorld = true;
         this.won = true;
-        this.pharaoh.speed = 0;
+        //this.pharaoh.speed = 0;
         return; 
     }
 

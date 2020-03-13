@@ -9,7 +9,6 @@ function Magic(pharaoh, game, myX, myY) {
     this.y = myY;
     debugger;
     this.game = game;
-    this.type = "projectile"; 
     this.name = "Magic"; 
     this.ctx = game.ctx;
     this.live = 1;

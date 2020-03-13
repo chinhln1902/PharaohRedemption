@@ -170,6 +170,7 @@ Pharaoh.prototype.update = function () {
 
     if (this.won === true){
         this.underworld = true;
+        
 
     }
     //console.log("pharaoh's x value: " + this.x);
@@ -185,13 +186,14 @@ Pharaoh.prototype.update = function () {
             if (this.collide(ent)) { 
                 //console.log("collided"); 
                 this.takeDamage(); 
-                console.log("Pharaoh collide with anubis");
             }
         }
 
         if (ent.name === 'Anubis' && ent.attacking === true) {
             if (this.collideSlash(ent)) {
                 this.takeDamage(); 
+                console.log("Pharaoh collide with anubis");
+
             }
         }
         
