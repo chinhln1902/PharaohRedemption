@@ -16,6 +16,8 @@ function Projectile(game, spritesheet, direction, startX, startY) {
     this.timeAlive = 0;
     this.type = "main"; 
     this.name = 'comet'; 
+    console.log(spritesheet.src[spritesheet.src.length-5]);
+    if (spritesheet.src[spritesheet.src.length-5] === 'x') this.name = 'hypno';
     this.underworld = false;
     var that = this;
     document.addEventListener("keydown", function (e) {
