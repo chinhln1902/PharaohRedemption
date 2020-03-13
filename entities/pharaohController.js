@@ -73,6 +73,11 @@ function pharaohController(mainCharacter){
 			} else if(e.code === "Space" && isSwitchable && !that.spaceDown){
 				that.Pharaoh.swapWorld();
 				that.spaceDown = true;
+
+				if (that.Pharaoh.won === true){
+					this.pharaoh.underworld = true;
+
+				}
 			}
 			
 
@@ -111,6 +116,11 @@ function pharaohController(mainCharacter){
 			if (e.code === "Space") {
 				e.preventDefault();
 				that.spaceDown = false;
+
+				if (that.Pharaoh.won === true){
+					this.pharaoh.underworld = true;
+
+				}
 			}
 
 			

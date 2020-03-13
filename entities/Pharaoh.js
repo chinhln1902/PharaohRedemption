@@ -129,7 +129,10 @@ function Pharaoh(game, assetManager, theCamera) {
     this.underneathPlatform = false;
     this.powerUp = "none";
     this.switchable = true;
+    this.level4 = false;
+    this.won = false;
     this.backgroundManager = new BackgroundManager(assetManager, game);
+
     this.boundingBox = new BoundingBox(this.x + 65, this.y + 35, this.animation.frameWidth * SCALE - 130, this.animation.frameHeight * SCALE - 65);
     
     this.hud = new Hearts(AM.getAsset("./assets/platforms/PNG/Collectable/heart.png"), this.engine, 25, 25);
@@ -163,7 +166,10 @@ Pharaoh.prototype.update = function () {
         //alert("You beat this Level! You cheated death this time!");
         window.location.replace('./menu/win.html'); 
         this.Pharaoh.backgroundManager.stopSpeed();
+    }
 
+    if (this.won === true){
+        this.underworld = true;
 
     }
     //console.log("pharaoh's x value: " + this.x);
@@ -178,6 +184,13 @@ Pharaoh.prototype.update = function () {
         if (ent.type === "enemy" && ent.live === 1) { 
             if (this.collide(ent)) { 
                 //console.log("collided"); 
+                this.takeDamage(); 
+                console.log("Pharaoh collide with anubis");
+            }
+        }
+
+        if (ent.name === 'Anubis' && ent.attacking === true) {
+            if (this.collideSlash(ent)) {
                 this.takeDamage(); 
             }
         }
@@ -453,8 +466,9 @@ Pharaoh.prototype.takeDamage = function () {
         this.health -= 1;
         this.hud.setHealth(this.health);
         if (this.health <= 0) {
+
             this.die();  
-            window.location.replace('./menu/gameover.html'); 
+            //window.location.replace('./menu/gameover.html'); 
             return; 
         }
         if (this.underworld){
@@ -564,6 +578,7 @@ Pharaoh.prototype.setToDefault = function () {
     
 }
 
+
 //test method for debugging
 Pharaoh.prototype.testAnimation = function () {
     //test here
@@ -575,6 +590,12 @@ function controlAnimation(pharaoh){
     if(pharaoh.playingTempAnimation && pharaoh.animation.isDone()){
         pharaoh.setToDefault();
     }
+}
+
+Pharaoh.prototype.collideSlash = function(other) {
+    if ((other.x - 300) < this.x && this.x < (other.x + 300) && (other.y - 70) < this.y && this.y < (other.y + 70)) {
+        return true; 
+   }
 }
 
 // called by the update method. controlls the jumping.
@@ -649,7 +670,6 @@ function controlJump(pharaoh){
                     
                     if (pharaoh.boundingBox.collide(pf.boundingBox)) {
                         if (pharaoh.direction === "right") {
-                            debugger;
                             pharaoh.lastSpeed = pharaoh.speed;
                             pharaoh.speed = 0;
                             pharaoh.x = pf.boundingBox.left - pharaoh.animation.frameWidth * SCALE + 64;
@@ -953,12 +973,19 @@ Pharaoh.prototype.setPreviousState = function(state){
     this.previousState = state;
 }
 Pharaoh.prototype.swapWorld = function(){
-    this.underworld = !this.underworld;
-    this.groundLevel = GROUND_LEVEL;
-    this.yVelocity = 0;
-    this.isJumping = true;
-    // this.onPlatform = false;
-    this.setToDefault();
+    if (this.won === false){
+        this.underworld = !this.underworld;
+        this.groundLevel = GROUND_LEVEL;
+        this.yVelocity = 0;
+        this.isJumping = true;
+        // this.onPlatform = false;
+        this.setToDefault();
+
+    } else {
+        this.underworld = true;
+        //this.speed = 0;
+    }
+
 }
 
 Pharaoh.prototype.collideWithProjectile = function(other) {
@@ -973,7 +1000,7 @@ Pharaoh.prototype.collide = function(other) {
             return true; 
         }
     }
-    if ((other.x - 120) < this.x && this.x < (other.x + 120) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
+    if ((other.x - 120) < this.x && this.x < (other.x + 120) && (other.y - 120) < this.y && this.y < (other.y + 120)) {
         return true; 
    }
 }

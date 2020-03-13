@@ -9,7 +9,7 @@ function Camera(game) {
     this.height = 400;
     this.game = game;
     this.ctx = game.ctx;
-
+    this.level4 = false;
 }
 
 Camera.prototype.draw = function () {
@@ -27,7 +27,13 @@ Camera.prototype.getX = function (XValue) {
 
 Camera.prototype.setX = function (XValue) {
 
-    this.x = XValue - this.width;
-    //console.log("camera x value:"+ this.x)
+    if (!this.level4){
+        this.x = XValue - this.width;
+
+    }
+
+    if (this.level4){
+        this.x = -15;
+    }
 
 }

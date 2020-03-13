@@ -21,8 +21,6 @@ function loadanubisspritesheets(AM) {
     anubisspritesheets['jump cycle left'] = AM.getAsset("./assets/sprites/Anubis/Jump Cycle Left.png"); 
     anubisspritesheets['jump cycle right'] = AM.getAsset("./assets/sprites/Anubis/Jump Cycle Right.png"); 
 
-    // anubisspritesheets['lightning2'] = AM.getAsset("./assets/sprites/Anubis/Lightning2.png"); 
-
 }
 
 //inheritence
@@ -49,101 +47,104 @@ function Anubis(pharaoh, game, AssetManager, startX, startY) {
     this.state = "idle";
     this.health = 5;
     this.playingTempAnimation = false;
-    this.immune = 45; 
+    this.immune = 55; 
+    this.scale = 0.28;
     this.counter = 0;
     this.runTimes = 0;
     this.flag = false;
     this.isJumping = false;
+    this.attacking = false;
+   // this.winCount = 0;
+    this.won = false;
 
     this.hud = new Hearts(AM.getAsset("./assets/platforms/PNG/Collectable/heart black.png"), this.game, 960, 25);
     this.game.addEntity(this.hud);
 
+    this.boundingBox = new BoundingBox(this.x + 100, this.y + 65, this.animation.frameWidth * this.scale - 170, this.animation.frameHeight * this.scale - 110);
 }
 
 
 Anubis.prototype.draw = function () {
-    this.animation.drawFrame(this.game.clockTick, this.ctx, this.x - this.game.getCamera().getX(), this.y);
-
+    if (this.live > 0) {
+        this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    }
 }
 
 Anubis.prototype.update = function () {
-    if (this.live === 0) return;
-    this.x += this.game.clockTick * this.speed;
-    this.chooseAction();
-    this.controlJump(this);
-    controlAnimation(this);
-
-    this.immune++; 
-    this.counter++;
-    if (this.dead) this.aftermath++;
-    if (this.aftermath > 30) this.removeFromWorld = true; 
-    Entity.prototype.update.call(this);
-
-    // if (this.animation.elapsedTime < this.animation.totalTime * 8 / 14)
-    //     this.x += this.game.clockTick * this.speed;
-
-    for (var i = 0; i < this.game.entities.length; i++) {
-        var ent = this.game.entities[i];
-        if (ent.name === 'comet') {
-            if (this.collide(ent)) {
-               this.takeDamage(); 
-            }
-        }
-        if (ent.name === 'pharaoh' && ent.attacking === true) {
-            if (this.collideSlash(ent)) {
-                this.takeDamage(); 
-            }
-        }
         
-        if (ent.name === 'hypno') {
-            if (this.collideSlash(ent)) {
-                //this.die(); 
-                //Freeze character
+        if (this.live === 0) return;
+        this.x += this.game.clockTick * this.speed;
+        this.chooseAction();
+        this.controlJump(this);
+        controlAnimation(this);
+
+        this.immune++; 
+        this.counter++;
+
+        Entity.prototype.update.call(this);
+        if (this.dead) this.aftermath++;
+        if (this.aftermath >= 1) this.removeFromWorld = true; 
+
+        for (var i = 0; i < this.game.entities.length; i++) {
+            var ent = this.game.entities[i];
+            if (ent.name === 'comet') {
+                if (this.collide(ent)) {
+                this.takeDamage(); 
+                }
             }
-        }      
-    }  
-}
+            if (ent.name === 'pharaoh' && ent.attacking === true) {
+                if (this.collideSlash(ent)) {
+                    this.takeDamage(); 
+                }
+            }
+            
+            if (ent.name === 'hypno') {
+                if (this.collideSlash(ent)) {
+                    //this.die(); 
+                    //Freeze character
+                }
+            }      
+        } 
+    } 
+
 
 Anubis.prototype.chooseAction = function() {
 
     if (this.runTimes < 1){
 
         if (this.flag){
-            
-            if (this.counter < 1){
+            if (this.counter < 1){         
+                debugger;
                 this.direction = "right";
                 this.run();
+                console.log("running right");
     
             }
-            if (this.counter === 70){
+            if (this.counter > 70 && this.counter <= 85){
                 this.direction = "left";
                 this.run();
             }
             if (this.counter === 150){ //was 200
                 this.counter = 0;
                 this.runTimes ++;
-                this.flag = false;
 
-                //this.idle();
-                //can take away counter if want to run back and forth
             }
+
         } else {
+
             if (this.counter < 1){
                 this.direction = "left";
                 this.run();
     
             }
-            if (this.counter === 130){
+            if (this.counter === 160){
                 this.direction = "right";
                 this.run();
             }
             if (this.counter === 180){ //was 200
                 this.counter = 0;
                 this.runTimes ++;
-                this.flag = false;
 
-                //this.idle();
-                //can take away counter if want to run back and forth
             }
         }
         
@@ -159,10 +160,6 @@ Anubis.prototype.chooseAction = function() {
         this.checkDirection();
         this.slide();
 
-        if (this.direction === "left"){
-            this.flag = true;
-        }
-
     } else if (this.counter === 100){
         this.checkDirection();  
         this.idle();
@@ -171,24 +168,25 @@ Anubis.prototype.chooseAction = function() {
         this.checkDirection();  
         this.jump();
 
-    } else if (this.counter === 200){
-        //this.isJumping = false;
+    } else if (this.counter === 180){
         this.checkDirection();  
         this.slash();
 
-    } else if (this.counter === 225){
+    } 
+    else if (this.counter === 220){
         this.checkDirection();  
         this.idle();
+ 
+
+    }  else if (this.counter >= 230){
+        this.checkDirection();  
+        this.run();
         this.runTimes = 0;
         this.counter = 0;
+    }
 
-        // if (this.flag){
-        //     //this.flag = false;
-        // } else {
-        //     this.flag = true;
-        // }
-    }              
-
+    !this.flag;
+                  
 }
 Anubis.prototype.collide = function(other) {
     if ((other.x - 30) < this.x && this.x < (other.x + 30) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
@@ -197,7 +195,7 @@ Anubis.prototype.collide = function(other) {
 }
 
 Anubis.prototype.collideSlash = function(other) {
-    if ((other.x - 300) < this.x && this.x < (other.x + 300) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+    if ((other.x - 300) < this.x && this.x < (other.x + 300) && (other.y - 70) < this.y && this.y < (other.y + 70)) {
         return true; 
    }
 }
@@ -216,16 +214,25 @@ Anubis.prototype.takeDamage = function() {
     this.immune = 0; 
     this.health -= 1;
     if (this.direction === "left"){
-        this.animation = new Animation(anubisspritesheets['hurt left'], 900, 900, 12, 0.05, 12, false, .28); 
+        this.animation = new Animation(anubisspritesheets['hurt left'], 900, 900, 12, 0.05, 12, false, this.scale); 
 
     } else {
-        this.animation = new Animation(anubisspritesheets['hurt right'], 900, 900, 12, 0.05, 12, false, .28);
+        this.animation = new Animation(anubisspritesheets['hurt right'], 900, 900, 12, 0.05, 12, false, this.scale);
     }
+
     this.hud.setHealthOpposite(this.health);
     console.log("taking damage");
+
     if (this.health <= 0) {
         this.die(); 
-        window.location.replace('./menu/win.html');    
+        var MagicSprite = new Magic(this.pharaoh, this.game, pharaohX, this.pharaoh.getY());
+        this.game.addEntity(MagicSprite);
+        this.pharaoh.won = true;
+        this.live = 0;
+        this.removeFromWorld = true;
+        this.boundingBox.removeFromWorld = true;
+        this.won = true;
+        this.pharaoh.speed = 0;
         return; 
     }
 
@@ -240,7 +247,6 @@ function controlAnimation(anubis){
 }
 
 Anubis.prototype.setToDefault = function() {
-    console.log("in set to default");
     if (this.direction === "right"){
 
         if (this.state === 'idle'){
@@ -249,6 +255,8 @@ Anubis.prototype.setToDefault = function() {
             this.jump();
         } else if (this.state === 'running'){
             this.run();
+        } else if (this.state === 'slide') {
+            this.slide();
         }
     } else {
         if (this.state === "idle"){
@@ -258,6 +266,8 @@ Anubis.prototype.setToDefault = function() {
             this.jump()
         } else if (this.state === 'running'){
             this.run();                               
+        } else if (this.state === 'slide') {
+            this.slide();
         }
     }
 }
@@ -265,28 +275,63 @@ Anubis.prototype.setToDefault = function() {
 Anubis.prototype.run = function() {
     if (this.direction === "right"){
         this.speed = 300;
-        this.animation = new Animation(anubisspritesheets['run right'], 900, 900, 12, 0.05, 12, true, .28); 
+        this.animation = new Animation(anubisspritesheets['run right'], 900, 900, 12, 0.05, 12, true, this.scale); 
 
     } else {
         this.speed = -300;
-        this.animation = new Animation(anubisspritesheets['run left'], 900, 900, 12, 0.06, 12, true, .28); 
+        this.animation = new Animation(anubisspritesheets['run left'], 900, 900, 12, 0.06, 12, true, this.scale); 
     }
     this.state = "running";
     //this.playingTempAnimation = false;
 
 }
 Anubis.prototype.controlJump = function() {
-    
     if (this.isJumping){
+        this.boundingBox = new BoundingBox(this.x + 100, this.y + 65, this.animation.frameWidth * this.scale - 170, this.animation.frameHeight * this.scale - 110);
         this.yVelocity -= 1.00; 
         this.y -= this.yVelocity;
 
         if (this.y >= 430.5){
             this.isJumping = false;
             this.yVelocity = 0; 
-            this.isJumping = false;
         }
-    }    
+        for(var i = 0; i < platforms.length; i++) {
+            var pf = platforms[i];
+            if (this.boundingBox.collide(pf.boundingBox) && this.boundingBox.top < pf.boundingBox.bottom) {
+                this.yVelocity = 0;
+                break;
+            }
+        }
+    } else {
+        this.boundingBox = new BoundingBox(this.x + 100, this.y + 65, this.animation.frameWidth * this.scale - 170, this.animation.frameHeight * this.scale - 110);
+        for(var i = 0; i < platforms.length; i++) {
+            var pf = platforms[i];
+                if (this.boundingBox.collide(pf.boundingBox)) {
+                    
+                // if(this.direction === "right") {
+                //     debugger;
+                //     this.idle();
+                //     this.x = pf.boundingBox.left - 50;
+                //     this.setToDefault();
+                // } else 
+                if (this.direction === "left") {
+                    
+                    this.idle();
+                    this.x = pf.boundingBox.right - this.animation.frameWidth * this.scale + 170;
+                    this.checkDirection();  
+                    this.setToDefault();
+                    break;
+                } else if (this.direction === "right") {
+                    debugger;
+                    this.idle();
+                    this.x = pf.boundingBox.left - this.animation.frameWidth * this.scale + 50;
+                    this.checkDirection();  
+                    this.setToDefault();
+                    break;
+                }
+            }
+        }
+    }   
 }
 
 Anubis.prototype.jump = function() {
@@ -296,92 +341,104 @@ Anubis.prototype.jump = function() {
     this.speed = 0;
 
     if (this.direction === "right"){
-        this.animation = new Animation(anubisspritesheets['jump cycle right'], 900, 900, 18, 0.05, 18, true, .28); 
+        this.animation = new Animation(anubisspritesheets['jump cycle right'], 900, 900, 18, 0.05, 18, true, this.scale); 
 
     } else {
-        this.animation = new Animation(anubisspritesheets['jump cycle left'], 900, 900, 18, 0.06, 18, true, .28); 
+        this.animation = new Animation(anubisspritesheets['jump cycle left'], 900, 900, 18, 0.06, 18, true, this.scale); 
     }
 
     this.state = "jumping";
     //this.playingTempAnimation = true;
     this.ctx.restore();
+    this.attacking = false;
+
 }
 
 
 Anubis.prototype.idle = function() {
     if (this.direction === "right"){
-        this.animation = new Animation(anubisspritesheets['idle right'], 900, 900, 18, 0.05, 18, true, .28); 
+        this.animation = new Animation(anubisspritesheets['idle right'], 900, 900, 18, 0.05, 18, true, this.scale); 
 
     } else {
-        this.animation = new Animation(anubisspritesheets['idle left'], 900, 900, 18, 0.05, 18, true, .28); 
+        this.animation = new Animation(anubisspritesheets['idle left'], 900, 900, 18, 0.05, 18, true, this.scale); 
 
     }
     this.state = "idle";
     this.speed = 0;
+    this.attacking = false;
+
     //this.playingTempAnimation = false;
 
 }
 
 Anubis.prototype.slash = function() {
     if (this.direction === "right"){
-        this.animation = new Animation(anubisspritesheets['slash right'], 900, 900, 12, 0.05, 12, false, .28); 
+        this.animation = new Animation(anubisspritesheets['slash right'], 900, 900, 12, 0.05, 12, false, this.scale); 
 
     } else {
-        this.animation = new Animation(anubisspritesheets['slash left'], 900, 900, 12, 0.05, 12, false, .28); 
+        this.animation = new Animation(anubisspritesheets['slash left'], 900, 900, 12, 0.05, 12, false, this.scale); 
 
     }
     this.playingTempAnimation = true;
-    this.state === "slash"
+    this.state = "slash";
+    this.attacking = true;
 }
 
 Anubis.prototype.die = function() {
     if (this.direction === "right"){
-        this.animation = new Animation(anubisspritesheets['die right'], 900, 900, 15, 0.05, 15, false, .28); 
+        this.animation = new Animation(anubisspritesheets['die right'], 900, 900, 15, 0.05, 15, false, this.scale); 
 
     } else {
-        this.animation = new Animation(anubisspritesheets['die left'], 900, 900, 15, 0.05, 15, false, .28);
+        this.animation = new Animation(anubisspritesheets['die left'], 900, 900, 15, 0.05, 15, false, this.scale);
     }
     this.live = 0;
+    this.dead = true; 
+    this.attacking = false;
+
 }
 
 Anubis.prototype.strike = function() {
     if (this.direction === "right"){
-        this.animation = new Animation(anubisspritesheets['strike right'], 900, 900, 11, 0.05, 11, false, .28); 
+        this.animation = new Animation(anubisspritesheets['strike right'], 900, 900, 11, 0.05, 11, false, this.scale); 
 
     } else {
-        this.animation = new Animation(anubisspritesheets['strike left'], 900, 900, 11, 0.05, 11, false, .28); 
+        this.animation = new Animation(anubisspritesheets['strike left'], 900, 900, 11, 0.05, 11, false, this.scale); 
 
     }
     pharaohX = this.pharaoh.getX();
-    console.log(pharaohX);
-    this.game.addEntity(new Thunder(this.game, pharaohX - 50,  this.pharaoh.getY() - 33));
+    this.game.addEntity(new Thunder(this.pharaoh, this.game, pharaohX,  this.pharaoh.getY() - 20));
     this.speed = 0;
     this.state === "strike";
-    //this.game.addEntity(new Thunder(this.game, AM.getAsset("./assets/sprites/Anubis/Lightning2.png"), this.x + 300, this.y + 75));
+    this.attacking = false;
+
 }
 
 
 Anubis.prototype.slide = function () {
     if (this.direction === "right"){
-        this.animation = new Animation(anubisspritesheets['slide right'], 900, 900, 6, 0.05, 6, true, .28);
+        this.animation = new Animation(anubisspritesheets['slide right'], 900, 900, 6, 0.05, 6, true, this.scale);
         this.speed = 350;
 
     } else {
-        this.animation = new Animation(anubisspritesheets['slide left'], 900, 900, 6, 0.05, 6, true, .28); 
+        this.animation = new Animation(anubisspritesheets['slide left'], 900, 900, 6, 0.05, 6, true, this.scale); 
         this.speed = -350;
 
     }
+    this.state = "slide";
+    this.attacking = false;
 
 }
 
 Anubis.prototype.hurt = function() {
     if (this.direction === "right"){
-        this.animation = new Animation(anubisspritesheets['hurt left'], 900, 900, 12, 0.05, 12, false, .28); 
+        this.animation = new Animation(anubisspritesheets['hurt left'], 900, 900, 12, 0.05, 12, false, this.scale); 
     } else {
-        this.animation = new Animation(anubisspritesheets['hurt right'], 900, 900, 12, 0.05, 12, false, .28);
+        this.animation = new Animation(anubisspritesheets['hurt right'], 900, 900, 12, 0.05, 12, false, this.scale);
     }
     this.playingTempAnimation = true;
     this.speed = 0;
+    this.attacking = false;
+
 
 }
 
