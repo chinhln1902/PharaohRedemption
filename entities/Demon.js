@@ -180,45 +180,45 @@ Demon.prototype.hurt = function() {
 		if (this.immune) return; 
 		this.health--; 
 		this.immune = true; 
-		this.animation = new Animation(demonspritesheets['hurtflip'], 722, 480, 12, .05, 12, false, .5); 
+		this.animation = new Animation(demonspritesheets['hurtflip'], 722, 480, 12, .05, 12, false, .45); 
 }
 
 Demon.prototype.hurtright = function() {
-	this.animation = new Animation(demonspritesheets['hurt'], 722, 480, 12, .05, 12, false, .5);
+	this.animation = new Animation(demonspritesheets['hurt'], 722, 480, 12, .05, 12, false, .45);
 }
 
 Demon.prototype.attack = function() {
 	if (this.status === 0) {
-		this.animation = new Animation(demonspritesheets['attackflip'], 720, 485, 12, .05, 12, true, .5); 
+		this.animation = new Animation(demonspritesheets['attackflip'], 720, 485, 12, .05, 12, true, .45); 
 	} else {
-		this.animation = new Animation(underspritesheets['attackflip'], 720, 485, 12, .05, 12, true, .5); 
+		this.animation = new Animation(underspritesheets['attackflip'], 720, 485, 12, .05, 12, true, .45); 
 	}
 }
 
 Demon.prototype.attackright = function() {
 	if (this.status === 0) {
-		this.animation = new Animation(demonspritesheets['attack'], 722, 480, 12, .05, 12, true, .5);
+		this.animation = new Animation(demonspritesheets['attack'], 722, 480, 12, .05, 12, true, .45);
 	} else {
-		this.animation = new Animation(underspritesheets['attack'], 722, 480, 12, .05, 12, true, .5); 
+		this.animation = new Animation(underspritesheets['attack'], 722, 480, 12, .05, 12, true, .45); 
 	}
 }
 
 Demon.prototype.walk = function() {
 	if (this.status === 0) {
-		this.animation = new Animation(demonspritesheets['walkflip'], 720, 500, 18, .05, 18, true, .5); 
+		this.animation = new Animation(demonspritesheets['walkflip'], 720, 500, 18, .05, 18, true, .45); 
 		this.walking = true;
 	} else {
-		this.animation = new Animation(underspritesheets['walkflip'], 720, 500, 18, .05, 18, true, .5); 
+		this.animation = new Animation(underspritesheets['walkflip'], 720, 500, 18, .05, 18, true, .45); 
 		this.walking = true; 
 	}
 }
 
 Demon.prototype.walkright = function() {
 	if (this.status === 0) {
-		this.animation = new Animation(demonspritesheets['walk'], 720, 500, 18, .05, 18, true, .5); 
+		this.animation = new Animation(demonspritesheets['walk'], 720, 500, 18, .05, 18, true, .45); 
 		this.walkingright = true; 
 	} else {
-		this.animation = new Animation(underspritesheets['walk'], 720, 500, 18, .05, 18, true, .5); 
+		this.animation = new Animation(underspritesheets['walk'], 720, 500, 18, .05, 18, true, .45); 
 		this.walkingright = true; 
 	}
 }
@@ -226,30 +226,30 @@ Demon.prototype.walkright = function() {
 Demon.prototype.die = function() {
 	this.dead = true; 
 	if (this.status === 0) {
-		this.animation = new Animation(demonspritesheets['dyingflip'], 722, 480, 15, .05, 15, false, .5);
+		this.animation = new Animation(demonspritesheets['dyingflip'], 722, 480, 15, .05, 15, false, .45);
 	} else {
-		this.animation = new Animation(underspritesheets['dyingflip'], 722, 480, 15, .05, 15, false, .5); 
+		this.animation = new Animation(underspritesheets['dyingflip'], 722, 480, 15, .05, 15, false, .45); 
 	}
 }
 
 Demon.prototype.dieright = function() {
 	this.dead = true; 
-	this.animation = new Animation(demonspritesheets['dying'], 722, 480, 15, .05, 15, false, .5); 
+	this.animation = new Animation(demonspritesheets['dying'], 722, 480, 15, .05, 15, false, .45); 
 }
 
 Demon.prototype.idle = function() { 
 	if (this.status === 0) {
-		this.animation = new Animation(demonspritesheets['idleflip'], 720, 450, 12, .08, 12, true, .5); 
+		this.animation = new Animation(demonspritesheets['idleflip'], 720, 450, 12, .08, 12, true, .45); 
 	} else {
-		this.animation = new Animation(underspritesheets['idleflip'], 720, 450, 12, .08, 12, true, .5); 
+		this.animation = new Animation(underspritesheets['idleflip'], 720, 450, 12, .08, 12, true, .45); 
 	}
 }
 
 Demon.prototype.idleright = function() {
 	if (this.status === 0) {
-		this.animation = new Animation(demonspritesheets['idle'], 720, 450, 12, .08, 12, true, .5);
+		this.animation = new Animation(demonspritesheets['idle'], 720, 450, 12, .08, 12, true, .45);
 	} else {
-		this.animation = new Animation(underspritesheets['idle'], 720, 450, 12, .08, 12, true, .5); 
+		this.animation = new Animation(underspritesheets['idle'], 720, 450, 12, .08, 12, true, .45); 
 	}
 }
 
