@@ -188,6 +188,12 @@ Pharaoh.prototype.update = function () {
                 console.log("Pharaoh collide with anubis");
             }
         }
+
+        if (ent.name === 'Anubis' && ent.attacking === true) {
+            if (this.collideSlash(ent)) {
+                this.takeDamage(); 
+            }
+        }
         
         if (ent.type === "platform") {
             var pf = ent;
@@ -584,6 +590,12 @@ function controlAnimation(pharaoh){
     if(pharaoh.playingTempAnimation && pharaoh.animation.isDone()){
         pharaoh.setToDefault();
     }
+}
+
+Pharaoh.prototype.collideSlash = function(other) {
+    if ((other.x - 300) < this.x && this.x < (other.x + 300) && (other.y - 70) < this.y && this.y < (other.y + 70)) {
+        return true; 
+   }
 }
 
 // called by the update method. controlls the jumping.

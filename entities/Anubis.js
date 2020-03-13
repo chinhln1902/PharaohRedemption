@@ -53,6 +53,7 @@ function Anubis(pharaoh, game, AssetManager, startX, startY) {
     this.runTimes = 0;
     this.flag = false;
     this.isJumping = false;
+    this.attacking = false;
    // this.winCount = 0;
     this.won = false;
 
@@ -349,6 +350,8 @@ Anubis.prototype.jump = function() {
     this.state = "jumping";
     //this.playingTempAnimation = true;
     this.ctx.restore();
+    this.attacking = false;
+
 }
 
 
@@ -362,6 +365,8 @@ Anubis.prototype.idle = function() {
     }
     this.state = "idle";
     this.speed = 0;
+    this.attacking = false;
+
     //this.playingTempAnimation = false;
 
 }
@@ -376,6 +381,7 @@ Anubis.prototype.slash = function() {
     }
     this.playingTempAnimation = true;
     this.state = "slash";
+    this.attacking = true;
 }
 
 Anubis.prototype.die = function() {
@@ -387,6 +393,8 @@ Anubis.prototype.die = function() {
     }
     this.live = 0;
     this.dead = true; 
+    this.attacking = false;
+
 }
 
 Anubis.prototype.strike = function() {
@@ -401,6 +409,8 @@ Anubis.prototype.strike = function() {
     this.game.addEntity(new Thunder(this.pharaoh, this.game, pharaohX,  this.pharaoh.getY() - 20));
     this.speed = 0;
     this.state === "strike";
+    this.attacking = false;
+
 }
 
 
@@ -415,6 +425,8 @@ Anubis.prototype.slide = function () {
 
     }
     this.state = "slide";
+    this.attacking = false;
+
 }
 
 Anubis.prototype.hurt = function() {
@@ -425,6 +437,8 @@ Anubis.prototype.hurt = function() {
     }
     this.playingTempAnimation = true;
     this.speed = 0;
+    this.attacking = false;
+
 
 }
 
