@@ -998,9 +998,15 @@ Pharaoh.prototype.swapWorld = function(){
 }
 
 Pharaoh.prototype.collideWithProjectile = function(other) {
-    if ((other.x - 70) < this.x && this.x < (other.x + 70) && (other.y - 30) < this.y && this.y < (other.y + 30)) {
-        return true; 
-   }
+    if (other.name === "rock") {
+        if ((other.x - 70) < this.x && this.x < (other.x + 70) && (other.y - 30) < this.y && this.y < (other.y + 30)) {
+            return true; 
+        }
+    } else {
+        if ((other.x - 110) < this.x && this.x < (other.x + 110) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+            return true; 
+        } 
+    }
 }
 
 Pharaoh.prototype.collide = function(other) {
@@ -1008,8 +1014,19 @@ Pharaoh.prototype.collide = function(other) {
         if ((other.x - 120) < this.x && this.x < (other.x + 120) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
             return true; 
         }
+    } else if (other.name === "snake") {
+        if (other.level === 3) {
+            if ((other.x - 130) < this.x && this.x < (other.x + 40) && (other.y - 70) < this.y && this.y < (other.y + 70)) {
+                return true; 
+            }
+        } else {
+          if ((other.x - 130) < this.x && this.x < (other.x + 40) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+                return true; 
+            }  
+        }
+    } else {
+        if ((other.x - 60) < this.x && this.x < (other.x + 60) && (other.y - 70) < this.y && this.y < (other.y + 70)) {
+            return true;
+        }
     }
-    if ((other.x - 120) < this.x && this.x < (other.x + 120) && (other.y - 120) < this.y && this.y < (other.y + 120)) {
-        return true; 
-   }
 }

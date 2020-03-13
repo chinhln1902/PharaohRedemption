@@ -4,7 +4,7 @@ function loadSnakeSpriteSheets(AM) {
     snakespritesheets['die'] = AM.getAsset("./assets/sprites/PSNAKE-DIE.png"); 
 }
 
-function Snake(game, AssetManager, startX, startY) {
+function Snake(game, AssetManager, startX, startY, level) {
     this.AM = AssetManager; 
     loadSnakeSpriteSheets(this.AM); 
     this.ctx = game.ctx; 
@@ -13,6 +13,7 @@ function Snake(game, AssetManager, startX, startY) {
     this.y = startY;
     this.speed = 0;
     this.width = 93;
+    this.level = level
     this.height = 85; 
     this.aftermath = 0;
     this.dead = false; 
@@ -90,9 +91,15 @@ Snake.prototype.idle = function() {
 }
 
 Snake.prototype.collideSlash = function(other) {
-    if ((other.x - 200) < this.x && this.x < (other.x + 200) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
-        return true; 
-   }
+    if (this.level === 3) {
+        if ((other.x - 100) < this.x && this.x < (other.x + 160) && (other.y - 70) < this.y && this.y < (other.y + 70)) {
+            return true; 
+        }
+    } else {
+        if ((other.x - 120) < this.x && this.x < (other.x + 200) && (other.y - 150) < this.y && this.y < (other.y + 150)) {
+            return true; 
+        }
+    }
 }
 
 
