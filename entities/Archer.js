@@ -66,9 +66,9 @@ Archer.prototype.update = function () {
     this.time++;
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];
-    	if (ent.name === 'comet') {
+    	if (ent.name === 'comet' || ent.name === 'hypno') {
     		if (this.collide(ent)) this.die(); 
-	    }
+		}
 	    if (ent.name === 'pharaoh' && ent.attacking === true) {
 	    	if (this.collideSlash(ent)) this.die();
 	    }

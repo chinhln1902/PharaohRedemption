@@ -92,6 +92,14 @@ Demon.prototype.draw = function () {
 }
 
 Demon.prototype.update = function () {
+	if (this.frozen){
+		this.frozenTime ++;
+		if (this.frozenTime > 200){
+			this.frozen = false;
+			this.particles.removeFromWorld = true;
+		} 
+		return;
+	}
 	if (this.live === 0) return; 
 	if (this.dead === true) this.aftermath++; 
 	if (this.aftermath > 45) this.removeFromWorld = true; 
@@ -158,6 +166,26 @@ Demon.prototype.update = function () {
     for (var i = 0; i < this.game.entities.length; i++) {
     	var ent = this.game.entities[i];
     	if (ent.name === 'comet' || (ent.name === 'pharaoh' && ent.attacking)) {
+    		if (this.collide(ent) && !this.immune) {
+    			if (this.health === 1) {
+    				if (this.idleplay === 0) {
+    					this.die();
+    				} else {
+    					this.dieright(); 
+    				}
+    			} else {
+    				this.immune = true; 
+    				this.health--; 
+    			}
+    		} 
+		}
+		if (ent.name === 'hypno') {
+				if (this.frozen) return;
+				console.log("hypno");
+				this.particles = new Particles(this.game, this.x + 150, this.y-10);
+				this.frozen = true;
+				this.frozenTime = 0;
+				this.animation = new Animation(demonspritesheets['hurt'], 722, 480, 1, .05, 1, true, .45);
     		if (this.collide(ent) && !this.immune) {
     			if (this.health === 1) {
     				if (this.idleplay === 0) {

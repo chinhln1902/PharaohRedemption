@@ -89,9 +89,9 @@ EnemyController.prototype.level3 = function() {
  this.gameEngine.addEntity(snake); 
  this.gameEngine.addEntity(snake2); 
  this.gameEngine.addEntity(warrior); 
- this.gameEngine.addEntity(warrior2); 
+ //this.gameEngine.addEntity(warrior2); 
  //this.gameEngine.addEntity(archer); 
- this.gameEngine.addEntity(warrior3); 
+ //this.gameEngine.addEntity(warrior3); 
  this.gameEngine.addEntity(demon); 
  this.gameEngine.addEntity(demon2); 
  this.gameEngine.addEntity(bat4);

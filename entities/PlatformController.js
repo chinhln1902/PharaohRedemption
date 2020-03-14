@@ -339,6 +339,18 @@ PlatformController.prototype.loadPlatformsLevel3 = function () {
     signs.push(new hint(this.engine, platformSheets['question'], 13, 7, false, "Sometimes you can find powerups in crates!"));
     signs.push(new hint(this.engine, platformSheets['question'], 28, 7, false, "How do you get up there? Switch worlds while jumping"));
     signs.push(new hint(this.engine, platformSheets['question'], 50, 4, false, "this requires a perfectly timed jump"));
+    signs.push(new hint(this.engine, platformSheets['question'], 59, 4, false, "sometimes u can find loot in crates"));
+    powerUps.push(new PowerUp(this.engine, "heart", 73, 1, false));
+    powerUps.push(new PowerUp(this.engine, "heart", 64, 1, false));
+    powerUps.push(new PowerUp(this.engine, "heart", 37, 7, false));
+    powerUps.push(new PowerUp(this.engine, "heart", 60, 4, true));
+    powerUps.push(new PowerUp(this.engine, "heart", 61, 4, true));
+    powerUps.push(new PowerUp(this.engine, "heart", 95, 4, false));
+    powerUps.push(new PowerUp(this.engine, "heart", 77, 4, false));
+    powerUps.push(new PowerUp(this.engine, "heart", 69, 7, false));
+    powerUps.push(new PowerUp(this.engine, "heart", 45, 1, false));
+    powerUps.push(new PowerUp(this.engine, "heart", 62, 7, true));
+    powerUps.push(new PowerUp(this.engine, "heart", 90, 7, false));
     powerUps.push(new PowerUp(this.engine, "hypno", 4, 1, false));
     powerUps.push(new PowerUp(this.engine, "hypno", 14, 7, false));
     powerUps.push(new PowerUp(this.engine, "hypno", 47, 4, false));

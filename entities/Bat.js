@@ -99,6 +99,11 @@ Bat.prototype.update = function () {
                 this.die();  
             }
         }
+        if (ent.name === 'hypno') {
+            if (this.collide(ent)) {
+                this.die();  
+            }
+        }
         if (ent.name === 'pharaoh' && ent.attacking === true) {
             if (this.collideSlash(ent)) {
                 this.die(); 
