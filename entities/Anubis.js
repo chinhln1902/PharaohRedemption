@@ -65,7 +65,7 @@ function Anubis(pharaoh, game, AssetManager, startX, startY) {
 
 
 Anubis.prototype.draw = function () {
-    if (this.live > 0) {
+    if (this.live > 0 || this.win  === true) {
         this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     }
 }

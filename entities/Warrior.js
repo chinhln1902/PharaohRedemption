@@ -29,7 +29,9 @@ function Warrior(game, AssetManager, startX, startY) {
     this.aftermath = 0; 
     var that = this;
     this.frames = 0;
-
+    this.idleplay = 0; 
+    this.cooldown = 20; 
+    this.play = 10; 
     document.addEventListener("keydown", function (e) {
         // console.log(e.code);
          if (e.code === "Space" && isSwitchable && !that.spaceDown){
@@ -75,10 +77,21 @@ Warrior.prototype.update = function () {
                 //this.removeFromWorld = true; 
             }
         }
-    }   
-    if (this.live > 0){
-        this.throwIdle();
-
+    } 
+    this.cooldown++;  
+    this.play++; 
+    if (this.play > 10) { 
+        this.play = 0; 
+        if (this.live > 0 && this.cooldown > 60) {
+            this.throwIdle();
+            this.cooldown = 0;
+            this.idleplay = 0; 
+        } else {
+            if (this.idleplay === 0) {
+                this.idleplay = 1; 
+                this.idleLeft(); 
+            }
+        }
     }
 
 }
@@ -121,14 +134,9 @@ Warrior.prototype.idleLeft = function () {
 
 Warrior.prototype.throwIdle = function () {
     if (this.underworld) return;
-    if(this.frames < 50){
-        this.frames = this.frames + 1;
-
-    } else {
-        this.animation = new Animation(Warriorspritesheets['throw'], 900, 900, 12, 0.08, 12, true, .2); 
-        this.game.addEntity(new Rock(this.game, AM.getAsset("./assets/sprites/Rock2.png"), this.x - 8, this.y + 78));
-        this.frames = 0;
-    }
+    this.animation = new Animation(Warriorspritesheets['throw'], 900, 900, 12, 0.08, 12, true, .2); 
+    this.game.addEntity(new Rock(this.game, AM.getAsset("./assets/sprites/Rock2.png"), this.x - 8, this.y + 78));
+    this.frames = 0;
 }
 
 

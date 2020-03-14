@@ -107,9 +107,9 @@ showSett = function(){
 // hides/shows the level selector menu
 hideLvls = function() {
     var buttons = document.querySelectorAll(".levels");
-    buttons.forEach(button => {
-        buttons.disabled = true; 
+    buttons.forEach(button => { 
         button.style.display = "none";
+        //button.disabled = true;
     })
 }
 showLvls = function(){
@@ -125,6 +125,10 @@ showLvls = function(){
 
 // displays the game and hides the menu
 playGame = function(){
+    var buttons = document.querySelectorAll(".levels");
+    buttons.forEach(button => {
+        button.disabled = true;
+    })
     console.log("pressed play button");
     hideAll();
     showGame();
