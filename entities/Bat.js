@@ -115,7 +115,7 @@ Bat.prototype.collide = function(other) {
 }
 
 Bat.prototype.collideSlash = function(other) {
-    if ((other.x - 300) < this.x && this.x < (other.x + 300) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+    if ((other.x - 120) < this.x && this.x < (other.x + 120) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
         return true; 
    }
 }

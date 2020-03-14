@@ -1005,7 +1005,7 @@ Pharaoh.prototype.collideWithProjectile = function(other) {
                 return true; 
             }
         } else {
-            if ((other.x - 70) < this.x && this.x < (other.x + 70) && (other.y - 30) < this.y && this.y < (other.y + 30)) {
+            if ((other.x - 30) < this.x && this.x < (other.x + 30) && (other.y - 30) < this.y && this.y < (other.y + 30)) {
                 return true; 
             }
         }
@@ -1015,7 +1015,7 @@ Pharaoh.prototype.collideWithProjectile = function(other) {
                 return true; 
             } 
         } else if (this.level === 2) {
-            if ((other.x - 15) < this.x && this.x < (other.x + 10) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
+            if ((other.x - 25) < this.x && this.x < (other.x + 20) && (other.y - 100) < this.y && this.y < (other.y + 100)) {
                 return true; 
             }    
         } else if (this.level === 3) {
