@@ -73,7 +73,7 @@ Anubis.prototype.draw = function () {
 Anubis.prototype.update = function () {
 
         if (this.live === 0) return;
-        this.x += this.game.clockTick * this.speed;
+        
         
         if (this.frozen){
             this.frozenTime ++;
@@ -83,6 +83,7 @@ Anubis.prototype.update = function () {
             } 
             return;
         }
+        this.x += this.game.clockTick * this.speed;
         this.chooseAction();
         controlAnimation(this);
         this.controlJump(this);
